@@ -1,0 +1,17 @@
+{
+  "name": "@repo/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env.local ./src/index.ts"
+  },
+  "dependencies": {
+    "@repo/common": "workspace:*",
+    "@repo/warcraftlogs": "workspace:*",
+    "tsx": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.1",
+    "typescript": "^5.5.3"
+  }
+}

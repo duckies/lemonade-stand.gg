@@ -1,0 +1,20 @@
+{
+  "name": "@repo/warcraftlogs",
+  "version": "1.0.0",
+  "description": "",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@repo/common": "workspace:*",
+    "chalk": "^5.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.1"
+  }
+}
