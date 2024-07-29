@@ -1,25 +1,33 @@
 import { HTTPError } from "./error";
-import { getMergedInit, isJSONSerializable } from "./utils";
-import type { HTTPContext, HTTPInput, HTTPInit, MappedResponseType, ResponseType } from "./types";
-
-/**
- * Undici `HeadersInit` which isn't in `@types/node` yet.
- */
-export type HeadersInit = string[][] | Record<string, string | ReadonlyArray<string>> | Headers;
-
-export interface InstanceOptions {
-  defaults?: HTTPInit;
-}
+import type { HTTPContext, HTTPInit, HTTPInput, InstanceOptions, MappedResponseType, ResponseType } from "./types";
+import { getMergedInit, getResponseType, isJSONSerializable } from "./utils";
 
 /**
  * Inspired by {@link https://github.com/unjs/ofetch | ofetch}.
  */
-export function createHTTPInstance(options?: InstanceOptions) {
+export function createHTTP(options?: InstanceOptions) {
   const request = async (input: HTTPInput, init: HTTPInit = {}) => {
     const context: HTTPContext = {
       input,
       init: options?.defaults ? getMergedInit(options.defaults, init) : init,
     };
+
+    if (typeof context.input === "string") {
+      const baseURL = options?.defaults?.baseURL || context.init.baseURL;
+      const query = options?.defaults?.query || context.init.query;
+
+      if (baseURL) {
+        context.input = new URL(context.input, baseURL);
+      }
+
+      if (query) {
+        context.input = context.input instanceof URL ? context.input : new URL(context.input);
+
+        for (const [key, value] of Object.entries(query)) {
+          context.input.searchParams.set(key, value);
+        }
+      }
+    }
 
     // Uppercase the method name.
     context.init.method = context.init.method?.toUpperCase();
@@ -59,14 +67,13 @@ export function createHTTPInstance(options?: InstanceOptions) {
     }
 
     if (context.response.body) {
-      const contentType = context.response.headers.get("content-type")?.split(";").shift();
+      const responseType =
+        context.init.responseType || getResponseType(context.response.headers.get("content-type")) || "json";
 
-      if (!contentType || contentType.includes("application/json")) {
-        context.response._data = await context.response.json();
-      } else if (contentType.startsWith("text/")) {
-        context.response._data = await context.response.text();
+      if (responseType === "stream") {
+        context.response._data = context.response.body;
       } else {
-        context.response._data = await context.response.blob();
+        context.response._data = await context.response[responseType]();
       }
     }
 
@@ -75,7 +82,7 @@ export function createHTTPInstance(options?: InstanceOptions) {
 
   async function http<T = any, R extends ResponseType = "json">(
     input: HTTPInput,
-    init?: HTTPInit,
+    init?: HTTPInit<R>,
   ): Promise<MappedResponseType<R, T>> {
     const response = await request(input, init);
     return response._data;
@@ -83,5 +90,3 @@ export function createHTTPInstance(options?: InstanceOptions) {
 
   return http;
 }
-
-export const http = createHTTPInstance();

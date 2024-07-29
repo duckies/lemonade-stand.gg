@@ -1,4 +1,4 @@
-import type { HTTPInit } from "./types";
+import type { HTTPInit, ResponseType } from "./types";
 
 export function isJSONSerializable(value: any) {
   if (value === undefined) {
@@ -44,4 +44,31 @@ export function getMergedInit(defaults: HTTPInit, init: HTTPInit): HTTPInit {
   }
 
   return merged;
+}
+
+/**
+ * Strictly typed `Object.entries`
+ */
+export function objectEntries<T extends object>(obj: T) {
+  return Object.entries(obj) as Array<[keyof T, T[keyof T]]>;
+}
+
+export const contentTypes = {
+  text: new Set(["image/svg", "application/xml", "application/xhtml", "application/html"]),
+};
+
+const JSON_CONTENT_TYPE_REGEX = /^application\/(?:[\w!#$%&*.^`~-]*\+)?json(;.+)?$/i;
+
+export function getResponseType(contentType?: string | null): ResponseType | null {
+  if (!contentType) return null;
+
+  if (JSON_CONTENT_TYPE_REGEX.test(contentType)) {
+    return "json";
+  }
+
+  if (contentType.startsWith("text/")) {
+    return "text";
+  }
+
+  return "blob";
 }

@@ -13,8 +13,11 @@ export type MappedResponseType<R extends ResponseType, JsonType = any> = R exten
   ? ResponseMap[R]
   : JsonType;
 
-export interface HTTPInit extends Omit<RequestInit, "body"> {
+export interface HTTPInit<R extends ResponseType = ResponseType> extends Omit<RequestInit, "body"> {
   body?: RequestInit["body"] | Record<string, any>;
+  baseURL?: string | URL;
+  query?: Record<string, any>;
+  responseType?: R;
 }
 
 export type HTTPInput = string | URL | globalThis.Request;
@@ -28,4 +31,8 @@ export interface HTTPContext<T = any> {
   init: HTTPInit;
   response?: HTTPResponse<T>;
   error?: Error;
+}
+
+export interface InstanceOptions {
+  defaults?: HTTPInit;
 }
