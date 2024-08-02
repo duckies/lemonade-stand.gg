@@ -1,9 +1,9 @@
 "use server";
 
 import { randomBytes } from "node:crypto";
-import { env } from "~/env";
+import { HTTP } from "@repo/http";
 import { z } from "zod";
-import { http } from "@repo/http";
+import { env } from "~/env";
 
 export type Snowflake = string;
 
@@ -14,6 +14,13 @@ export interface UserDTO {
   global_name?: string;
   avatar?: string;
 }
+
+const api = new HTTP({
+  baseURL: "https://discord.com/api/v10/",
+  headers: {
+    authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
+  },
+});
 
 export async function getAuthorizationURL() {
   const url = new URL("https://discord.com/oauth2/authorize");
@@ -31,29 +38,24 @@ export async function getAuthorizationURL() {
 }
 
 export async function getMe(token: string) {
-  const response = await fetch("https://discord.com/api/users/@me", {
+  const user = await api.get("/users/@me", {
     headers: {
-      Authorization: `Bearer ${token}`,
+      authorization: `Bearer ${token}`,
     },
   });
-  const data = (await response.json()) as UserDTO;
-
-  if (!response.ok) {
-    throw new Error("Discord API Error", { cause: data });
-  }
 
   let avatar: string;
-  if (data.avatar) {
-    avatar = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.${data.avatar.startsWith("a_") ? "gif" : "webp"}`;
+  if (user.avatar) {
+    avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith("a_") ? "gif" : "webp"}`;
   } else {
-    const index = data.discriminator === "0" ? (BigInt(data.id) >> 22n) % 6n : Number.parseInt(data.discriminator) % 5;
+    const index = user.discriminator === "0" ? (BigInt(user.id) >> 22n) % 6n : Number.parseInt(user.discriminator) % 5;
     avatar = `https://cdn.discordapp.com/embed/avatars/${index}.png`;
   }
 
   return {
-    id: data.id,
-    username: data.username,
-    global_name: data.global_name,
+    id: user.id,
+    username: user.username,
+    global_name: user.global_name,
     avatar: avatar,
   };
 }
@@ -64,18 +66,7 @@ export interface Thread {
 }
 
 export async function getActiveChannelThreads(channelId: Snowflake) {
-  const response = await fetch(`https://discord.com/api/channels/${channelId}/threads/active`, {
-    headers: {
-      Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
-    },
-  });
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error("Discord API Error", { cause: data });
-  }
-
-  return (data as { threads: Thread[] }).threads;
+  return await api.get<{ threads: Thread[] }>(`https://discord.com/api/channels/${channelId}/threads/active`);
 }
 
 export interface GuildMember {
@@ -90,21 +81,6 @@ export interface GuildMember {
     avatar?: string;
     global_name?: string;
   };
-}
-
-export async function getGuildMembers() {
-  const response = await fetch("https://discord.com/api/v10/guilds/1093608281395707905/members?limit=1000", {
-    headers: {
-      Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
-    },
-  });
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error("Discord API Error", { cause: data });
-  }
-
-  return data as GuildMember[];
 }
 
 const CreateThreadDTO = z.object({
@@ -137,13 +113,8 @@ export interface Thread {
 }
 
 export async function createThread(channelId: Snowflake, body: z.infer<typeof CreateThreadDTO>) {
-  const thread = await http<Thread>(`https://discord.com/api/v10/channels/${channelId}/threads`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
-    },
-    body: {
+  const thread = await api.post<Thread>(`https://discord.com/api/v10/channels/${channelId}/threads`, {
+    json: {
       ...body,
       type: 12, // Private Thread
     },
@@ -155,11 +126,11 @@ export async function createThread(channelId: Snowflake, body: z.infer<typeof Cr
 }
 
 export async function addThreadMember(threadId: Snowflake, userId: Snowflake) {
-  return await http(`https://discord.com/api/v10/channels/${threadId}/thread-members/${userId}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
-    },
+  return await api.put(`/v10/channels/${threadId}/thread-members/${userId}`);
+}
+
+export async function getGuildMembers() {
+  return await api.get<GuildMember[]>("/guilds/1093608281395707905/members", {
+    params: { limit: 1000 },
   });
 }

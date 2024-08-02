@@ -4,7 +4,7 @@ import { getActiveChannelThreads, getGuildMembers } from "~/server/discord";
 import { CreateThreadDialog } from "./create-thread-dialog";
 
 export async function TrialThreads() {
-  const threads = await getActiveChannelThreads("1166616543749218375");
+  const { threads } = await getActiveChannelThreads("1166616543749218375");
   const members = await getGuildMembers();
 
   return (

@@ -13,11 +13,16 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@repo/common": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "20.11.1",
-    "tsup": "^8.2.3",
-    "typescript": "^5.5.4"
+    "typescript": "^5.0.4",
+    "tsup": "^8.2.4",
+    "vitest": "^0.25.3"
   }
 }

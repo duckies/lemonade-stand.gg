@@ -1,24 +1,18 @@
-import type { HTTPContext, HTTPInit, HTTPInput, HTTPResponse } from "./types";
+import type { HTTPContext } from "./types";
 
-export class HTTPError<T = any> extends Error {
-  public input: HTTPInput;
-  public init: HTTPInit;
-  public response?: HTTPResponse<T>;
+export class HTTPError extends Error {
+  public override name = "HTTPError";
 
-  constructor(ctx: HTTPContext<T>) {
-    const errorMessage = ctx.error?.message || ctx.error?.toString() || "";
-    const method = (ctx.input as Request)?.method || ctx.init?.method || "GET";
-    const url = (ctx.input as Request)?.url || String(ctx.input) || "/";
-    const requestStr = `[${method}] ${JSON.stringify(url)}`;
+  constructor(ctx: HTTPContext) {
+    const method = (ctx.request as Request)?.method || ctx.options.method || "GET";
+    const statusMessage = ctx.response ? `${ctx.response.status} ${ctx.response.statusText}` : "<no response>";
 
-    const statusStr = ctx.response ? `${ctx.response.status} ${ctx.response.statusText}` : "<no response>";
+    super(`[${method}]: ${JSON.stringify((ctx.request as Request)?.url || ctx.request.toString())} ${statusMessage}`, {
+      cause: ctx.error || ctx.response?.data,
+    });
 
-    const message = `${requestStr}: ${statusStr}${errorMessage ? ` ${errorMessage}` : ""}`;
-
-    super(message, { cause: ctx.error });
-
-    this.input = ctx.input;
-    this.response = ctx.response;
-    this.init = ctx.init;
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, HTTPError);
+    }
   }
 }
