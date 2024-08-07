@@ -3,7 +3,8 @@ import { type Options, defineConfig } from "tsup";
 const commonConfig = {
   clean: true,
   dts: true,
-  sourcemap: true,
+  // I don't think this works 😭
+  // sourcemap: true,
   outDir: "dist",
   format: ["esm"],
   target: "esnext",

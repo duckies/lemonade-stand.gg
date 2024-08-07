@@ -9,6 +9,7 @@
     "verbatimModuleSyntax": true,
     "newLine": "lf",
     "stripInternal": true,
+    "isolatedModules": true,
     "strict": true,
     "allowJs": true,
     "noImplicitReturns": true,

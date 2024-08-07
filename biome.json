@@ -10,6 +10,9 @@
       "suspicious": {
         "noExplicitAny": "off",
         "noUnsafeDeclarationMerging": "off"
+      },
+      "complexity": {
+        "noForEach": "off"
       }
     }
   },

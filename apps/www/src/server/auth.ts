@@ -4,9 +4,9 @@ import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
 import { cache } from "react";
 import { env } from "~/env";
-import { randomBytes } from "node:crypto";
 import { redirect } from "next/navigation";
 import { getAuthorizationURL } from "./discord";
+import { getCookieStore } from "~/lib/cookies";
 
 export type Snowflake = string;
 
@@ -37,18 +37,19 @@ export const getSession = cache(() => {
 });
 
 export async function signIn() {
-  const url = getAuthorizationURL();
+  const cookies = getCookieStore();
+  const url = await getAuthorizationURL();
+  const state = url.searchParams.get("state");
 
-  cookies().set("state", url.searchParams.get("state") as string);
+  if (state) {
+    cookies.set("state", state);
+  }
 
   redirect(url.toString());
 }
 
 export async function signOut() {
-  const cookieStore = cookies();
-
-  cookieStore.delete("session");
-  cookieStore.delete("state");
+  getCookieStore().delete("session", "state");
 }
 
 export interface Credentials {

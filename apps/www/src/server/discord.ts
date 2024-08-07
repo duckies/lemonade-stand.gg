@@ -4,6 +4,7 @@ import { randomBytes } from "node:crypto";
 import { HTTP } from "@repo/http";
 import { z } from "zod";
 import { env } from "~/env";
+import { DiscordConfig } from "~/config/discord";
 
 export type Snowflake = string;
 
@@ -48,7 +49,10 @@ export async function getMe(token: string) {
   if (user.avatar) {
     avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith("a_") ? "gif" : "webp"}`;
   } else {
-    const index = user.discriminator === "0" ? (BigInt(user.id) >> 22n) % 6n : Number.parseInt(user.discriminator) % 5;
+    const index =
+      user.discriminator === "0"
+        ? (BigInt(user.id) >> 22n) % 6n
+        : Number.parseInt(user.discriminator) % 5;
     avatar = `https://cdn.discordapp.com/embed/avatars/${index}.png`;
   }
 
@@ -66,7 +70,9 @@ export interface Thread {
 }
 
 export async function getActiveChannelThreads(channelId: Snowflake) {
-  return await api.get<{ threads: Thread[] }>(`https://discord.com/api/channels/${channelId}/threads/active`);
+  return await api.get<{ threads: Thread[] }>(
+    `https://discord.com/api/channels/${channelId}/threads/active`,
+  );
 }
 
 export interface GuildMember {
@@ -113,7 +119,7 @@ export interface Thread {
 }
 
 export async function createThread(channelId: Snowflake, body: z.infer<typeof CreateThreadDTO>) {
-  const thread = await api.post<Thread>(`https://discord.com/api/v10/channels/${channelId}/threads`, {
+  const thread = await api.post<Thread>(`/channels/${channelId}/threads`, {
     json: {
       ...body,
       type: 12, // Private Thread
@@ -130,7 +136,7 @@ export async function addThreadMember(threadId: Snowflake, userId: Snowflake) {
 }
 
 export async function getGuildMembers() {
-  return await api.get<GuildMember[]>("/guilds/1093608281395707905/members", {
+  return await api.get<GuildMember[]>(`/guilds/${DiscordConfig.guild.id}/members`, {
     params: { limit: 1000 },
   });
 }
