@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
 import { DayPicker, labelNext, labelPrevious, useDayPicker } from "react-day-picker";
 
-import { Button, buttonVariants } from "~/components/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { cn } from "~/utils/cn";
 import { differenceInCalendarDays } from "date-fns";
 
@@ -47,7 +47,7 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       style={{
-        width: 248.8 * (columnsDisplayed ?? 1) + "px",
+        width: `${248.8 * (columnsDisplayed ?? 1)}px`,
       }}
       classNames={{
         months: "flex flex-col relative sm:flex-row gap-y-4 sm:gap-y-0",
@@ -197,7 +197,7 @@ function Calendar({
             size="sm"
             onClick={() => setNavView((prev) => (prev === "days" ? "years" : "days"))}
           >
-            {navView === "days" ? children : displayYears.from + " - " + displayYears.to}
+            {navView === "days" ? children : `${displayYears.from} - ${displayYears.to}`}
           </Button>
         ),
         MonthGrid: ({ className, children, ...props }) => {
@@ -216,6 +216,7 @@ function Calendar({
                   const isDisabled = isBefore || isAfter;
                   return (
                     <Button
+                      // biome-ignore lint/suspicious/noArrayIndexKey: Intentional.
                       key={i}
                       className={cn(
                         "h-7 w-full text-sm font-normal text-foreground",

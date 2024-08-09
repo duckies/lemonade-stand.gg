@@ -3,6 +3,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES5",
+    "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "noEmit": true,
     "incremental": true,
@@ -19,11 +20,12 @@
     }
   },
   "include": [
-    "src/**/*",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
+    "src/**/*",
+    ".next/types/**/*.ts",
   ],
   "exclude": [
     "node_modules",
+    "dist",
   ]
 }

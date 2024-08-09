@@ -2,9 +2,8 @@ import { type Options, defineConfig } from "tsup";
 
 const commonConfig = {
   clean: true,
-  dts: true,
-  // I don't think this works 😭
-  // sourcemap: true,
+  dts: false,
+  splitting: true,
   outDir: "dist",
   format: ["esm"],
   target: "esnext",
@@ -13,11 +12,11 @@ const commonConfig = {
 export default defineConfig([
   {
     ...commonConfig,
-    entry: ["src/components/!(index).ts?(x)", "src/utils/!(index).ts?(x)"],
+    entry: ["src/components/**/!(index).ts?(x)", "src/utils/!(index).ts?(x)"],
   },
   {
     ...commonConfig,
-    entry: ["src/index.ts", "src/utils/index.ts"],
+    entry: ["src/index.ts"],
     bundle: false,
   },
 ]);

@@ -15,8 +15,8 @@
     "package.json"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsup --onSuccess \"tsc --declaration --emitDeclarationOnly\"",
+    "dev": "tsup --watch --onSuccess \"tsc --declaration --emitDeclarationOnly\"",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
