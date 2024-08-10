@@ -1,22 +1,16 @@
-import { type Options, defineConfig } from "tsup";
+import { defineConfig } from "tsup";
 
-const commonConfig = {
-  clean: true,
+const defaultOptions = defineConfig({
   dts: false,
   splitting: true,
   outDir: "dist",
   format: ["esm"],
   target: "esnext",
-} satisfies Options;
+  external: ["react", "react-dom"],
+  platform: "browser",
+});
 
 export default defineConfig([
-  {
-    ...commonConfig,
-    entry: ["src/components/**/!(index).ts?(x)", "src/utils/!(index).ts?(x)"],
-  },
-  {
-    ...commonConfig,
-    entry: ["src/index.ts"],
-    bundle: false,
-  },
+  { ...defaultOptions, entry: ["src/**/!(index).ts?(x)"] },
+  { ...defaultOptions, entry: ["src/index.ts"], bundle: false },
 ]);
