@@ -1,13 +1,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui";
 import { RRuleForm } from "~/components/rrule-form";
-import { RRuleDataTable } from "./rrule/rrule-data-table";
-import { RRuleProvider } from "./rrule/use-rrule";
 import { RRuleOptionText } from "./rrule/rrule-json";
+import { RRuleProvider } from "./rrule/use-rrule";
+import { RRuleDataTable } from "./rrule/rrule-data-table";
+import type { SearchParamSchema } from "./page";
 
-export function RRuleLayout() {
+export function RRuleLayout({ init }: { init?: SearchParamSchema }) {
+  if (init && !init.dtstart) {
+    // We have to pass a stable date from the server to the client
+    // to avoid a hydration mismatch.
+    init.dtstart = new Date();
+  }
+
   return (
-    <RRuleProvider>
-      <div className="mt-10 flex gap-5">
+    <RRuleProvider init={init}>
+      <div className="mt-10 grid grid-cols-3 gap-5">
         <Card className="">
           <CardHeader>
             <CardTitle>Create RRule</CardTitle>
@@ -17,25 +24,20 @@ export function RRuleLayout() {
             <RRuleForm />
           </CardContent>
         </Card>
-        <Card className="grow">
+        <Card className="col-span-2">
           <CardHeader>
             <CardTitle>Dates</CardTitle>
             <CardDescription>Use the form on the left to generate dates.</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-2">
-              <div className="grid grid-cols-[minmax(3rem,auto)_1fr] items-center gap-4">
-                <span className="text-sm font-medium leading-none text-right">Data</span>
-                <pre className="border rounded-md px-3 py-2 bg-muted text-sm">
-                  <RRuleOptionText />
-                </pre>
-                <span className="text-sm font-medium leading-none text-right">RRule</span>
-                {/* <pre className="border rounded-md px-3 py-2 bg-muted text-sm">{rrule.toString()}</pre> */}
-              </div>
-              <RRuleDataTable />
-            </div>
+            <pre className="border rounded-md px-3 py-2 bg-background text-sm col-span-3">
+              <RRuleOptionText />
+            </pre>
           </CardContent>
         </Card>
+      </div>
+      <div>
+        <RRuleDataTable />
       </div>
     </RRuleProvider>
   );

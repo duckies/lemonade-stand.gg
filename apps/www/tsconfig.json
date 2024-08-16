@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES2023",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "noEmit": true,
@@ -21,7 +21,12 @@
   },
   "include": [
     "next-env.d.ts",
-    "src/**/*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.mdx",
+    "**/*.js",
     ".next/types/**/*.ts",
   ],
   "exclude": [

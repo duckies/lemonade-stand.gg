@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { Logo } from "./logo";
-import { ThemeSwitcher } from "./theme-switcher";
-import { DiscordLogo } from "./discord-logo";
 import { buttonVariants, cn } from "@repo/ui";
+import Link from "next/link";
+import { DiscordLogo } from "./discord-logo";
+import { Icons } from "./icons";
+import { ThemeSwitcher } from "./theme-switcher";
 import { UserNav } from "./user-nav";
 
 const NavItems = [
   { text: "Roster", value: "/roster" },
-  { text: "Apply", value: "/apply" },
+  { text: "Apply", value: "https://forms.gle/ie3kYSuR4K3awV3p9", target: "_blank" },
 ];
 
 export function Header() {
@@ -16,7 +16,7 @@ export function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="mr-4 hidden md:flex">
           <Link className="mr-4 flex items-center space-x-2 lg:mr-6" href="/">
-            <Logo className="w-8 h-8 hover:rotate-45 transition-transform" />
+            <Icons.logo className="w-8 h-8 hover:rotate-45 transition-transform" />
             <span className="hidden font-bold lg:inline-block">Lemonade Stand</span>
           </Link>
           <nav className="flex items-center gap-4 text-sm lg:gap-6">
@@ -25,6 +25,7 @@ export function Header() {
                 key={link.value}
                 className="teansition-colors hover:text-foreground/80 text-foreground/60"
                 href={link.value}
+                target={link.target}
               >
                 {link.text}
               </Link>

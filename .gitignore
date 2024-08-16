@@ -12,6 +12,7 @@ node_modules
 temp
 .turbo
 .next
+*.tsbuildinfo
 
 .env
 .env.development.local

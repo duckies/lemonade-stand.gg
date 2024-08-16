@@ -8,13 +8,13 @@ import { cn } from "@repo/ui";
 import { CalendarIcon } from "lucide-react";
 
 interface DatePickerProps {
-  onSelect?: (date: Date) => void;
+  onSelect?: (date?: Date) => void;
 }
 
 export function DatePicker({ onSelect }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date>();
+  const [date, setDate] = React.useState<Date | undefined>(undefined);
 
-  function handleSelect(date: Date) {
+  function handleSelect(date?: Date) {
     setDate(date);
     onSelect?.(date);
   }
@@ -41,6 +41,7 @@ export function DatePicker({ onSelect }: DatePickerProps) {
           autoFocus
           startMonth={new Date(1999, 11)}
           endMonth={new Date(2025, 2)}
+          required={false}
         />
       </PopoverContent>
     </Popover>

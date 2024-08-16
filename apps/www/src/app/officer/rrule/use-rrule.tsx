@@ -1,7 +1,8 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
-import { type ByWeekday, Frequency, RRule, Weekday, type WeekdayStr } from "rrule";
+import { type ReactNode, createContext, useContext } from "react";
+import { type ByWeekday, type Frequency, RRule, Weekday, type WeekdayStr } from "rrule";
+import { useQueryString } from "~/hooks/use-query";
 
 export type WeekdayOption = { label: string; value: WeekdayStr };
 export const WeekdayOptions: WeekdayOption[] = [
@@ -21,6 +22,7 @@ export interface RRuleState {
     count?: number;
     byweekday?: ByWeekday[];
   };
+  rrule: RRule;
   form: {
     frequency: {
       value: string;
@@ -43,59 +45,57 @@ export interface RRuleState {
 
 export const RRuleContext = createContext<RRuleState | null>(null);
 
-export function toNumber(value: string) {
-  if (value === "") {
-    return undefined;
-  }
-
-  const num = Number(value);
-
-  return Number.isNaN(num) ? undefined : num;
+export interface RRuleProviderProps {
+  children: ReactNode;
+  init?: Partial<RRuleState["options"]>;
 }
 
-export function RRuleProvider({ children }: { children: React.ReactNode }) {
-  const [frequency, setFrequency] = useState<Frequency>(Frequency.WEEKLY);
-  const [dtstart, setDTStart] = useState<Date>();
-  const [count, setCount] = useState<number>();
-  const [byweekday, setByWeekday] = useState<ByWeekday[]>([]);
+export function RRuleProvider({ children, init }: RRuleProviderProps) {
+  const query = useQueryString();
 
-  const value = useMemo<RRuleState>(
-    () => ({
-      options: {
-        freq: frequency,
-        dtstart,
-        count,
-        byweekday: byweekday.length === 0 ? undefined : byweekday,
+  const options = {
+    freq: init?.freq === undefined ? 2 : init.freq,
+    dtstart: init?.dtstart,
+    count: init?.count,
+    byweekday: !init?.byweekday?.length ? undefined : init.byweekday,
+  };
+
+  const value = {
+    options,
+    rrule: new RRule(options, true),
+    form: {
+      frequency: {
+        value: options.freq.toString(),
+        onValueChange: (value) => query.set("freq", value),
       },
-      form: {
-        frequency: {
-          value: frequency.toString(),
-          onValueChange: (value) => setFrequency(Number(value)),
-        },
-        dtstart: {
-          selected: dtstart,
-          onSelect: (date) => setDTStart(date),
-        },
-        count: {
-          value: count?.toString() ?? "",
-          onChange: (e) => setCount(toNumber(e.target.value)),
-        },
-        byweekday: {
-          value: byweekday.map<WeekdayOption>((w) => {
-            if (typeof w === "string") {
-              return WeekdayOptions.find((o) => o.value === w)!;
-            }
-
-            const i = w instanceof Weekday ? w.weekday : w;
-
-            return WeekdayOptions[i]!;
-          }),
-          onChange: (options) => setByWeekday(options.map((o) => o.value)),
-        },
+      dtstart: {
+        selected: options.dtstart,
+        onSelect: (date) => query.set("dtstart", date?.toISOString()),
       },
-    }),
-    [frequency, dtstart, count, byweekday],
-  );
+      count: {
+        value: options.count?.toString() ?? "",
+        onChange: (e) => query.set("count", e.target.value),
+      },
+      byweekday: {
+        value: options.byweekday
+          ? options.byweekday.map<WeekdayOption>((w) => {
+              if (typeof w === "string") {
+                return WeekdayOptions.find((o) => o.value === w)!;
+              }
+
+              const i = w instanceof Weekday ? w.weekday : w;
+
+              return WeekdayOptions[i]!;
+            })
+          : [],
+        onChange: (options) =>
+          query.set(
+            "byweekday",
+            options.map((o) => o.value),
+          ),
+      },
+    },
+  } satisfies RRuleState;
 
   return <RRuleContext.Provider value={value}>{children}</RRuleContext.Provider>;
 }

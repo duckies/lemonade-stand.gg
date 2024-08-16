@@ -27,7 +27,6 @@ import {
 import { format } from "date-fns";
 import { ArrowUpDown, ClipboardIcon, MoreHorizontal } from "lucide-react";
 import { useMemo, useState } from "react";
-import { RRule } from "rrule";
 import { useRRule } from "./use-rrule";
 
 export type Event = {
@@ -92,22 +91,8 @@ export const columns: ColumnDef<Event>[] = [
 ];
 
 export function RRuleDataTable() {
-  const { options } = useRRule();
+  const { rrule } = useRRule();
   const [sorting, setSorting] = useState<SortingState>([]);
-
-  const rrule = useMemo(
-    () =>
-      new RRule(
-        {
-          freq: options.freq,
-          dtstart: options.dtstart,
-          count: options.count,
-          byweekday: options.byweekday,
-        },
-        true,
-      ),
-    [options.freq, options.dtstart, options.count, options.byweekday],
-  );
 
   const data = useMemo(() => rrule.all((_, i) => i < 10).map((d) => ({ date: d })), [rrule]);
 
@@ -147,7 +132,7 @@ export function RRuleDataTable() {
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} suppressHydrationWarning>
+                    <TableCell key={cell.id}>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
