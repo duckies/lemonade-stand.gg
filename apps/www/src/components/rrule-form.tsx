@@ -15,10 +15,10 @@ import {
   SelectTrigger,
   SelectValue,
   cn,
-} from "@repo/ui";
+} from "@lemonade-stand/ui";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { useRRule, WeekdayOptions } from "~/app/officer/rrule/use-rrule";
+import { WeekdayOptions, useRRule } from "~/app/officer/rrule/use-rrule";
 
 export function RRuleForm() {
   const { options, form } = useRRule();

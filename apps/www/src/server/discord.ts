@@ -1,10 +1,10 @@
 "use server";
 
 import { randomBytes } from "node:crypto";
-import { HTTP } from "@repo/http";
+import { HTTP } from "@lemonade-stand/http";
 import { z } from "zod";
-import { env } from "~/env";
 import { DiscordConfig } from "~/config/discord";
+import { env } from "~/env";
 
 export type Snowflake = string;
 

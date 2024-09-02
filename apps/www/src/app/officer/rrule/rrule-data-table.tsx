@@ -13,7 +13,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@repo/ui";
+} from "@lemonade-stand/ui";
 import {
   type ColumnDef,
   type SortingState,
@@ -118,9 +118,9 @@ export function RRuleDataTable() {
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(header.column.columnDef.header, header.getContext())}
+                      {/* @ts-ignore */}
+                      {header.isPlaceholder &&
+                        flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   );
                 })}
@@ -133,6 +133,7 @@ export function RRuleDataTable() {
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
+                      {/* @ts-ignore */}
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, type ButtonProps } from "@repo/ui";
+import { Button, type ButtonProps } from "@lemonade-stand/ui";
 import { useFormStatus } from "react-dom";
 
 export function SubmitButton(props: ButtonProps) {

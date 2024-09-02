@@ -1,9 +1,12 @@
-import { type Credentials, OAuth2Client, request } from "@repo/common";
+import { type Credentials, OAuth2Client, request } from "@lemonade-stand/common";
 import chalk from "chalk";
 import { z } from "zod";
 
 export const getGuildReportSchema = z.object({
-  guild: z.union([z.object({ name: z.string(), realm: z.string(), region: z.string() }), z.object({ id: z.string() })]),
+  guild: z.union([
+    z.object({ name: z.string(), realm: z.string(), region: z.string() }),
+    z.object({ id: z.string() }),
+  ]),
 });
 
 export class WarcraftLogs {

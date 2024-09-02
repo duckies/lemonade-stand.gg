@@ -1,5 +1,5 @@
 {
-  "name": "@repo/http",
+  "name": "@lemonade-stand/http",
   "private": true,
   "type": "module",
   "module": "./dist/index.js",
@@ -17,7 +17,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@repo/common": "workspace:*"
+    "@lemonade-stand/common": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "20.11.1",

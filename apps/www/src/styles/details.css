@@ -1,0 +1,28 @@
+.tiptap {
+  .details {
+    gap: 0.25rem;
+    margin: 1.5rem 0;
+    background-color: theme("colors.gray.200");
+    border: 1px solid theme("colors.border");
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+    summary { 
+      display: block;
+      width: 100%;
+      @apply transition-colors;
+      
+      &:hover {
+        background-color: theme("colors.gray.300");
+      }
+    }
+
+    > .details-content {
+      display: none;
+    }
+
+    &[open="true"] > .details-content {
+      display: block;
+    }
+  }
+}

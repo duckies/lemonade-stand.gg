@@ -1,7 +1,7 @@
 import { Input } from "~/components/ui/input";
 
-import { cn } from "~/utils/cn";
 import React from "react";
+import { cn } from "~/utils/cn";
 import {
   type Period,
   type TimePickerType,
@@ -121,6 +121,6 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
   },
 );
 
-TimePicker.displayName = "TimePickerInput";
+TimePicker.displayName = "TimePicker";
 
 export { TimePicker };

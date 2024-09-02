@@ -10,10 +10,15 @@ export * from "./components/ui/dropdown-menu";
 export * from "./components/ui/form";
 export * from "./components/ui/input";
 export * from "./components/ui/label";
+export * from "./components/ui/menubar";
 export * from "./components/ui/popover";
 export * from "./components/ui/select-multiple";
 export * from "./components/ui/select";
+export * from "./components/ui/separator";
 export * from "./components/ui/table";
+export * from "./components/ui/time-period";
+export * from "./components/ui/time-picker";
+export * from "./components/ui/toggle";
 
 export * from "./utils/cn";
 export * from "./utils/time";

@@ -7,7 +7,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@repo/ui";
+} from "@lemonade-stand/ui";
 import Link from "next/link";
 import { type User, signOut } from "~/server/auth";
 

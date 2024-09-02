@@ -1,9 +1,8 @@
-import { http } from "@repo/common";
+import { http } from "@lemonade-stand/common";
 
 const request = await http("https://jsonplaceholder.typicode.com/todos/1").arrayBuffer();
 
 console.log(request);
-// import { WarcraftLogs } from "@repo/warcraftlogs";
 
 // const api = new WarcraftLogs({
 //   clientId: process.env.WARCRAFTLOGS_CLIENT_ID as string,

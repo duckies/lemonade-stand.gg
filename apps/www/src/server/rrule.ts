@@ -1,42 +1,30 @@
-import { Frequency, RRule } from "rrule";
-import { z } from "zod";
-import { isPOJO } from "~/lib/utils";
+import { RRule } from "rrule";
+import { db } from "./database/database";
+import { events, type InsertEvent } from "./database/schema";
+import { type CreateEventDTO, createEventSchema } from "./dto/create-event.dto";
 
-const createRRuleSchema = z.preprocess(
-  (data) => {
-    if (!isPOJO(data)) return false;
+export async function createEvent(dto: CreateEventDTO) {
+  const options = createEventSchema.parse(dto);
 
-    const retval: Record<string, unknown> = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (value !== "") {
-        retval[key] = value;
-      }
-    }
-    return retval;
-  },
-  z.object({
-    frequency: z.preprocess((x) => Number(x), z.nativeEnum(Frequency).optional()),
-    dtstart: z.coerce.date().optional(),
-    count: z.coerce.number().min(1).optional(),
-    byweekday: z.array(z.coerce.number().min(0).max(6)).optional(),
-  }),
-);
+  const event: InsertEvent = {
+    start: options.start.toISOString(),
+    end: options.end?.toISOString(),
+    title: options.title,
+    description: options.description,
+  };
 
-type CreateRRuleDTO = z.infer<typeof createRRuleSchema>;
+  if (options.recurrence) {
+    const rrule = new RRule({
+      dtstart: options.start,
+      freq: options.recurrence.freq,
+      count: options.recurrence.count,
+      byweekday: options.recurrence.byweekday,
+    });
 
-export function createRRule(dto: CreateRRuleDTO) {
-  const options = createRRuleSchema.parse(dto);
+    event.recurrence = rrule.toString();
+  }
 
-  const rrule = new RRule({
-    dtstart: options.dtstart,
-    freq: options.frequency,
-    count: options.count,
-    byweekday: options.byweekday,
-  });
+  const result = await db.insert(events).values(event).returning();
 
-  // const set = new RRuleSet({
-  // dtstart:
-  // })
-
-  return rrule;
+  return result;
 }

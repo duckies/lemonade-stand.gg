@@ -5,3 +5,7 @@ export function isPOJO(value: unknown): value is object {
 
   return Object.getPrototypeOf(value) === Object.prototype;
 }
+
+export function isClient() {
+  return typeof window !== "undefined";
+}

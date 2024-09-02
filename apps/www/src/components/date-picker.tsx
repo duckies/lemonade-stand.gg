@@ -3,8 +3,8 @@
 import { format } from "date-fns";
 import * as React from "react";
 
-import { Button, Calendar, Popover, PopoverContent, PopoverTrigger } from "@repo/ui";
-import { cn } from "@repo/ui";
+import { Button, Calendar, Popover, PopoverContent, PopoverTrigger } from "@lemonade-stand/ui";
+import { cn } from "@lemonade-stand/ui";
 import { CalendarIcon } from "lucide-react";
 
 interface DatePickerProps {

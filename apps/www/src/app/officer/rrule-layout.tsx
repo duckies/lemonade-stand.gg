@@ -1,9 +1,9 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@lemonade-stand/ui";
 import { RRuleForm } from "~/components/rrule-form";
+import type { SearchParamSchema } from "./page";
+import { RRuleDataTable } from "./rrule/rrule-data-table";
 import { RRuleOptionText } from "./rrule/rrule-json";
 import { RRuleProvider } from "./rrule/use-rrule";
-import { RRuleDataTable } from "./rrule/rrule-data-table";
-import type { SearchParamSchema } from "./page";
 
 export function RRuleLayout({ init }: { init?: SearchParamSchema }) {
   if (init && !init.dtstart) {

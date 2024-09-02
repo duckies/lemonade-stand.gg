@@ -1,4 +1,4 @@
-import { Card, CardContent, CardTitle } from "@repo/ui";
+import { Card, CardContent, CardTitle } from "@lemonade-stand/ui";
 import { z } from "zod";
 import { RRuleLayout } from "./rrule-layout";
 
