@@ -1,5 +1,6 @@
 "use client";
 
+import { SlashCommand, TaskItem, TaskList } from "@lemonade-stand/editor";
 import { Button, Input, Label, cn } from "@lemonade-stand/ui";
 import { EditorContent, type UseEditorOptions, useEditor } from "@tiptap/react";
 import { useState } from "react";
@@ -16,18 +17,38 @@ export function EditPostForm({ post, className, action, ...props }: EditorFormPr
   const [loading, setLoading] = useState(false);
 
   const editor = useEditor({
-    extensions: [...DefaultExtensions],
+    extensions: [
+      ...DefaultExtensions,
+      SlashCommand,
+      TaskList.configure({
+        HTMLAttributes: {
+          class: "not-prose items-start pl-2",
+        },
+      }),
+      TaskItem.configure({
+        HTMLAttributes: {
+          class: "flex gap-2 items-center my-4",
+        },
+        nested: true,
+      }),
+    ],
     immediatelyRender: false,
     content: post.document,
     editorProps: {
       attributes: {
         class: cn(
-          "min-h-[150px] w-full text-sm max-w-full outline-none px-3 py-5 prose dark:prose-invert",
+          "min-h-[150px] w-full max-w-full outline-none prose dark:prose-invert",
           className,
         ),
       },
     },
     ...props,
+    onCreate({ editor }) {
+      console.log(
+        "Editor created with extensions: ",
+        editor.extensionManager.extensions.map((e) => e.name),
+      );
+    },
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,7 +67,7 @@ export function EditPostForm({ post, className, action, ...props }: EditorFormPr
   };
 
   return (
-    <div className="px-5 py-6">
+    <div className="px-5 py-6 bg-card rounded-md">
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-4 items-center mb-5">
           <Label htmlFor="title">Title</Label>

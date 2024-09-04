@@ -8,6 +8,7 @@ import Typography from "@tiptap/extension-typography";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import dynamic from "next/dynamic";
+import GlobalDragHandle from "tiptap-extension-global-drag-handle";
 import { isClient } from "~/lib/utils";
 
 interface EditorProps {
@@ -50,6 +51,7 @@ export function Editor({ value, editable, className }: EditorProps) {
       Typography,
       Details,
       // MechanicExtension,
+      GlobalDragHandle,
     ],
     immediatelyRender: isClient(),
     content: value,

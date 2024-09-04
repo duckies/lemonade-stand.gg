@@ -18,7 +18,7 @@ export default async function BlogPostPage({ params }: Readonly<{ params: { slug
   return (
     <div>
       <Hero title={post.title} subtitle={post.description || ""}>
-        <Link href={`/blog/${post.slug}/edit`} className={cn(buttonVariants())}>
+        <Link href={`/news/${post.slug}/edit`} className={cn(buttonVariants())}>
           Edit Post
         </Link>
       </Hero>

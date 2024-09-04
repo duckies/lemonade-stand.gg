@@ -8,9 +8,7 @@ export default {
     "../../packages/editor/src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    container: {
-      center: true,
-    },
+    container: undefined,
     screens: {
       sm: "640px",
       md: "768px",
@@ -61,6 +59,7 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
+        serif: ["var(--font-serif)"],
         // mono: ["var(--font-mono)", ...fontFamily.mono],
       },
       keyframes: {
@@ -76,11 +75,19 @@ export default {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
+        rocking: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "33%": { transform: "rotate(90deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        rocking: "rocking 2s infinite alternate",
+      },
+      transitionTimingFunction: {
+        "ease-in-back": "cubic-bezier(.42,.97,.52,1.49)",
       },
       typography: () => ({
         DEFAULT: {

@@ -140,3 +140,7 @@ export async function getGuildMembers() {
     params: { limit: 1000 },
   });
 }
+
+export async function getChannelMessage(channelId: Snowflake, messageId: Snowflake) {
+  return await api.get(`/channels/${channelId}/messages/${messageId}`);
+}

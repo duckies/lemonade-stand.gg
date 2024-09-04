@@ -1,59 +1,90 @@
-import { Separator, buttonVariants, cn } from "@lemonade-stand/ui";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  cn,
+  navigationMenuTriggerStyle,
+} from "@lemonade-stand/ui";
 import Link from "next/link";
-import { DiscordLogo } from "./discord-logo";
-import { Icons } from "./icons";
+import {
+  // type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef,
+} from "react";
+import { LemonLogo } from "./icons/logo";
 import { ThemeSwitcher } from "./theme-switcher";
 import { UserNav } from "./user-nav";
 
-const NavItems = [
-  { text: "Blog", value: "/blog" },
-  { text: "Roster", value: "/roster" },
-  { text: "Apply", value: "https://forms.gle/ie3kYSuR4K3awV3p9", target: "_blank" },
-];
+const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
+  ({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className,
+            )}
+            {...props}
+          >
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  },
+);
 
 export function Header() {
   return (
-    <header className="container sticky top-0 w-full mt-4 py-1.5 z-50">
-      <div className="bg-card/90 backdrop-filter backdrop-blur-md h-14 shadow-sm rounded-md px-3 py-3 flex items-center">
-        <div className="flex w-full h-14 max-w-screen-2xl items-center">
-          <div className="mr-4 hidden md:flex">
-            <Link className="mr-4 flex items-center space-x-2 lg:mr-6" href="/">
-              <Icons.logo className="w-8 h-8 hover:rotate-45 transition-transform" />
-              <span className="hidden font-bold lg:inline-block">Lemonade Stand</span>
-            </Link>
-            <nav className="flex items-center gap-4 text-sm lg:gap-6">
-              {NavItems.map((link) => (
-                <Link
-                  key={link.value}
-                  className="teansition-colors hover:text-foreground/80 text-foreground/60"
-                  href={link.value}
-                  target={link.target}
-                >
-                  {link.text}
-                </Link>
-              ))}
-            </nav>
+    <header className="container px-6 flex z-50 top-0 w-full mt-4 justify-center">
+      <div className="flex w-full justify-between">
+        <Link className="flex items-center space-x-2 mr-4 lg:mr-6" href="/">
+          <div className="p-3 rounded-full mr-2">
+            <LemonLogo className="w-7 h-7 drop-shadow-sm hover:animate-rocking ease-in-back transition-transform" />
           </div>
-          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-            <nav className="flex items-center">
-              <Link href="https://discord.gg/ontrack" target="_blank" rel="noreferrer">
-                <div
-                  className={cn(
-                    buttonVariants({
-                      variant: "ghost",
-                    }),
-                    "h-8 w-8 px-0",
-                  )}
-                >
-                  <DiscordLogo className="h-4 w-4" />
-                  <span className="sr-only">Discord</span>
-                </div>
-              </Link>
-              <ThemeSwitcher />
-              <Separator orientation="vertical" className="mx-2 h-7" />
-              <UserNav />
-            </nav>
+          {/* <span className="hidden font-bold lg:inline-block">Lemonade Stand</span> */}
+        </Link>
+
+        <div className="bg-card/85 dark:bg-card/80 backdrop-filter backdrop-blur h-14 shadow rounded-[.6rem] pt-2 pr-2 pb-2 pl-2 flex items-center">
+          <div className="flex h-14 items-center">
+            <div className="hidden md:flex">
+              <nav className="flex items-center gap-4 text-sm lg:gap-6">
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <Link href="/news" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                          News
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger>Links</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid gap-3 w-auto p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                          <ListItem title="WarcraftLogs" href="https://www.warcraftlogs.com/">
+                            Our latest logs
+                          </ListItem>
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </nav>
+            </div>
           </div>
+        </div>
+
+        <div className="flex gap-3 items-center">
+          <ThemeSwitcher />
+          <UserNav />
         </div>
       </div>
     </header>

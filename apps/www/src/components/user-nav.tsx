@@ -1,4 +1,5 @@
 import { getSession, signIn } from "~/server/auth";
+import { DiscordLogo } from "./discord-logo";
 import { SubmitButton } from "./submit-button";
 import { UserNavMenu } from "./user-nav-menu";
 
@@ -8,7 +9,10 @@ export async function UserNav() {
   if (!session.user) {
     return (
       <form action={signIn}>
-        <SubmitButton>Sign In</SubmitButton>
+        <SubmitButton className="bg-black dark:bg-white dark:text-black flex gap-x-1.5 leading-none px-3 rounded-[.5rem]">
+          <DiscordLogo className="h-4 w-4" />
+          Sign in
+        </SubmitButton>
       </form>
     );
   }
