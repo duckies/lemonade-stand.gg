@@ -26,19 +26,25 @@
     --radius: 0.5rem;
   }
 
+
+
   .dark {
-    --background: 241 18.44% 7.79%;
-    --foreground: 240 50% 96.86%;
-    --muted: 211 30% 9%;
+    --background: 249 15% 9%; 
+    --foreground: 0 0% 100%;
+    /* Gaming Inspo */
+    /* --muted: 240, 13%, 23%; */
+    /* Serif Inspo */
+    --muted: 240, 8%, 9%;
+    /* --muted: 240, 15%, 12%; */
     --muted-foreground: 211 0% 67%;
     --popover: 241 30% 3%;
     --popover-foreground: 241 39% 100%;
-    --card: 241 30% 3%;
+    --card: 246 15% 13%;
     --card-foreground: 241 39% 100%;
     --border: 241 2% 13%;
     --input: 241 2% 13%;
-    --primary: 241 36% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 39 100% 77%; 
+    --primary-foreground: 240 13% 9%;
     --secondary: 240.72 65.77% 77.53%;
     --secondary-foreground: 0 0% 0%;
     --accent: 167.55 51.22% 60.58%;
@@ -46,6 +52,14 @@
     --destructive: 0 70.45% 64.85%;
     --destructive-foreground: 0 0% 0%;
     --ring: 241 36% 55%;
+  }
+
+  /* Serif Theme */
+  .dark {
+    --background: 240 8% 5%;
+    --muted-foreground: 240 2% 40%;
+    --card: 240 9% 7%;
+    --card-foreground: 250 45% 86%; 
   }
 }
 

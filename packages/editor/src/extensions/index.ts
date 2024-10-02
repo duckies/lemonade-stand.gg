@@ -1,5 +1,7 @@
+export * from "./Columns";
 export * from "./Document";
 export * from "./SlashCommand";
+export * from "./Title";
 export * from "./heading";
 export * from "./link";
 export * from "./details/details";

@@ -18,7 +18,7 @@ export default async function BlogIndexPage() {
         <div className="grid grid-cols-3 gap-5">
           {posties.map((post) => (
             <Link key={post.slug} href={`/news/${post.slug}`}>
-              <div className="rounded-lg border p-4 bg-card">
+              <div className="rounded-lg border p-4 flex">
                 <h2 className="text-xl font-semibold mb-5">{post.title}</h2>
                 <p>{post.description}</p>
               </div>

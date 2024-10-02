@@ -16,7 +16,6 @@ import {
   forwardRef,
 } from "react";
 import { LemonLogo } from "./icons/logo";
-import { ThemeSwitcher } from "./theme-switcher";
 import { UserNav } from "./user-nav";
 
 const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
@@ -43,8 +42,8 @@ const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
 
 export function Header() {
   return (
-    <header className="container px-6 flex z-50 top-0 w-full mt-4 justify-center">
-      <div className="flex w-full justify-between">
+    <header className="container px-6 flex z-50 top-0 w-full mt-4 justify-center ">
+      <div className="flex w-full justify-between backdrop-blur-sm bg-card/50 rounded-xl shadow-sm">
         <Link className="flex items-center space-x-2 mr-4 lg:mr-6" href="/">
           <div className="p-3 rounded-full mr-2">
             <LemonLogo className="w-7 h-7 drop-shadow-sm hover:animate-rocking ease-in-back transition-transform" />
@@ -52,7 +51,7 @@ export function Header() {
           {/* <span className="hidden font-bold lg:inline-block">Lemonade Stand</span> */}
         </Link>
 
-        <div className="bg-card/85 dark:bg-card/80 backdrop-filter backdrop-blur h-14 shadow rounded-[.6rem] pt-2 pr-2 pb-2 pl-2 flex items-center">
+        <div className="h-14 pt-2 pr-2 pb-2 pl-2 flex items-center">
           <div className="flex h-14 items-center">
             <div className="hidden md:flex">
               <nav className="flex items-center gap-4 text-sm lg:gap-6">
@@ -82,8 +81,8 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex gap-3 items-center">
-          <ThemeSwitcher />
+        <div className="flex gap-3 items-center px-3 py-2">
+          {/* <ThemeSwitcher /> */}
           <UserNav />
         </div>
       </div>

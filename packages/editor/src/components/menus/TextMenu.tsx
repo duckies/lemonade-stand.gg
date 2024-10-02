@@ -7,6 +7,7 @@ import { useTextMenuCommands } from "~/hooks/useTextMenuCommands";
 import { useTextMenuContentTypes } from "~/hooks/useTextMenuContentTypes";
 import { useTextMenuStates } from "~/hooks/useTextMenuStates";
 import { ContentTypePicker } from "../ContentTypePicker";
+import { EditLinkPopover } from "../EditLinkPopover";
 import { Toolbar } from "../ui/toolbar";
 
 export type TextMenuProps = {
@@ -50,6 +51,7 @@ export function TextMenu({ editor }: TextMenuProps) {
         <Toolbar.Button onClick={commands.onBold} active={states.isBold}>
           <BoldIcon className="h-4 w-4" />
         </Toolbar.Button>
+        <EditLinkPopover onSetLink={commands.onLink} />
         <ContentTypePicker options={blockOptions} />
       </Toolbar.Wrapper>
     </BubbleMenu>

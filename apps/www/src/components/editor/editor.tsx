@@ -1,6 +1,6 @@
 "use client";
 
-import { Details } from "@lemonade-stand/editor";
+import { Details, Document, Link, TaskItem, TaskList, Title } from "@lemonade-stand/editor";
 import { Toggle, cn } from "@lemonade-stand/ui";
 import type { EditorEvents, Editor as EditorType } from "@tiptap/core";
 import TextAlign from "@tiptap/extension-text-align";
@@ -46,15 +46,22 @@ export function ToggleMark({
 export function Editor({ value, editable, className }: EditorProps) {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      Document.configure({
+        content: "(block|columns)+",
+      }),
+      Title,
+      Link,
+      StarterKit.configure({ document: false }),
       TextAlign.configure({ types: ["paragraph", "code"] }),
       Typography,
       Details,
       // MechanicExtension,
       GlobalDragHandle,
+      TaskList,
+      TaskItem,
     ],
     immediatelyRender: isClient(),
-    content: value,
+    content: value ? JSON.parse(value) : "",
     editable,
     editorProps: {
       attributes: {
@@ -63,6 +70,12 @@ export function Editor({ value, editable, className }: EditorProps) {
           className,
         ),
       },
+    },
+    onUpdate: () => {
+      window?.$WowheadPower?.refreshLinks();
+    },
+    onCreate: () => {
+      window?.$WowheadPower?.refreshLinks();
     },
   });
 

@@ -1,6 +1,6 @@
 import type { Editor } from "@tiptap/core";
 import { BubbleMenu as TipTapButtonMenu } from "@tiptap/react";
-import { Bold, Italic, Strikethrough } from "lucide-react";
+import { Bold, Italic, LinkIcon, Strikethrough, SwordsIcon } from "lucide-react";
 import { ToggleMark } from "./editor";
 
 export function BubbleMenu({ editor }: { editor: Editor }) {
@@ -15,6 +15,9 @@ export function BubbleMenu({ editor }: { editor: Editor }) {
         </ToggleMark>
         <ToggleMark editor={editor} mark="strike">
           <Strikethrough className="size-4" />
+        </ToggleMark>
+        <ToggleMark editor={editor} mark="link">
+          <LinkIcon className="size-4" />
         </ToggleMark>
       </div>
     </TipTapButtonMenu>

@@ -9,7 +9,7 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
-      "persistent": false,
+      "persistent": true,
       "cache": false
     }
   }
