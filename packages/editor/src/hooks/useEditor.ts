@@ -1,7 +1,7 @@
 import { useEditor as useTipTapEditor } from "@tiptap/react";
 import { StarterKit } from "@tiptap/starter-kit";
-import { Link } from "~/extensions";
 import { Details } from "~/extensions/details/details";
+import { Link } from "~/extensions/link";
 
 export function useEditor({ content }: { content?: string } = {}) {
   const editor = useTipTapEditor({

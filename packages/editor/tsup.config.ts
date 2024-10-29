@@ -2,6 +2,7 @@ import { defineConfig } from "tsup";
 
 const defaultOptions = defineConfig({
   dts: false,
+  clean: true,
   splitting: true,
   outDir: "dist",
   format: ["esm"],
@@ -10,7 +11,4 @@ const defaultOptions = defineConfig({
   platform: "browser",
 });
 
-export default defineConfig([
-  { ...defaultOptions, entry: ["src/**/!(index).ts?(x)"] },
-  { ...defaultOptions, entry: ["src/**/index.ts"], bundle: false },
-]);
+export default defineConfig([{ ...defaultOptions, entry: ["src/index.ts"] }]);

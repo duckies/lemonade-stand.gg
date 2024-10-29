@@ -1,18 +1,27 @@
 "use client";
 
-import { Details, Document, Link, TaskItem, TaskList, Title } from "@lemonade-stand/editor";
+import {
+  Column,
+  Columns,
+  Details,
+  Document,
+  DragHandle,
+  Link,
+  StarterKit,
+  TaskItem,
+  TaskList,
+  TextAlign,
+  Title,
+  Typography,
+} from "@lemonade-stand/editor";
 import { Toggle, cn } from "@lemonade-stand/ui";
 import type { EditorEvents, Editor as EditorType } from "@tiptap/core";
-import TextAlign from "@tiptap/extension-text-align";
-import Typography from "@tiptap/extension-typography";
 import { EditorContent, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 import dynamic from "next/dynamic";
-import GlobalDragHandle from "tiptap-extension-global-drag-handle";
 import { isClient } from "~/lib/utils";
 
 interface EditorProps {
-  value?: string;
+  value?: string | null;
   onChange?: (value: string) => void;
   onUpdate?: (props: EditorEvents["update"]) => void;
   editable?: boolean;
@@ -46,22 +55,21 @@ export function ToggleMark({
 export function Editor({ value, editable, className }: EditorProps) {
   const editor = useEditor({
     extensions: [
-      Document.configure({
-        content: "(block|columns)+",
-      }),
+      StarterKit.configure({ document: false }),
+      Columns,
+      Column,
+      Document,
       Title,
       Link,
-      StarterKit.configure({ document: false }),
       TextAlign.configure({ types: ["paragraph", "code"] }),
       Typography,
       Details,
-      // MechanicExtension,
-      GlobalDragHandle,
+      DragHandle,
       TaskList,
       TaskItem,
     ],
     immediatelyRender: isClient(),
-    content: value ? JSON.parse(value) : "",
+    content: value || undefined,
     editable,
     editorProps: {
       attributes: {

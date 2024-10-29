@@ -32,7 +32,7 @@ export const Columns = Node.create({
     return ["div", { "data-type": "columns", class: `layout-${HTMLAttributes.layout}` }, 0];
   },
   parseHTML() {
-    return [{ tag: 'div[data-type["columns"]' }];
+    return [{ tag: 'div[data-type="columns"]' }];
   },
   addCommands() {
     return {

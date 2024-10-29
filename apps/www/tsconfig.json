@@ -10,13 +10,14 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
+    "baseUrl": "./src",
     "plugins": [
       {
         "name": "next"
       },
     ],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./*"]
     }
   },
   "include": [

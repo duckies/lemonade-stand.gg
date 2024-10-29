@@ -9,9 +9,10 @@ import {
   DropdownMenuTrigger,
 } from "@lemonade-stand/ui";
 import Link from "next/link";
-import { type User, signOut } from "~/server/auth";
+import type { User } from "~/server/auth";
 
 export function UserNavMenu({ user }: { user: User }) {
+  console.log(user);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -28,7 +29,7 @@ export function UserNavMenu({ user }: { user: User }) {
         <DropdownMenuItem asChild>
           <Link href="/officer">Officer</Link>
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => signOut()}>Sign Out</DropdownMenuItem>
+        <DropdownMenuItem>Sign Out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -2,29 +2,26 @@
 
 import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { cache } from "react";
 import { env } from "~/env";
-import { redirect } from "next/navigation";
-import { getAuthorizationURL } from "./discord";
 import { getCookieStore } from "~/lib/cookies";
+import { getAuthorizationURL } from "./discord";
 
 export type Snowflake = string;
 
 export interface User {
-  id: Snowflake;
+  id: bigint;
   name: string;
   avatar: string;
 }
 
 export interface Session {
   user?: User;
-  access_token?: string;
-  refresh_token?: string;
-  expires_in?: number;
 }
 
-export const getSession = cache(() => {
-  return getIronSession<Session>(cookies(), {
+export const getSession = cache(async () => {
+  return getIronSession<Session>(await cookies(), {
     password: env.AUTH_SECRET,
     cookieName: "session",
     cookieOptions: {

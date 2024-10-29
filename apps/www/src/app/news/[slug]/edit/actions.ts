@@ -3,14 +3,10 @@
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { slugify } from "~/lib/string";
-import { db } from "~/server/database/database";
+import { db } from "~/server/database";
 import { type InsertPost, posts } from "~/server/database/schema";
 
 export async function updatePost(slug: string, data: Partial<InsertPost>) {
-  if (data.document) {
-    data.document = JSON.parse(data.document);
-  }
-
   if (data.title) {
     data.slug = slugify(data.title);
   }

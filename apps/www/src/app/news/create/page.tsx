@@ -4,7 +4,7 @@ import { Button, Input, Label } from "@lemonade-stand/ui";
 import { useState } from "react";
 import { Editor } from "~/components/editor/editor";
 import { Hero } from "~/components/hero";
-import { createPost } from "./actions";
+import { createPostAction } from "./actions";
 
 export default function BlogCreatePage() {
   const [title, setTitle] = useState("");
@@ -17,7 +17,7 @@ export default function BlogCreatePage() {
       <div className="bg-card px-5 py-4">
         <form
           className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 items-center"
-          action={createPost}
+          action={createPostAction}
         >
           <Label htmlFor="title">Title</Label>
           <div className="">

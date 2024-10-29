@@ -20,6 +20,16 @@
       },
       "a11y": {
         "useAltText": "off"
+      },
+      "nursery": {
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "drizzle-orm/mysql-core": "MySQL is not used in this project, this import may be an accident."
+            }
+          }
+        }
       }
     },
     "ignore": ["**/node_modules", "**/dist"]

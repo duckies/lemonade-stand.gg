@@ -1,6 +1,6 @@
-import { getSession, signIn } from "~/server/auth";
+import { Button } from "@lemonade-stand/ui";
+import { getSession } from "~/server/auth";
 import { DiscordLogo } from "./discord-logo";
-import { SubmitButton } from "./submit-button";
 import { UserNavMenu } from "./user-nav-menu";
 
 export async function UserNav() {
@@ -8,12 +8,10 @@ export async function UserNav() {
 
   if (!session.user) {
     return (
-      <form action={signIn}>
-        <SubmitButton className="flex gap-x-1.5 leading-none px-3 rounded-[.5rem]">
-          <DiscordLogo className="h-4 w-4" />
-          Sign in
-        </SubmitButton>
-      </form>
+      <Button>
+        <DiscordLogo className="h-4 w-4 mr-2" />
+        Sign In
+      </Button>
     );
   }
 

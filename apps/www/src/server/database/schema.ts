@@ -1,42 +1,75 @@
-import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
-import { date, foreignKey, pgTable, text, uuid } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
+import { bigint, pgEnum, pgTable as table, text, timestamp, unique } from "drizzle-orm/pg-core";
 
-export const events = pgTable(
-  "events",
-  {
-    id: uuid("id").primaryKey().defaultRandom(),
-    title: text("name").notNull(),
-    description: text("description"),
-    start: date("start").notNull(),
-    end: date("end"),
-    originalStart: date("originalStart"),
-    recurrence: text("recurrence"),
-    parentId: uuid("parent_id"),
-  },
-  (table) => {
-    return {
-      parentReference: foreignKey({
-        columns: [table.parentId],
-        foreignColumns: [table.id],
-      }),
-    };
-  },
-);
-
-export type Event = InferSelectModel<typeof events>;
-export type InsertEvent = InferInsertModel<typeof events>;
-
-export const posts = pgTable("posts", {
-  slug: text("slug").primaryKey(),
-  title: text("title").notNull(),
-  description: text("description"),
-  document: text("document").notNull(),
-  createdAt: date("created_at").notNull().defaultNow(),
-  updatedAt: date("updated_at")
-    .notNull()
-    .defaultNow()
-    .$onUpdate(() => "now()"),
+export const users = table("users", {
+  id: bigint({ mode: "bigint" }).primaryKey(),
+  nickname: text(),
+  updatedAt: timestamp({ mode: "date", precision: 0 }).$onUpdateFn(() => new Date()),
 });
 
-export type Post = InferSelectModel<typeof posts>;
-export type InsertPost = InferInsertModel<typeof posts>;
+export const usersRelations = relations(users, ({ many }) => ({
+  posts: many(posts),
+}));
+
+export type User = typeof users.$inferSelect;
+
+export const Providers = ["discord", "battle.net"] as const;
+
+export type Provider = (typeof Providers)[number];
+
+export const providerEnum = pgEnum("provider", Providers);
+
+export const accounts = table(
+  "accounts",
+  {
+    id: bigint({ mode: "bigint" }).primaryKey(),
+    userId: bigint({ mode: "bigint" })
+      .references(() => users.id)
+      .notNull(),
+    providerType: providerEnum().notNull(),
+    providerId: text().notNull(),
+    refreshToken: text(),
+    accessToken: text(),
+    accessTokenExpiresAt: timestamp({ mode: "date" }),
+    updatedAt: timestamp({ mode: "date", precision: 0 }).$onUpdateFn(() => new Date()),
+  },
+  (table) => ({
+    uniqueAccounts: unique().on(table.providerId, table.providerType),
+  }),
+);
+
+export const accountsRelations = relations(accounts, ({ one }) => ({
+  user: one(users, {
+    fields: [accounts.userId],
+    references: [users.id],
+  }),
+}));
+
+export const sessions = table("sessions", {
+  id: text().primaryKey(),
+  userId: bigint({ mode: "bigint" })
+    .references(() => users.id, { onDelete: "cascade" })
+    .notNull(),
+  expiresAt: timestamp({ mode: "date" }),
+});
+
+export const posts = table("posts", {
+  id: bigint({ mode: "bigint" }).primaryKey(),
+  title: text().notNull(),
+  slug: text().notNull().unique(),
+  description: text(),
+  content: text(),
+  authorId: bigint({ mode: "bigint" })
+    .references(() => users.id, { onDelete: "cascade" })
+    .notNull(),
+  updatedAt: timestamp({ mode: "date", precision: 0 }).$onUpdateFn(() => new Date()),
+});
+
+export const postsRelations = relations(posts, ({ one }) => ({
+  author: one(users, {
+    fields: [posts.authorId],
+    references: [users.id],
+  }),
+}));
+
+export type Post = typeof posts.$inferSelect;

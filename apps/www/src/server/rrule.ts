@@ -1,5 +1,5 @@
 import { RRule } from "rrule";
-import { db } from "./database/database";
+import { db } from "./database";
 import { events, type InsertEvent } from "./database/schema";
 import { type CreateEventDTO, createEventSchema } from "./dto/create-event.dto";
 

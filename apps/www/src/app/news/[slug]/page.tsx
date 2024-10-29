@@ -4,16 +4,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Editor } from "~/components/editor/editor";
 import { Hero } from "~/components/hero";
-import { db } from "~/server/database/database";
-import { posts } from "~/server/database/schema";
+import { db } from "~/server/database";
 
 export default async function BlogPostPage({ params }: Readonly<{ params: { slug: string } }>) {
-  const results = await db.select().from(posts).where(eq(posts.slug, params.slug)).limit(1);
+  const results = await db
+    .select()
+    .from(db.t.posts)
+    .where(eq(db.t.posts.slug, params.slug))
+    .limit(1);
   const post = results[0];
 
   if (!post) {
     notFound();
   }
+
+  console.log(post);
 
   return (
     <div>
@@ -22,7 +27,7 @@ export default async function BlogPostPage({ params }: Readonly<{ params: { slug
           Edit Post
         </Link>
       </Hero>
-      <Editor value={post.document} editable={false} />
+      <Editor value={post.content} editable={false} />
     </div>
   );
 }

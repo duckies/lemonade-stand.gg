@@ -1,21 +1,10 @@
 "use client";
 
-import {
-  Column,
-  Columns,
-  ColumnsMenu,
-  Document,
-  Link,
-  LinkMenu,
-  SlashCommand,
-  TaskItem,
-  TaskList,
-  TextMenu,
-} from "@lemonade-stand/editor";
-import { Button, Input, Label, cn } from "@lemonade-stand/ui";
+import { ColumnsMenu, LinkMenu, TextMenu } from "@lemonade-stand/editor";
+import { Link, SlashCommand, TaskItem, TaskList } from "@lemonade-stand/editor";
+import { Button, cn } from "@lemonade-stand/ui";
 import { EditorContent, type UseEditorOptions, useEditor } from "@tiptap/react";
-import Script from "next/script";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { DefaultExtensions } from "~/components/editor/extensions";
 import { SlashCommands } from "~/components/editor/slash-commands";
 import type { Post } from "~/server/database/schema";
@@ -27,7 +16,7 @@ export interface EditorFormProps extends UseEditorOptions {
 }
 
 export function EditPostForm({ post, className, action, ...props }: EditorFormProps) {
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const menuContainerRef = useRef(null);
 
   const editor = useEditor({
@@ -36,22 +25,22 @@ export function EditPostForm({ post, className, action, ...props }: EditorFormPr
       SlashCommand.configure({
         commands: SlashCommands,
       }),
-      // TaskList.configure({
-      //   HTMLAttributes: {
-      //     class: "not-prose items-start pl-2",
-      //   },
-      // }),
-      // TaskItem.configure({
-      //   HTMLAttributes: {
-      //     class: "flex gap-2 items-center my-4",
-      //   },
-      //   nested: true,
-      // }),
+      TaskList.configure({
+        HTMLAttributes: {
+          class: "not-prose items-start pl-2",
+        },
+      }),
+      TaskItem.configure({
+        HTMLAttributes: {
+          class: "flex gap-2 items-center my-4",
+        },
+        nested: true,
+      }),
       Link,
     ],
     immediatelyRender: false,
     shouldRerenderOnTransaction: false,
-    // content: JSON.parse(post.document),
+    content: post.document,
     editorProps: {
       attributes: {
         class: cn(
@@ -78,7 +67,7 @@ export function EditPostForm({ post, className, action, ...props }: EditorFormPr
   const onSave = async () => {
     if (!editor) return;
 
-    setLoading(true);
+    // setLoading(true);
 
     const data = {
       title: editor.view.state.doc.firstChild?.textContent.trim(),
@@ -88,7 +77,7 @@ export function EditPostForm({ post, className, action, ...props }: EditorFormPr
 
     await action(post.slug, data);
 
-    setLoading(false);
+    // setLoading(false);
   };
 
   if (!editor) return null;

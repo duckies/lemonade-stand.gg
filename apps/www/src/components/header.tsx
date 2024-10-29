@@ -9,13 +9,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@lemonade-stand/ui";
 import Link from "next/link";
-import {
-  // type ComponentPropsWithRef,
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  forwardRef,
-} from "react";
+import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from "react";
 import { LemonLogo } from "./icons/logo";
+import { NavigationMenuInternalLink } from "./navigation-menu-internal-link";
 import { UserNav } from "./user-nav";
 
 const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
@@ -43,7 +39,7 @@ const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
 export function Header() {
   return (
     <header className="container px-6 flex z-50 top-0 w-full mt-4 justify-center ">
-      <div className="flex w-full justify-between backdrop-blur-sm bg-card/50 rounded-xl shadow-sm">
+      <div className="flex w-full justify-between">
         <Link className="flex items-center space-x-2 mr-4 lg:mr-6" href="/">
           <div className="p-3 rounded-full mr-2">
             <LemonLogo className="w-7 h-7 drop-shadow-sm hover:animate-rocking ease-in-back transition-transform" />
@@ -58,11 +54,19 @@ export function Header() {
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
-                      <Link href="/news" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          News
-                        </NavigationMenuLink>
-                      </Link>
+                      <NavigationMenuInternalLink href="/">Home</NavigationMenuInternalLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                      <NavigationMenuInternalLink href="/news">News</NavigationMenuInternalLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                      <NavigationMenuLink
+                        href="https://forms.gle/ZpkSMh5obXPk6Vnd7"
+                        target="_blank"
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        Apply
+                      </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                       <NavigationMenuTrigger>Links</NavigationMenuTrigger>

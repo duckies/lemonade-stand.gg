@@ -6,7 +6,6 @@ import {
   Heading2Icon,
   Heading3Icon,
   QuoteIcon,
-  SwordIcon,
 } from "lucide-react";
 
 export const SlashCommands: SlashCommandItem[] = [

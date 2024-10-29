@@ -1,15 +1,15 @@
 import { buttonVariants, cn } from "@lemonade-stand/ui";
 import Link from "next/link";
+import { posts } from "server/database/schema";
 import { Hero } from "~/components/hero";
-import { db } from "~/server/database/database";
-import { posts } from "~/server/database/schema";
+import { db } from "~/server/database";
 
-export default async function BlogIndexPage() {
+export default async function PostsIndexPage() {
   const posties = await db.select().from(posts).limit(10);
 
   return (
     <div>
-      <Hero title="Blog" subtitle="Latest ramblings from the standers">
+      <Hero title="Posts" subtitle="Latest ramblings from the standers">
         <Link href="/news/create" className={cn(buttonVariants({ variant: "outline" }))}>
           New Post
         </Link>

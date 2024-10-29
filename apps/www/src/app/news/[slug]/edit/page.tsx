@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { Hero } from "~/components/hero";
-import { db } from "~/server/database/database";
+import { db } from "~/server/database";
 import { posts } from "~/server/database/schema";
 import { updatePost } from "./actions";
 import { EditPostForm } from "./edit-post-form";

@@ -1,5 +1,5 @@
 import type { Editor } from "@tiptap/react";
-import { Link } from "~/extensions";
+import { Link } from "~/extensions/link";
 
 export function isTableGripSelected(node: HTMLElement) {
   let container = node;
