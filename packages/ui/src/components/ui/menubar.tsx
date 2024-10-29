@@ -4,7 +4,7 @@ import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import * as React from "react";
 
-import { cn } from "~/utils/cn";
+import { cn } from "../../utils/cn";
 
 // FIXME: Type inference error. This might be because of the star import?
 const MenubarMenu = MenubarPrimitive.Menu as typeof MenubarPrimitive.Menu;

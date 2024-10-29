@@ -2,19 +2,10 @@
   "name": "@lemonade-stand/ui",
   "private": true,
   "type": "module",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": ["dist", "package.json"],
+  "sideEffects": false,
+  "exports": "./src/index.ts",
   "scripts": {
-    "build": "tsup --onSuccess \"tsc --declaration --emitDeclarationOnly\"",
-    "dev": "tsup --watch --onSuccess \"tsc --declaration --emitDeclarationOnly\"",
-    "type-check": "tsc --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

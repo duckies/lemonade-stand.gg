@@ -7,8 +7,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
-import { type Period, display12HourValue, setDateByType } from "~/utils/time";
+} from "../../components/ui/select";
+import { type Period, display12HourValue, setDateByType } from "../../utils/time";
 
 export interface PeriodSelectorProps {
   id?: string;
