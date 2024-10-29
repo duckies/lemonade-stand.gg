@@ -3,9 +3,9 @@
 import type { Editor } from "@tiptap/core";
 import { BubbleMenu } from "@tiptap/react";
 import { BoldIcon } from "lucide-react";
-import { useTextMenuCommands } from "~/hooks/useTextMenuCommands";
-import { useTextMenuContentTypes } from "~/hooks/useTextMenuContentTypes";
-import { useTextMenuStates } from "~/hooks/useTextMenuStates";
+import { useTextMenuCommands } from "../../hooks/useTextMenuCommands";
+import { useTextMenuContentTypes } from "../../hooks/useTextMenuContentTypes";
+import { useTextMenuStates } from "../../hooks/useTextMenuStates";
 import { ContentTypePicker } from "../ContentTypePicker";
 import { EditLinkPopover } from "../EditLinkPopover";
 import { Toolbar } from "../ui/toolbar";

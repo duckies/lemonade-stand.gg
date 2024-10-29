@@ -1,9 +1,9 @@
 import { type Editor, useEditorState } from "@tiptap/react";
 import deepEql from "fast-deep-equal";
 import { useCallback } from "react";
-import isCustomNodeSelected from "~/lib/isCustomNodeSelected";
-import { isTextSelected } from "~/lib/isTextSelected";
-import type { ShouldShowProps } from "~/types";
+import isCustomNodeSelected from "../lib/isCustomNodeSelected";
+import { isTextSelected } from "../lib/isTextSelected";
+import type { ShouldShowProps } from "../types";
 
 export function useTextMenuStates(editor: Editor) {
   const states = useEditorState({

@@ -3,8 +3,8 @@ import DragHandle from "@tiptap-pro/extension-drag-handle-react";
 import type { Editor } from "@tiptap/core";
 import { GrabIcon, PlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useContentItemActions } from "~/hooks/useContentItemActions";
-import { useData } from "~/hooks/useData";
+import { useContentItemActions } from "../../hooks/useContentItemActions";
+import { useData } from "../../hooks/useData";
 import { Toolbar } from "../ui/toolbar";
 
 export interface ContentItemMenuProps {

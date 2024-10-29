@@ -1,7 +1,7 @@
 import type { Editor } from "@tiptap/core";
 import { useEditorState } from "@tiptap/react";
 import deepEql from "fast-deep-equal";
-import type { ContentPickerOptions } from "~/components/ContentTypePicker";
+import type { ContentPickerOptions } from "../components/ContentTypePicker";
 
 export function useTextMenuContentTypes(editor: Editor): ContentPickerOptions {
   return useEditorState({

@@ -1,7 +1,7 @@
 "use client";
 
 import { EditorContent } from "@tiptap/react";
-import { useEditor } from "~/hooks/useEditor";
+import { useEditor } from "../hooks/useEditor";
 import { ContentItemMenu } from "./menus/ContentItemMenu";
 import { TextMenu } from "./menus/TextMenu";
 
