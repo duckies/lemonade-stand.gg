@@ -4,7 +4,7 @@ import { BubbleMenu, useEditorState } from "@tiptap/react";
 import { Columns2Icon, PanelLeft, PanelRight } from "lucide-react";
 import { type RefObject, useCallback, useId } from "react";
 import { sticky } from "tippy.js";
-import { getRenderContainer } from "~/lib/utils";
+import { getRenderContainer } from "../../../lib/utils";
 import { ColumnLayout } from "../columns";
 
 interface ColumnsMenuProps {
