@@ -10,6 +10,7 @@ export function LemonLogo(props: IconProps) {
       height="400"
       viewBox="0 0 400 400"
       fill="none"
+      aria-hidden="true"
       {...props}
     >
       <path

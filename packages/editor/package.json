@@ -5,7 +5,7 @@
   "sideEffects": false,
   "exports": "./src/index.ts",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "@lemonade-stand/ui": "workspace:*",
@@ -34,6 +34,7 @@
     "tiptap-extension-global-drag-handle": "^0.1.13"
   },
   "peerDependencies": {
+    "@lemonade-stand/tsconfig": "workspace:*",
     "@types/react": "*",
     "@types/react-dom": "*",
     "react": "^19.0.0-rc",

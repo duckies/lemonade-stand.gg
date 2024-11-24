@@ -57,7 +57,7 @@ export function Header() {
                       <NavigationMenuInternalLink href="/">Home</NavigationMenuInternalLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                      <NavigationMenuInternalLink href="/news">News</NavigationMenuInternalLink>
+                      <NavigationMenuInternalLink href="/blog">Blog</NavigationMenuInternalLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                       <NavigationMenuLink

@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
 import { bigint, pgEnum, pgTable as table, text, timestamp, unique } from "drizzle-orm/pg-core";
+import { genSnowflake } from "~/utils/snowflake";
 
 export const users = table("users", {
   id: bigint({ mode: "bigint" }).primaryKey(),
@@ -54,7 +55,7 @@ export const sessions = table("sessions", {
 });
 
 export const posts = table("posts", {
-  id: bigint({ mode: "bigint" }).primaryKey(),
+  id: bigint({ mode: "bigint" }).primaryKey().$defaultFn(() => genSnowflake()),
   title: text().notNull(),
   slug: text().notNull().unique(),
   description: text(),

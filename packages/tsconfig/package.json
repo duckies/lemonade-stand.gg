@@ -1,0 +1,8 @@
+{
+  "name": "@lemonade-stand/tsconfig",
+  "private": true,
+  "exports": {
+    ".": "./src/base.json",
+    "./nextjs": "./src/nextjs.json"
+  }
+}

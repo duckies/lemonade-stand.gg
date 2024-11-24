@@ -1,27 +1,21 @@
-import { http } from "@lemonade-stand/common";
+import { Hono } from "hono";
+import { prettyJSON } from "hono/pretty-json";
+import auth from "modules/auth/auth.routes";
+import users from "modules/users/users.routes";
 
-const request = await http("https://jsonplaceholder.typicode.com/todos/1").arrayBuffer();
+// Validate environment variables.
+import "./env";
 
-console.log(request);
+const app = new Hono();
 
-// const api = new WarcraftLogs({
-//   clientId: process.env.WARCRAFTLOGS_CLIENT_ID as string,
-//   clientSecret: process.env.WARCRAFTLOGS_SECRET_KEY as string,
-// });
+app.get("/", (c) => c.text("Lemonade Stand API"));
 
-// const response = await api.query(`{
-//   reportData {
-// 		reports(guildName: "TBD", guildServerSlug: "illidan", guildServerRegion: "us") {
-// 			data {
-// 				code,
-// 				title,
-// 				zone {
-// 					id,
-// 					name
-// 				}
-// 			}
-// 		}
-// 	}
-// }`);
+app.use("*", prettyJSON());
 
-// api.log(await response.json());
+app.route("/auth", auth);
+app.route("/users", users);
+
+export default {
+  port: Number.parseInt(process.env.PORT!) || 8080,
+  fetch: app.fetch,
+};

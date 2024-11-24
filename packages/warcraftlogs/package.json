@@ -1,13 +1,10 @@
 {
   "name": "@lemonade-stand/warcraftlogs",
-  "version": "1.0.0",
-  "description": "",
-  "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "@lemonade-stand/common": "workspace:*",
@@ -15,6 +12,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "20.11.1"
+    "@lemonade-stand/tsconfig": "workspace:*"
   }
 }
