@@ -13,7 +13,6 @@
   "dependencies": {
     "@hookform/resolvers": "3.9.1",
     "@lemonade-stand/database": "workspace:*",
-    "@lemonade-stand/editor": "workspace:*",
     "@lemonade-stand/ui": "workspace:*",
     "@lemonade/markdown": "workspace:*",
     "@mdx-js/loader": "3.1.0",
@@ -55,8 +54,6 @@
     "@lemonade-stand/tsconfig": "workspace:*",
     "@next/env": "15.0.3",
     "@tailwindcss/typography": "0.5.14",
-    "@tiptap/core": "2.8.0",
-    "@tiptap/react": "2.8.0",
     "@types/mdx": "2.0.13",
     "@types/node": "20.11.1",
     "@types/pg": "8.11.10",
