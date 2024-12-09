@@ -1,6 +1,8 @@
 import { cn } from "@lemonade-stand/ui";
 import { Link, type LinkProps } from "components/Link";
 import * as ClassColors from "components/markdown/class-colors";
+import * as Markers from "components/markdown/markers";
+import { Component } from "lucide-react";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
 import type { ComponentPropsWithoutRef } from "react";
@@ -13,8 +15,15 @@ declare global {
 
 export const DefaultMDXComponents = {
   ...ClassColors,
+  ...Markers,
   Mechanic,
   Video,
+  code: ({ className, ...props }: ComponentPropsWithoutRef<"code">) => (
+    <code
+      className={cn("font-mono text-sm bg-card rounded py-[0.2rem] px-[0.3rem]", className)}
+      {...props}
+    />
+  ),
   // h1: (props: ComponentPropsWithoutRef<"h1">) => <h1 {...props} />,
   // h2: ({ className, ...props }: ComponentPropsWithoutRef<"h2">) => (
   //   <h2
