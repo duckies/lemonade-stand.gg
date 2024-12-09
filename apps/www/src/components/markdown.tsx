@@ -4,43 +4,45 @@ import type { ImageProps } from "next/image";
 import Image from "next/image";
 import type { ComponentPropsWithoutRef } from "react";
 import { Mechanic } from "./markdown/mechanic";
+import { Video } from "./markdown/video";
 
 export const DefaultMDXComponents = {
   Mechanic,
-  h1: (props: ComponentPropsWithoutRef<"h1">) => <h1 {...props} />,
-  h2: ({ className, ...props }: ComponentPropsWithoutRef<"h2">) => (
-    <h2
-      className={cn(
-        "mt-12 scroll-m-20 text-3xl font-semibold tracking-wide first:mt-0 font-serif",
-        className,
-      )}
-      {...props}
-    />
-  ),
-  h3: ({ className, ...props }: ComponentPropsWithoutRef<"h3">) => (
-    <h3
-      className={cn("mt-8 scroll-m-20 text-2xl font-semibold font-serif tracking-wide", className)}
-      {...props}
-    />
-  ),
-  h4: ({ className, ...props }: ComponentPropsWithoutRef<"h4">) => (
-    <h4
-      className={cn("mt-8 scroll-m-20 text-xl font-semibold font-serif tracking-wide", className)}
-      {...props}
-    />
-  ),
+  Video,
+  // h1: (props: ComponentPropsWithoutRef<"h1">) => <h1 {...props} />,
+  // h2: ({ className, ...props }: ComponentPropsWithoutRef<"h2">) => (
+  //   <h2
+  //     className={cn(
+  //       "mt-12 scroll-m-20 text-3xl font-semibold tracking-wide first:mt-0 font-serif",
+  //       className,
+  //     )}
+  //     {...props}
+  //   />
+  // ),
+  // h3: ({ className, ...props }: ComponentPropsWithoutRef<"h3">) => (
+  //   <h3
+  //     className={cn("mt-8 scroll-m-20 text-2xl font-semibold font-serif tracking-wide", className)}
+  //     {...props}
+  //   />
+  // ),
+  // h4: ({ className, ...props }: ComponentPropsWithoutRef<"h4">) => (
+  //   <h4
+  //     className={cn("mt-8 scroll-m-20 text-xl font-semibold font-serif tracking-wide", className)}
+  //     {...props}
+  //   />
+  // ),
   p: ({ className, ...props }: ComponentPropsWithoutRef<"p">) => (
     <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)} {...props} />
   ),
-  ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-6 ml-10 list-disc marker:text-yellow-300", className)} {...props} />
-  ),
-  ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-6 ml-10 list-decimal marker:text-yellow-300", className)} {...props} />
-  ),
-  li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <li className={cn("mt-3", className)} {...props} />
-  ),
+  // ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
+  //   <ul className={cn("my-6 ml-10 list-disc marker:text-yellow-300", className)} {...props} />
+  // ),
+  // ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
+  //   <ol className={cn("my-6 ml-10 list-decimal marker:text-yellow-300", className)} {...props} />
+  // ),
+  // li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+  //   <li className={cn("mt-3", className)} {...props} />
+  // ),
   blockquote: ({ className, ...props }: ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote
       className={cn(

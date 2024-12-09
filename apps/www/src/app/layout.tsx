@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 import "~/styles/globals.css";
+import "~/styles/wowhead.css";
 
 import { cn } from "@lemonade-stand/ui";
-import { Poppins } from "next/font/google";
+import { Lexend } from "next/font/google";
 import localFont from "next/font/local";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
@@ -16,7 +17,14 @@ export const metadata: Metadata = {
   description: "Premiere lemon-scented guild of Illidan",
 };
 
-const fontSans = Poppins({
+// const fontSans = Poppins({
+//   subsets: ["latin"],
+//   weight: ["400", "500", "700"],
+//   display: "swap",
+//   variable: "--font-sans",
+// });
+
+const fontSans = Lexend({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "swap",

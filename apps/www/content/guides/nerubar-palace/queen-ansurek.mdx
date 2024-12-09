@@ -7,13 +7,22 @@ abilities:
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@lemonade-stand/ui"
 
-import setupOne from "./setup-1.png";                                                
-      import setupTwo from "./setup-2.png";
-import ImageP1Part1 from "./ansurek_p1_1.png";
-import ImageP1Part2 from "./ansurek_p1_2.png";
-import ImageP1Part3 from "./ansurek_p1_3.png";
-import ImageP1Part4 from "./ansurek_p1_3.png";
-import ImageP1Blades from "./ansurek_p1_blades.png";
+import ansurek_setup_1 from "./images/ansurek_setup_1.png"; 
+import ansurek_setup_2 from "./images/ansurek_setup_2.png";
+import ansurek_mp1_blades from "./images/ansurek_mp1_blades.png";
+
+import img_ansurek_mp1_1 from "./images/ansurek_mp1_1.png";
+import img_ansurek_mp1_2 from "./images/ansurek_mp1_2.png";
+import img_ansurek_mp1_3 from "./images/ansurek_mp1_3.png";
+import img_ansurek_mp1_4 from "./images/ansurek_mp1_4.png";
+import img_ansurek_mp1_5 from "./images/ansurek_mp1_5.png";
+import img_ansurek_mp1_6 from "./images/ansurek_mp1_6.png";
+import img_ansurek_mp1_7 from "./images/ansurek_mp1_7.png";
+import img_ansurek_mp1_8 from "./images/ansurek_mp1_8.png";
+import img_ansurek_mp1_9 from "./images/ansurek_mp1_9.png";
+import img_ansurek_mp1_10 from "./images/ansurek_mp1_10.png";
+import img_ansurek_mp1_11 from "./images/ansurek_mp1_11.png";
+import img_ansurek_mp1_12 from "./images/ansurek_mp1_12.png";
 
 export function DeathKnight({ children }) {
   return (<span className="text-class-death-knight">{children}</span>)
@@ -25,16 +34,18 @@ export function DeathKnight({ children }) {
 1. Disable "Reactive Toxin Marker" if you may be given assist.
 2. Click on the ">>" arrows on "Reactive Toxin" and disable "Say" and "Say Countdown".
 
-<Image src={setupOne} alt="BigWigs Setup 1" className="mx-auto"/>
+<Image src={ansurek_setup_2} alt="BigWigs Setup 1" className="mx-auto"/>
 
-<Image src={setupTwo} alt="BigWigs Setup 2" className="mx-auto" />
+<Image src={ansurek_setup_2} alt="BigWigs Setup 2" className="mx-auto" />
 
-## Phase 1
+
 The first phase revolves around space management and being consistent with the bombs. In your own personal preparation be weary of pre-nerf materials, as phase one changes were significant.
 
-### Mechanics
+## Mechanics
 
-#### Mythic Changes
+These are the mechanics that are changed or worth commenting on in mythic.
+
+### Phase 1 Mechanics
 
 <Mechanic id="437592" name="Reactive Toxin" caption="Sets 2 and 3 spawn 3 bombs instead of 2.">
 The major change to Phase 1, the 2nd and 3rd set of Reactive Toxin goes out 3 players, spawning 3 [Reactive Froth](https://www.wowhead.com/spell=438846) bombs instead of 2. Be weary of looking at old preparation materials for this fight as the third set used to have 4 bombs (2-3-4), post-nerf it’s 2-3-3.
@@ -104,26 +115,33 @@ There is utility in Monks, Holy Paladins, Priests, and Rogues being Gnomes so th
 </Mechanic>
 
 
-## Strategy
-This RaidPlan has been made so that it lines up with the movement seen in log replays.
-- [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R)
+## Phase 1 Strategy
+The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been made so that it lines up with the movement seen in log replays. 
 
-<Tabs defaultValue="part1">
+<Tabs defaultValue="part1" className="mt-4">
   <TabsList>
-    <TabsTrigger value="part1">1</TabsTrigger>
-    <TabsTrigger value="part2">2</TabsTrigger>
-    <TabsTrigger value="part3">3</TabsTrigger>
-    <TabsTrigger value="part4">4</TabsTrigger>
+    <TabsTrigger value="part1">Part 1</TabsTrigger>
+    <TabsTrigger value="part2">Part 2</TabsTrigger>
+    <TabsTrigger value="part3">Part 3</TabsTrigger>
+    <TabsTrigger value="part4">Part 4</TabsTrigger>
+    <TabsTrigger value="part5">Part 5</TabsTrigger>
+    <TabsTrigger value="part6">Part 6</TabsTrigger>
+    <TabsTrigger value="part7">Part 7</TabsTrigger>
+    <TabsTrigger value="part8">Part 8</TabsTrigger>
+    <TabsTrigger value="part9">Part 9</TabsTrigger>
+    <TabsTrigger value="part10">Part 10</TabsTrigger> 
+    <TabsTrigger value="part11">Part 11</TabsTrigger>
+    <TabsTrigger value="part12">Part 12</TabsTrigger>
   </TabsList>
 
-  <div className="bg-muted rounded-lg px-5 py-4 mt-3">
+  <div className="bg-muted rounded-lg px-5 pt-4 pb-7 mt-3">
     <TabsContent value="part1">
-      <Image src={ImageP1Part1} alt="Phase 1 Part 1" />
+      <Image src={img_ansurek_mp1_1} alt="Phase 1 Part 1" />
 
       The fight is started with the boss brought to the tip immediately to the right if you were running onto the platform. Everyone will stack on her to keep acid pools as close together as possible, just as on heroic.
     </TabsContent>
     <TabsContent value="part2">
-      <Image src={ImageP1Part2} alt="Phase 1 Part 2" />
+      <Image src={img_ansurek_mp1_2} alt="Phase 1 Part 2" />
 
       Roots are placed as closely as possible to any preceding acid, but avoid crossing into the trapezoid on the other side of the red line as we want to keep this area clean for the intermission.
 
@@ -131,17 +149,17 @@ This RaidPlan has been made so that it lines up with the movement seen in log re
       - Tanks or those with immunities can dip into the acid before removing their root to save space.
     </TabsContent>
     <TabsContent value="part3">
-      <Image src={ImageP1Part3} alt="Phase 1 Part 3" />
+      <Image src={img_ansurek_mp1_3} alt="Phase 1 Part 3" />
 
       During [Web Blades](https://www.wowhead.com/spell=439299/web-blades) melee will stack with the active tank in front of the boss near the edge and ranged loosely spread on the other side of the boss. Avoid being ahead of the group.
 
       - The Web Blades will spawn every 0.5 seconds until 3 are spawned, after which there is a 1-second delay before they erupt every 0.5 seconds in the same order they spawned in.
       - Everyone will refer to the WeakAura on their screen and wait to move until the last blade spawns (the last green tick), or at the least stagger movement as a cohesive unit. We want to avoid someone running 20 yards ahead of the group and cutting everyone off if they are targeted.
       
-      <Image src={ImageP1Blades} alt="Phase 1 Blades WeakAura" className="mx-auto" />
+      <Image src={ansurek_mp1_blades} alt="Phase 1 Blades WeakAura" className="mx-auto" />
     </TabsContent>
     <TabsContent value="part4">
-      <Image src={ImageP1Part4} alt="Phase 1 Part 4" />
+      <Image src={img_ansurek_mp1_4} alt="Phase 1 Part 4" />
 
       The first set of [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) goes out on 2 players and spawns 2 [Reactive Froth](https://www.wowhead.com/spell=438846) bombs.
 
@@ -150,12 +168,44 @@ This RaidPlan has been made so that it lines up with the movement seen in log re
       - There must be enough room between these bomb circles for the raid to stack between.
       - The bomb circles should be touching the web miasma to save space, but no further. If the bomb is half in the web miasma and the boss is too close to the melee stack, melee players can get hit by the wave since they cannot back away from her.
     </TabsContent>
+    <TabsContent value="part5">
+      <Image src={img_ansurek_mp1_5} alt="Phase 1 Part 5" />
+    </TabsContent>
+    <TabsContent value="part6">
+      <Image src={img_ansurek_mp1_6} alt="Phase 1 Part 6" />
+    </TabsContent>
+    <TabsContent value="part7">
+      <Image src={img_ansurek_mp1_7} alt="Phase 1 Part 7" />
+    </TabsContent>
+    <TabsContent value="part8">
+      <Image src={img_ansurek_mp1_8} alt="Phase 1 Part 8" />
+    </TabsContent>
+    <TabsContent value="part9">
+      <Image src={img_ansurek_mp1_9} alt="Phase 1 Part 9" />
+    </TabsContent>
+    <TabsContent value="part10">
+      <Image src={img_ansurek_mp1_10} alt="Phase 1 Part 10" />
+    </TabsContent>
+    <TabsContent value="part11">
+      <Image src={img_ansurek_mp1_11} alt="Phase 1 Part 11" />
+    </TabsContent>
+    <TabsContent value="part12">
+      <Image src={img_ansurek_mp1_12} alt="Phase 1 Part 12" />
+    </TabsContent>
   </div>
 </Tabs>
 
+## Videos & Resources
 
+This Stankie video is a good high-level overview of the fight.
+<Video src="https://www.youtube.com/watch?v=7z-LtOGJjPk&t=137s" />
 
+Dratnos explains well the reasonings behind certain setups, issues that may arrise, and tank specific positioning. Beware that this is a pre-nerf video, but he discusses this in a pinned comment.
+<Video src="https://www.youtube.com/watch?v=09u9YjCbeZ8" />
 
+A Fury Warrior pov video from Northern Sky's kill. This is pre-nerf, but it's not visually cluttered and they are the patrons of our WeakAura pack, and therefore, we mimic their core strategies.
+
+<Video src="https://www.youtube.com/watch?v=R-lWgXcRJ2E" />
 
 
 

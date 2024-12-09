@@ -1,0 +1,66 @@
+a[data-wh-icon-added="true"] del {
+  display: none;
+}
+
+a[data-wh-icon-added="true"] ins {
+  top: 0;
+  left: 0;
+}
+
+a[data-wh-icon-added="true"] .iconsmall {
+  height: 18px;
+  width: 18px;
+  margin-right: 3px;
+  border-radius: 2px;
+  top: -2px;
+  overflow: hidden;
+}
+
+.wowhead-tooltip .whtt-tooltip-icon {
+  left: -45px !important;
+  top: -1px !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.wowhead-tooltip .whtt-tooltip-icon .iconmedium {
+  height: 36px !important;
+  width: 36px !important;
+  border: 1px solid #f9cb58;
+}
+
+.wowhead-tooltip .whtt-tooltip-icon .iconmedium ins {
+  position: initial !important;
+  border-radius: 0;
+  width: 100%;
+}
+
+.wowhead-tooltip .whtt-tooltip-icon del {
+  display: none !important;
+}
+
+.wowhead-tooltip iconmedium ins {
+  @apply left-0 top-0;
+}
+
+.wowhead-tooltip b {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.wowhead-tooltip th,
+.wowhead-tooltip td {
+  @apply text-sm !important;
+  background-image: none !important;
+}
+
+.wowhead-tooltip > table {
+  background: hsl(270deg 13% 7% / 90%) !important;
+  backdrop-filter: blur(5px);
+}
+
+.wowhead-tooltip {
+  @apply shadow-xl;
+
+  border: 1px solid #f9cb58;
+}

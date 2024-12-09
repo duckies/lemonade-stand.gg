@@ -29,8 +29,6 @@
     --radius: 0.5rem;
   }
 
-
-
   .dark {
     --background: 249 15% 9%; 
     --foreground: 0 0% 100%;
@@ -60,6 +58,7 @@
   /* Serif Theme */
   .dark {
     --background: 240 8% 5%;
+    --foreground: 0 0% 85%;
     --muted-foreground: 0 0% 63.9%;
     --card: 240 9% 7%;
     --card-foreground: 250 45% 86%; 
@@ -82,6 +81,43 @@
   }
 
   .prose {
+
+    h1 {
+      color: #fff;
+      font-weight: 800;
+      font-size: 2.25em;
+      margin-top: 0;
+      margin-bottom: 0.8888889em;
+      line-height: 1.1111111;
+    }
+
+    h2 {
+      color: #ddd;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      line-height: 1.3333333;
+    }
+
+    h3 {
+      color: inherit;
+      font-weight: 600;
+      font-size: 1.25em;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    h4 {
+      color: inherit;
+      font-weight: 600;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+    }
+    
     h1, h2, h3, h4, h5, h6  {
       > a {
         text-decoration-color: transparent;
@@ -91,6 +127,103 @@
           text-decoration-color: currentColor;
         }
       }
+    }
+
+    ol[type='A'] {
+      list-style-type: upper-alpha;
+    }
+
+    ol[type='a'] {
+      list-style-type: lower-alpha;
+    }
+
+    ol[type='A s'] {
+      list-style-type: upper-alpha;
+    }
+
+    ol[type='a s'] {
+      list-style-type: lower-alpha;
+    }
+
+    ol[type='I'] {
+      list-style-type: upper-roman;
+    }
+
+    ol[type='i'] {
+      list-style-type: lower-roman;
+    }
+
+    ol[type='I s'] {
+      list-style-type: upper-roman;
+    }
+
+    ol[type='i s'] {
+      list-style-type: lower-roman;
+    }
+
+    ol[type='1'] {
+      list-style-type: decimal;
+    }
+
+    ol > li {
+      position: relative;
+      padding-left: 1.75em;
+    
+      &::before {
+        content: counter(list-item, var(--list-counter-style, decimal)) '.';
+        position: absolute;
+        font-weight: 400;
+        left: 0;
+        @apply text-yellow-200;
+      }
+    }
+
+    ul > li {
+      position: relative;
+      padding-left: 1.75em;
+
+      &::before {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        width: 0.375em;
+        height: 0.375em;
+        top: calc(0.875em - 0.1875em);
+        left: 0.25em;
+        @apply bg-yellow-300;
+      }
+    }
+
+    ol, ul {
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+      list-style-type: none;
+    }
+
+    li {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    > ul > li p {
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
+    }
+
+    > ol > li > *first-child {
+      margin-top: 1.25em;
+    }
+
+    > ol > li > *:last-child {
+      margin-bottom: 1.25em;
+    }
+
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol {
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
     }
   }
 
@@ -166,27 +299,6 @@
       --enter-stage: 20 !important;
     }
   }
-
-  .slide-enter-content > *:nth-child(1) { --stagger: 1; }
-  .slide-enter-content > *:nth-child(2) { --stagger: 2; }
-  .slide-enter-content > *:nth-child(3) { --stagger: 3; }
-  .slide-enter-content > *:nth-child(4) { --stagger: 4; }
-  .slide-enter-content > *:nth-child(5) { --stagger: 5; }
-  .slide-enter-content > *:nth-child(6) { --stagger: 6; }
-  .slide-enter-content > *:nth-child(7) { --stagger: 7; }
-  .slide-enter-content > *:nth-child(8) { --stagger: 8; }
-  .slide-enter-content > *:nth-child(9) { --stagger: 9; }
-  .slide-enter-content > *:nth-child(10) { --stagger: 10; }
-  .slide-enter-content > *:nth-child(11) { --stagger: 11; }
-  .slide-enter-content > *:nth-child(12) { --stagger: 12; }
-  .slide-enter-content > *:nth-child(13) { --stagger: 13; }
-  .slide-enter-content > *:nth-child(14) { --stagger: 14; }
-  .slide-enter-content > *:nth-child(15) { --stagger: 15; }
-  .slide-enter-content > *:nth-child(16) { --stagger: 16; }
-  .slide-enter-content > *:nth-child(17) { --stagger: 17; }
-  .slide-enter-content > *:nth-child(18) { --stagger: 18; }
-  .slide-enter-content > *:nth-child(19) { --stagger: 19; }
-  .slide-enter-content > *:nth-child(20) { --stagger: 20; }
 }
 
 @layer base {
@@ -200,6 +312,11 @@
   body {
     @apply bg-background text-foreground min-h-screen;
     text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: theme("colors.yellow.200");
+    color: theme("colors.gray.700")
   }
 }
 
