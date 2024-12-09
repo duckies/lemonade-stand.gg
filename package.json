@@ -6,6 +6,7 @@
     "lint": "biome lint",
     "check-types": "bun --filter '*' check-types",
     "www:dev": "bun --filter '@lemonade-stand/www' dev",
+    "www:build": "bun --filter '@lemonade-stand/www' build",
     "test": "vitest"
   },
   "devDependencies": {
