@@ -1,12 +1,18 @@
 import { cn } from "@lemonade-stand/ui";
 import { Link, type LinkProps } from "components/Link";
+import * as ClassColors from "components/markdown/class-colors";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
 import type { ComponentPropsWithoutRef } from "react";
 import { Mechanic } from "./markdown/mechanic";
 import { Video } from "./markdown/video";
 
+declare global {
+  type MDXProvidedComponents = typeof DefaultMDXComponents;
+}
+
 export const DefaultMDXComponents = {
+  ...ClassColors,
   Mechanic,
   Video,
   // h1: (props: ComponentPropsWithoutRef<"h1">) => <h1 {...props} />,
@@ -58,7 +64,7 @@ export const DefaultMDXComponents = {
     </div>
   ),
   tr: ({ className, ...props }: ComponentPropsWithoutRef<"tr">) => (
-    <tr className={cn("m-0 p-0 even:bg-surface-700/70", className)} {...props} />
+    <tr className={cn("m-0 p-0 even:bg-popover/45", className)} {...props} />
   ),
   th: ({ className, ...props }: ComponentPropsWithoutRef<"th">) => (
     <th

@@ -1,8 +1,6 @@
 ---
 title: Mythic Queen Ansurek
 description: Aunt Fanny's spidersona.
-abilities:
-  { web_blades: { name: Web Blades, url: https://www.wowhead.com/spell=439299/web-blades } }
 ---
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@lemonade-stand/ui"
@@ -24,19 +22,14 @@ import img_ansurek_mp1_10 from "./images/ansurek_mp1_10.png";
 import img_ansurek_mp1_11 from "./images/ansurek_mp1_11.png";
 import img_ansurek_mp1_12 from "./images/ansurek_mp1_12.png";
 
-export function DeathKnight({ children }) {
-  return (<span className="text-class-death-knight">{children}</span>)
-}
-
-
 ## Required Setup
 
 1. Disable "Reactive Toxin Marker" if you may be given assist.
 2. Click on the ">>" arrows on "Reactive Toxin" and disable "Say" and "Say Countdown".
 
-<Image src={ansurek_setup_2} alt="BigWigs Setup 1" className="mx-auto"/>
+<Image src={ansurek_setup_2} alt="BigWigs Setup 1" />
 
-<Image src={ansurek_setup_2} alt="BigWigs Setup 2" className="mx-auto" />
+<Image src={ansurek_setup_2} alt="BigWigs Setup 2" />
 
 
 The first phase revolves around space management and being consistent with the bombs. In your own personal preparation be weary of pre-nerf materials, as phase one changes were significant.
@@ -59,21 +52,20 @@ When a [Reactive Froth](https://www.wowhead.com/spell=438846) bomb is popped eve
 
 The roots are mechanically the same as on heroic. However, most mechanics in phase one happen every 5 seconds, and often with sensitive positioning urging us to clear them as fast as possible. Players will self-clear wherever possible and things like Master’s Call will be assigned to help those in need. A small number of roots will need to be cleaved down each set (they have 18 million health).
 
-There is utility in Monks, Holy Paladins, Priests, and Rogues being Gnomes so they can self-clear with the [Escape Artist](https://www.wowhead.com/spell=20589/escape-artist) racial. This gives Priests and Rogues more self-clearing capabilities, whereas Holy Paladins and Monks can use their racial to self clear then Freedom or Tiger’s Lust someone else.
+There is utility in <Monk>Monks</Monk>, <Paladin>Holy Paladins</Paladin>, <Priest>Priest</Priest>, and <Rogue>Rogues</Rogue> being Gnomes so they can self-clear with the [Escape Artist](https://www.wowhead.com/spell=20589/escape-artist) racial. This gives Priests and Rogues more self-clearing capabilities, whereas Holy Paladins and Monks can use their racial to self clear then Freedom or Tiger’s Lust someone else.
 
 <div className="grid grid-cols-2 gap-2">
   <div>
     Those who cannot always clear themselves:
 
-    - **<span className="text-class-demon-hunter">Demon Hunter</span>**
-    While they can use the pre-meta jump to immune the root, it’s not worth messing up their cd timings. It’s common for DHs to be under the boss to cleave away their root every set.
-    - **<span className="text-class-priest">Priests</span>**
+    - **<DemonHunter/>** can use their pre-meta jump to immune the root, however it’s not worth messing up their cd timings. It’s common for DHs to be under the boss to cleave away their root every set.
+    - **<Priest>Priests</Priest>**
         - **Holy** needs help every time.
         - **Discipline** is currently a dead spec.
         - **Shadow** can disperse one, or two with a talent. However, this talent is on a choice node with [Mental Fortitude](https://www.wowhead.com/spell=194018/mental-fortitude) and shouldn’t be taken unless strictly necessary.
-    - **<span className="text-class-evoker">Augmentation Evoker</span>**
+    - **<Evoker>Augmentation Evoker</Evoker>**
     Can only clear themselves once.
-    - **<span className="text-class-rogue">Rogues</span>** will need help on one of the roots unless taking double vanish, which is a decent DPS loss depending on the spec.
+    - **<Rogue>Rogues</Rogue>** will need help on one of the roots unless taking double vanish, which is a decent DPS loss depending on the spec.
   </div>
   <div>
 
@@ -83,9 +75,9 @@ There is utility in Monks, Holy Paladins, Priests, and Rogues being Gnomes so th
 | Silken Tomb 2	| 0:56 (+40 Seconds) |
 | Silken Tomb 3	| 1:50 (+54 Seconds) |
 
-    The only class which requires Time Spiral is Shamans ([Spirit Walk](https://www.wowhead.com/spell=58875/spirit-walk) is a 1 minute cooldown), therefore the only necessary Time Spiral is on Silken Tomb 2.
+    The only class which requires Time Spiral is <Shaman>Shamans</Shaman> [Spirit Walk](https://www.wowhead.com/spell=58875/spirit-walk) is a 1 minute cooldown), therefore the only necessary Time Spiral is on Silken Tomb 2.
 
-    - The fuck does Time Spiral do?
+    #### The fuck does Time Spiral do?
     
     [Time Spiral](https://www.wowhead.com/spell=374968/time-spiral) is a 2-minute evoker talent that does the following when cast for 10 seconds:
     
@@ -96,27 +88,27 @@ There is utility in Monks, Holy Paladins, Priests, and Rogues being Gnomes so th
 
 | Class | Spells |
 | --- | --- |
-| <DeathKnight>Death Knight</DeathKnight>	| Wraith Walk, Pre-AMS, Death Charge (Rider) |
-| <span className="text-class-demon-hunter">Demon Hunter</span>*	| Pre-Meta Jump (Once) |
-| <span className="text-class-druid">Druid</span>	| Shapeshift |
-| Evoker*	| Preservation — Dream Flight, Emerald Communion, Deep Breath<br/>Devastation — Deep Breath<br/>Augmentation* — Breath of Eons (Once) | 
-| Hunter | Feign Death, Disengage, Pre-Turtle, Master’s Call on friend (Twice) |
-| Mage | Blink, Ice Block, Invisibility |
-| Monk | Tiger’s Lust |
-| Paladin | Freedom, Bubble, Spellwarding (Protection), Unbound Freedom on friend (Protection, Retribution) |
-| Priest*	| Dispersion (Shadow), Ultimate Penance (Discipline, Once) | 
-| Rogue*	| Vanish (Once), Cloak of Shadows (Once) |
-| Shaman** | Spirit Walk (Twice, Thrice with Time Spiral) |
-| Warlock	| Demonic Circle with Soulburn |
-| Warrior	| Bladestorm, Avatar, Charge (Fury, Arms Slayer), Odyn’s Fury (Fury with Titan’s Torment if Avatar isn’t active), Spell Reflect |
+| <DeathKnight />	| Wraith Walk, Pre-AMS, Death Charge (Rider) |
+| <DemonHunter/>*	| Pre-Meta Jump (Once) |
+| <Druid/>	| Shapeshift |
+| <Evoker/>*	| Preservation — Dream Flight, Emerald Communion, Deep Breath<br/>Devastation — Deep Breath<br/>Augmentation* — Breath of Eons (Once) | 
+| <Hunter/> | Feign Death, Disengage, Pre-Turtle, Master’s Call on friend (Twice) |
+| <Mage/> | Blink, Ice Block, Invisibility |
+| <Monk/> | Tiger’s Lust |
+| <Paladin/> | Freedom, Bubble, Spellwarding (Protection), Unbound Freedom on friend (Protection, Retribution) |
+| <Priest/>*	| Dispersion (Shadow), Ultimate Penance (Discipline, Once) | 
+| <Rogue/>*	| Vanish (Once), Cloak of Shadows (Once) |
+| <Shaman/>** | Spirit Walk (Twice, Thrice with Time Spiral) |
+| <Warlock/>	| Demonic Circle with Soulburn |
+| <Warrior/>	| Bladestorm, Avatar, Charge (Fury, Arms Slayer), Odyn’s Fury (Fury with Titan’s Torment if Avatar isn’t active), Spell Reflect |
 
 > *These classes don't have the ability to clear themselves 3 times.<br/>**These classes require Time Spiral to clear themselves 3 times.
 
 </Mechanic>
 
 
-## Phase 1 Strategy
-The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been made so that it lines up with the movement seen in log replays. 
+## Phase 1 • A Queen's Venom
+The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotated so that it lines up with how movement is seen in log replays. The biggest concerns of this phase are being out of position for the fast-paced mechanics.
 
 <Tabs defaultValue="part1" className="mt-4">
   <TabsList>
