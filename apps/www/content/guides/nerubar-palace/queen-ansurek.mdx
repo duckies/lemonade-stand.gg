@@ -191,8 +191,14 @@ The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotat
     <TabsContent value="part9">
       <Image src={img_ansurek_mp1_9} alt="Phase 1 Part 9" />
 
-      The 2nd set of [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) goes on 3 players instead of 2. To deal with this we will place them in a line with the radius of each debuff touching the miasma from the webs. Avoid overlapping the radius of the <Star /> debuff with the web miasma. If melee are too close to the boss and need to backup they can use the full size of the bomb.
+      The second set of [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) goes on 3 players instead of 2. To deal with this we will place them in a line with the radius of each debuff touching the miasma from the webs. Avoid overlapping the radius of the <Star /> debuff with the web miasma. If melee are too close to the boss and need to backup they can use the full size of the bomb.
       > Unlike the first set, sets of 3 toxin debuffs do not need to have a space between them.
+    
+      The <Diamond/> popper needs to be careful to follow the `DON'T POP` WeakAura, not the assignment WeakAura as that is an estimate. The <Diamond/> popper must always pop the moment the vulnerability falls off from <Circle/>.
+
+      <video width="100%" height="auto" controls className="rounded-xl my-5">
+        <source src="/videos/ansurek_mp1_bombs3.mp4" type="video/mp4"/>
+      </video>
     </TabsContent>
     <TabsContent value="part10">
       <Image src={img_ansurek_mp1_10} alt="Phase 1 Part 10" />
