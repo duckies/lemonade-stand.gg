@@ -63,5 +63,24 @@ describe("env (node)", () => {
         d: undefined,
       },
     });
+
+    expect(env.a).toBe("a");
+    expect(env.b).toBe(false);
+    expect(env.c).toBe(1);
+    expect(env.d).toBe(undefined);
+  });
+
+  test("should support pipe and optional", () => {
+    const env = defineEnv({
+      client: {
+        NODE_ENV: v.optional(v.picklist(["development", "production", "test"]), "development"),
+      },
+      env: {
+        NODE_ENV: undefined,
+      },
+    });
+
+    expect(process.env.NODE_ENV).toBe(undefined);
+    expect(env.NODE_ENV).toBe("development");
   });
 });

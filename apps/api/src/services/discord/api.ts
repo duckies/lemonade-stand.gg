@@ -23,7 +23,7 @@ export async function getMe(accessToken: string) {
   });
 }
 
-async function request<T = unknown>(path: string, init: RequestInit) {
+async function request<T = unknown>(path: `/${string}`, init: RequestInit) {
   const response = await fetch(`https://discord.com/api${path}`, {
     ...init,
   });

@@ -1,7 +1,10 @@
 {
   "name": "@lemonade-stand/database",
   "private": true,
-  "exports": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./drizzle.config.ts"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "drizzle-kit": "drizzle-kit --config=drizzle.config.ts",

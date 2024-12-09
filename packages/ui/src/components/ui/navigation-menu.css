@@ -1,0 +1,202 @@
+.navigation-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.navigation-menu__list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  @apply p-2;
+}
+
+.navigation-menu__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @apply px-4 py-2;
+}
+
+.navigation-menu__trigger,
+.navigation-menu__link {
+  @apply text-sm font-medium;
+}
+
+.navigation-menu__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+
+  &[data-motion="from-start"] {
+    animation-name: enter-from-left;
+  }
+
+  &[data-motion="from-end"] {
+    animation-name: enter-from-right;
+  }
+
+  &[data-motion="to-start"] {
+    animation-name: exit-to-left;
+  }
+
+  &[data-motion="to-end"] {
+    animation-name: exit-to-right;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: auto;
+  }
+}
+ 
+.navigation-menu__indicator {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 10px;
+  top: 100%;
+  overflow: hidden;
+  z-index: 1;
+  transition: width, transform 250ms ease;
+
+  &[data-state="visible"] {
+    animation: fade-in 200ms ease;
+  }
+
+  &[data-state="hidden"] {
+    animation: fade-out 200ms ease;
+  }
+}
+
+.navigation-menu__arrow {
+  position: relative;
+  top: 70%;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  border-top-left-radius: 2px;
+  @apply bg-border;
+}
+
+.navigation-menu__viewport-position {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	top: 100%;
+	left: 0;
+	perspective: 2000px;
+
+  /* @apply max-w-max; */
+}
+
+.navigation-menu__viewport {
+  position: relative;
+  transform-origin: top center;
+  margin-top: 10px;
+  width: 100%;
+  height: var(--radix-navigation-menu-viewport-height);
+  overflow: hidden;
+  transition: width, height, 300ms ease;
+  @apply rounded-md;
+
+  &[data-state="open"] {
+    animation: scale-in 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: scale-out 200ms ease;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: var(--radix-navigation-menu-viewport-width);
+  }
+}
+
+@keyframes enter-from-right {
+	from {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes enter-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exit-to-right {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+}
+
+@keyframes exit-to-left {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+}
+
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: rotateX(-30deg) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+}
+
+@keyframes scale-out {
+	from {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: rotateX(-10deg) scale(0.95);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
