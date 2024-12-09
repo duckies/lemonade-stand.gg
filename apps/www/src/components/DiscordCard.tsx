@@ -19,16 +19,18 @@ export function DiscordCard() {
       );
       const data = await response.json();
 
+      console.log(data);
+
       if (!response.ok) {
         throw new Error(data.message ?? "Widget fetch failed");
       }
 
-      const channels = data.channels.sort((a, b) => a.position - b.position);
+      const channels = data.channels.sort((a: any, b: any) => a.position - b.position);
 
       for (const member of data.members) {
         if (!member.channel_id) continue;
 
-        const channel = channels.find((channel) => channel.id === member.channel_id);
+        const channel = channels.find((channel: any) => channel.id === member.channel_id);
 
         if (!channel.members) {
           channel.members = [];
@@ -44,7 +46,7 @@ export function DiscordCard() {
     },
   });
 
-  if (status === "pending") {
+  if (status === "pending" || !data) {
     return (
       <Card>
         <CardHeader>
@@ -78,12 +80,12 @@ export function DiscordCard() {
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-1">
-          {data.channels.map((channel) => (
+          {data.channels.map((channel: any) => (
             <div key={channel.id} className="">
               <span className="text-sm font-medium">{channel.name}</span>
               {channel.members ? (
                 <div className="flex flex-col gap-2 mt-2 ml-2">
-                  {channel.members.map((member) => (
+                  {channel.members.map((member: any) => (
                     <div key={member.id} className="flex gap-2 items-center">
                       <img src={member.avatar_url} className="rounded-full h-5 w-5" />
                       <span className="text-sm text-muted-foreground">{member.username}</span>

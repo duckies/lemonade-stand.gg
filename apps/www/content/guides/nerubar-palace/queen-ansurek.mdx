@@ -1,0 +1,161 @@
+---
+title: Mythic Queen Ansurek
+description: Aunt Fanny's spidersona.
+abilities:
+  { web_blades: { name: Web Blades, url: https://www.wowhead.com/spell=439299/web-blades } }
+---
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@lemonade-stand/ui"
+
+import setupOne from "./setup-1.png";                                                
+      import setupTwo from "./setup-2.png";
+import ImageP1Part1 from "./ansurek_p1_1.png";
+import ImageP1Part2 from "./ansurek_p1_2.png";
+import ImageP1Part3 from "./ansurek_p1_3.png";
+import ImageP1Part4 from "./ansurek_p1_3.png";
+import ImageP1Blades from "./ansurek_p1_blades.png";
+
+export function DeathKnight({ children }) {
+  return (<span className="text-class-death-knight">{children}</span>)
+}
+
+
+## Required Setup
+
+1. Disable "Reactive Toxin Marker" if you may be given assist.
+2. Click on the ">>" arrows on "Reactive Toxin" and disable "Say" and "Say Countdown".
+
+<Image src={setupOne} alt="BigWigs Setup 1" className="mx-auto"/>
+
+<Image src={setupTwo} alt="BigWigs Setup 2" className="mx-auto" />
+
+## Phase 1
+The first phase revolves around space management and being consistent with the bombs. In your own personal preparation be weary of pre-nerf materials, as phase one changes were significant.
+
+### Mechanics
+
+#### Mythic Changes
+
+<Mechanic id="437592" name="Reactive Toxin" caption="Sets 2 and 3 spawn 3 bombs instead of 2.">
+The major change to Phase 1, the 2nd and 3rd set of Reactive Toxin goes out 3 players, spawning 3 [Reactive Froth](https://www.wowhead.com/spell=438846) bombs instead of 2. Be weary of looking at old preparation materials for this fight as the third set used to have 4 bombs (2-3-4), post-nerf it’s 2-3-3.
+</Mechanic>
+
+<Mechanic id="460133" name="Toxic Reaction" caption="Bomb popping must be staggered.">
+When a [Reactive Froth](https://www.wowhead.com/spell=438846) bomb is popped everyone is given a 2000% vulnerability to this mechanic for 1 second, requiring bomb popping to be staggered. 
+</Mechanic>
+
+<Mechanic id="439814" name="Silken Tomb" caption="Roots need to be cleared as fast as possible.">
+
+The roots are mechanically the same as on heroic. However, most mechanics in phase one happen every 5 seconds, and often with sensitive positioning urging us to clear them as fast as possible. Players will self-clear wherever possible and things like Master’s Call will be assigned to help those in need. A small number of roots will need to be cleaved down each set (they have 18 million health).
+
+There is utility in Monks, Holy Paladins, Priests, and Rogues being Gnomes so they can self-clear with the [Escape Artist](https://www.wowhead.com/spell=20589/escape-artist) racial. This gives Priests and Rogues more self-clearing capabilities, whereas Holy Paladins and Monks can use their racial to self clear then Freedom or Tiger’s Lust someone else.
+
+<div className="grid grid-cols-2 gap-2">
+  <div>
+    Those who cannot always clear themselves:
+
+    - **<span className="text-class-demon-hunter">Demon Hunter</span>**
+    While they can use the pre-meta jump to immune the root, it’s not worth messing up their cd timings. It’s common for DHs to be under the boss to cleave away their root every set.
+    - **<span className="text-class-priest">Priests</span>**
+        - **Holy** needs help every time.
+        - **Discipline** is currently a dead spec.
+        - **Shadow** can disperse one, or two with a talent. However, this talent is on a choice node with [Mental Fortitude](https://www.wowhead.com/spell=194018/mental-fortitude) and shouldn’t be taken unless strictly necessary.
+    - **<span className="text-class-evoker">Augmentation Evoker</span>**
+    Can only clear themselves once.
+    - **<span className="text-class-rogue">Rogues</span>** will need help on one of the roots unless taking double vanish, which is a decent DPS loss depending on the spec.
+  </div>
+  <div>
+
+    | Iteration | Timing |
+    | --- | --- |
+| Silken Tomb 1	| 0:16  |
+| Silken Tomb 2	| 0:56 (+40 Seconds) |
+| Silken Tomb 3	| 1:50 (+54 Seconds) |
+
+    The only class which requires Time Spiral is Shamans ([Spirit Walk](https://www.wowhead.com/spell=58875/spirit-walk) is a 1 minute cooldown), therefore the only necessary Time Spiral is on Silken Tomb 2.
+
+    - The fuck does Time Spiral do?
+    
+    [Time Spiral](https://www.wowhead.com/spell=374968/time-spiral) is a 2-minute evoker talent that does the following when cast for 10 seconds:
+    
+    - Allows everyone within 40 yards to use their “major movement ability” even if it is on cooldown.
+    - Using one’s “major movement ability” in this window will not incur a cooldown.
+  </div>
+</div>
+
+| Class | Spells |
+| --- | --- |
+| <DeathKnight>Death Knight</DeathKnight>	| Wraith Walk, Pre-AMS, Death Charge (Rider) |
+| <span className="text-class-demon-hunter">Demon Hunter</span>*	| Pre-Meta Jump (Once) |
+| <span className="text-class-druid">Druid</span>	| Shapeshift |
+| Evoker*	| Preservation — Dream Flight, Emerald Communion, Deep Breath<br/>Devastation — Deep Breath<br/>Augmentation* — Breath of Eons (Once) | 
+| Hunter | Feign Death, Disengage, Pre-Turtle, Master’s Call on friend (Twice) |
+| Mage | Blink, Ice Block, Invisibility |
+| Monk | Tiger’s Lust |
+| Paladin | Freedom, Bubble, Spellwarding (Protection), Unbound Freedom on friend (Protection, Retribution) |
+| Priest*	| Dispersion (Shadow), Ultimate Penance (Discipline, Once) | 
+| Rogue*	| Vanish (Once), Cloak of Shadows (Once) |
+| Shaman** | Spirit Walk (Twice, Thrice with Time Spiral) |
+| Warlock	| Demonic Circle with Soulburn |
+| Warrior	| Bladestorm, Avatar, Charge (Fury, Arms Slayer), Odyn’s Fury (Fury with Titan’s Torment if Avatar isn’t active), Spell Reflect |
+
+> *These classes don't have the ability to clear themselves 3 times.<br/>**These classes require Time Spiral to clear themselves 3 times.
+
+</Mechanic>
+
+
+## Strategy
+This RaidPlan has been made so that it lines up with the movement seen in log replays.
+- [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R)
+
+<Tabs defaultValue="part1">
+  <TabsList>
+    <TabsTrigger value="part1">1</TabsTrigger>
+    <TabsTrigger value="part2">2</TabsTrigger>
+    <TabsTrigger value="part3">3</TabsTrigger>
+    <TabsTrigger value="part4">4</TabsTrigger>
+  </TabsList>
+
+  <div className="bg-muted rounded-lg px-5 py-4 mt-3">
+    <TabsContent value="part1">
+      <Image src={ImageP1Part1} alt="Phase 1 Part 1" />
+
+      The fight is started with the boss brought to the tip immediately to the right if you were running onto the platform. Everyone will stack on her to keep acid pools as close together as possible, just as on heroic.
+    </TabsContent>
+    <TabsContent value="part2">
+      <Image src={ImageP1Part2} alt="Phase 1 Part 2" />
+
+      Roots are placed as closely as possible to any preceding acid, but avoid crossing into the trapezoid on the other side of the red line as we want to keep this area clean for the intermission.
+
+      - If you have assigned utility like Freedom, Tiger’s Lust, or Master’s Call on another player, their raid frame will glow thanks to the MRT note.
+      - Tanks or those with immunities can dip into the acid before removing their root to save space.
+    </TabsContent>
+    <TabsContent value="part3">
+      <Image src={ImageP1Part3} alt="Phase 1 Part 3" />
+
+      During [Web Blades](https://www.wowhead.com/spell=439299/web-blades) melee will stack with the active tank in front of the boss near the edge and ranged loosely spread on the other side of the boss. Avoid being ahead of the group.
+
+      - The Web Blades will spawn every 0.5 seconds until 3 are spawned, after which there is a 1-second delay before they erupt every 0.5 seconds in the same order they spawned in.
+      - Everyone will refer to the WeakAura on their screen and wait to move until the last blade spawns (the last green tick), or at the least stagger movement as a cohesive unit. We want to avoid someone running 20 yards ahead of the group and cutting everyone off if they are targeted.
+      
+      <Image src={ImageP1Blades} alt="Phase 1 Blades WeakAura" className="mx-auto" />
+    </TabsContent>
+    <TabsContent value="part4">
+      <Image src={ImageP1Part4} alt="Phase 1 Part 4" />
+
+      The first set of [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) goes out on 2 players and spawns 2 [Reactive Froth](https://www.wowhead.com/spell=438846) bombs.
+
+      - A WeakAura will assign players with [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) to spawn their bomb on :marker-star: (stack 1) or :marker-circle: (stack 2). Consider the following when placing these bombs:
+      - There will not be world markers for this set.
+      - There must be enough room between these bomb circles for the raid to stack between.
+      - The bomb circles should be touching the web miasma to save space, but no further. If the bomb is half in the web miasma and the boss is too close to the melee stack, melee players can get hit by the wave since they cannot back away from her.
+    </TabsContent>
+  </div>
+</Tabs>
+
+
+
+
+
+
+

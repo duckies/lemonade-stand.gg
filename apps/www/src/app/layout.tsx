@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import "~/styles/details.css";
+
 import "~/styles/globals.css";
-import "~/styles/tiptap.css";
 
 import { cn } from "@lemonade-stand/ui";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
+import { ThemeSwitcher } from "~/components/theme-switcher";
+import { UserNav } from "~/components/user-nav";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -49,11 +50,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn(fontSans.className, fontSerif.variable, "dark grain")}>
+      <body className={cn(fontSans.className, fontSerif.variable, "grain")}>
         <Providers>
           <div className="relative flex min-h-screen flex-col">
-            <Header />
-            {/* <Decorations /> */}
+            <Header>
+              <ThemeSwitcher />
+              <UserNav />
+            </Header>
             {children}
             <Footer />
           </div>

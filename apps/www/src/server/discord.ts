@@ -2,7 +2,6 @@
 
 import { randomBytes } from "node:crypto";
 import { z } from "zod";
-import { DiscordConfig } from "~/config/discord";
 import { env } from "~/env";
 
 export type Snowflake = string;
@@ -15,12 +14,24 @@ export interface UserDTO {
   avatar?: string;
 }
 
-const api = new HTTP({
-  baseURL: "https://discord.com/api/v10/",
-  headers: {
-    authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
-  },
-});
+async function request<T>(path: string, init?: RequestInit) {
+  const url = path.startsWith("https") ? path : `https://discord.com/api/v10${path}`;
+  const response = await fetch(url, {
+    ...init,
+    headers: {
+      authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
+      ...init?.headers,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Unknown Discord API Error", { cause: data });
+  }
+
+  return data as T;
+}
 
 export async function getAuthorizationURL() {
   const url = new URL("https://discord.com/oauth2/authorize");
@@ -38,7 +49,13 @@ export async function getAuthorizationURL() {
 }
 
 export async function getMe(token: string) {
-  const user = await api.get("/users/@me", {
+  const user = await request<{
+    id: string;
+    avatar?: string;
+    username: string;
+    global_name?: string;
+    discriminator: string;
+  }>("/users/@me", {
     headers: {
       authorization: `Bearer ${token}`,
     },
@@ -69,7 +86,7 @@ export interface Thread {
 }
 
 export async function getActiveChannelThreads(channelId: Snowflake) {
-  return await api.get<{ threads: Thread[] }>(
+  return await request<{ threads: Thread[] }>(
     `https://discord.com/api/channels/${channelId}/threads/active`,
   );
 }
@@ -118,11 +135,12 @@ export interface Thread {
 }
 
 export async function createThread(channelId: Snowflake, body: z.infer<typeof CreateThreadDTO>) {
-  const thread = await api.post<Thread>(`/channels/${channelId}/threads`, {
-    json: {
+  const thread = await request<Thread>(`/channels/${channelId}/threads`, {
+    method: "POST",
+    body: JSON.stringify({
       ...body,
       type: 12, // Private Thread
-    },
+    }),
   });
 
   await addThreadMember(thread.id, "190548783472312321");
@@ -131,15 +149,13 @@ export async function createThread(channelId: Snowflake, body: z.infer<typeof Cr
 }
 
 export async function addThreadMember(threadId: Snowflake, userId: Snowflake) {
-  return await api.put(`/v10/channels/${threadId}/thread-members/${userId}`);
+  return await request(`/v10/channels/${threadId}/thread-members/${userId}`, { method: "PUT" });
 }
 
 export async function getGuildMembers() {
-  return await api.get<GuildMember[]>(`/guilds/${DiscordConfig.guild.id}/members`, {
-    params: { limit: 1000 },
-  });
+  return await request<GuildMember[]>(`/guilds/${env.DISCORD_GUILD_ID}/members?limit=1000`);
 }
 
 export async function getChannelMessage(channelId: Snowflake, messageId: Snowflake) {
-  return await api.get(`/channels/${channelId}/messages/${messageId}`);
+  return await request(`/channels/${channelId}/messages/${messageId}`);
 }

@@ -34,7 +34,7 @@ export const getSession = cache(async () => {
 });
 
 export async function signIn() {
-  const cookies = getCookieStore();
+  const cookies = await getCookieStore();
   const url = await getAuthorizationURL();
   const state = url.searchParams.get("state");
 
@@ -46,7 +46,7 @@ export async function signIn() {
 }
 
 export async function signOut() {
-  getCookieStore().delete("session", "state");
+  (await getCookieStore()).delete("session", "state");
 }
 
 export interface Credentials {

@@ -66,7 +66,7 @@ export async function ProgressCard() {
       </div>
 
       <div className="grid grid-cols-3 gap-2 px-6 pb-6">
-        {data.rankings.map((ranking) => (
+        {data.rankings.map((ranking: any) => (
           <div
             key={ranking.title}
             className="flex flex-col text-center bg-muted rounded-xl px-4 py-3 text-sm"

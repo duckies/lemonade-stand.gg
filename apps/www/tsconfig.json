@@ -4,7 +4,11 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
@@ -14,11 +18,15 @@
     "plugins": [
       {
         "name": "next"
-      },
+      }
     ],
     "paths": {
-      "~/*": ["./*"]
-    }
+      "~/*": [
+        "./*"
+      ],
+      "#content/*": ["../content/*"] 
+    },
+    "allowJs": true
   },
   "include": [
     "next-env.d.ts",
@@ -28,10 +36,10 @@
     "**/*.mjs",
     "**/*.mdx",
     "**/*.js",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist",
+    "dist"
   ]
 }

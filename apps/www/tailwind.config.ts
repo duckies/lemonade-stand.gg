@@ -1,9 +1,13 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  darkMode: "class",
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/**/*.mdx",
     "../../packages/ui/src/**/*.{js,ts,jsx,tsx}",
     "../../packages/editor/src/**/*.{js,ts,jsx,tsx}",
   ],
@@ -50,6 +54,37 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        class: {
+          "death-knight": "#c41e3a", // Death Knight
+          "demon-hunter": "#a330c9", // Demon Hunter
+          druid: "#ff7c0a", // Druid
+          evoker: "#33937f", // Evoker
+          hunter: "#aad372", // Hunter
+          mage: "#3fc7eb", // Mage
+          monk: "#00ff96", // Monk
+          paladin: "#f48cba", // Paladin
+          priest: "#fffff", // Priest
+          rogue: "#fff468", // Rogue
+          shaman: "#0070DD", // Shaman
+          warlock: "#8788EE", // Warlock
+          warrior: "#C69B6D", // Warrior
+        },
+        yellow: {
+          DEFAULT: "#f9cb58",
+          50: "#fefaf0",
+          100: "#fef4dd",
+          200: "#fdeaba",
+          300: "#fbe19d",
+          400: "#fad67a",
+          500: "#f9cb58",
+          600: "#f7b818",
+          700: "#c58f07",
+          800: "#805d05",
+          900: "#402f02",
+        },
+      },
+      transitionDuration: {
+        "250": "250ms",
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -71,6 +106,33 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "enter-from-right": {
+          from: { opacity: "0", transform: "translateX(200px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "enter-from-left": {
+          from: { opacity: "0", transform: "translateX(-200px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "exit-from-right": {
+          from: { opacity: "1", transform: "translateX(0)" },
+        },
+        "exit-to-right": {
+          from: { opacity: "1", transform: "translateX(0)" },
+          to: { opacity: "0", transform: "translateX(200px)" },
+        },
+        "exit-to-left": {
+          from: { opacity: "1", transform: "translateX(0)" },
+          to: { opacity: "0", transform: "translateX(-200px)" },
+        },
+        "scale-in": {
+          from: { opacity: "0", transform: "rotateX(-30deg) scale(0.9)" },
+          to: { opacity: "1", transform: "rotateX(0deg) scale(1)" },
+        },
+        "scale-out": {
+          from: { opacity: "1", transform: "rotateX(0deg) scale(1)" },
+          to: { opacity: "0", transform: "rotateX(-10deg) scale(0.95)" },
+        },
         "caret-blink": {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
@@ -84,7 +146,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
-        rocking: "rocking 2s infinite alternate",
+        rocking: "rocking 2s ease-in-out infinite",
       },
       transitionTimingFunction: {
         "ease-in-back": "cubic-bezier(.42,.97,.52,1.49)",
@@ -98,5 +160,5 @@ export default {
       }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

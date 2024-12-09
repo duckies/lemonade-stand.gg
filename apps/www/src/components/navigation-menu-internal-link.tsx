@@ -1,6 +1,7 @@
 "use client";
 
-import { NavigationMenuLink, navigationMenuTriggerStyle } from "@lemonade-stand/ui";
+import { navigationMenuTriggerStyle } from "@lemonade-stand/ui";
+import * as NavigationMenu from "@lemonade-stand/ui/navigation-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,8 +10,8 @@ export function NavigationMenuInternalLink({ href, ...props }: any) {
   const isActive = href === pathname;
 
   return (
-    <NavigationMenuLink asChild active={isActive}>
+    <NavigationMenu.Link asChild active={isActive}>
       <Link href={href} className={navigationMenuTriggerStyle()} {...props} />
-    </NavigationMenuLink>
+    </NavigationMenu.Link>
   );
 }

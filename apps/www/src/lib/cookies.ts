@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
-export const getCookieStore = () => {
-  const store = cookies();
+export const getCookieStore = async () => {
+  const store = await cookies();
 
   return {
     get: (key: string) => store.get(key)?.value || null,
