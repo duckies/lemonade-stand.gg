@@ -82,7 +82,7 @@ export const DefaultMDXComponents = {
   ),
   table: ({ className, ...props }: ComponentPropsWithoutRef<"table">) => (
     <div className="my-6 w-full overflow-y-auto text-sm">
-      <table className={cn("w-full", className)} {...props} />
+      <table className={cn("w-full md:w-auto", className)} {...props} />
     </div>
   ),
   tr: ({ className, ...props }: ComponentPropsWithoutRef<"tr">) => (
