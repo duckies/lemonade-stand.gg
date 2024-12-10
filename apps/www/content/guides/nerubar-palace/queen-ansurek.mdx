@@ -5,7 +5,7 @@ description: Aunt Fanny's spidersona.
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@lemonade-stand/ui"
 
-import ansurek_setup_1 from "./images/ansurek_setup_1.png";                               
+import ansurek_setup_1 from "./images/ansurek_setup_1.png";                                  
 import ansurek_setup_2 from "./images/ansurek_setup_2.png";
 import ansurek_mp1_blades from "./images/ansurek_mp1_blades.png";
 
@@ -143,7 +143,7 @@ The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotat
     <TabsContent value="part3">
       <Image src={img_ansurek_mp1_3} alt="Phase 1 Part 3" />
 
-      During [Web Blades](https://www.wowhead.com/spell=439299/web-blades) melee will stack with the active tank in front of the boss near the edge and ranged loosely spread on the other side of the boss. Avoid being ahead of the group.
+      During [Web Blades](https://www.wowhead.com/spell=439299/web-blades) melee will stack with the active tank in front of the boss near the edge and ranged loosely spread on the other side of the boss.
 
       - The [Web Blades](https://www.wowhead.com/spell=439299/web-blades) will spawn every 0.5 seconds until 3 are spawned, after which there is a 1-second delay before they erupt every 0.5 seconds in the same order they spawned in.
       - Everyone will refer to the WeakAura on their screen and wait to move until the last blade spawns (the last green tick), or at the least stagger movement as a cohesive unit. We want to avoid someone running 20 yards ahead of the group and cutting everyone off if they are targeted.
@@ -158,7 +158,7 @@ The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotat
       - A WeakAura will assign players with [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) to spawn their bomb on <Star /> (stack 1) or <Circle /> (stack 2). Consider the following when placing these bombs:
       - There will not be world markers for this set.
       - There must be enough room between these bomb circles for the raid to stack between.
-      - The bomb circles should be touching the web miasma to save space, but no further. If the bomb is half in the web miasma and the boss is too close to the melee stack, melee players can get hit by the wave since they cannot back away from her.
+      - The bombs can partially overlap the web miasma to save space. If the boss is too close the melee popper can go a half-second early.
     </TabsContent>
     <TabsContent value="part5">
       <Image src={img_ansurek_mp1_5} alt="Phase 1 Part 5" />
@@ -191,7 +191,7 @@ The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotat
     <TabsContent value="part9">
       <Image src={img_ansurek_mp1_9} alt="Phase 1 Part 9" />
 
-      The second set of [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) goes on 3 players instead of 2. To deal with this we will place them in a line with the radius of each debuff touching the miasma from the webs. Avoid overlapping the radius of the <Star /> debuff with the web miasma. If melee are too close to the boss and need to backup they can use the full size of the bomb.
+      The second set of [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin) goes on 3 players instead of 2. To deal with this we will place them in a line with the radius of each debuff touching the miasma from the webs.
       > Unlike the first set, sets of 3 toxin debuffs do not need to have a space between them.
     
       The <Diamond/> popper needs to be careful to follow the `DON'T POP` WeakAura, not the assignment WeakAura as that is an estimate. The <Diamond/> popper must always pop the moment the vulnerability falls off from <Circle/>.
