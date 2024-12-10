@@ -80,6 +80,14 @@
     background-size: 300px 300px;
   }
 
+  .hide-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .prose {
 
     h1 {
