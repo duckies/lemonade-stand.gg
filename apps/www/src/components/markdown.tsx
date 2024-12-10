@@ -5,6 +5,7 @@ import * as Markers from "components/markdown/markers";
 import { Component } from "lucide-react";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
+import NextLink from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 import { Mechanic } from "./markdown/mechanic";
 import { Video } from "./markdown/video";
@@ -24,6 +25,18 @@ export const DefaultMDXComponents = {
       {...props}
     />
   ),
+  h2: ({ id, children, ...props }: ComponentPropsWithoutRef<"h2">) => {
+    return (
+      <h2 id={id} {...props} className="scroll-mt-10">
+        {id && (
+          <a href={`#${id}`} className="header-anchor">
+            #<span className="sr-only">Link to this heading</span>
+          </a>
+        )}
+        {children}
+      </h2>
+    );
+  },
   // h1: (props: ComponentPropsWithoutRef<"h1">) => <h1 {...props} />,
   // h2: ({ className, ...props }: ComponentPropsWithoutRef<"h2">) => (
   //   <h2
