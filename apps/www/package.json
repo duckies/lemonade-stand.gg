@@ -39,6 +39,7 @@
     "remark": "15.0.1",
     "remark-frontmatter": "5.0.0",
     "remark-gfm": "4.0.0",
+    "remark-toc": "9.0.0",
     "rrule": "2.8.1",
     "tailwindcss-animate": "1.0.7",
     "to-vfile": "8.0.0",

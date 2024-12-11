@@ -127,7 +127,7 @@
     }
     
     h1, h2, h3, h4, h5, h6  {
-      /* @apply scroll-m-20; */
+      @apply scroll-m-10;
 
       .header-anchor {
         float: left;

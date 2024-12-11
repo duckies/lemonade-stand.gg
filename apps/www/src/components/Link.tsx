@@ -31,6 +31,16 @@ export function Link({ href, variant, className, children, ...props }: LinkProps
     );
   }
 
+  const isAnchor = href.startsWith("#");
+
+  if (isAnchor) {
+    return (
+      <a href={href} className={styles} {...props}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <a href={href} rel="noreferrer noopener" target="_blank" className={styles} {...props}>
       {children}
