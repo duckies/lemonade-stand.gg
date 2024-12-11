@@ -5,8 +5,8 @@ description: Aunt Fanny's spidersona.
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@lemonade-stand/ui"
 
-import ansurek_setup_1 from "./images/ansurek_setup_1.png";                                  
-import ansurek_setup_2 from "./images/ansurek_setup_2.png";
+import ansurek_setup_1 from "./images/ansurek_setup_1.png";                                           
+  import ansurek_setup_2 from "./images/ansurek_setup_2.png";
 import ansurek_mp1_blades from "./images/ansurek_mp1_blades.png";
 
 import img_ansurek_mp1_1 from "./images/ansurek_mp1_1.png";
@@ -21,6 +21,15 @@ import img_ansurek_mp1_9 from "./images/ansurek_mp1_9.png";
 import img_ansurek_mp1_10 from "./images/ansurek_mp1_10.png";
 import img_ansurek_mp1_11 from "./images/ansurek_mp1_11.png";
 import img_ansurek_mp1_12 from "./images/ansurek_mp1_12.png";
+
+import img_ansurek_mi_1 from "./images/ansurek_mi_1.png";
+import img_ansurek_mi_2 from "./images/ansurek_mi_2.png";
+import img_ansurek_mi_3 from "./images/ansurek_mi_3.png";
+import img_ansurek_mi_4 from "./images/ansurek_mi_4.png";
+
+## Links
+- **RaidPlans**: [Phase 1](https://raidplan.io/plan/X4iPdCthlYOmlR5R), [Intermission](https://raidplan.io/plan/5XfInT4qwM_xs_3m), Phase 2, Phase 3.
+- **WarcraftLogs**: [Kills with our healing comp](https://www.warcraftlogs.com/zone/rankings/38?boss=2922&metric=execution&search=5.2.1%2C6.1.1%2C7.2.1%2C9.3.1).
 
 ## Required Setup
 
@@ -106,24 +115,39 @@ There is utility in <Monk>Monks</Monk>, <Paladin>Holy Paladins</Paladin>, <Pries
 
 </Mechanic>
 
+### Intermission 1 Mechanics
+
+<Mechanic id="447170" name="Predation Threads" caption="Tiny aoe damage around players.">
+
+Players will take 402k nature damage every 1.5 seconds to players within 2 yards. This was a mechanic on heroic and it still does not do a lot of damage. It's safe to run through players to reposition for [Wrest](https://www.wowhead.com/spell=447411/wrest), but otherwise loosely spread to the best of your ability.
+
+</Mechanic>
+
+<Mechanic id="441958" name="Grasping Silk" caption="Move ahead of growing miasma.">
+
+Throughout the duration of the phase the [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma left behind in the previous phase will grow. In addition, each [Wrest](https://www.wowhead.com/spell=447411/wrest) will also spawn more [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma which also grows.
+
+Stay ahead of the miasma but also make sure to be ahead of any incoming [Paralyzing Waves](https://www.wowhead.com/spell=451607/paralyzing-waves), which will kill you.
+
+</Mechanic>
 
 ## Phase 1 • A Queen's Venom
 The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotated so that it lines up with how movement is seen in log replays. The biggest concerns of this phase are being out of position for the fast-paced mechanics.
 
 <Tabs defaultValue="part1" className="mt-4">
   <TabsList>
-    <TabsTrigger value="part1"><span className="hidden md:block">Part </span>1</TabsTrigger>
-    <TabsTrigger value="part2"><span className="hidden md:block">Part </span>2</TabsTrigger>
-    <TabsTrigger value="part3"><span className="hidden md:block">Part </span>3</TabsTrigger>
-    <TabsTrigger value="part4"><span className="hidden md:block">Part </span>4</TabsTrigger>
-    <TabsTrigger value="part5"><span className="hidden md:block">Part </span>5</TabsTrigger>
-    <TabsTrigger value="part6"><span className="hidden md:block">Part </span>6</TabsTrigger>
-    <TabsTrigger value="part7"><span className="hidden md:block">Part </span>7</TabsTrigger>
-    <TabsTrigger value="part8"><span className="hidden md:block">Part </span>8</TabsTrigger>
-    <TabsTrigger value="part9"><span className="hidden md:block">Part </span>9</TabsTrigger>
-    <TabsTrigger value="part10"><span className="hidden md:block">Part </span>10</TabsTrigger> 
-    <TabsTrigger value="part11"><span className="hidden md:block">Part </span>11</TabsTrigger>
-    <TabsTrigger value="part12"><span className="hidden md:block">Part </span>12</TabsTrigger>
+    <TabsTrigger value="part1"><span className="hidden md:block mr-1">Part </span>1</TabsTrigger>
+    <TabsTrigger value="part2"><span className="hidden md:block mr-1">Part </span>2</TabsTrigger>
+    <TabsTrigger value="part3"><span className="hidden md:block mr-1">Part </span>3</TabsTrigger>
+    <TabsTrigger value="part4"><span className="hidden md:block mr-1">Part </span>4</TabsTrigger>
+    <TabsTrigger value="part5"><span className="hidden md:block mr-1">Part </span>5</TabsTrigger>
+    <TabsTrigger value="part6"><span className="hidden md:block mr-1">Part </span>6</TabsTrigger>
+    <TabsTrigger value="part7"><span className="hidden md:block mr-1">Part </span>7</TabsTrigger>
+    <TabsTrigger value="part8"><span className="hidden md:block mr-1">Part </span>8</TabsTrigger>
+    <TabsTrigger value="part9"><span className="hidden md:block mr-1">Part </span>9</TabsTrigger>
+    <TabsTrigger value="part10"><span className="hidden md:block mr-1">Part </span>10</TabsTrigger> 
+    <TabsTrigger value="part11"><span className="hidden md:block mr-1">Part </span>11</TabsTrigger>
+    <TabsTrigger value="part12"><span className="hidden md:block mr-1">Part </span>12</TabsTrigger>
   </TabsList>
 
   <div className="bg-muted rounded-lg px-5 pt-4 pb-7 mt-3">
@@ -258,7 +282,50 @@ The [Phase 1 RaidPlan](https://raidplan.io/plan/X4iPdCthlYOmlR5R) has been rotat
   </div>
 </div>
 
-## Videos & Resources
+## Intermission: The Spider's Web
+
+There isn't anything too special about the intermission, but it's easy to get killed by the waves if you're not careful. Repetition will help everyone gget used to the positioning.
+
+<Tabs defaultValue="part1" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="part1"><span className="hidden md:block mr-1">Part</span>1</TabsTrigger>
+    <TabsTrigger value="part2"><span className="hidden md:block mr-1">Part</span>2</TabsTrigger>
+    <TabsTrigger value="part3"><span className="hidden md:block mr-1">Part</span>3</TabsTrigger>
+    <TabsTrigger value="part4"><span className="hidden md:block mr-1">Part</span>4</TabsTrigger>
+  </TabsList>
+
+  <div className="bg-muted rounded-lg px-5 pt-4 pb-7 mt-3">
+    <TabsContent value="part1">
+      <Image src={img_ansurek_mi_1} alt="Intermission Part 1" /> 
+    
+      The intermission starts with a [Wrest](https://www.wowhead.com/spell=447411/wrest). Fit as tightly against the acid as possible, even dipping in if you have a strong enough personal. Eveyone should stay ahead of the red line so that melee have more room to spread after.
+    </TabsContent>
+
+    <TabsContent value="part2">
+      <Image src={img_ansurek_mi_2} alt="Intermission Part 2" />
+
+      Melee should get comfortable and consistent with clustering between the oncoming waves. 
+    </TabsContent>
+
+    <TabsContent value="part3">
+      <Image src={img_ansurek_mi_3} alt="Intermission Part 3" />
+
+      The second wrest is the most dangeorus part of the intermission, but should come easily with comfort. She stops casting waves during the 6-second [Wrest](https://www.wowhead.com/spell=447411/wrest) cast, so when you see your WeakAura popup for the cast position yourself between the most recent waves. There is another red line we do not cross; we want prevent webs from taking all of the melee space.
+
+      It's easy for players to misjudge their position with encroaching web pools and waves. When in doubt, you want to be on the left side of a wave before you're gripped.
+    </TabsContent>
+
+    <TabsContent value="part4">
+      <Image src={img_ansurek_mi_4} alt="Intermission Part 4" />
+
+      The rest of the intermission is a burn. Get comfortable figuring out where to stand to cast your spells before she grips us or we wipe.
+    </TabsContent>
+  </div>
+</Tabs>
+
+The goal of the intermission is to break her shield before she casts [Wrest](https://www.wowhead.com/spell=447411/wrest) for the third time. For the duration of the intermission all previous [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma spawned by roots, as well as [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) now spawned by each [Wrest](https://www.wowhead.com/spell=447411/wrest) in mythic, will grow in size. 
+
+## Videos
 
 This Stankie video is a good high-level overview of the fight.
 <Video src="https://www.youtube.com/watch?v=7z-LtOGJjPk&t=137s" />
