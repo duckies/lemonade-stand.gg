@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger, Tooltip, TooltipTrigger, Tool
 import { Badge } from "components/markdown/badge";
 
 import img_ansurek_setup_1 from "./images/ansurek_setup_1.png";                                                                                                                                                                                                                                                                                                                                                     
-                                                                                                                                                              import img_ansurek_setup_2 from "./images/ansurek_setup_2.png";
+                                                                                                                                                                                                  import img_ansurek_setup_2 from "./images/ansurek_setup_2.png";
 import ansurek_mp1_blades from "./images/ansurek_mp1_blades.png";
 
 import img_ansurek_mp1_1 from "./images/ansurek_mp1_1.png";
@@ -218,13 +218,67 @@ When we clear a platform the Shadowgate will jump to the next platform and spawn
 
 </Mechanic>
 
-<Mechanic id="447950" name="Ascended Voidspeaker" caption="Phase 2 starting adds that need kicked.">
+### Phase 2 Adds
 
-The Ascended Voidspeakers are the adds with shared health that spawn when we enter phase 2, and as the final mob of phase 2, which knock us up to the platforms as they die. They have the same, simple heroic mechanics scaled to lethal levels.
+#### Ascended Voidspeaker
 
-- [Shadowblast](https://www.wowhead.com/spell=447950/shadowblast) is a 4-second cast that will kill whoever it is cast on. We will be using the interrupt anchor WeakAura to orchestrate a kick order.
-- [Radiating Gloom](https://www.wowhead.com/spell=447999/radiating-gloom) is periodic rot damage within 45 yards of the Voidspeaker. They also spawn a void zone under a random ranged that shoot [Gloom Orbs](https://www.wowhead.com/spell=448176/gloom-orbs) from it. The void zone and orbs will probably kill anyone hit.
+The Ascended Voidspeakers spawn at the beginning and end of phase 2, share health, and knock us across platforms. They have the same, simple heroic mechanics scaled to lethal levels.
 
+<Mechanic id="447950" name="Shadowblast" caption="Kick if you like the target.">
+
+[Shadowblast](https://www.wowhead.com/spell=447950/shadowblast) is a 4-second cast that will kill whoever it is cast on. We will be using the interrupt anchor WeakAura to orchestrate a kick order.
+
+</Mechanic>
+
+<Mechanic id="447950" name="Radiating Gloom" caption="Periodic rot damage and orbs.">
+
+[Radiating Gloom](https://www.wowhead.com/spell=447999/radiating-gloom) is periodic rot damage within 45 yards of the Voidspeaker. They also spawn a void zone under a random ranged that shoot [Gloom Orbs](https://www.wowhead.com/spell=448176/gloom-orbs) from it. The void zone and orbs will probably kill anyone hit.
+
+</Mechanic>
+
+#### Chamber Guardian
+
+<Mechanic id="448147" name="Oust" caption="Let the tanks take the lead.">
+
+These are actively tanked mobs, with [Oust](https://www.wowhead.com/spell=448147/oust) dealing massive damage to its target and knocking them away. This ability also spawns a few [Ousting Fragments](https://www.wowhead.com/spell=460315/ousting-fragments) as swirlies that deal large damage on impact and knocking away anyone hit.
+
+</Mechanic>
+
+#### Chamber Expeller
+
+<Mechanic id="451600" name="Expulsion Beam" caption="The most likely reason you die in phase 2.">
+
+Seen in heroic, the expeller teleports around and casts [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam) at a random player. Anyone hit will take lethal damage and be knocked away. This overlapping with [Wrest](https://www.wowhead.com/spell=450191/wrest) can be deadly to anyone poorly positioned.
+
+</Mechanic>
+
+#### Devoted Worshipper
+
+<Mechanic id="447965" name="Gloom Touch" caption="The bad (healer) touch.">
+
+I've explained this mechanic above. 🥰 This one is only cast once per side, on a random healer.
+
+</Mechanic>
+
+<Mechanic id="448488" name="Worshippers Protection" caption="The m'lady shield.">
+
+Worshippers sacrifice their 95 million health pool for 1 health and a 95 million shield because they're stupid or something. If anyone was completely asleep at the wheel in heroic this means executes deal full damage to them, especially executes that activate give temporary damage buffs such as [Touch of Death](https://www.wowhead.com/spell=115080/touch-of-death).
+
+</Mechanic>
+
+<Mechanic id="448458" name="Cosmic Apocalypse" caption="The final form of a Redditor.">
+
+If we take too long to get to the Devoted Worshipper and kill it before this 1.2 minute cast goes off, it will do 5.1 million Shadow damage to everyone nearby and an additional 2.3 million Shadow damage every 2 seconds, forever. It also coats the platform in [Gloom](https://www.wowhead.com/spell=443403/gloom) for added flair.
+
+The cast starts when we enter phase 2, giving us about 30 seconds from when we reach the second phase 2 platform to kill it, and we should be on the next platform by then.
+
+</Mechanic>
+
+#### Chamber Acolyte
+
+<Mechanic id="455374" name="Dark Detonation" caption="Spider wizard spells.">
+
+The incomparable <Sparkles>Chamber Acolytes</Sparkles> with their cute little mage hoods wiggle their hands around for 10 seconds to cast [Dark Detonation](https://www.wowhead.com/spell=455374/dark-detonation), simply killing everyone on that side of the room if not interrupted 😍. Talk about a cuteness overload.
 
 </Mechanic>
 

@@ -27,7 +27,7 @@ const withMDX = createMDX({
       remarkFrontmatter,
       remarkMdxFrontmatter,
       remarkGfm,
-      remarkTOC,
+      [remarkTOC, { maxDepth: 3 }]
     ],
     rehypePlugins: [rehypeSlug, [rehypePrettyCode, rehypePrettyCodeOptions]],
   },
