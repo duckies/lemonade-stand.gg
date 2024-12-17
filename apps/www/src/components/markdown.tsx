@@ -1,14 +1,15 @@
 import { cn } from "@lemonade-stand/ui";
 import { Link, type LinkProps } from "components/Link";
+import { Badge } from "components/markdown/badge";
+import { Callout } from "components/markdown/callout";
 import * as ClassColors from "components/markdown/class-colors";
 import * as Markers from "components/markdown/markers";
-import { Component } from "lucide-react";
+import { Mechanic } from "components/markdown/mechanic";
+import { Sparkles } from "components/markdown/sparkles";
+import { Video } from "components/markdown/video";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
-import NextLink from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
-import { Mechanic } from "./markdown/mechanic";
-import { Video } from "./markdown/video";
 
 declare global {
   type MDXProvidedComponents = typeof DefaultMDXComponents;
@@ -17,14 +18,11 @@ declare global {
 export const DefaultMDXComponents = {
   ...ClassColors,
   ...Markers,
+  Sparkles,
   Mechanic,
   Video,
-  code: ({ className, ...props }: ComponentPropsWithoutRef<"code">) => (
-    <code
-      className={cn("font-mono text-sm bg-card rounded py-[0.2rem] px-[0.3rem]", className)}
-      {...props}
-    />
-  ),
+  Callout,
+  Badge,
   h2: ({ id, children, ...props }: ComponentPropsWithoutRef<"h2">) => {
     return (
       <h2 id={id} {...props} className="scroll-mt-10">

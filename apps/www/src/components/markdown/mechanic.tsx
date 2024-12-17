@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useState } from "react";
 import { Link } from "../Link";
 import { WarcraftIcon } from "../warcraft-icon";
+
 type MechanicProps = {
   name: string;
   id: number;

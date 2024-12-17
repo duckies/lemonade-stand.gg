@@ -3,10 +3,11 @@ title: Mythic Queen Ansurek
 description: Aunt Fanny's spidersona.
 ---
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@lemonade-stand/ui"
+import { Tabs, TabsContent, TabsList, TabsTrigger, Tooltip, TooltipTrigger, TooltipContent, cn } from "@lemonade-stand/ui"
+import { Badge } from "components/markdown/badge";
 
-import img_ansurek_setup_1 from "./images/ansurek_setup_1.png";                                           
- import img_ansurek_setup_2 from "./images/ansurek_setup_2.png";
+import img_ansurek_setup_1 from "./images/ansurek_setup_1.png";                                                                                                                                                                                                                                                                                                                                                     
+                                                                                                                                                              import img_ansurek_setup_2 from "./images/ansurek_setup_2.png";
 import ansurek_mp1_blades from "./images/ansurek_mp1_blades.png";
 
 import img_ansurek_mp1_1 from "./images/ansurek_mp1_1.png";
@@ -27,6 +28,61 @@ import img_ansurek_mi_2 from "./images/ansurek_mi_2.png";
 import img_ansurek_mi_3 from "./images/ansurek_mi_3.png";
 import img_ansurek_mi_4 from "./images/ansurek_mi_4.png";
 
+import img_ansurek_mp2_shadowgate_bar from "./images/phase_2/ansurek_mp2_shadowgate_bar.png"
+
+import img_ansurek_mp2_sides from "./images/phase_2/ansurek_mp2_sides.png"
+import img_ansurek_mp2_w13_1 from "./images/phase_2/ansurek_mp2_w13_1.png"
+import img_ansurek_mp2_w13_2 from "./images/phase_2/ansurek_mp2_w13_2.png"
+import img_ansurek_mp2_w13_3 from "./images/phase_2/ansurek_mp2_w13_3.png"
+import img_ansurek_mp2_w13_4 from "./images/phase_2/ansurek_mp2_w13_4.png"
+import img_ansurek_mp2_w13_5 from "./images/phase_2/ansurek_mp2_w13_5.png"
+
+import img_ansurek_mp2_w2_2 from "./images/phase_2/ansurek_mp2_w2_2.png"
+import img_ansurek_mp2_w2_3 from "./images/phase_2/ansurek_mp2_w2_3.png"
+import img_ansurek_mp2_w2_4 from "./images/phase_2/ansurek_mp2_w2_4.png"
+import img_ansurek_mp2_w2_5 from "./images/phase_2/ansurek_mp2_w2_5.png"
+
+import img_ansurek_mp2_p2_1 from "./images/phase_2/ansurek_mp2_p2_1.png"
+import img_ansurek_mp2_p2_2 from "./images/phase_2/ansurek_mp2_p2_2.png"
+
+import img_ansurek_mp2_p3_1 from "./images/phase_2/ansurek_mp2_p3_1.png"
+
+
+export function DifficultyBadge({ title, tooltip, className }) {
+  return (
+    <Tooltip>
+      <TooltipTrigger>
+        <Badge className={cn(className)}>{title}</Badge>
+      </TooltipTrigger>
+      <TooltipContent className="bg-card text-foreground">
+        {tooltip}
+      </TooltipContent>
+    </Tooltip>
+  )
+}
+
+export const HeroicBadge = () => (
+  <Tooltip>
+    <TooltipTrigger>
+      <Badge>Heroic</Badge>
+    </TooltipTrigger>
+    <TooltipContent className="bg-card text-foreground">
+      <p>This is an unchanged heroic mechanic.</p>
+    </TooltipContent>
+  </Tooltip>
+)
+
+export const MythicBadge = () => (
+  <Tooltip>
+    <TooltipTrigger>
+      <Badge className="bg-rose-300 hover:bg-rose-400">Mythic</Badge>
+    </TooltipTrigger>
+    <TooltipContent className="bg-card text-foreground">
+      <p>This is a new mythic ability.</p>
+    </TooltipContent>
+  </Tooltip>
+)
+
 ## Contents
 
 ## Links
@@ -36,7 +92,7 @@ import img_ansurek_mi_4 from "./images/ansurek_mi_4.png";
 ## Required Setup
 
 1. Disable "Reactive Toxin Marker" if you may be given assist.
-2. Click on the ">>" arrows on "Reactive Toxin" and disable "Say" and "Say Countdown".
+2. Click on the ">>" arrows on `Reactive Toxin` and disable "Say" and "Say Countdown".
 
 <Image src={img_ansurek_setup_1} alt="BigWigs Setup 1" />
 
@@ -130,6 +186,45 @@ Players will take 402k nature damage every 1.5 seconds to players within 2 yards
 Throughout the duration of the phase the [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma left behind in the previous phase will grow. In addition, each [Wrest](https://www.wowhead.com/spell=447411/wrest) will also spawn more [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma which also grows.
 
 Stay ahead of the miasma but also make sure to be ahead of any incoming [Paralyzing Waves](https://www.wowhead.com/spell=451607/paralyzing-waves), which will kill you.
+
+</Mechanic>
+
+### Phase 2 Mechanics
+
+<Mechanic id="464056" name="Gloom Touch" caption="The bad touch, the good touch?">
+
+This is a magic-dispellable debuff that we've seen in heroic from the Devoted Worshippers, aka the shielded mobs on the 2nd phase 2 platform. It deals mild, 575k shadow damage every 1.5 seconds for 12 seconds, now also cleaving this damage to anyone within 8 yards in mythic.
+
+Expiration or removal of the debuff deals 2 million damage to players on the platform of the dispellee via [Gloom Blast](https://www.wowhead.com/spell=447983/gloom-blast) and leaves a moderately sized [Gloom](https://www.wowhead.com/spell=443403/gloom) miasma puddle on the ground.
+
+The Devoted Worshippers still cast this ability on one random healer per side shortly after reaching the second phase 2 platform, but players who step through a [Shadowgate](https://www.wowhead.com/spell=460366/shadowgate) are also afflicted with this debuff.
+
+<Callout type="info">
+
+The Gloom Touch applied by Shadowgates have an id of `464056` whereas the Gloom Touch applied by Devoted Worshippers have an id of `447967`. The mechanics are identical in every way aside from the means of application, and their id.
+
+</Callout>
+
+</Mechanic>
+
+<Mechanic id="460366" name="Shadowgate" caption="A player in each group periodically swaps platforms.">
+
+In Mythic, the adds that share health across platforms via [Echoing Connection](<https://www.wowhead.com/spell=462692/echoing-connection>) will emerge from a Shadowgate on each platform. The gates themselves spam a 12 second cast of the same name, [Shadowgate](https://www.wowhead.com/spell=460369/shadowgate), that will kill their side of the room if it goes off. This cast can be reset by stepping into them, teleporting the player to the opposite platform's Shadowgate, but afflicting the player with two debuffs:
+
+- [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch), which is described above this mechanic; deals raid damage and drops miasma when dispelled.
+- [Shadowy Distortion](https://www.wowhead.com/spell=460218/shadowy-distortion) prevents the player from re-entering a Shadowgate for 30 seconds. 
+
+When we clear a platform the Shadowgate will jump to the next platform and spawn the next set of adds. Importantly, when a Shadowgate jumps it will reset its cast timer, though it will start casting immediately on the new platform even before we get there. Lastly, killing the final add of phase 2, the lone Ascended Voidspeaker, will destroy the Shadowgates as well as any active [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) debuffs.
+
+</Mechanic>
+
+<Mechanic id="447950" name="Ascended Voidspeaker" caption="Phase 2 starting adds that need kicked.">
+
+The Ascended Voidspeakers are the adds with shared health that spawn when we enter phase 2, and as the final mob of phase 2, which knock us up to the platforms as they die. They have the same, simple heroic mechanics scaled to lethal levels.
+
+- [Shadowblast](https://www.wowhead.com/spell=447950/shadowblast) is a 4-second cast that will kill whoever it is cast on. We will be using the interrupt anchor WeakAura to orchestrate a kick order.
+- [Radiating Gloom](https://www.wowhead.com/spell=447999/radiating-gloom) is periodic rot damage within 45 yards of the Voidspeaker. They also spawn a void zone under a random ranged that shoot [Gloom Orbs](https://www.wowhead.com/spell=448176/gloom-orbs) from it. The void zone and orbs will probably kill anyone hit.
+
 
 </Mechanic>
 
@@ -298,7 +393,7 @@ The goal of the intermission is to break her shield before she casts [Wrest](htt
     <TabsTrigger value="part4"><span className="hidden md:block mr-1">Part</span>4</TabsTrigger>
   </TabsList>
 
-  <div className="bg-muted rounded-lg px-5 pt-4 pb-7 mt-3">
+  <div className="bg-card rounded-lg px-5 pt-4 pb-7 mt-3">
     <TabsContent value="part1">
       <Image src={img_ansurek_mi_1} alt="Intermission Part 1" /> 
     
@@ -327,6 +422,258 @@ The goal of the intermission is to break her shield before she casts [Wrest](htt
   </div>
 </Tabs>
 
+
+## Phase 2 • Royal Ascension
+
+The second phase starts when we break her intermission shield. Specifically, we have to break her [Predation](https://www.wowhead.com/spell=447076/predation) shield before she finishes casting [Wrest](https://www.wowhead.com/spell=447411/wrest) for the third time which starts at `3:18` and finishes (wipes us) at `3:24`.
+
+<Callout type="info">
+
+We are meant to push to phase 2 **during** the last cast of [Wrest](https://www.wowhead.com/spell=447411/wrest) for twoish reasons:
+
+1. We want as many cooldowns available, consistently, for phase 2. Phase 2 has the biggest damage and push time requirements. 
+2. 99% of the time the first [Wrest](https://www.wowhead.com/spell=450191/wrest) cast in phase 2 will be on the ranged side. However, there is a theory debated in the Raid Leader Exchange that if we break Ansurek's shield before she starts her third [Wrest](https://www.wowhead.com/spell=447411/wrest) cast, the platform she picks for the first phase 2 wrest will not be consistent. 
+
+</Callout>
+
+### Platform 0 • Pre-Jump
+
+<Image src={img_ansurek_mp2_sides} alt="Phase 2 Sides" />
+
+
+As we enter the second phase the raid will split and deal with the Ascended Voidspeaker spawning in front of their assigned sides. You may see the following nomenclature throughout the known cosmos for the sides:
+
+- **Melee, Left, Close, or North**: Northermost on the minimap, or to the left of our position post-intermission facing Ansurek.
+- **Ranged, Right, Far, or South**: Southermost on the minimap, or to the right of our position post-intermission facing Ansurek.
+
+<Callout type="info">
+
+The Northern Sky WeakAuras use `Left` and `Right` nomenclature, but this is not important. For example, if a WeakAura says `Gate → Right`, there is only one gateway you can take and it's on the platform you're already on — all you must know is it wants you to use the Shadowgate. I much prefer calling them the melee and ranged platforms, so I'll be referring to them as such. Whatever reason you think this preference is wrong will only make me think less of you, so keep it to yourself.
+
+</Callout>
+
+The goal of this first part of phase 2 is not to kill these Voidspeakers as fast as possible, so no cooldowns, but we also won't be holding damage. We just want to safely deal with the following abilities:
+
+- <HeroicBadge/> [Shadowblast](https://www.wowhead.com/spell=447950/shadowblast) is a 4-second interruptable cast from the Voidspeakers that deals a demure 💅 57 million shadow damage to their target if not kicked. We will use the [Interrupt Anchor](https://wago.io/InterruptAnchor) WeakAura to assign a kick order for this ability.
+- <HeroicBadge/> [Radiating Gloom](https://www.wowhead.com/spell=447999/radiating-gloom) does rot damage to the raid and periodically picks a random ranged with a circle that shoots [Gloom Orbs](https://www.wowhead.com/spell=448176/gloom-orbs) from it. The circle and the orbs deal lethal amounts of damage.
+- <MythicBadge/> [Shadowgates](https://www.wowhead.com/spell=460369/shadowgate) are thoroughly explained in [phase 2 mechanics](#phase-2-mechanics). While we remain on the phase 1 platform, we will treat these first Shadowgates as a special case.
+
+The first Shadowgates we will assign a pair of healers to swap sides. These healers will need to wait for the Shadowgate cast to be near its end. Swapping 3 seconds before the cast finishes will suffice. These healers can then dispel themselves immediately, right on top of the Shadowgate, or slightly to the side, it doesn't matter.
+
+The tanks will keep the Voidspeakers directly in line with the Shadowgate, only moving it forward a few yards if needed to avoid the [Gloom](https://www.wowhead.com/spell=443403/gloom) miasma from the debuff.
+
+<div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 my-6">
+  <div>
+    The Shadowgate assignments take the form of a pair of bars for each Shadowgate cast bar. It then assigns a valid, or the next alive and non-debuffed, player on the list for that side to go next. Clearing a platform will reset the castbar, but the assignment will stay the same until that person uses the Shadowgate. The player assigned will also see text in the middle of their screen for the duration of the cast in the form of `GATE -> RIGHT` or `GATE -> LEFT`.
+
+    The `Left` and `Right` is saying this person is going **to** that side, e.g. in the picture Waysoone is on the left, melee side, and is being sent to the right, ranged side. This text isn't important, just know you are next for the Shadowgate if you see `GATE` in the middle of your screen.
+  </div>
+  <div>
+  <Image src={img_ansurek_mp2_shadowgate_bar} alt="Phase 2 Shadowgate Bar" />
+  </div>
+</div>
+
+
+### Platform 1 • Wrests 1 & 3
+
+The following slides are for the team that gets the first [Wrest](https://www.wowhead.com/spell=450191/wrest) on the first phase 2 platform. This should be the ranged platform, but for reasons beyond mortal understanding this is not a guarantee.
+
+<Tabs defaultValue="1" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="1">Part 1</TabsTrigger> 
+    <TabsTrigger value="2">Part 2</TabsTrigger>
+    <TabsTrigger value="3">Part 3</TabsTrigger>
+    <TabsTrigger value="4">Part 4</TabsTrigger>
+    <TabsTrigger value="5">Part 5</TabsTrigger>
+  </TabsList>
+
+  <div className="bg-card rounded-lg px-5 pt-4 pb-7 mt-3">
+    <TabsContent value="1">
+      <Image src={img_ansurek_mp2_w13_1} alt="Phase 2 Wrests 1 + 3" />
+
+      <Callout type="warning">
+      
+        We want the Shadowgate orange section clear so that the players swapping sides aren't decapitated as they swap during [Wrest](https://www.wowhead.com/spell=450191/wrest). The other orange section is meant to be a safe zone slow ranged players can expect to use pull to pull.
+
+      </Callout>
+      
+      After the team lands, players should try to bait the Chamber Expeller's [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam) to the sides of Shadowgate or the bridge.
+
+    </TabsContent>
+
+    <TabsContent value="2">
+      <Image src={img_ansurek_mp2_w13_2} alt="Phase 2 Wrests 1 + 3 Part 2" />
+
+      The beam will happen during [Wrest](https://www.wowhead.com/spell=450191/wrest), so once the beam has picked its direction, players should place themselves so that they are not gripped into the beam however they can best accomplish this. Don't place yourself directly in front of the Shadowgate or the bridge, as you will drop miasma where players will need to move to.
+
+      This first Shadowgate assignments swap sides shortly before the first [Wrest](https://www.wowhead.com/spell=450191/wrest).
+
+      <Callout type="info">
+
+      As a rule of thumb, the Shadowgate users from here on out are waiting for, approximately, 4 seconds left on their Shadowgate cast. For one player, this means they will get the [Wrest](https://www.wowhead.com/spell=450191/wrest) lines and cancel it by going through the Shadowgate. The other player will go shortly before [Wrest](https://www.wowhead.com/spell=450191/wrest) finishes. Neither person will be gripped.
+      </Callout>
+    </TabsContent>
+
+    <TabsContent value="3">
+      <Image src={img_ansurek_mp2_w13_3} alt="Phase 2 Wrests 1 + 3 Part 3" />
+
+      Healers will dispel the [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) once the player who joined during the first [Wrest](https://www.wowhead.com/spell=450191/wrest) has moved off to the side.
+
+      As this happens, the other platform will be dealing with the second [Wrest](https://www.wowhead.com/spell=450191/wrest) cast. The goal of both platforms is now to kill the adds before the third [Wrest](https://www.wowhead.com/spell=450191/wrest) is cast. Remember that the Guardian and Expeller are sharing health with their counterparts on the other team's platform.
+
+    </TabsContent>
+    <TabsContent value="4">
+      <Image src={img_ansurek_mp2_w13_4} alt="Phase 2 Wrests 1 + 3 Part 4" />
+
+      - The next Shadowgate player should go right before the second [Wrest](https://www.wowhead.com/spell=450191/wrest) finishes on the other team's platform.
+      - Dodge the second [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam).
+      
+    </TabsContent>
+    <TabsContent value="5">
+      <Image src={img_ansurek_mp2_w13_5} alt="Phase 2 Wrests 1 + 3 Part 5" />
+
+      Two players will be assigned to click the bridge pylons as we try to kill the adds before the third [Wrest](https://www.wowhead.com/spell=450191/wrest). On progression you play as if it will always go off.
+      
+      
+      <Callout type="error">
+
+      It's one thing for the healers to not be able to save you to the damage from the [Wrest](https://www.wowhead.com/spell=450191/wrest), which means use a fucking personal, but getting gripped off the platform is a stupid, preventable mistake.
+
+      </Callout>
+    </TabsContent>
+  </div>
+</Tabs>
+
+### Platform 1 • Wrest 2
+
+The other team will get a single [Wrest](https://www.wowhead.com/spell=450191/wrest) on their first platform, the second one. Not much is different from the other platform.
+
+<Tabs defaultValue="1" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="1">Part 1</TabsTrigger> 
+    <TabsTrigger value="2">Part 2</TabsTrigger>
+    <TabsTrigger value="3">Part 3</TabsTrigger>
+    <TabsTrigger value="4">Part 4</TabsTrigger>
+    <TabsTrigger value="5">Part 5</TabsTrigger>
+  </TabsList>
+
+  <div className="bg-card rounded-lg px-5 pt-4 pb-7 mt-3">
+    <TabsContent value="1">
+      <Image src={img_ansurek_mp2_w13_1} alt="Phase 2 Wrests 2 Part 1" />
+
+      <Callout type="info">
+      
+      This is same first slide as the other platform.
+
+      </Callout>
+
+      Nothing is different yet, everyone baits the [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam) as if they might get the first [Wrest](https://www.wowhead.com/spell=450191/wrest).
+
+    </TabsContent>
+    <TabsContent value="2">
+      <Image src={img_ansurek_mp2_w2_2} alt="Phase 2 Wrests 2 Part 2" />
+
+      This is when players have stopped running around like monkeys since landing on the platform and have now noticed they aren't getting the first [Wrest](https://www.wowhead.com/spell=450191/wrest).
+      
+      - The first pair of Shadowgate users for this platform will be swapping shortly before Ansurek's [Wrest](https://www.wowhead.com/spell=450191/wrest) cast completes on the other platform.
+    </TabsContent>
+    <TabsContent value="3">
+      <Image src={img_ansurek_mp2_w2_3} alt="Phase 2 Wrests 2 Part 4" />
+
+      Healers dispel the [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) when appropriate.
+    </TabsContent>
+    <TabsContent value="4">
+      <Image src={img_ansurek_mp2_w2_4} alt="Phase 2 Wrests 2 Part 4" />
+
+      The pair of Shadowgate users pass through the Shadowgate right before the second [Wrest](https://www.wowhead.com/spell=450191/wrest) cast finishes.
+
+      Everyone else will be baiting the [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam) as Ansurek *starts* the second [Wrest](https://www.wowhead.com/spell=450191/wrest) cast. The beam will pick a direction about 2/3rds of the way through the [Wrest](https://www.wowhead.com/spell=450191/wrest) cast, requiring potentially more on-the-fly movement from players compared to the other platform.
+    </TabsContent>
+    <TabsContent value="5">
+      <Image src={img_ansurek_mp2_w2_5} alt="Phase 2 Wrests 2 Part 5" />
+
+      [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) is removed quickly, and everyone focuses on killing the adds before the other platform gets the third [Wrest](https://www.wowhead.com/spell=450191/wrest).
+    </TabsContent>
+  </div>
+</Tabs>
+
+The Shadowgate timings from pictures aren't the most helpful. Just remember that if your platform is getting [Wrest](https://www.wowhead.com/spell=450191/wrest) and you're next for the Shadowgate, you want to position yourself to use the gate during the cast. To keep it safe, halfway into the cast so you're not gripped away from the Shadowgate is a safe time to use it. However, if your platform is not getting the current [Wrest](https://www.wowhead.com/spell=450191/wrest) and you're next for the Shadowgate, look for Ansurek's cast bar and jump over a couple seconds before the cast finishes.
+
+### Platform 2
+
+The second platform is what distinguish the sides as `melee` and `ranged` as different adds spawn on each side in Mythic.
+
+- Each side has the following two mobs:
+  - A Chamber Expeller, the mob with [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam) from the previous platform. These are the only mobs that share health across the two sides.
+  - A Devoted Worshipper, the mob seen in heroic with 1 health and the [Worshipper's Protection](https://www.wowhead.com/spell=448488/worshippers-protection) shield that we have to break before their cast finishes.
+  - Technically, both playforms still see a third mob, the Caustic Skitterer. Don't get aggro on these before the tank does (it's a heroic mechanic).
+- The melee side has a single other mob, the Chamber Guardian. This is the tanked mob seen on the previous platform. Since it has no partner, it doesn't share health with anything.
+- The ranged side has a new mythic spider friend, the <Sparkles>Chamber Acolyte</Sparkles>, of which two spawn on the left and right sides hanging a few yards off the edge of the platform. They are not reachable by melee, aside from something like a [Throw Glaive](https://www.wowhead.com/spell=185123/throw-glaive) or [Crackling Jade Lightning](https://www.wowhead.com/spell=117952/crackling-jade-lightning) for debuff purposes. They also spam a 10 second cast, [Dark Detonation](https://www.wowhead.com/spell=455374/dark-detonation) that will kill everyone on the ranged side if it goes off. 
+
+The [Shadowgate](https://www.wowhead.com/spell=460369/shadowgate) and [Wrest](https://www.wowhead.com/spell=450191/wrest) dynamic is the same as the first platform, however, the side in which someone physically reaches the platform first gets the first [Wrest](https://www.wowhead.com/spell=450191/wrest). In earlier progression it was possible to get a third [Wrest](https://www.wowhead.com/spell=450191/wrest) on the second platform, but this is now much less likely. However, because of this the recommendation was for a melee, likely a <Warrior/>, to leap up to the second platform early so the melee side can get the first [Wrest](https://www.wowhead.com/spell=450191/wrest) every time.
+
+It's still beneficial for us to pick a side to get the first [Wrest](https://www.wowhead.com/spell=450191/wrest) every time, but this is more for making cooldown timings static.
+
+<Tabs defaultValue="1" className="mt-6">
+  <TabsList>
+    <TabsTrigger value="1">Part 1</TabsTrigger>
+    <TabsTrigger value="2">Part 2</TabsTrigger>
+  </TabsList>
+
+  <div className="bg-card rounded-lg px-5 pt-4 pb-7 mt-3">
+    <TabsContent value="1">
+      <Image src={img_ansurek_mp2_p2_1} alt="Phase 2 Part 1" />
+
+      <Callout type="info">
+        I didn't put text on these images because the second platform is more, "deal with the mechanics," rather than a step-by-step procedure more appropriate to a RaidPlan. This is more pictoral since the locations these adds and Shadowgate spawn in are the same for both platforms.
+      </Callout>
+
+      - The first mechanic on the second platform is the [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch). It takes a few seconds for the Devoted Worshipper to smell that healers are on the platform, but once it does the healers should already be towards the back left edge to dispel themselves immediately (holding hands, unsure of who it may be).
+      - The Chamber Expellers jump to the left of the Worshipper, making the only worthwhile bait position to be on the left side of the platform. Everyone should try to remain to the left of the triangle at the bottom of the platform picture.
+      - Lastly, [Dark Detonation](https://www.wowhead.com/spell=455374/dark-detonation) is spam-cast by the Acolytes while they're alive. They will be marked (one way or another), and we will use the Interrupt Anchor WeakAura to keep them kicked.
+    </TabsContent>
+    <TabsContent value="2">
+      <Image src={img_ansurek_mp2_p2_2} alt="Phase 2 Part 2" />
+
+      There are 3 generally valid locations for players to be for [Wrest](https://www.wowhead.com/spell=450191/wrest):
+      1. At the back of the room, wherever is unimportant. This is good for mobile ranged, healers, ...etc.
+      2. In the middle of the room, but not in the way of the Shadowgate or web bridge.
+      3. At the top edge of the platform beyond the adds. This is good for melee that can negate the grip, like <Monk>Monks</Monk>, or <DeathKnight>Death Knights</DeathKnight>.
+
+      The Shadowgate dance will happen during both [Wrests](https://www.wowhead.com/spell=450191/wrest). As a reminder, if your side is getting gripped you want to step through the gate about halfway through the cast, or at about 2 seconds before the cast finishes if your side is not getting gripped.
+
+      [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) from the Shadowgate can be dispelled off to the side for the first one. The second one can be dispelled on the Shadowgate itself. It shouldn't scare you to sit in the Shadowgate after coming through as you can't be sent back for 30 seconds and the gate itself won't hurt you. It is never a bad idea to call that you're ready for the dispel, regardless of platform.
+
+      <Callout type="info">
+
+      The only reason I don't recommend dispelling the second [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) on top of the Shadowgate for the other platforms is the Shadowgate is a visual mass of purple and red and seeing players in it is a shitshow. In a world where players reliably called out when they're ready for a dispel this might not be a problem, but we raid in a progression bracket where healers have to physically turn around to look at debuffed players to see if they're ready for a dispel, otherwise they'd sit in it silently until they died. Anyway, on this platform you can easily be boxed in between web miasma or run forward and  risk the healers dispelling you right in front of the bridge.
+      
+      </Callout>
+    </TabsContent>
+  </div>
+</Tabs>
+
+### Platform 3
+
+<Image src={img_ansurek_mp2_p3_1} alt="Phase 2 Platform 3" />
+
+The last platform is just like the start of phase 2 when we're still on the phase 1 platform. We deal with a lone Ascended Voidspeaker, kicking their [Shadowblast](https://www.wowhead.com/spell=447950/shadowblast) with WeakAura assignments while ranged stay away from melee since they'll spawn [Gloom Orbs](https://www.wowhead.com/spell=448176/gloom-orbs).
+
+
+<Callout type="warning">
+
+It's not a good idea for tanks to drag the Voidspeakers towards the edge of the platform. It's better for them to remain in the middle of the platform so ranged can easily spread around it and the melee. The knockback is equally potent within its 45 yard range.
+
+</Callout>
+
+## Phase 3 
+
+<Callout type="info">
+
+Phase 3 notes aren't ready yet 🦆
+
+</Callout>
+
 ## Videos
 
 This Stankie video is a good high-level overview of the fight.
@@ -339,5 +686,24 @@ A Fury Warrior pov video from Northern Sky's kill. This is pre-nerf, but it's no
 
 <Video src="https://www.youtube.com/watch?v=R-lWgXcRJ2E" />
 
+## Nerf History
 
+This doesn't include the [hotfix](https://www.wowhead.com/news/nerub-ar-palace-tuning-hotfixes-ulgrax-nerfed-and-mythic-boss-tuning-346665) [nerfs](https://www.wowhead.com/news/mythic-queen-ansurek-nerfed-race-to-world-first-nerub-ar-palace-347036) prior to the World First kill from Liquid.
 
+### Tuesday, November 12th, 2024
+
+- Web Blades
+    - Number of targets reduced to 3 (was 4).
+    - Grasping Silk damage reduced by 25%.
+- Phase 1:
+    - Number of Reactive Toxins applied per cycle no longer increases beyond 3 (was up to 4).
+    - Removed second Silken Tomb cast from the final cycle of the phase, and adjusted the timings of other abilities in this final cycle to accommodate this change.
+    - Silken Tomb health reduced by 30%.
+    - Frothy Toxin damage reduced by 23%.
+- Phase 2:
+    - Shadowy Distortion duration reduced to 30 seconds (was 3 minutes).
+    - Gloom Blast damage reduced by 20%.
+- Phase 3:
+    - Number of Summoned Acolytes per cycle no longer increases beyond 4 (was up to 5).
+    - Removed the first cast of Royal Condemnation from the final cycle of the phase, and adjusted the timings of some other abilities in this final cycle to accommodate this change.
+    - Removed Web Blades casts that overlapped with applications of Abyssal Infusion.

@@ -54,11 +54,21 @@ const fontSerif = localFont({
   variable: "--font-serif",
 });
 
+const fontMono = localFont({
+  src: [
+    {
+      path: "../../public/fonts/maple-mono/maplemono-regular.ttf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-mono",
+});
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn(fontSans.className, fontSerif.variable, "grain")}>
+      <body className={cn(fontSans.className, fontSerif.variable, fontMono.variable, "grain")}>
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <Header>

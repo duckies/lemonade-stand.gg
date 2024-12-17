@@ -25,6 +25,7 @@ export * from "./components/ui/textarea";
 export * from "./components/ui/time-period";
 export * from "./components/ui/time-picker";
 export * from "./components/ui/toggle";
+export * from "./components/ui/tooltip";
 
 export * from "./utils/cn";
 export * from "./utils/time";

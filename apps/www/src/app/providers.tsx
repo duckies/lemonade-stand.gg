@@ -1,5 +1,6 @@
 "use client";
 
+import { TooltipProvider } from "@lemonade-stand/ui";
 import { QueryClient, QueryClientProvider, isServer } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 
@@ -31,8 +32,10 @@ export function Providers({ children }: Readonly<{ children: React.ReactNode }>)
   const queryClient = getQueryClient();
 
   return (
-    <ThemeProvider defaultTheme="dark" attribute="class">
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </ThemeProvider>
+    <TooltipProvider>
+      <ThemeProvider defaultTheme="dark" attribute="data-theme">
+        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      </ThemeProvider>
+    </TooltipProvider>
   );
 }
