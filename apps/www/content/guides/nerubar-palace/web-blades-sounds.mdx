@@ -1,0 +1,25 @@
+---
+title: Web Blades Sounds
+description: Modifications to the Web Blades WeakAura.
+---
+
+import img_blades_custom1 from "./images/weakauras/blades_custom1.png";
+import img_blades_custom2 from "./images/weakauras/blades_custom2.png";
+
+If you want the Web Blades WeakAura to play a sound when it's safe to move, make the following modifications. The images are what each tab should look like.
+
+1. Inder the trigger tab find "Custom Variables" and add copy and paste the following:
+
+  <div className="bg-card rounded-xl">
+  ```lua
+  {
+    expirationTime = true,
+  }
+  ```
+  </div>
+
+2.   Then under the custom options tab add a condition where `Remaining Duration = 2.5`, then `Sound → Play`, pick your sound of choice, then use the `Master` sound channel. 
+
+<Image className="justify-self-center" src={img_blades_custom1} alt="Web Blades Custom Variables" />
+
+<Image className="justify-self-center" src={img_blades_custom2} alt="Web Blades Custom Variables" />

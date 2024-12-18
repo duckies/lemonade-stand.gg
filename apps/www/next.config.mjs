@@ -1,6 +1,6 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
-import rehypePrettyCode from "rehype-pretty-code";
+import rehypeShiki from "rehype-shiki";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
@@ -13,14 +13,6 @@ const nextConfig = {
   transpilePackages: ["@lemonade-stand/ui", "react-hook-form"],
 };
 
-/** @type {import("rehype-pretty-code").Options} */
-const rehypePrettyCodeOptions = {
-  theme: {
-    light: "catppuccin-latte",
-    dark: "catppuccin-mocha"
-  },
-}
-
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
@@ -29,7 +21,12 @@ const withMDX = createMDX({
       remarkGfm,
       [remarkTOC, { maxDepth: 3 }]
     ],
-    rehypePlugins: [rehypeSlug, [rehypePrettyCode, rehypePrettyCodeOptions]],
+    rehypePlugins: [rehypeSlug, [rehypeShiki, {
+      themes: {
+        light: "catppuccin-latte",
+        dark: "catppuccin-mocha"
+      }
+    }]],
   },
 });
 

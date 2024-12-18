@@ -5,10 +5,10 @@ description: Aunt Fanny's spidersona.
 
 import { Tabs, TabsContent, TabsList, TabsTrigger, Tooltip, TooltipTrigger, TooltipContent, cn } from "@lemonade-stand/ui"
 import { Badge } from "components/markdown/badge";
-
-import img_ansurek_setup_1 from "./images/ansurek_setup_1.png";                                                                                                                                                                                                                                                                                                                                                     
-                                                                                                                                                                                                   import img_ansurek_setup_2 from "./images/ansurek_setup_2.png";
+import img_ansurek_setup_1 from "./images/ansurek_setup_bw1.png";
+import img_ansurek_setup_2 from "./images/ansurek_setup_bw2.png";
 import ansurek_mp1_blades from "./images/ansurek_mp1_blades.png";
+import ansurek_wa_web_blades from "./images/ansurek_wa_web_blades.png";
 
 import img_ansurek_mp1_1 from "./images/ansurek_mp1_1.png";
 import img_ansurek_mp1_2 from "./images/ansurek_mp1_2.png";
@@ -91,15 +91,28 @@ export const MythicBadge = () => (
 
 ## Required Setup
 
-1. Disable "Reactive Toxin Marker" if you may be given assist.
-2. Click on the ">>" arrows on `Reactive Toxin` and disable "Say" and "Say Countdown".
+1. Under `Queen Ansurek` in BigWigs find the first mechanic, [Reactive Toxin](https://www.wowhead.com/spell=437592/reactive-toxin), click the `>>` arrows, and disable `Say` and `Say Countdown`.
+1. Disable `Reactive Toxin Marker`.
 
-<Image src={img_ansurek_setup_1} alt="BigWigs Setup 1" />
+<Image src={img_ansurek_setup_1} className="justify-self-center" alt="BigWigs Setup 1"/>
 
-<Image src={img_ansurek_setup_2} alt="BigWigs Setup 2" />
+<Image src={img_ansurek_setup_2} className="justify-self-center" alt="BigWigs Setup 2" />
 
+3. Search for `Web Blades` in your WeakAuras, or find the aura named `Web Blades` under `Nerub-ar Palace`, `Queen Ansurek`, `Queen Ansurek - Bars`. This aura is set to load Never by default. Uncheck that to turn it back on. If you want to modify this WeakAura to make a sound when it's safe to move, view instructions [here](/guides/nerubar-palace/web-blades-sounds).
 
-The first phase revolves around space management and being consistent with the bombs. In your own personal preparation be weary of pre-nerf materials, as phase one changes were significant.
+  <figure className="justify-self-center">
+    <Image src={ansurek_wa_web_blades} alt="Web Blades WeakAura" />
+    <figcaption>
+    The green ticks are when the Web Blades spawn, and the red ticks are when they erupt.
+    </figcaption>
+  </figure>
+
+4. Tanks need to find the Weakaura below in the assignment auras and enable it. They should also review our [assignments sheet](https://docs.google.com/spreadsheets/d/1NwLOCed-NoyBckvTx0fGHEXRyp-kDW6XdNEV7dN-qR0/edit?gid=680015118#gid=680015118) and in the custom options pick the correct markers for the first and third Ascended Voidspeaker for their side.
+
+```
+Voidspeaker Automark - CUSTOM OPTIONS + DISABLED BY DEFAULT
+```
+
 
 ## Mechanics
 

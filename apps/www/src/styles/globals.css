@@ -90,7 +90,29 @@
     }
   }
 
+  .hero {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 50%, hsl(var(--background))); 
+    }
+  }
+
   .prose {
+    figure {
+      @apply mt-6;
+
+      & > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      figcaption {
+        @apply text-muted-foreground text-sm mt-2;
+      }
+    }
+
     ol[type='A'] {
       list-style-type: upper-alpha;
     }
