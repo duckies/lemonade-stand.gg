@@ -1,6 +1,6 @@
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
-import { ChevronDown, ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
 import type { ComponentPropsWithRef } from "react";
 
 import "./navigation-menu.css";
@@ -33,22 +33,41 @@ function NavigationMenuList({
   );
 }
 
-const NavigationMenuItem = NavigationMenuPrimitive.Item;
+
+function NavigationMenuItem({
+  className,
+  ref,
+  ...props
+}: ComponentPropsWithRef<typeof NavigationMenuPrimitive.Item>) {
+  return (
+    <NavigationMenuPrimitive.Item
+      ref={ref}
+      className={cn("navigation-menu__item", className)}
+      {...props}
+    />
+  )
+}
 
 const navigationMenuTriggerStyle = cva([
-  "group flex relative h-10 w-max items-center justify-center px-4 py-2 text-sm font-medium focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+  "group flex relative h-10 w-max items-center justify-center px-4 py-2 text-sm font-semibold focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
   "before:absolute before:inset-0 before:bg-white/10 before:transition-[opacity,transform,border-radius] before:duration-250",
   "before:opacity-0 hover:before:opacity-100 before:data-[active]:opacity-100 before:data-[state=open]:opacity-100",
   "before:scale-[.4] hover:before:scale-100 before:data-[active]:scale-100 before:data-[state=open]:scale-100",
   "before:rounded hover:before:rounded-[0.6rem] before:data-[active]:rounded-[0.6rem] before:data-[state=open]:rounded-[0.6rem]",
 ]);
 
+interface NavigationMenuTriggerProps
+  extends ComponentPropsWithRef<typeof NavigationMenuPrimitive.Trigger> {
+  icon?: boolean;
+}
+
 function NavigationMenuTrigger({
   className,
   children,
+  icon,
   ref,
   ...props
-}: ComponentPropsWithRef<typeof NavigationMenuPrimitive.Trigger>) {
+}: NavigationMenuTriggerProps) {
   return (
     <NavigationMenuPrimitive.Trigger
       ref={ref}
@@ -56,13 +75,16 @@ function NavigationMenuTrigger({
       onPointerEnter={(e) => e.preventDefault()}
       onPointerMove={(e) => e.preventDefault()}
       onPointerLeave={(e) => e.preventDefault()}
+      
       {...props}
     >
       {children}{" "}
-      <ChevronDownIcon
-        className="relative top-[1px] ml-1 h-3 w-3 transition-transform duration-250 group-data-[state=open]:rotate-[-180deg]"
-        aria-hidden
-      />
+      {icon !== false && (
+        <ChevronDownIcon
+          className="relative top-[1px] ml-1 h-3 w-3 transition-transform duration-250 group-data-[state=open]:rotate-[-180deg]"
+          aria-hidden
+        />
+      )}
     </NavigationMenuPrimitive.Trigger>
   );
 }

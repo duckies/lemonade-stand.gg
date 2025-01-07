@@ -1,3 +1,4 @@
+import Image, { type ImageProps } from "next/image";
 import { type ComponentPropsWithRef, useEffect, useRef } from "react";
 
 /**
@@ -20,7 +21,7 @@ function isImageValid(src: string, validator?: (img: HTMLImageElement) => boolea
   return promise;
 }
 
-export type ImgProps = Omit<ComponentPropsWithRef<"img">, "src"> & {
+export type ImgProps = Omit<ImageProps, "src"> & {
   src: string;
   "data-fallback"?: string;
   validator?: (img: HTMLImageElement) => boolean;
@@ -37,5 +38,5 @@ export function ImageWithFallback({ src, validator, ...props }: ImgProps) {
     });
   }, [src, props["data-fallback"], validator]);
 
-  return <img ref={ref} src={src} {...props} />;
+  return <Image ref={ref} src={src} {...props} />;
 }

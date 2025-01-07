@@ -2,12 +2,13 @@
 
 import { cn, navigationMenuTriggerStyle } from "@lemonade-stand/ui";
 import * as NavigationMenu from "@lemonade-stand/ui/navigation-menu";
-import { ExternalLinkIcon, KeyRoundIcon, MoveUpRightIcon, SwordsIcon } from "lucide-react";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { KeyRoundIcon, SwordsIcon } from "lucide-react";
 import Link from "next/link";
 import type React from "react";
-import { type ComponentPropsWithRef, type ReactNode, useState } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import { LemonLogo } from "./icons/logo";
+import { MobileNav } from "./mobile-nav";
 import { NavigationMenuInternalLink } from "./navigation-menu-internal-link";
 
 function ListItem({ className, title, children, ref, ...props }: ComponentPropsWithRef<"a">) {
@@ -35,7 +36,7 @@ function ContentGridLink({
   title,
   subtitle,
   icon,
-}: { href: string; title: string; subtitle: string; icon: ReactNode }) {
+}: { href: string; title: string; subtitle?: string; icon: ReactNode }) {
   return (
     <a
       href={href}
@@ -46,50 +47,29 @@ function ContentGridLink({
       <div className="p-3 bg-neutral-900 rounded-xl">{icon}</div>
       <div className="grow">
         <div className="flex items-center gap-2 justify-between">
-          <p className="font-serif font-bold tracking-widest">{title}</p>
+          <p className="font-semibold tracking-widest">{title}</p>
         </div>
-        <p className="mt-1">{subtitle}</p>
+        {subtitle && <p className="mt-1">{subtitle}</p>}
       </div>
     </a>
   );
 }
 
 export function Header({ children }: { children?: React.ReactNode }) {
-  // const { scrollY } = useScroll();
-  // const [hidden, setHidden] = useState(false);
-
-  // useMotionValueEvent(scrollY, "change", (latest) => {
-  //   const previous = scrollY.getPrevious() ?? 0;
-  //   if (latest > previous && latest > 150) {
-  //     setHidden(true);
-  //   } else {
-  //     setHidden(false);
-  //   }
-  // });
-
   return (
-    <NavigationMenu.Root>
-      <header
-        // variants={{
-        //   visible: { y: 0 },
-        //   hidden: { y: "-125%" },
-        // }}
-        // animate={hidden ? "hidden" : "visible"}
-        // transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="container sticky px-4 flex z-50 mt-5 w-min-[570px] w-fit justify-center bg-popover/70 backdrop-blur-md rounded-xl"
-      >
-        <div className="flex w-full justify-between gap-4">
-          <Link className="flex items-center space-x-2" href="/">
-            <div className="p-3 rounded-full">
-              <LemonLogo className="w-7 h-7 drop-shadow-sm ease-in-back transition-transform rotate-0 hover:rotate-90 duration-1000" />
-            </div>
-            {/* <span className="hidden font-bold lg:inline-block">Lemonade Stand</span> */}
-          </Link>
+    <header className="absolute top-4 inset-x-0 z-50">
+      <NavigationMenu.Root className="">
+        <div className="mx-auto px-4 max-md:max-w-[24rem] w-[95vw] md:w-fit bg-popover/70 backdrop-blur-md rounded-xl">
+          <div className="flex justify-between gap-4">
+            <Link className="flex items-center space-x-2" href="/">
+              <div className="p-3 rounded-full">
+                <LemonLogo className="w-7 h-7 drop-shadow-sm ease-in-back transition-transform rotate-0 hover:rotate-90 duration-1000" />
+              </div>
+            </Link>
 
-          <div className="h-14 pt-2 pr-2 pb-2 pl-2 flex items-center">
-            <div className="flex h-14 items-center">
-              <div className="hidden md:flex">
-                <nav className="flex items-center gap-4 text-sm lg:gap-6">
+            <div className="hidden md:flex h-14 pt-2 pr-2 pb-2 pl-2 items-center">
+              <div className="flex h-14 items-center">
+                <div className="items-center gap-4 text-sm lg:gap-6">
                   <NavigationMenu.List>
                     <NavigationMenu.Item>
                       <NavigationMenuInternalLink href="/">Home</NavigationMenuInternalLink>
@@ -120,13 +100,11 @@ export function Header({ children }: { children?: React.ReactNode }) {
                           <ContentGridLink
                             href="https://www.warcraftlogs.com/"
                             title="WarcraftLogs"
-                            subtitle="Our latest logs"
                             icon={<SwordsIcon className="size-4" />}
                           />
                           <ContentGridLink
                             href="https://raider.io/guilds/us/illidan/Lemonade%20Stand"
                             title="Raider.io"
-                            subtitle="Raid and Mythic+ numbies"
                             icon={<KeyRoundIcon className="size-4" />}
                           />
                         </ul>
@@ -137,15 +115,15 @@ export function Header({ children }: { children?: React.ReactNode }) {
                       <NavigationMenu.Arrow className="bg-popover/80 backdrop-blur-md" />
                     </NavigationMenu.Indicator>
                   </NavigationMenu.List>
-                </nav>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex gap-3 items-center">{children}</div>
+            <div className="flex gap-3 items-center">{children}</div>
+          </div>
         </div>
-      </header>
-      <NavigationMenu.Viewport className="bg-popover/80 backdrop-blur-md" />
-    </NavigationMenu.Root>
+        <NavigationMenu.Viewport className="bg-popover/80 backdrop-blur-md" />
+      </NavigationMenu.Root>
+    </header>
   );
 }

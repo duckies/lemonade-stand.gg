@@ -1,10 +1,11 @@
-import { Wowhead } from "~/components/wowhead";
+import { Wowhead } from "components/wowhead";
+import type { ReactNode } from "react";
 
-export default function GuideLayout({ children }: { children: React.ReactNode }) {
+export default function GuideLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Wowhead />
-      <div className="container">{children}</div>
+      {children}
     </>
   );
 }

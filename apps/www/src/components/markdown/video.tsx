@@ -52,6 +52,8 @@ export function Video({ src }: VideoProps) {
             // YouTube missing thumbnails are small, 120x90 grey boxes.
             return img.width > 200 && img.height > 200;
           }}
+          fill
+          unoptimized
         />
       </div>
     );

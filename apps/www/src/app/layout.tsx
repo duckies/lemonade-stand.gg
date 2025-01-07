@@ -1,20 +1,36 @@
 import type { Metadata } from "next";
 
-import "~/styles/globals.css";
-import "~/styles/wowhead.css";
+import "styles/globals.css";
+import "styles/wowhead.css";
 
 import { cn } from "@lemonade-stand/ui";
+import { Footer } from "components/footer";
+import { Header } from "components/header";
+import { ThemeSwitcher } from "components/theme-switcher";
+import { UserNav } from "components/user-nav";
 import { Lexend } from "next/font/google";
 import localFont from "next/font/local";
-import { Footer } from "~/components/footer";
-import { Header } from "~/components/header";
-import { ThemeSwitcher } from "~/components/theme-switcher";
-import { UserNav } from "~/components/user-nav";
 import { Providers } from "./providers";
+import { website } from "~/config";
 
 export const metadata: Metadata = {
-  title: "Lemonade Stand · Illidan",
-  description: "Premiere lemon-scented guild of Illidan",
+  metadataBase: new URL("https://www.lemonade-stand.gg"),
+  alternates: {
+    canonical: "/"
+  },
+  title: website.metadata.title,
+  description: website.metadata.description,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: website.metadata.title,
+    description: website.metadata.description,
+    type: "website",
+    url: "https://www.lemonade-stand.gg",
+    siteName: website.metadata.title.default,
+  }
 };
 
 // const fontSans = Poppins({
@@ -68,7 +84,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn(fontSans.className, fontSerif.variable, fontMono.variable, "grain")}>
+      <body className={cn(fontSans.className, fontSerif.variable, fontMono.variable)}>
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <Header>

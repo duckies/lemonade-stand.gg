@@ -5,7 +5,23 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import type { Compatible } from "to-vfile";
 
-export async function getMarkdown<F extends Record<string, unknown>>(
+export interface Frontmatter {
+  title: string;
+  description: string;
+  publishedAt?: string;
+}
+
+export interface RaidGuideFrontmatter extends Frontmatter {
+  title: string;
+  description: string;
+  fight: {
+    name: string;
+    slug: string;
+    icon: string;
+  };
+}
+
+export async function getContent<F extends Frontmatter>(
   source: Compatible,
   options: Partial<EvaluateOptions> = {},
 ): Promise<{
@@ -21,7 +37,6 @@ export async function getMarkdown<F extends Record<string, unknown>>(
     remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
     rehypePlugins: [],
     development: process.env.NODE_ENV === "development",
-
     ...runtime,
     ...options,
   });

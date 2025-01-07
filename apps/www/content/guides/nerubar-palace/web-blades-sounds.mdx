@@ -10,13 +10,11 @@ If you want the Web Blades WeakAura to play a sound when it's safe to move, make
 
 1. Inder the trigger tab find "Custom Variables" and add copy and paste the following:
 
-  <div className="bg-card rounded-xl">
   ```lua
   {
     expirationTime = true,
   }
   ```
-  </div>
 
 2.   Then under the custom options tab add a condition where `Remaining Duration = 2.5`, then `Sound → Play`, pick your sound of choice, then use the `Master` sound channel. 
 

@@ -2,8 +2,8 @@
 
 import { cn } from "@lemonade-stand/ui";
 import { ChevronDownIcon } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { type ReactNode, useState } from "react";
+import { AnimatePresence, type Transition, type Variants, motion } from "motion/react";
+import { type ReactNode, useCallback, useMemo, useState } from "react";
 import { Link } from "../Link";
 import { WarcraftIcon } from "../warcraft-icon";
 
@@ -15,22 +15,50 @@ type MechanicProps = {
   children: ReactNode;
 };
 
+const variants = {
+  collapsed: {
+    opacity: 0,
+    height: 0,
+  },
+  expanded: {
+    height: "auto",
+    display: "block",
+    opacity: 1,
+  },
+} satisfies Variants;
+
+const transition = {
+  duration: 0.25,
+  height: "auto",
+  ease: [0.04, 0.62, 0.23, 0.98],
+} satisfies Transition;
+
 export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
+
+  const MemoizedWarcraftIcon = useMemo(
+    () => (
+      <WarcraftIcon
+        className="shadow-xl [box-shadow:0_0_0_1px_rgb(250_214_122)]"
+        id={id}
+        size={45}
+      />
+    ),
+    [id],
+  );
 
   return (
     <div className="relative my-4 max-w-none rounded-lg bg-muted shadow-lg">
       <div
         className="not-prose flex gap-4 rounded-md p-4 hover:cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggle}
+        onKeyDown={(e) => e.key === "Enter" && toggle()}
       >
         <div className="flex shrink-0 items-center rounded-md">
           <Link href={`https://wowhead.com/spell=${id}`} variant="plain">
-            <WarcraftIcon
-              className="shadow-xl [box-shadow:0_0_0_1px_rgb(250_214_122)]"
-              id={id}
-              size={45}
-            />
+            {MemoizedWarcraftIcon}
           </Link>
         </div>
 
@@ -54,18 +82,8 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
           <motion.div
             initial={false}
             animate={isOpen ? "expanded" : "collapsed"}
-            variants={{
-              collapsed: {
-                opacity: 0,
-                height: 0,
-              },
-              expanded: {
-                height: "auto",
-                display: "block",
-                opacity: 1,
-              },
-            }}
-            transition={{ duration: 0.25, height: "auto", ease: [0.04, 0.62, 0.23, 0.98] }}
+            variants={variants}
+            transition={transition}
             className={cn("relative overflow-hidden border-t border-gray-800")}
             aria-expanded={isOpen}
           >

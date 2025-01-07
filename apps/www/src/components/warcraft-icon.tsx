@@ -26,8 +26,8 @@ export function WarcraftIcon({ id, size, ...props }: WarcraftIconProps) {
 
   const src =
     status === "error"
-      ? "https://render-us.worldofwarcraft.com/icons/56/inv_misc_questionmark.jpg"
-      : `https://wow.zamimg.com/images/wow/icons/large/${data.icon}.jpg`;
+      ? "https://cdn.lemonade-stand.gg/icons/inv_misc_questionmark.jpg"
+      : `https://cdn.lemonade-stand.gg/icons/${data.icon}.jpg`;
 
   return (
     <img

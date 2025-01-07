@@ -4,7 +4,7 @@ export default {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  darkMode: "class",
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./content/**/*.mdx",
@@ -141,15 +141,21 @@ export default {
           "0%, 100%": { transform: "rotate(0deg)" },
           "33%": { transform: "rotate(90deg)" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
         rocking: "rocking 2s ease-in-out infinite",
+        "fade-in": "fade-in 1s both 1",
       },
       transitionTimingFunction: {
         "ease-in-back": "cubic-bezier(.42,.97,.52,1.49)",
+        "in-out-circ": "cubic-bezier(0.85,0,0.15,1)"
       },
       typography: () => ({
         DEFAULT: {
