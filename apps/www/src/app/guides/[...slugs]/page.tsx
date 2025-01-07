@@ -1,8 +1,8 @@
 import { Hero } from "components/hero";
 import { DefaultMDXComponents } from "components/markdown";
-import { readdir } from "fs/promises";
+import { readdir } from "node:fs/promises";
 import { getMDXByPath } from "lib/mdx";
-import { join } from "path";
+import { join } from "node:path";
 import HeroBackground from "public/images/hero/nerubar-palace.jpg";
 
 interface GuidePageParams {
@@ -11,31 +11,34 @@ interface GuidePageParams {
   }>;
 }
 
-export const dynamic = "force-static";
+// This breaks things :)
+// export const dynamic = "force-static";
 
-export async function generateStaticParams() {
-  const rootPath = join(process.cwd(), "content", "guides");
-  const slugs: string[][] = [];
+// export async function generateStaticParams() {
+//   const rootPath = join(process.cwd(), "content", "guides");
+//   const slugs: string[][] = [];
 
-  const rootDirents = await readdir(rootPath, { withFileTypes: true });
+//   const rootDirents = await readdir(rootPath, { withFileTypes: true });
 
-  // This is super lazy, just trying to get it working for now.
-  for (const dirent of rootDirents) {
-    if (dirent.isFile() && dirent.name.endsWith(".mdx")) {
-      slugs.push(["guides", dirent.name.replace(/\.mdx$/, "")]);
-    } else if (dirent.isDirectory()) {
-      const dirents = await readdir(join(rootPath, dirent.name), { withFileTypes: true });
+//   // This is super lazy, just trying to get it working for now.
+//   for (const dirent of rootDirents) {
+//     if (dirent.isFile() && dirent.name.endsWith(".mdx")) {
+//       slugs.push([dirent.name.replace(/\.mdx$/, "")]);
+//     } else if (dirent.isDirectory()) {
+//       const dirents = await readdir(join(rootPath, dirent.name), { withFileTypes: true });
 
-      for (const childDirent of dirents) {
-        if (childDirent.isFile() && childDirent.name.endsWith(".mdx")) {
-          slugs.push(["guides", dirent.name, childDirent.name.replace(/\.mdx$/, "")]);
-        }
-      }
-    }
-  }
+//       for (const childDirent of dirents) {
+//         if (childDirent.isFile() && childDirent.name.endsWith(".mdx")) {
+//           slugs.push([dirent.name, childDirent.name.replace(/\.mdx$/, "")]);
+//         }
+//       }
+//     }
+//   }
 
-  return slugs;
-}
+//   console.log(slugs)
+
+//   return slugs;
+// }
 
 export default async function GuidePage({ params }: GuidePageParams) {
   const { slugs } = await params;
