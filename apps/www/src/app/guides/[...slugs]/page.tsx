@@ -1,8 +1,5 @@
 import { Hero } from "components/hero";
 import { DefaultMDXComponents } from "components/markdown";
-import { readdir } from "node:fs/promises";
-import { getMDXByPath } from "lib/mdx";
-import { join } from "node:path";
 import HeroBackground from "public/images/hero/nerubar-palace.jpg";
 
 interface GuidePageParams {
@@ -11,38 +8,25 @@ interface GuidePageParams {
   }>;
 }
 
-// This breaks things :)
-// export const dynamic = "force-static";
-
-// export async function generateStaticParams() {
-//   const rootPath = join(process.cwd(), "content", "guides");
-//   const slugs: string[][] = [];
-
-//   const rootDirents = await readdir(rootPath, { withFileTypes: true });
-
-//   // This is super lazy, just trying to get it working for now.
-//   for (const dirent of rootDirents) {
-//     if (dirent.isFile() && dirent.name.endsWith(".mdx")) {
-//       slugs.push([dirent.name.replace(/\.mdx$/, "")]);
-//     } else if (dirent.isDirectory()) {
-//       const dirents = await readdir(join(rootPath, dirent.name), { withFileTypes: true });
-
-//       for (const childDirent of dirents) {
-//         if (childDirent.isFile() && childDirent.name.endsWith(".mdx")) {
-//           slugs.push([dirent.name, childDirent.name.replace(/\.mdx$/, "")]);
-//         }
-//       }
-//     }
-//   }
-
-//   console.log(slugs)
-
-//   return slugs;
-// }
+export function generateStaticParams() {
+  return [
+    {
+      slugs: ["nerubar-palace"],
+    },
+    {
+      slugs: ["nerubar-palace", "queen-ansurek"],
+    },
+    {
+      slugs: ["nerubar-palace", "web-blades-sounds"],
+    },
+  ];
+}
 
 export default async function GuidePage({ params }: GuidePageParams) {
   const { slugs } = await params;
-  const { MDXContent, frontmatter } = await getMDXByPath(["guides", ...slugs]);
+  // I don't know why this broke.
+  // const { /MDXContent, frontmatter } = await getMDXByPath(["guides", ...slugs]);
+  const { default: MDXContent, frontmatter } = await import(`#content/guides/${slugs.join("/")}.mdx`)
 
   return (
     <>

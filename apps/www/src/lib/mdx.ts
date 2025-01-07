@@ -1,5 +1,3 @@
-"use server";
-
 import { notFound } from "next/navigation";
 
 export interface Frontmatter {
