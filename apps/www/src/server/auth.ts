@@ -21,7 +21,7 @@ export interface Session {
 }
 
 export const getSession = cache(async () => {
-  return getIronSession<Session>(await cookies(), {
+  return getIronSession<Session>(await cookies() as any, {
     password: env.AUTH_SECRET,
     cookieName: "session",
     cookieOptions: {
