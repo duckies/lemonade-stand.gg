@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export function Wowhead() {
   useEffect(() => {
     // @ts-ignore
-    window.WH.Tooltips.init();
+    window?.WH?.Tooltips?.init();
   }, [])
 
   return (
