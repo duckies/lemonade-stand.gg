@@ -1,6 +1,7 @@
 import { Hero } from "components/hero";
 import { DefaultMDXComponents } from "components/markdown";
 import HeroBackground from "public/images/hero/nerubar-palace.jpg";
+import { Wowhead } from "~/components/wowhead";
 
 interface GuidePageParams {
   params: Promise<{
@@ -37,6 +38,8 @@ export default async function GuidePage({ params }: GuidePageParams) {
           <Hero.Description>{frontmatter.description}</Hero.Description>
         </Hero.Content>
       </Hero.Root>
+
+      <Wowhead />
 
       <div className="container -my-10">
         <section className="relative">

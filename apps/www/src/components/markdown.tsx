@@ -113,7 +113,8 @@ export const DefaultMDXComponents = {
   a: ({ href, className, ...props }: LinkProps) => (
     <Link
       className={cn("text-yellow-400 hover:text-yellow-500", className)}
-      data-wh-icon-size="small"
+      // data-wh-icon-size="small"
+      {...(href.startsWith("https://www.wowhead.com") && { "data-wh-icon-size": "small" })}
       href={href}
       {...props}
     />

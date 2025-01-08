@@ -1,25 +1,18 @@
 "use client";
 
 import Script from "next/script";
+import { useEffect } from "react";
 
 export function Wowhead() {
-  /**
-   * TODO: Monkeypatch `WH.Icon.getIconUrl` to use our own icon server.
-   */
-  // const onLoad = () => {
-  //   const _getIconUrl = window.WH.Icon.getIconUrl;
-
-  //   window.WH.Icon.getIconUrl = function (...args: any[]) {
-  //     const url = _getIconUrl.apply(this, args);
-
-  //     return url;
-  //   };
-  // };
+  useEffect(() => {
+    // @ts-ignore
+    window.WH.Tooltips.init();
+  }, [])
 
   return (
     <>
       <Script src="https://wow.zamimg.com/js/tooltips.js" strategy="lazyOnload" />
-      <Script id="wowhead">{"let whTooltips = {colorLinks: false, iconizeLinks: false};"}</Script>
+      <Script id="wowhead">{"let whTooltips = {colorLinks: false, iconSize: true};"}</Script>
     </>
   );
 }
