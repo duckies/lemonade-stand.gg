@@ -596,13 +596,151 @@ The second phase starts when we break her intermission shield. Specifically, we 
   </div>
 </Tabs>
 
-## Phase 3 
+## Phase 3 • Paranoia's Feast
+
+The only mechanical difference on mythic is that [Acolyte's Essences][essence] are not consumed by using the [Abyssal Conduit][abyssal-conduit] portals. Most of the strategy is optimizing placement of [Gloom][gloom] miasma and keeping Ansurek within cleave range of active adds as the phase is simplified greatly by skipping the later add sets.
+
+- She enters her Sailor Moon era by casting [Aphotic Communion](https://www.wowhead.com/spell=449986/aphotic-communion) for 20 seconds when we reach her platform.
+- The tank mechanics [Infest][infest] and [Gorge][gorge] spawn adds and swirlies respectively.
+  - [Infest][infest] puts a 15yd [debuff][infested-gloomburst] on the tank that spawns [Gloom Hatchlings][gloom-hatchling] after 5 seconds that wipe the raid if they reach the boss and spawn [miasma][gloom] where they die.
+  - [Gorge][gorge] does raid damage and spawns [swirlies][gloom-splatter] under players that leave [miasma][gloom].
+- [Web Blades][web-blades] return from phase 1.
+- [Royal Condemnation][royal-condemnation] debuffs go out on 3 players dealing massive damage to all players reduced by distance and spawning [Royal Shackles][royal-shackles] that grip players with increasing strength, [stunning them](https://www.wowhead.com/spell=441872/royal-cocoon) if they are too close.
+- [Dreadful Presence](https://www.wowhead.com/spell=445268/dreadful-presence) is periodic rot damage that is increased by 20% for every set of portals and acts as a soft enrage where she will not stop casting the [ring][frothing-gluttony] if she reaches 4 stacks.
+
+The major mechanics are the trifecta of Summoned Acolytes that drop [essences][essence] that Ansurek tries to eat with a collapsing [shadow ring][frothing-gluttony] so we use [debuffs][abyssal-infusion] that drop [portals][abyssal-conduit] to teleport the essences to safety.
+- Summoned Acolytes cast increasing [raid damage][null-detonation] that we can't interrupt until we break their [shield][dark-barrier]. When they die, they drop an [essence] players can pick up for 15 seconds, after which it falls back on the floor. We have to rotate who picks up essences as players become [vulnerable](https://www.wowhead.com/spell=446012/essence-scarred) to subsequent essences after dropping one.
+- Ansurek teleports to the center of the platform and [pulls][glutton-threads] players towards her, [killing](https://www.wowhead.com/spell=461408/consume) them if they are pulled too close while a [shadow ring][frothing-gluttony] collapses from the edges of the platform towards her location. The raid is [killed](https://www.wowhead.com/spell=445877/froth-vapor) if there are any Acolytes alive when she casts this, or the ring touches an [essence].
+- Prior to this, two players are conveniently given a [debuff][abyssal-infusion] that leave behind a [portal][abyssal-conduit]. We place them at the outside and inside edges of the platform and step through the inner portal once the [ring][frothing-gluttony] passes the outer to save ourselves and the essences from the ring.
+  - Stepping through a [portal][abyssal-conduit] gives a [circle debuff][abyssal-reverberation] that explodes for large damage within 8 yards after 4 seconds, requiring players to spread out after passing through the portal.
+  - If someone with an [essence] uses a portal it will quickly [destabilize](https://www.wowhead.com/spell=444502/conduit-collapse) and explode.
+  - Portals shoot lethal [orbs][conduit-ejections] when they're created or destroyed as well as leaving [miasma][gloom] behind.
 
 <Callout type="info">
 
-Phase 3 notes aren't ready yet 🦆
+Players should use teleports to avoid the ring in lieu of portals wherever possible. The debuff from using a portal does a lot of damage and requires players to spread out which is safer with less debuffs. It's also important to be aware that immunities do not prevent the massive DoT (which also slows you by 60%). Nonetheless, if you are trying to save an essence in a bad spot and won't make it back to the portal, if you layer enough defensives to get through the ring the essence will not explode unless you die and it falls onto the ring.
 
 </Callout>
+
+<Tabs defaultValue="1" className="my-7">
+  <TabsList>
+    <TabsTrigger value="1">Part 1</TabsTrigger>
+    <TabsTrigger value="2">Part 2</TabsTrigger>
+    <TabsTrigger value="3">Part 3</TabsTrigger>
+    <TabsTrigger value="4">Part 4</TabsTrigger>
+    <TabsTrigger value="5">Part 5</TabsTrigger>
+    <TabsTrigger value="6">Part 6</TabsTrigger>
+  </TabsList>
+
+  <div className="bg-card rounded-lg px-5 pt-4 pb-7 mt-3">
+    <TabsContent value="1">
+
+      ![](./images/mythic/ansurek/phase3.p1.png)
+
+      - Once we reach her platform she casts [Aphotic Communion](https://www.wowhead.com/spell=449986/aphotic-communion) for 20 seconds so we can blast before she lands at <Moon/>.
+      - Ranged will stack on the edge of the platform with their right shoulder by pillar across from <Moon />. Melee will stay tightly stacked against the edge of the platform as she is dragged to the pillar across from <Star />. 
+      - The first tank gets [Infest][infest], spawning [Gloom Hatchlings][gloom-hatchling].
+        - If any of these spiderbebbies reach her it will be a wipe. We will lay out a [Ring of Peace](https://www.wowhead.com/spell=116844/ring-of-peace) and immediately stun and <span className="text-red-400">focus them down</span>.
+        - Melee don't be in the circle around the tank, [Infested Gloomburst][infested-gloomburst].
+      - The other tank will taunt for [Gorge][gorge], dealing raid damage and causing [Gloom Splatter][gloom-splatter] to spawn [Gloom][gloom] swirlies under players feet everyone pre-stacked for.
+        - This tank should stutter-step Ansurek slightly away from the location the adds are spawning from.
+        - Ranged should stutter-step along the edge of the platform not into the room to maximize platform space.
+
+    </TabsContent>
+    <TabsContent value="2">
+
+      ![](./images/mythic/ansurek/phase3.p2.png)
+
+      1. Next we get 3 Summoned Acolytes while we dodge [Web Blades][web-blades]. 
+          - Ansurek must be near <Star /> as she summons the Acolytes centered on the closest corner of the inner hexagon.
+      2. The raid will focus on killing the adds with Ansurek positioned in cleave range of <Star /> until it dies, then moving to <Square />. Ranged will focus on the Acolyte at <Moon />.
+          - Use [Curse of Tongues](https://www.wowhead.com/spell=199890/curse-of-tongues) on any Acolyte that melee isn't currently dealing with, as melee will melt their shield and make them interruptable.
+          - The [essences][essence] spawn directly in front of the markers, so melee should be careful not to accidentally pick them up, nor should Ansurek be tanked directly in front of a marker.
+      
+      3. The acolytes will die and drop their [essence] on the floor *directly* in front of their markers. This will overlap with another [Web Blades][web-blades], so melee should be careful not to accidentally pick up an essence when dodging, nor should Ansurek be tanked directly in front of a marker.
+
+      4. Ansurek will then put [Abyssal Infusion][abyssal-infusion] on two players that drop the [portals][abyssal-conduit] after 6 seconds. We want one of them in melee at <Cross /> and one at ranged on <Triangle />.
+          - You may be marked by BigWigs but they mean nothing and since you have 6 seconds there are no assignment auras.
+          - Be careful as [orbs][conduit-ejections] will shoot out of their spawning location.
+
+      5. As the portals open and players are dodging the [orbs][conduit-ejections] the first 3 players assigned to pick up [essences][essence] will be told by a WeakAura to pick up an essence. Any essence. Coordinate with your fellow essence-touchers as to which one you want.
+
+        <div className="flex justify-center"> 
+          <figure>
+            ![](./images/mythic/ansurek/mechanic.essence-assign.png)
+            <figcaption>
+              There is nothing special about the WeakAura. It only says when you're meant to pick up __any__ of the 3 essences.
+            </figcaption>
+          </figure>
+        </div>
+
+    </TabsContent>
+    <TabsContent value="3">
+
+      ![](./images/mythic/ansurek/phase3.p3.png)
+
+      - Ansurek will then teleport to the middle and cast the [ring][frothing-gluttony].
+        - Players who can teleport over the ring should do so in the area between <Square /> and <Circle /> to give the other players space to spread out with their [debuffs][abyssal-reverberation]. This is also where the next mechanics go.
+        - The cast time for this ability is 5 seconds, which is enough time to disengage and prepare things like [Transcendance](https://www.wowhead.com/spell=101643/transcendence).
+
+      - If you cannot teleport over the ring, there is a WeakAura that will tell you when to use the portal. Follow it exactly!
+        - The WeakAura instructs melee to go 1 second before ranged as melee are often faster moving and can spread out from the exit portal further. Melee should spread as far as they can to help the ranged.
+        - Essence holders are told to go 0.5 seconds after ranged as any essence holder going through the portal causes it to quickly destabilize and explode.
+        - As you spread out be weary of the portals as they will spawn more [orbs][conduit-ejections] and leave [miasma][gloom] behind.
+
+      - The next sequence is [Web Blades][web-blades] while the 3 [essences][essence] are expiring and about to fall on the floor.
+        - Essence holders will place their now expiring essences slightly behind <Square /> while avoiding dropping their essence directly on the marker; see the picture below. Anyone who does not have an essence should not be anywhere near <Square />.
+        - Players without essences should not be anywhere near <Square />. The essences fall off the moment we start dodging [Web Blades][web-blades], and if they're playing bumper cars with your portal debuff you can prevent them from dropping their essence in the correct location.
+        - The only hard requirement is that the essences are in the trapezoid formed  by <Star />, <Square /> and the pillars opposite them. It's incredibly dangerous if an essence were to be placed anywhere past the line drawn from <Square /> to the pillar opposite it, aka the next trapezoid.
+
+        <figure className="flex flex-col justify-center items-center text-center">
+          ![](./images/mythic/ansurek/mechanic.essence-placement.png)
+
+          <figcaption>
+            The blue area represents the area reserved for essence players to dodge mechanics and place their essences. However, they should try not to drop their essence directly on top of the marker as the raid will need to stack here later.
+          </figcaption>
+        </figure>
+    </TabsContent>
+    <TabsContent value="4">
+
+      ![](./images/mythic/ansurek/phase3.p4.png)
+
+      - The sequence resets with another set of adds from [Infest][infest] and puddles from [Gorge][gorge] where the ranged are on the edge by the pillar across from <Square /> and the boss by the pillar across from <Circle />.
+        - Remember, ranged should stutter-step forward to avoid the puddles. Melee follows the stutter movements of the boss.
+      - There will be [Web Blades][web-blades] during the add set.
+      - Next, we simultaneously get our first [Royal Condemnation][royal-condemnation] debuffs while 4 Summoned Acolytes will spawn.
+        - The players with [Royal Condemnation][royal-condemnation] will go to <Circle /> to spawn the [Royal Shackles][royal-shackles]. These players need to pop a large personal and healers external them.
+        - Everyone else and the boss will stack on <Square /> to kill that Acolyte while the [Royal Condemnation][royal-condemnation] debuffs explode. Ranged will focus on the <Star /> acolyte and the shackles as they spawn.
+        - The <Square /> acolyte will melt, after which the boss is taken to <Circle /> to burn down the shackles and nearby Acolyte, then lastly <Skull />.
+      
+      <Callout type="error">
+
+       When we move to <Square/> to counter the falloff damage of the [Royal Condemnation][royal-condemnation] debuffs, the raid needs to be extremely careful not to accidentally pick up any of the nearby essences. Similarly, when kill the Acolytes players need to avoid the newly spawned essences as well.
+
+      </Callout>
+  
+    </TabsContent>
+    <TabsContent value="5">
+
+      ![](./images/mythic/ansurek/phase3.p5.png)
+
+      - New [portal][abyssal-conduit] debuffs go out, placed at the new locations of <Cross /> and <Triangle /> and spawning [orbs][conduit-ejections] to dodge.
+      - The [ring][frothing-gluttony] sequence repeats, now with 7 essences on the floor. The WeakAura will show assigned players a countdown when to pick up an essence, and another WeakAura will tell everyone when to use the portal.
+        - Those who can teleport should do so in the <Diamond / > & <Skull /> area.
+      - Essences can be hapharzardly dropped near <Circle />. We are not going to be touching the essences again.
+    </TabsContent>
+    <TabsContent value="6">
+
+      ![](./images/mythic/ansurek/phase3.p6.png)
+
+      - The final [Infest][infest] spawns some adds while ranged are across from <Skull /> and the boss across from <Diamond />. There will be [Web Blades][web-blades] as we kill the adds.
+      - We will move the boss towards <Skull /> then we burn the boss or we die trying.
+      - Players who get [Royal Condemnation][royal-condemnation] will just fuck off towards like <Moon />, pop personals, and make it back.
+      - Melee will incidentally kill the <Skull /> Acolyte and ranged can cleave off of the others so that we remove their shields to get some interrupts, but killing them is not important.
+
+    </TabsContent>
+  </div>
+</Tabs>
 
 ## Videos
 
@@ -639,6 +777,7 @@ This doesn't include the [hotfix](https://www.wowhead.com/news/nerub-ar-palace-t
     - Removed Web Blades casts that overlapped with applications of Abyssal Infusion.
 
 
+[web-blades]: <https://www.wowhead.com/spell=439299/web-blades> "Web Blades"
 [expulsion-beam]: <https://www.wowhead.com/spell=451600/expulsion-beam> "Expulsion Beam"
 [phase2-wrest]: <https://www.wowhead.com/spell=450191/wrest> "Wrest"
 [shadowgate]: <https://www.wowhead.com/spell=460369/shadowgate> "Shadowgate"
@@ -646,3 +785,21 @@ This doesn't include the [hotfix](https://www.wowhead.com/news/nerub-ar-palace-t
 [shadowblast]: <https://www.wowhead.com/spell=447950/shadowblast> "Shadowblast"
 [gloom-orbs]: <https://www.wowhead.com/spell=448176/gloom-orbs> "Gloom Orbs"
 [gloom-touch]: <https://www.wowhead.com/spell=464056/gloom-touch> "Gloom Touch"
+[infest]: <https://www.wowhead.com/spell=443325/infest> "Infest"
+[infested-gloomburst]: <https://www.wowhead.com/spell=443667/infested-gloomburst> "Infested Gloomburst"
+[gloom-hatchling]: <https://www.wowhead.com/spell=443720/gloom-hatchling> "Gloom Hatchling"
+[gorge]: <https://www.wowhead.com/spell=443336/gorge> "Gorge"
+[gloom-splatter]: <https://www.wowhead.com/spell=443396/gloom-splatter> "Gloom Splatter"
+[gloom]: <https://www.wowhead.com/spell=443403/gloom> "Gloom"
+[dark-barrier]: <https://www.wowhead.com/spell=445013/dark-barrier> "Dark Barrier"
+[null-detonation]: <https://www.wowhead.com/spell=445021/null-detonation> "Null Detonation"
+[essence]: <https://www.wowhead.com/spell=445152/acolytes-essence> "Acolyte's Essence"
+[abyssal-infusion]: <https://www.wowhead.com/spell=443888/abyssal-infusion> "Abyssal Infusion"
+[abyssal-reverberation]: <https://www.wowhead.com/spell=455387/abyssal-reverberation> "Abyssal Reverberation"
+[abyssal-conduit]: <https://www.wowhead.com/spell=443915/abyssal-conduit> "Abyssal Conduit"
+[queens-summons]: <https://www.wowhead.com/spell=444829/queens-summons> "Queen's Summons"
+[frothing-gluttony]: <https://www.wowhead.com/spell=445422/frothing-gluttony> "Frothing Gluttony"
+[glutton-threads]: <https://www.wowhead.com/spell=445623/glutton-threads> "Glutton Threads"
+[conduit-ejections]: <https://www.wowhead.com/spell=444507/conduit-ejections> "Conduit Ejections"
+[royal-shackles]: <https://www.wowhead.com/spell=441865/royal-shackles> "Royal Shackles"
+[royal-condemnation]: <https://www.wowhead.com/spell=438976/royal-condemnation> "Royal Condemnation"
