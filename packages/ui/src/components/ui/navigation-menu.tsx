@@ -49,11 +49,11 @@ function NavigationMenuItem({
 }
 
 const navigationMenuTriggerStyle = cva([
-  "group flex relative h-10 w-max items-center justify-center px-4 py-2 text-sm font-semibold focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+  "group flex relative h-10 w-max items-center justify-center px-4 py-2 text-sm font-semibold focus:text-accent-foreground focus:outline-hidden disabled:pointer-events-none disabled:opacity-50",
   "before:absolute before:inset-0 before:bg-white/10 before:transition-[opacity,transform,border-radius] before:duration-250",
-  "before:opacity-0 hover:before:opacity-100 before:data-[active]:opacity-100 before:data-[state=open]:opacity-100",
-  "before:scale-[.4] hover:before:scale-100 before:data-[active]:scale-100 before:data-[state=open]:scale-100",
-  "before:rounded hover:before:rounded-[0.6rem] before:data-[active]:rounded-[0.6rem] before:data-[state=open]:rounded-[0.6rem]",
+  "before:opacity-0 hover:before:opacity-100 data-active:before:opacity-100 data-[state=open]:before:opacity-100",
+  "before:scale-[.4] hover:before:scale-100 data-active:before:scale-100 data-[state=open]:before:scale-100",
+  "before:rounded hover:before:rounded-[0.6rem] data-active:before:rounded-[0.6rem] data-[state=open]:before:rounded-[0.6rem]",
 ]);
 
 interface NavigationMenuTriggerProps
@@ -122,7 +122,7 @@ function NavigationMenuViewport({
       <NavigationMenuPrimitive.Viewport
         className={cn(
           "navigation-menu__viewport",
-          // "origin-top-center relative mt-3 h-[var(--radix-navigation-menu-viewport-height)] w-[var(---radix-navigation-menu-viewport-width)] overflow-hidden rounded-md bg-popover/70 backdrop-blur-sm text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 min-[600px]:w-[var(--radix-navigation-menu-viewport-width)]",
+          // "origin-top-center relative mt-3 h-[var(--radix-navigation-menu-viewport-height)] w-[var(---radix-navigation-menu-viewport-width)] overflow-hidden rounded-md bg-popover/70 backdrop-blur-xs text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 min-[600px]:w-[var(--radix-navigation-menu-viewport-width)]",
           className,
         )}
         ref={ref}
@@ -142,7 +142,7 @@ function NavigationMenuIndicator({
       ref={ref}
       className={cn(
         "navigation-menu__indicator",
-        // "top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
+        // "top-full z-1 flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
         className,
       )}
       {...props}

@@ -1,7 +1,8 @@
+import { ContentCard } from "components/content-card";
 import { Hero } from "components/hero";
 import { Section, SectionDescription, SectionHeader, SectionTitle } from "components/section";
+
 import HeroBackground from "public/images/hero/netherstorm_skybox.jpg";
-import { ContentCard } from "~/components/content-card";
 
 const Instances = [
   {
@@ -93,12 +94,16 @@ export default function GuidesIndexPage() {
         <Section>
           <SectionHeader>
             <SectionTitle as="h2">Tips & Tutorials</SectionTitle>
-            <SectionDescription>Supplementary resources for all things Warcraft.</SectionDescription>
+            <SectionDescription>
+              Supplementary resources for all things Warcraft.
+            </SectionDescription>
           </SectionHeader>
 
           <div className="grid gap-7 select-none">
-            <div className="relative flex bg-yellow-300/20 px-7 py-10 rounded-2xl shadow-md min-h-[225px] justify-center items-center">
-              <p className="text-4xl font-serif font-semibold italic text-muted-foreground">No posts, ... yet.</p>
+            <div className="relative flex bg-primary/20 px-7 py-10 rounded-2xl shadow-md min-h-[225px] justify-center items-center">
+              <p className="text-4xl font-serif font-semibold italic text-muted-foreground">
+                No posts, ... yet.
+              </p>
             </div>
           </div>
         </Section>

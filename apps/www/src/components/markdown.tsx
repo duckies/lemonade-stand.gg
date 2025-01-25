@@ -25,7 +25,7 @@ export const DefaultMDXComponents = {
   Badge,
   h2: ({ id, children, ...props }: ComponentPropsWithoutRef<"h2">) => {
     return (
-      <h2 id={id} {...props} className="scroll-mt-10">
+      <h2 id={id} {...props}>
         {id && (
           <a href={`#${id}`} className="header-anchor">
             #<span className="sr-only">Link to this heading</span>
@@ -58,7 +58,7 @@ export const DefaultMDXComponents = {
   //   />
   // ),
   p: ({ className, ...props }: ComponentPropsWithoutRef<"p">) => (
-    <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)} {...props} />
+    <p className={cn("leading-7 not-first:mt-6", className)} {...props} />
   ),
   // ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
   //   <ul className={cn("my-6 ml-10 list-disc marker:text-yellow-300", className)} {...props} />
@@ -72,7 +72,7 @@ export const DefaultMDXComponents = {
   blockquote: ({ className, ...props }: ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 border-gray-400 pl-6 italic text-gray-400 [&>*]:text-gray-400",
+        "mt-6 border-l-2 border-gray-400 pl-6 italic text-gray-400 *:text-gray-400",
         className,
       )}
       {...props}
@@ -106,13 +106,12 @@ export const DefaultMDXComponents = {
   ),
   Image: ({ className, ...props }: ImageProps) => (
     <Image
-      className={cn("select-none rounded-lg shadow-xl [&:not(:first-child)]:my-6", className)}
+      className={cn("select-none rounded-lg shadow-xl not-first:my-6", className)}
       {...props}
     />
   ),
   a: ({ href, className, ...props }: LinkProps) => (
     <Link
-      className={cn("text-yellow-400 hover:text-yellow-500", className)}
       // data-wh-icon-size="small"
       {...(href.startsWith("https://www.wowhead.com") && { "data-wh-icon-size": "small" })}
       href={href}

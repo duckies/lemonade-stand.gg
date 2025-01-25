@@ -1,66 +1,120 @@
-a[data-wh-icon-added="true"] del {
-  display: none;
-}
+/* 
+  Overrides for the Wowhead tooltip styles.
+*/
 
-a[data-wh-icon-added="true"] ins {
-  top: 0;
-  left: 0;
-}
+@layer base {
+  a[data-wh-icon-added="true"] del {
+    display: none !important;
+  }
 
-a[data-wh-icon-added="true"] .iconsmall {
-  height: 18px;
-  width: 18px;
-  margin-right: 3px;
-  border-radius: 2px;
-  top: -2px;
-  overflow: hidden;
-}
+  a[data-wh-icon-added="true"] ins {
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: var(--radius-sm) !important;
+    display: block;
+  }
 
-.wowhead-tooltip .whtt-tooltip-icon {
-  left: -45px !important;
-  top: -1px !important;
-  width: auto !important;
-  height: auto !important;
-}
+  a[data-wh-icon-added="true"] .iconsmall {
+    height: 18px !important;
+    width: 18px !important;
+    border-radius: var(--radius-sm) !important;
+    margin-right: 3px;
+    /* top: -2px; */
+    /* box-shadow: var(--shadow-xl); */
+  }
 
-.wowhead-tooltip .whtt-tooltip-icon .iconmedium {
-  height: 36px !important;
-  width: 36px !important;
-  border: 1px solid #f9cb58;
-}
+  .wowhead-tooltip {
+    > table {
+      border: 1px solid var(--color-border) !important;
+      background: --alpha(var(--color-background) / 80%) !important;
+      backdrop-filter: blur(var(--blur-xs));
+      box-shadow: var(--shadow-xl);
 
-.wowhead-tooltip .whtt-tooltip-icon .iconmedium ins {
-  position: initial !important;
-  border-radius: 0;
-  width: 100%;
-}
+      td,
+      th {
+        font-size: var(--text-sm) !important;
+        line-height: var(--text-sm--line-height) !important;
+        font-family: inherit !important;
+      }
 
-.wowhead-tooltip .whtt-tooltip-icon del {
-  display: none !important;
-}
+      .q {
+        color: var(--color-primary) !important;
+      }
 
-.wowhead-tooltip iconmedium ins {
-  @apply left-0 top-0;
-}
+      table:first-of-type td:first-of-type :not(.whtt-name) {
+        font-size: var(--text-sm) !important;
+        line-height: var(--text-sm--line-height) !important;
+      }
 
-.wowhead-tooltip b {
-  font-size: inherit !important;
-  line-height: inherit !important;
-}
+      .whtt-name {
+        font-size: var(--text-lg) !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
 
-.wowhead-tooltip th,
-.wowhead-tooltip td {
-  @apply text-sm !important;
-  background-image: none !important;
-}
+  .wowhead-tooltip .whtt-tooltip-icon {
+    left: -45px !important;
+    top: 0px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
 
-.wowhead-tooltip > table {
-  background: hsl(270deg 13% 7% / 90%) !important;
-  backdrop-filter: blur(5px);
-}
+  .wowhead-tooltip .whtt-tooltip-icon .iconmedium {
+    height: initial !important;
+    width: initial !important;
+    position: initial !important;
+  }
 
-.wowhead-tooltip {
-  @apply shadow-xl;
+  .wowhead-tooltip .whtt-tooltip-icon .iconmedium ins {
+    height: 40px !important;
+    width: 40px !important;
+    left: unset !important;
+    top: unset !important;
+    border-radius: unset !important;
+    position: initial !important;
+    background-size: 40px 40px !important;
+    border: 1px solid var(--color-border) !important;
+  }
 
-  border: 1px solid #f9cb58;
+  .wowhead-tooltip .whtt-tooltip-icon del {
+    display: none !important;
+  }
+
+  .wowhead-tooltip iconmedium ins {
+    @apply left-0 top-0;
+  }
+
+  .wowhead-tooltip b {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+  }
+
+  .wowhead-tooltip table {
+    border-collapse: separate !important;
+  }
+
+  .wowhead-tooltip th,
+  .wowhead-tooltip td {
+    /* @apply !text-sm; */
+    background-image: none !important;
+  }
+
+  .wowhead-tooltip td {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+  }
+
+  /* .wowhead-tooltip > table {
+    background: --alpha(var(--color-background) / 80%) !important;
+    backdrop-filter: blur(var(--blur-xs));
+  } */
+
+  /* .wowhead-tooltip {
+    @apply shadow-xl;
+
+    border: 1px solid var(--color-red-500);
+  } */
 }

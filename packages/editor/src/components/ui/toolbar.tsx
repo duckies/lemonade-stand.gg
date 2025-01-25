@@ -10,7 +10,7 @@ const ToolbarWrapper = forwardRef<HTMLDivElement, ToolbarWrapperProps>(
     shouldShowContent && (
       <div
         className={cn(
-          "bg-surface rounded-lg shadow-sm inline-flex h-full leading-none gap-0.5 flex-row p-1 items-center",
+          "bg-surface rounded-lg shadow-xs inline-flex h-full leading-none gap-0.5 flex-row p-1 items-center",
           className,
         )}
         {...props}
