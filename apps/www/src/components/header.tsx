@@ -18,7 +18,7 @@ function ListItem({ className, title, children, ref, ...props }: ComponentPropsW
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
@@ -63,7 +63,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
           <div className="flex justify-between gap-4">
             <Link className="flex items-center space-x-2" href="/">
               <div className="p-3 rounded-full">
-                <LemonLogo className="w-7 h-7 drop-shadow-sm ease-in-back transition-transform rotate-0 hover:rotate-90 duration-1000" />
+                <LemonLogo className="w-7 h-7 drop-shadow-xs ease-in-back transition-transform rotate-0 hover:rotate-90 duration-1000" />
               </div>
             </Link>
 

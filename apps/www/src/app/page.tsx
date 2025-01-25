@@ -7,9 +7,9 @@ import HeroBackground from "public/images/hero/nerubar-palace.jpg";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Lemonade Stand"
+    absolute: "Lemonade Stand",
   },
-}
+};
 
 export default async function HomePage() {
   return (
@@ -30,7 +30,7 @@ export default async function HomePage() {
           <h2 className="font-serif text-xl mb-4 col-span-12">Latest Posts</h2>
           <div className="col-span-8">
             <div>
-              <Card className="bg-card rounded-md shadow-md">
+              <Card className="">
                 <CardHeader>
                   <CardTitle className="font-semibold font-serif text-xl tracking-wide">
                     Optimizing For Performance

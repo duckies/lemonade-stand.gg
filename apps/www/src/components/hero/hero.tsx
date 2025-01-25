@@ -58,7 +58,7 @@ function Content({
 function Title({ className, ...props }: ComponentPropsWithoutRef<"h1">) {
   return (
     <h1
-      className={cn("text-6xl dark:drop-shadow mb-2 font-serif font-bold tracking-wide", className)}
+      className={cn("text-6xl dark:drop-shadow-sm mb-2 font-serif font-bold tracking-wide", className)}
       {...props}
     />
   );

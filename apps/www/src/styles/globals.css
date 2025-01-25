@@ -1,11 +1,15 @@
-/* Not working? */
-/* @import "@lemonade-stand/ui/navigation-menu.css"; */
-@import "prose.css";
-@import "components.css";
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@plugin "tailwindcss-animate";
+
+@source "../../../../packages/ui";
+
+@import "./theme.css";
+@import "./warcraft.css";
+@import "./prose.css";
+@import "./wowhead.css";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer base {
   :root {
@@ -20,8 +24,9 @@
     --border: 241 2% 88%;
     --input: 241 2% 88%;
     --primary: 241 36% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240.8 65.22% 77.45%;
+    --primary: oklch(0.8614 0.1407 87.1);
+    --primary-foreground: 0 0% 0%;
+    --secondary: oklch(0.54 0.1267 282.04);
     --secondary-foreground: 0 0% 0%;
     --accent: 167.77 51.24% 60.59%;
     --accent-foreground: 0 0% 100%;
@@ -32,23 +37,19 @@
   }
 
   [data-theme="dark"] {
-    --background: 249 15% 9%;
+    --background: 240 8% 5%;
     --foreground: 0 0% 100%;
-    /* Gaming Inspo */
-    /* --muted: 240, 13%, 23%; */
-    /* Serif Inspo */
     --muted: 240, 8%, 9%;
-    /* --muted: 240, 15%, 12%; */
     --muted-foreground: 211 0% 67%;
     --popover: 241 30% 3%;
     --popover-foreground: 241 39% 100%;
     --card: 0 0% 7%;
-    --card-foreground: 241 39% 100%;
+    --card-foreground: 250 45% 86%;
     --border: 241 2% 13%;
     --input: 241 2% 13%;
-    --primary: 39 100% 77%;
+    --primary: oklch(89.46% 0.1051 82.17);
     --primary-foreground: 240 13% 9%;
-    --secondary: 240.72 65.77% 77.53%;
+    --secondary: oklch(0.54 0.1267 282.04);
     --secondary-foreground: 0 0% 0%;
     --accent: 167.55 51.22% 60.58%;
     --accent-foreground: 0 0% 100%;
@@ -56,326 +57,148 @@
     --destructive-foreground: 0 0% 0%;
     --ring: 241 36% 55%;
   }
+}
 
-  /* Serif Theme */
-  [data-theme="dark"] {
-    --background: 240 8% 5%;
-    /* --foreground: 0 0% 85%; */
-    /* --muted-foreground: 0 0% 63.9%; */
-    /* --card: 240 9% 7%; */
-    --card-foreground: 250 45% 86%;
+@utility container {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: calc(var(--spacing) * 8);
+}
+
+@utility section {
+  padding-block: calc(var(--spacing) * 8);
+
+  @media (width >= theme(--breakpoint-md)) {
+    padding-block: calc(var(--spacing) * 12);
   }
 }
 
-@layer components {
-  .container {
-    @apply max-w-[68rem] mx-auto px-8;
+@utility hide-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
+}
 
-  .section {
-    @apply py-8 md:py-12;
-  }
+@utility hero-gradient {
+  position: absolute;
+  inset: 0;
+  @apply bg-background/40;
+  background-image: linear-gradient(
+    to bottom,
+    --theme(--color-background / 0),
+    hsl(var(--background))
+  );
+}
 
-  .hide-scrollbar {
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  [data-theme="dark"] {
-    .hero-gradient {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, theme(colors.background / 50%) 50%, hsl(var(--background)));
-    }
-  }
-
-  .hero-gradient {
-    position: absolute;
-    inset: 0;
-    @apply bg-background/40;
-    background-image: linear-gradient(
-      to bottom,
-      theme(colors.background / 0),
-      hsl(var(--background))
+@utility slide-enter {
+  @media (prefers-reduced-motion: no-preference) {
+    --enter-stage: 0;
+    --enter-stop: 90ms;
+    --enter-initial: 0ms;
+    --tw-enter-opacity: 0;
+    --tw-enter-translate-y: 10px;
+    animation: enter 1s both 1;
+    animation-delay: calc(
+      var(--enter-initial) + var(--enter-stage) * var(--enter-stop)
     );
   }
+}
 
-  .prose {
-    figure {
-      @apply mt-6;
-
-      & > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      figcaption {
-        @apply text-muted-foreground text-sm mt-2;
-      }
-    }
-
-    ol[type="A"] {
-      list-style-type: upper-alpha;
-    }
-
-    ol[type="a"] {
-      list-style-type: lower-alpha;
-    }
-
-    ol[type="A s"] {
-      list-style-type: upper-alpha;
-    }
-
-    ol[type="a s"] {
-      list-style-type: lower-alpha;
-    }
-
-    ol[type="I"] {
-      list-style-type: upper-roman;
-    }
-
-    ol[type="i"] {
-      list-style-type: lower-roman;
-    }
-
-    ol[type="I s"] {
-      list-style-type: upper-roman;
-    }
-
-    ol[type="i s"] {
-      list-style-type: lower-roman;
-    }
-
-    ol[type="1"] {
-      list-style-type: decimal;
-    }
-
-    ol > li {
-      position: relative;
-      padding-left: 1.75em;
-
-      &::before {
-        content: counter(list-item, var(--list-counter-style, decimal)) ".";
-        position: absolute;
-        font-weight: 400;
-        left: 0;
-        @apply text-yellow-200;
-      }
-    }
-
-    ul > li {
-      position: relative;
-      padding-left: 1.75em;
-
-      &::before {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        width: 0.375em;
-        height: 0.375em;
-        top: calc(0.875em - 0.1875em);
-        left: 0.25em;
-        @apply bg-yellow-300;
-      }
-    }
-
-    ol,
-    ul {
-      margin-top: 1.25em;
-      margin-bottom: 1.25em;
-      list-style-type: none;
-    }
-
-    li {
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-    }
-
-    > ul > li p {
-      margin-top: 0.75em;
-      margin-bottom: 0.75em;
-    }
-
-    > ol > li:first-child {
-      margin-top: 1.25em;
-    }
-
-    > ol > li:last-child {
-      margin-bottom: 1.25em;
-    }
-
-    ul ul,
-    ul ol,
-    ol ul,
-    ol ol {
-      margin-top: 0.75em;
-      margin-bottom: 0.75em;
-    }
-
-    pre > code {
-      @apply block rounded-lg px-6 py-2 my-4 bg-border/70 text-sm shadow-lg;
-    }
-
-    :not(pre, td) > code {
-      @apply font-mono text-sm bg-border/70 rounded-md py-1 px-2;
-    }
-  }
-
+@utility slide-enter-content {
   @media (prefers-reduced-motion: no-preference) {
-    [slide-enter],
-    .slide-enter,
-    .slide-enter-content > * {
+    & > * {
       --enter-stage: 0;
       --enter-stop: 90ms;
       --enter-initial: 0ms;
-      animation: slide-enter 1s both 1;
-      animation-delay: calc(var(--enter-initial) + var(--enter-stage) * var(--enter-stop));
+      --tw-enter-opacity: 0;
+      --tw-enter-translate-y: 10px;
+      animation: enter 1s both 1;
+      animation-delay: calc(
+        var(--enter-initial) + var(--enter-stage) * var(--enter-stop)
+      );
     }
 
-    .slide-enter-content > *:nth-child(1) {
+    & > *:nth-child(1) {
       --enter-stage: 1 !important;
     }
-    .slide-enter-content > *:nth-child(2) {
+    & > *:nth-child(2) {
       --enter-stage: 2 !important;
     }
-    .slide-enter-content > *:nth-child(3) {
+    & > *:nth-child(3) {
       --enter-stage: 3 !important;
     }
-    .slide-enter-content > *:nth-child(4) {
+    & > *:nth-child(4) {
       --enter-stage: 4 !important;
     }
-    .slide-enter-content > *:nth-child(5) {
+    & > *:nth-child(5) {
       --enter-stage: 5 !important;
     }
-    .slide-enter-content > *:nth-child(6) {
+    & > *:nth-child(6) {
       --enter-stage: 6 !important;
     }
-    .slide-enter-content > *:nth-child(7) {
+    & > *:nth-child(7) {
       --enter-stage: 7 !important;
     }
-    .slide-enter-content > *:nth-child(8) {
+    & > *:nth-child(8) {
       --enter-stage: 8 !important;
     }
-    .slide-enter-content > *:nth-child(9) {
+    & > *:nth-child(9) {
       --enter-stage: 9 !important;
     }
-    .slide-enter-content > *:nth-child(10) {
+    & > *:nth-child(10) {
       --enter-stage: 10 !important;
     }
-    .slide-enter-content > *:nth-child(11) {
+    & > *:nth-child(11) {
       --enter-stage: 11 !important;
     }
-    .slide-enter-content > *:nth-child(12) {
+    & > *:nth-child(12) {
       --enter-stage: 12 !important;
     }
-    .slide-enter-content > *:nth-child(13) {
+    & > *:nth-child(13) {
       --enter-stage: 13 !important;
     }
-    .slide-enter-content > *:nth-child(14) {
+    & > *:nth-child(14) {
       --enter-stage: 14 !important;
     }
-    .slide-enter-content > *:nth-child(15) {
+    & > *:nth-child(15) {
       --enter-stage: 15 !important;
     }
-    .slide-enter-content > *:nth-child(16) {
+    & > *:nth-child(16) {
       --enter-stage: 16 !important;
     }
-    .slide-enter-content > *:nth-child(17) {
+    & > *:nth-child(17) {
       --enter-stage: 17 !important;
     }
-    .slide-enter-content > *:nth-child(18) {
+    & > *:nth-child(18) {
       --enter-stage: 18 !important;
     }
-    .slide-enter-content > *:nth-child(19) {
+    & > *:nth-child(19) {
       --enter-stage: 19 !important;
     }
-    .slide-enter-content > *:nth-child(20) {
+    & > *:nth-child(20) {
       --enter-stage: 20 !important;
     }
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scrollbar-gutter: stable;
   }
 
   body {
-    @apply antialiased bg-background text-foreground min-h-screen;
-    text-rendering: optimizeLegibility;
+    background-color: var(--color-background);
+    color: var(--color-text-foreground);
+    min-height: 100vh;
   }
 
   ::selection {
-    background: theme("colors.yellow.200");
-    color: theme("colors.gray.700");
-  }
-}
-
-.tiptap {
-  padding: 3rem;
-}
-
-.drag-handle {
-  position: fixed;
-  opacity: 1;
-  transition: opacity ease-in 0.2s;
-  border-radius: 0.25rem;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' style='fill: rgba(0, 0, 0, 0.5)'%3E%3Cpath d='M3,2 C2.44771525,2 2,1.55228475 2,1 C2,0.44771525 2.44771525,0 3,0 C3.55228475,0 4,0.44771525 4,1 C4,1.55228475 3.55228475,2 3,2 Z M3,6 C2.44771525,6 2,5.55228475 2,5 C2,4.44771525 2.44771525,4 3,4 C3.55228475,4 4,4.44771525 4,5 C4,5.55228475 3.55228475,6 3,6 Z M3,10 C2.44771525,10 2,9.55228475 2,9 C2,8.44771525 2.44771525,8 3,8 C3.55228475,8 4,8.44771525 4,9 C4,9.55228475 3.55228475,10 3,10 Z M7,2 C6.44771525,2 6,1.55228475 6,1 C6,0.44771525 6.44771525,0 7,0 C7.55228475,0 8,0.44771525 8,1 C8,1.55228475 7.55228475,2 7,2 Z M7,6 C6.44771525,6 6,5.55228475 6,5 C6,4.44771525 6.44771525,4 7,4 C7.55228475,4 8,4.44771525 8,5 C8,5.55228475 7.55228475,6 7,6 Z M7,10 C6.44771525,10 6,9.55228475 6,9 C6,8.44771525 6.44771525,8 7,8 C7.55228475,8 8,8.44771525 8,9 C8,9.55228475 7.55228475,10 7,10 Z'%3E%3C/path%3E%3C/svg%3E");
-  background-size: calc(0.5em + 0.375rem) calc(0.5em + 0.375rem);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 1.2rem;
-  height: 1.5rem;
-  z-index: 50;
-  cursor: grab;
-
-  &:hover {
-    background-color: white;
-    transition: background-color 0.2s;
-  }
-
-  &:active {
-    background-color: white;
-    transition: background-color 0.2s;
-    cursor: grabbing;
-  }
-
-  &.hide {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  @media screen and (max-width: 600px) {
-    display: none;
-    pointer-events: none;
-  }
-}
-
-@keyframes slide-enter {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 100;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scale-in-out {
-  0%,
-  100% {
-    transform: translate3d(-50%, -50%, 0) scale(0);
-  }
-  50% {
-    transform: translate3d(-50%, -50%, 0) scale(1);
+    background: var(--color-primary);
+    color: var(--color-gray-700);
   }
 }

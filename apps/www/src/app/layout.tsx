@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import "styles/globals.css";
-import "styles/wowhead.css";
 
 import { cn } from "@lemonade-stand/ui";
 import { Footer } from "components/footer";
@@ -16,7 +15,7 @@ import { website } from "~/config";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.lemonade-stand.gg"),
   alternates: {
-    canonical: "/"
+    canonical: "/",
   },
   title: website.metadata.title,
   description: website.metadata.description,
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.lemonade-stand.gg",
     siteName: website.metadata.title.default,
-  }
+  },
 };
 
 // const fontSans = Poppins({

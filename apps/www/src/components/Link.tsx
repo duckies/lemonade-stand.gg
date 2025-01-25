@@ -10,8 +10,8 @@ export const linkStyle = cva("", {
   variants: {
     variant: {
       plain: "",
-      default:
-        "inline-block after:ease relative whitespace-nowrap text-yellow-400 no-underline after:absolute after:bottom-[2px] after:left-0 after:h-[1px] after:w-0 after:rounded-full after:bg-yellow after:transition-[width] after:duration-250 hover:text-yellow hover:after:w-full hover:after:ease-out",
+      default: "",
+      // "inline-block after:ease relative whitespace-nowrap text-primary no-underline after:absolute after:bottom-[2px] after:left-0 after:h-[1px] after:w-0 after:rounded-full after:bg-primary after:transition-[width] after:duration-250 hover:after:w-full hover:after:ease-out",
     },
   },
   defaultVariants: {

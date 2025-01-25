@@ -15,7 +15,10 @@ export function ContentCard({ title, label, background, href, disabled }: Conten
   const Component = href && disabled !== true ? "a" : "div";
 
   return (
-    <Component className="min-h-[300px] group border-2 border-gray shadow-md rounded-2xl overflow-hidden" href={href}>
+    <Component
+      className="min-h-[300px] group border border-border shadow-md rounded-2xl overflow-hidden"
+      href={href}
+    >
       <div className="relative flex items-end bg-card px-7 py-10 min-h-[300px]">
         <Image
           className={cn(
@@ -28,7 +31,7 @@ export function ContentCard({ title, label, background, href, disabled }: Conten
           alt=""
           fill
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-card transition-opacity ease-in-out-circ group-hover:opacity-70 duration-500" />
+        <div className="absolute inset-0 bg-linear-to-tr from-card transition-opacity ease-in-out-circ group-hover:opacity-70 duration-500" />
 
         <div className="relative pointer-events-none flex flex-col gap-1 p-6">
           {label && (

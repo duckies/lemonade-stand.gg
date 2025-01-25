@@ -130,7 +130,7 @@ export function Sparkles({
           style={sparkle.style}
         />
       ))}
-      <strong className="relative z-[1] font-bold z-[2]">{children}</strong>
+      <strong className="relative z-1 font-bold z-2">{children}</strong>
     </span>
   );
 }
@@ -142,7 +142,8 @@ export function SparkleIcon({
 }: { size: number | string; color?: string; style?: CSSProperties }) {
   return (
     <span
-      className="absolute block animate-[scale-in-out_900ms_forwards] text-primary"
+      // className="absolute block animate-[scale-in-out_900ms_forwards] text-primary"
+      className="absolute block animate-scale-in-out text-primary"
       style={style}
     >
       <svg

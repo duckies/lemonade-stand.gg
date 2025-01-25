@@ -1,53 +1,53 @@
 import type { ReactNode } from "react";
 
 export function DeathKnight({ children }: { children?: ReactNode }) {
-  return <span className="text-class-death-knight">{children ?? "Death Knight"}</span>;
+  return <span className="text-death-knight">{children ?? "Death Knight"}</span>;
 }
 
 export function DemonHunter({ children }: { children?: ReactNode }) {
-  return <span className="text-class-demon-hunter">{children ?? "Demon Hunter"}</span>;
+  return <span className="text-demon-hunter">{children ?? "Demon Hunter"}</span>;
 }
 
 export function Druid({ children }: { children?: ReactNode }) {
-  return <span className="text-class-druid">{children ?? "Druid"}</span>;
+  return <span className="text-druid">{children ?? "Druid"}</span>;
 }
 
 export function Evoker({ children }: { children?: ReactNode }) {
-  return <span className="text-class-evoker">{children ?? "Evoker"}</span>;
+  return <span className="text-evoker">{children ?? "Evoker"}</span>;
 }
 
 export function Hunter({ children }: { children?: ReactNode }) {
-  return <span className="text-class-hunter">{children ?? "Hunter"}</span>;
+  return <span className="text-hunter">{children ?? "Hunter"}</span>;
 }
 
 export function Mage({ children }: { children?: ReactNode }) {
-  return <span className="text-class-mage">{children ?? "Mage"}</span>;
+  return <span className="text-mage">{children ?? "Mage"}</span>;
 }
 
 export function Monk({ children }: { children?: ReactNode }) {
-  return <span className="text-class-monk">{children ?? "Monk"}</span>;
+  return <span className="text-monk">{children ?? "Monk"}</span>;
 }
 
 export function Paladin({ children }: { children?: ReactNode }) {
-  return <span className="text-class-paladin">{children ?? "Paladin"}</span>;
+  return <span className="text-paladin">{children ?? "Paladin"}</span>;
 }
 
 export function Priest({ children }: { children?: ReactNode }) {
-  return <span className="text-class-priest">{children ?? "Priest"}</span>;
+  return <span className="text-priest">{children ?? "Priest"}</span>;
 }
 
 export function Rogue({ children }: { children?: ReactNode }) {
-  return <span className="text-class-rogue">{children ?? "Rogue"}</span>;
+  return <span className="text-rogue">{children ?? "Rogue"}</span>;
 }
 
 export function Shaman({ children }: { children?: ReactNode }) {
-  return <span className="text-class-shaman">{children ?? "Shaman"}</span>;
+  return <span className="text-shaman">{children ?? "Shaman"}</span>;
 }
 
 export function Warlock({ children }: { children?: ReactNode }) {
-  return <span className="text-class-warlock">{children ?? "Warlock"}</span>;
+  return <span className="text-warlock">{children ?? "Warlock"}</span>;
 }
 
 export function Warrior({ children }: { children?: ReactNode }) {
-  return <span className="text-class-warrior">{children ?? "Warrior"}</span>;
+  return <span className="text-warrior">{children ?? "Warrior"}</span>;
 }

@@ -9,7 +9,7 @@ interface ImageProps extends Omit<ComponentPropsWithoutRef<"img">, "src" | "widt
 
 export const DefaultComponents: MDXComponents = {
   img: ({ src, alt, className, ...props }: ImageProps) => {
-    const styles = cn("select-none rounded-lg shadow-xl [&:not(:first-child)]:my-6", className);
+    const styles = cn("select-none rounded-lg shadow-xl not-first:my-6", className);
 
     if (typeof src !== "string") {
       return <Image src={src} className={styles} {...props} alt={alt || ""} />

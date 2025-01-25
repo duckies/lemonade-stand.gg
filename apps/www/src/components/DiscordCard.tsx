@@ -57,7 +57,7 @@ export function DiscordCard() {
   }
 
   return (
-    <Card className="relative overflow-hidden from-[#5865F2]/40 bg-gradient-to-b to-80%">
+    <Card className="relative overflow-hidden from-[#5865F2]/40 bg-linear-to-b to-80%">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 127.14 96.36"

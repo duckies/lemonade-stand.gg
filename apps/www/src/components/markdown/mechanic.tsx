@@ -56,15 +56,15 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
         onClick={toggle}
         onKeyDown={(e) => e.key === "Enter" && toggle()}
       >
-        <div className="flex shrink-0 items-center rounded-md">
+        <div className="flex shrink-0 items-center rounded-md animate-in fade-in">
           <Link href={`https://wowhead.com/spell=${id}`} variant="plain">
             {MemoizedWarcraftIcon}
           </Link>
         </div>
 
-        <div className="flex flex-grow flex-col justify-between font-medium">
+        <div className="flex grow flex-col justify-between font-medium">
           <div className="text-xl leading-6">{name}</div>
-          {caption && <span className="text-base leading-[1] text-yellow-400">{caption}</span>}
+          {caption && <span className="text-sm text-primary/90">{caption}</span>}
         </div>
 
         <div
