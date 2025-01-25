@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import { random } from "~/components/markdown/sparkles";
+import { random } from "lib/number";
 
 export function useRandomInterval(
   callback: () => void,
@@ -14,8 +14,7 @@ export function useRandomInterval(
   }, [callback]);
 
   useEffect(() => {
-    const isEnabled = typeof minDelay === "number" &&
-      typeof maxDelay === "number";
+    const isEnabled = typeof minDelay === "number" && typeof maxDelay === "number";
 
     if (isEnabled) {
       const handleTick = () => {
