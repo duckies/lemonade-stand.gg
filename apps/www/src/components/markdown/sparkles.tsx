@@ -2,38 +2,13 @@
 
 import { nanoid } from "nanoid";
 import { type CSSProperties, type ReactNode, useRef, useState } from "react";
-import { useIsOnScreen } from "~/hooks/use-is-on-screen";
-import { usePrefersReducedMotion } from "~/hooks/use-prefers-reduced-motion";
-import { useRandomInterval } from "~/hooks/use-random-interval";
-import { sample } from "~/lib/array";
+import { useIsOnScreen } from "hooks/use-is-on-screen";
+import { usePrefersReducedMotion } from "hooks/use-prefers-reduced-motion";
+import { useRandomInterval } from "hooks/use-random-interval";
+import { sample } from "lib/array";
+import { random } from "lib/number";
 
-/**
- * Inclusively geneates a random number between min and max.
- */
-export function random(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-/**
- * Creates an array of numbers from `start` to `end` via `step`.
- * If `end` is not provided, it will be considered `start`.
- */
-export function range(startOrEnd: number, end?: number, step = 1) {
-  const output = [];
-
-  if (typeof end === "undefined") {
-    end = startOrEnd;
-    startOrEnd = 0;
-  }
-
-  for (let i = startOrEnd; i < end; i += step) {
-    output.push(i);
-  }
-
-  return output;
-}
-
-export const generatePosition = (size: number) => ({
+const generatePosition = (size: number) => ({
   left: `${random(0, 100)}%`,
   zIndex: random(1, 3),
   ...(Math.random() > 0.5 ? { top: size * 0.5 } : { bottom: -size * 0.5 }),
@@ -130,7 +105,7 @@ export function Sparkles({
           style={sparkle.style}
         />
       ))}
-      <strong className="relative z-1 font-bold z-2">{children}</strong>
+      <strong className="relative z-1 font-bold">{children}</strong>
     </span>
   );
 }
@@ -141,11 +116,7 @@ export function SparkleIcon({
   style,
 }: { size: number | string; color?: string; style?: CSSProperties }) {
   return (
-    <span
-      // className="absolute block animate-[scale-in-out_900ms_forwards] text-primary"
-      className="absolute block animate-scale-in-out text-primary"
-      style={style}
-    >
+    <span className="absolute block animate-scale-in-out text-primary" style={style}>
       <svg
         className="block animate-spin [transition-duration:2000ms] ease-linear"
         width={size}
