@@ -50,7 +50,10 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
   );
 
   return (
-    <div className="relative my-4 max-w-none rounded-lg bg-muted shadow-lg">
+    <div
+      className="not-prose group relative my-4 max-w-none rounded-lg bg-muted shadow-lg"
+      data-state={isOpen ? "open" : "closed"}
+    >
       <div
         className="not-prose flex gap-4 rounded-md p-4 hover:cursor-pointer"
         onClick={toggle}
@@ -62,18 +65,13 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
           </Link>
         </div>
 
-        <div className="flex grow flex-col justify-between font-medium">
+        <div className="flex grow flex-col justify-evenly font-medium">
           <div className="text-xl leading-6">{name}</div>
           {caption && <span className="text-sm text-primary/90">{caption}</span>}
         </div>
 
-        <div
-          className={cn(
-            "flex items-center p-3 transition-transform duration-300",
-            isOpen && "rotate-180",
-          )}
-        >
-          <ChevronDownIcon className="h-5 w-5" />
+        <div className={cn("flex items-center mr-2")}>
+          <ChevronDownIcon className="h-7 w-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
         </div>
       </div>
 
@@ -84,10 +82,10 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
             animate={isOpen ? "expanded" : "collapsed"}
             variants={variants}
             transition={transition}
-            className={cn("relative overflow-hidden border-t border-gray-800")}
+            className={cn("relative overflow-hidden border-t border-border")}
             aria-expanded={isOpen}
           >
-            <div className="pt-4 pb-5">{children}</div>
+            <div className="pt-4 pb-5 prose">{children}</div>
           </motion.div>
         </AnimatePresence>
       </div>

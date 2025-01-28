@@ -14,7 +14,7 @@ export function Circle() {
       src={CircleMarker}
       alt="Circle Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -25,7 +25,7 @@ export function Cross() {
       src={CrossMarker}
       alt="Cross Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -36,7 +36,7 @@ export function Diamond() {
       src={DiamondMarker}
       alt="Diamond Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -47,7 +47,7 @@ export function Moon() {
       src={MoonMarker}
       alt="Moon Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -58,7 +58,7 @@ export function Skull() {
       src={SkullMarker}
       alt="Skull Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -69,7 +69,7 @@ export function Square() {
       src={SquareMarker}
       alt="Square Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -80,7 +80,7 @@ export function Star() {
       src={StarMarker}
       alt="Star Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }
@@ -91,7 +91,7 @@ export function Triangle() {
       src={TriangleMarker}
       alt="Triangle Marker"
       height="22"
-      className="inline-block h-7 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
+      className="not-prose inline-block h-6 w-auto transition-transform will-change-transform hover:scale-105 hover:animate-pulse"
     />
   );
 }

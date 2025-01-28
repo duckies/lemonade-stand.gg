@@ -1,5 +1,5 @@
 import { Hero } from "components/hero";
-import { DefaultMDXComponents } from "components/markdown";
+import { GuideMDXComponents } from "components/markdown";
 import HeroBackground from "public/images/hero/nerubar-palace.jpg";
 import { Wowhead } from "~/components/wowhead";
 
@@ -27,7 +27,9 @@ export default async function GuidePage({ params }: GuidePageParams) {
   const { slugs } = await params;
   // I don't know why this broke.
   // const { /MDXContent, frontmatter } = await getMDXByPath(["guides", ...slugs]);
-  const { default: MDXContent, frontmatter } = await import(`#content/guides/${slugs.join("/")}.mdx`)
+  const { default: MDXContent, frontmatter } = await import(
+    `#content/guides/${slugs.join("/")}.mdx`
+  );
 
   return (
     <>
@@ -48,7 +50,7 @@ export default async function GuidePage({ params }: GuidePageParams) {
           {/* </div> */}
           <article className="prose dark:prose-invert relative slide-enter-content">
             {/* <Image src={imagey} alt="christ" /> */}
-            <MDXContent components={{ ...DefaultMDXComponents }} {...frontmatter} />
+            <MDXContent components={{ ...GuideMDXComponents }} {...frontmatter} />
           </article>
         </section>
       </div>

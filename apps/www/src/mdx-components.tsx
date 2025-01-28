@@ -1,23 +1,5 @@
-import { cn } from "@lemonade-stand/ui";
 import type { MDXComponents } from "mdx/types";
-import Image, { type StaticImageData } from "next/image";
-import { type ComponentPropsWithoutRef, type HTMLAttributes, createElement } from "react";
-
-interface ImageProps extends Omit<ComponentPropsWithoutRef<"img">, "src" | "width" | "height"> {
-  src: StaticImageData | string;
-}
-
-export const DefaultComponents: MDXComponents = {
-  img: ({ src, alt, className, ...props }: ImageProps) => {
-    const styles = cn("select-none rounded-lg shadow-xl not-first:my-6", className);
-
-    if (typeof src !== "string") {
-      return <Image src={src} className={styles} {...props} alt={alt || ""} />
-    }
-
-    return <img src={src} className={styles} {...props} />
-  }
-};
+import { DefaultMDXComponents } from "components/markdown";
 
 /**
  * This is a required export for global MDX components.
@@ -26,7 +8,7 @@ export const DefaultComponents: MDXComponents = {
  */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    ...DefaultComponents,
+    ...DefaultMDXComponents,
     ...components,
   };
 }

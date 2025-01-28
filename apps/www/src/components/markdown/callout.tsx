@@ -36,7 +36,7 @@ export function Callout({ type, className, children, ...props }: CalloutProps) {
       <span>
         <Icon role="img" className="h-5 w-5 mt-2" />
       </span>
-      <div>{children}</div>
+      <div className="prose">{children}</div>
     </aside>
   );
 }
