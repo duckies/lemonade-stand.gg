@@ -7,7 +7,7 @@ import { Footer } from "components/footer";
 import { Header } from "components/header";
 import { ThemeSwitcher } from "components/theme-switcher";
 import { UserNav } from "components/user-nav";
-import { Lexend } from "next/font/google";
+import { DM_Mono, Lexend } from "next/font/google";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
 import { website } from "~/config";
@@ -31,13 +31,6 @@ export const metadata: Metadata = {
     siteName: website.metadata.title.default,
   },
 };
-
-// const fontSans = Poppins({
-//   subsets: ["latin"],
-//   weight: ["400", "500", "700"],
-//   display: "swap",
-//   variable: "--font-sans",
-// });
 
 const fontSans = Lexend({
   subsets: ["latin"],
@@ -69,13 +62,9 @@ const fontSerif = localFont({
   variable: "--font-serif",
 });
 
-const fontMono = localFont({
-  src: [
-    {
-      path: "../../public/fonts/maple-mono/maplemono-regular.ttf",
-      weight: "400",
-    },
-  ],
+const fontMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
   variable: "--font-mono",
 });
 
