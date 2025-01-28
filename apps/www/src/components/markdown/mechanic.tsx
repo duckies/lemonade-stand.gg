@@ -51,7 +51,7 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
 
   return (
     <div
-      className="not-prose group relative my-4 max-w-none rounded-lg bg-muted shadow-lg"
+      className="group relative my-4 max-w-none rounded-lg bg-muted shadow-lg"
       data-state={isOpen ? "open" : "closed"}
     >
       <div
@@ -64,7 +64,6 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
             {MemoizedWarcraftIcon}
           </Link>
         </div>
-
         <div className="flex grow flex-col justify-evenly font-medium">
           <div className="text-xl leading-6">{name}</div>
           {caption && <span className="text-sm text-primary/90">{caption}</span>}
