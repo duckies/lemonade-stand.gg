@@ -29,8 +29,6 @@ export const DefaultMDXComponents = {
   Sparkles,
 } as const satisfies MDXComponents;
 
-console.log(Tabs);
-
 export const GuideMDXComponents = {
   ...ClassColors,
   ...Markers,

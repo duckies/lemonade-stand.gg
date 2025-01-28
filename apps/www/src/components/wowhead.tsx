@@ -31,8 +31,8 @@ function patchWowhead() {
     const url = getIconUrl(...args);
 
     if (url.startsWith("https://wow.zamimg.com/images/wow/icons/")) {
-      const fileName = url.split("/").pop();
-      return `https://cdn.lemonade-stand.gg/icons/${fileName}`;
+      const fileName = url.split("/").pop()!;
+      return `https://cdn.lemonade-stand.gg/icons/${encodeURIComponent(fileName)}`;
     }
 
     return url;
