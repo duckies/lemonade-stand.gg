@@ -26,7 +26,7 @@ export function Video({ src }: VideoProps) {
         <button
           type="button"
           className="absolute inset-0 z-10 flex cursor-pointer items-center justify-center bg-black/40 shadow-xl transition-colors hover:bg-black/20 focus-visible:outline-4
-          focus-visible:outline-yellow focus-visible:-outline-offset-4 rounded-lg focus-visible:outline"
+          focus-visible:outline-yellow focus-visible:-outline-offset-4 rounded-lg"
         >
           <svg
             className="h-[90px] w-[90px]"

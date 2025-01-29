@@ -1,7 +1,5 @@
-import { Button, cn } from "@lemonade-stand/ui";
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { cn } from "@lemonade-stand/ui";
 import Image from "next/image";
-import Link from "next/link";
 
 interface ContentCardProps {
   title: string;
