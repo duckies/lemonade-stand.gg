@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-import createMDX from "@next/mdx";
 import createBundleAnalyzer from "@next/bundle-analyzer";
+import createMDX from "@next/mdx";
 
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],

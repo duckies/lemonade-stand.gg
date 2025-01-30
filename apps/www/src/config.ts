@@ -11,8 +11,8 @@ export const Expansions = [
     id: 514,
     name: "The War Within",
     slug: "the-war-within",
-  }
-]
+  },
+];
 
 export const Raids = [
   {
@@ -22,17 +22,17 @@ export const Raids = [
       {
         name: "Ulgrax the Devourer",
         slug: "ulgrax-the-devourer",
-        icon: "inv_achievement_raidnerubian_nerubianhulk"
+        icon: "inv_achievement_raidnerubian_nerubianhulk",
       },
       {
         name: "The Bloodbound Horror",
         slug: "the-bloodbound-horror",
-        icon: "inv_achievement_raidnerubian_blackblood"
+        icon: "inv_achievement_raidnerubian_blackblood",
       },
       {
         name: "Sikran, Captain of the Sureki",
         slug: "sikran-captain-of-the-sureki",
-        icon: "inv_achievement_raidnerubian_nerubianevolved"
+        icon: "inv_achievement_raidnerubian_nerubianevolved",
       },
       {
         name: "Rasha'nan",
@@ -47,20 +47,20 @@ export const Raids = [
       {
         name: "Nexus-Princess Ky'veza",
         slug: "nexus-princess-kyveza",
-        icon: "inv_achievement_raidnerubian_etherealassasin"
+        icon: "inv_achievement_raidnerubian_etherealassasin",
       },
       {
         name: "The Silken Court",
         slug: "the-silken-court",
-        icon: "inv_achievement_raidnerubian_council"
+        icon: "inv_achievement_raidnerubian_council",
       },
       {
         name: "Queen Ansurek",
         slug: "queen-ansurek",
-        icons: "inv_achievement_raidnerubian_queenansurek"
-      }
-    ]
-  }
+        icons: "inv_achievement_raidnerubian_queenansurek",
+      },
+    ],
+  },
 ] as const;
 
 export const website = {

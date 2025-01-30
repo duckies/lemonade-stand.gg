@@ -16,9 +16,11 @@ export default async function HomePage() {
     <>
       <Hero.Root>
         <Hero.Background src={HeroBackground} />
-        <Hero.Content variant="centered">
-          <Hero.Title className="text-8xl">Lemonade Stand</Hero.Title>
-          <Hero.Description>
+        <Hero.Content variant="centered" className="transition-all">
+          <Hero.Title className="text-7xl lg:text-8xl transition-[font-size]">
+            Lemonade Stand
+          </Hero.Title>
+          <Hero.Description className="text-lg lg:text-xl">
             The <span className="line-through">grape</span> lemon-peddling World of Warcraft
             community and raiding guild on Illidan.
           </Hero.Description>

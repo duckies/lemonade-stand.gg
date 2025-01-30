@@ -73,6 +73,15 @@
   }
 }
 
+@utility stack {
+  display: grid;
+  place-content: center;
+
+  > * {
+    grid-area: 1 / 1;
+  }
+}
+
 @utility hide-scrollbar {
   scrollbar-width: none;
 

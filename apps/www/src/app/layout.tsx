@@ -5,12 +5,11 @@ import "styles/globals.css";
 import { cn } from "@lemonade-stand/ui";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
-import { ThemeSwitcher } from "components/theme-switcher";
 import { UserNav } from "components/user-nav";
 import { DM_Mono, Lexend } from "next/font/google";
 import localFont from "next/font/local";
-import { Providers } from "./providers";
 import { website } from "~/config";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.lemonade-stand.gg"),
@@ -76,7 +75,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Providers>
           <div className="relative flex min-h-screen flex-col">
             <Header>
-              <ThemeSwitcher />
               <UserNav />
             </Header>
             {children}

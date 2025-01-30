@@ -5,7 +5,12 @@ import type { ComponentPropsWithoutRef } from "react";
 
 function Root({ children, className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
-    <div className={cn("flex items-center justify-between h-[400px] relative w-full", className)} {...props}>{children}</div>
+    <div
+      className={cn("flex items-center justify-between h-[400px] relative w-full", className)}
+      {...props}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -58,16 +63,17 @@ function Content({
 function Title({ className, ...props }: ComponentPropsWithoutRef<"h1">) {
   return (
     <h1
-      className={cn("text-6xl dark:drop-shadow-sm mb-2 font-serif font-bold tracking-wide", className)}
+      className={cn(
+        "text-6xl dark:drop-shadow-sm mb-2 font-serif font-bold tracking-wide",
+        className,
+      )}
       {...props}
     />
   );
 }
 
 function Description({ className, ...props }: ComponentPropsWithoutRef<"p">) {
-  return (
-    <p className={cn("text-muted-foreground text-xl mt-3 tracking-wide", className)} {...props} />
-  );
+  return <p className={cn("text-foreground text-xl mt-3 tracking-wide", className)} {...props} />;
 }
 
-export { Background, Content, Description, Title, Root };
+export { Background, Content, Description, Root, Title };
