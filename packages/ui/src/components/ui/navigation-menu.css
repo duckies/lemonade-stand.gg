@@ -25,7 +25,8 @@
 
 .navigation-menu__trigger,
 .navigation-menu__link {
-  @apply text-sm font-medium;
+  cursor: pointer;
+  @apply text-sm;
 }
 
 .navigation-menu__content {
