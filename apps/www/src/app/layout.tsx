@@ -6,6 +6,7 @@ import { cn } from "@lemonade-stand/ui";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
 import { UserNav } from "components/user-nav";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { DM_Mono, Lexend } from "next/font/google";
 import localFont from "next/font/local";
 import { website } from "~/config";

@@ -146,7 +146,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
                             icon={MegaphoneIcon}
                           />
                           <ContentGridLink
-                            href="#"
+                            href="/resources"
                             title="Resources"
                             subtitle="Community goodies"
                             icon={ScrollIcon}

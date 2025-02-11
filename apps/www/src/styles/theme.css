@@ -34,6 +34,10 @@
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-ring: hsl(var(--ring));
 
+  /* Custom utility variables */
+  --hero-from-opacity: 40%;
+  --hero-to-opacity: 100%;
+
   /* Part of the upcoming color scheme refresh. */
   --color-surface: oklch(
     from var(--color-background) calc(l + 0.02) c h / alpha

@@ -65,6 +65,12 @@
   padding-inline: calc(var(--spacing) * 8);
 }
 
+@utility blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: --spacing(8);
+}
+
 @utility section {
   padding-block: calc(var(--spacing) * 8);
 
@@ -90,15 +96,27 @@
   }
 }
 
-@utility hero-gradient {
-  position: absolute;
-  inset: 0;
-  @apply bg-background/40;
-  background-image: linear-gradient(
-    to bottom,
-    --theme(--color-background / 0),
-    hsl(var(--background))
-  );
+@layer components {
+  .hero {
+    --hero-from-opacity: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    position: relative;
+    width: 100%;
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top in oklch,
+        --theme(--color-background / 100%),
+        --theme(--color-background / var(--hero-from-opacity))
+      );
+    }
+  }
 }
 
 @utility slide-enter {

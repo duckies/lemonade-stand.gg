@@ -1,3 +1,5 @@
+import DuckyAvatar from "#public/images/avatars/ducky.png";
+
 const metadata = {
   title: {
     default: "Lemonade Stand",
@@ -66,3 +68,15 @@ export const Raids = [
 export const website = {
   metadata,
 } as const;
+
+export const authors = {
+  ducky: {
+    name: "Ducky",
+    avatar: DuckyAvatar,
+  },
+} as const;
+
+export const authorSlugs: AuthorSlug[] = ["ducky"];
+
+export type AuthorSlug = keyof typeof authors;
+export type Author = (typeof authors)[AuthorSlug];

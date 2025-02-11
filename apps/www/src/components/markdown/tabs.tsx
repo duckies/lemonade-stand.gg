@@ -1,19 +1,75 @@
+"use client";
+
 import {
-  cn,
-  Tabs as TabsPrimitive,
-  TabsList as TabsListPrimitive,
-  TabsTrigger as TabsTriggerPrimitive,
   TabsContent as TabsContentPrimitive,
+  TabsList as TabsListPrimitive,
+  Tabs as TabsPrimitive,
+  TabsTrigger as TabsTriggerPrimitive,
+  cn,
 } from "@lemonade-stand/ui";
-import { cva, type VariantProps } from "class-variance-authority";
-import type { ComponentPropsWithRef } from "react";
+import { type VariantProps, cva } from "class-variance-authority";
+import { type ComponentPropsWithRef, type MouseEvent, useEffect, useRef, useState } from "react";
 
 export function Tabs({ className, ...props }: ComponentPropsWithRef<typeof TabsPrimitive>) {
   return <TabsPrimitive className={cn("my-7", className)} {...props} />;
 }
 
 export function TabsList({ className, ...props }: ComponentPropsWithRef<typeof TabsListPrimitive>) {
-  return <TabsListPrimitive className={className} {...props} />;
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (ref.current) {
+        setIsOverflowing(ref.current.scrollWidth > ref.current.clientWidth);
+      }
+    };
+
+    checkOverflow();
+
+    window.addEventListener("resize", checkOverflow);
+
+    return () => {
+      window.removeEventListener("resize", checkOverflow);
+    };
+  }, []);
+
+  const onMouseDown = (e: MouseEvent) => {
+    if (!isOverflowing || !ref.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - ref.current.offsetLeft);
+    setScrollLeft(ref.current.scrollLeft);
+  };
+
+  const onMouseMove = (e: MouseEvent) => {
+    if (!isDragging || !ref.current) return;
+    e.preventDefault();
+    const x = e.pageX - ref.current.offsetLeft;
+    const scroll = (x - startX) * 2;
+    ref.current.scrollLeft = scrollLeft - scroll;
+  };
+
+  const onMouseUp = () => setIsDragging(false);
+
+  return (
+    <TabsListPrimitive
+      ref={ref}
+      data-dragging={isDragging}
+      className={cn(
+        className,
+        isOverflowing && "cursor-grab",
+        "data-[dragging=true]:cursor-grabbing",
+      )}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      {...props}
+    />
+  );
 }
 
 interface TriggerProps extends ComponentPropsWithRef<typeof TabsTriggerPrimitive> {

@@ -1,9 +1,9 @@
+import HeroBackground from "#public/images/hero/nerubar-palace.jpg";
 import { Card, CardDescription, CardHeader, CardTitle } from "@lemonade-stand/ui";
 import { DiscordCard } from "components/DiscordCard";
 import { ProgressCard } from "components/ProgressCard";
 import { Hero } from "components/hero";
 import type { Metadata } from "next";
-import HeroBackground from "public/images/hero/nerubar-palace.jpg";
 
 export const metadata: Metadata = {
   title: {
@@ -16,10 +16,8 @@ export default async function HomePage() {
     <>
       <Hero.Root>
         <Hero.Background src={HeroBackground} />
-        <Hero.Content variant="centered" className="transition-all">
-          <Hero.Title className="text-7xl lg:text-8xl transition-[font-size]">
-            Lemonade Stand
-          </Hero.Title>
+        <Hero.Content variant="centered">
+          <Hero.Title variant="larger">Lemonade Stand</Hero.Title>
           <Hero.Description className="text-lg lg:text-xl">
             The <span className="line-through">grape</span> lemon-peddling World of Warcraft
             community and raiding guild on Illidan.

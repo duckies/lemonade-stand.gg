@@ -12,7 +12,6 @@ import Link from "next/link";
 import type { User } from "~/server/auth";
 
 export function UserNavMenu({ user }: { user: User }) {
-  console.log(user);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>

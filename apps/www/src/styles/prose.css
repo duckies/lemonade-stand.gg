@@ -1,9 +1,19 @@
 @custom-variant prose-enabled (&:not(:where([class~="not-prose"], [class~="not-prose"] *)));
 
 @layer components {
+  .prose-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: --spacing(8);
+
+    > :only-child {
+      grid-column: span 2;
+    }
+  }
+
   .prose {
-    color: #e0def4;
-    line-height: calc(var(--spacing) * 7);
+    color: #d5d5d5;
+    line-height: 2;
 
     a {
       @variant prose-enabled {
@@ -44,6 +54,7 @@
 
     h1 {
       @variant prose-enabled {
+        font-family: var(--font-serif);
         color: #fff;
         font-weight: 800;
         font-size: 2.25em;
@@ -55,8 +66,11 @@
 
     h2 {
       @variant prose-enabled {
-        color: #ddd;
-        font-weight: 700;
+        font-family: var(--font-serif);
+        font-weight: 600;
+        @apply tracking-wide;
+        color: #fff;
+        /* font-weight: 700; */
         font-size: 1.5em;
         margin-top: 2em;
         margin-bottom: 1em;
@@ -66,13 +80,14 @@
 
     h3 {
       @variant prose-enabled {
-        color: inherit;
+        font-family: var(--font-serif);
         font-weight: 600;
+        @apply tracking-wide;
+        color: #fff;
         font-size: 1.25em;
         margin-top: 1.6em;
         margin-bottom: 0.6em;
         line-height: 1.6;
-        opacity: 0.7;
       }
     }
 
@@ -98,7 +113,7 @@
         .header-anchor {
           float: left;
           margin-left: -1.2em;
-          padding-right: 0.5em;
+          margin-right: 0.5em;
           /* font-size: .85rem; */
           opacity: 0;
           text-decoration: none;

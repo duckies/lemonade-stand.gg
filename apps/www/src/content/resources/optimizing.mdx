@@ -1,0 +1,126 @@
+---
+title: Optimizing Raiding Performance
+description: Exhaustive recommendations for increasing raiding performance.
+published: '2025-01-30T18:34Z'
+author: "ducky"
+hero:
+  background: /images/hero/drustvar_drust.jpg
+---
+
+import nanazipArchive from "#assets/images/resources/optimizing/nanazip-archive.png";
+import nanazip from "#assets/images/resources/optimizing/nanazip.png";
+import wowupBackup from "#assets/images/resources/optimizing/wowup-backup.png";
+import wowup from "#assets/images/resources/optimizing/wowup.png";
+
+The two most frustrating things that are doomed to repeat themselves in World of Warcraft are Ion Hazzikostas reflecting on their team having "learned a lot" after a implementing fixes the community asked for on the PTR, and raiders having inexplicably shitass performance in raid. The only reason anyone would read any of this is if they can get something out of it, so this page is dedicated to understanding what goes into setting up World of Warcraft for maximum performance in raid.
+
+## Back It Up
+
+It's a good idea to make a habit of backing up your World of Warcraft settings. If you change a bunch of things and you hate it, you can slam the undo button in under a minute if you have a backup. It's also smart once you reach a steady state where you're happy with your interface to create a backup so you have a snapshot of your current "version" of it.
+
+### Where are setting stored?
+
+World of Warcraft stores your settings in the `WTF` folder for each edition of the game, e.g. `_retail_/WTF` for Retail, and classic editions in `_classic_<edition>/WTF`. This includes addon data as well as settings for the game itself, e.g. graphics settings. The only thing stored on WoW's servers are your spell placements, keybinds, and macros for *default* actionbars and macros.
+
+<Callout type="info">
+Addons like ElvUI hook into the default actionbars, thus disabling ElvUI still maintains your keybinds and spell placements on actionbars. However, some addons can create entirely new actionbars and macros that only live within the context of the addon and thus won't be synced to WoW's servers. Clique is a good example of an addon that creates these keybinds ephemerally; you can't use keybinds made by it when the addon is disabled.
+</Callout>
+
+### Making a backup
+
+Creating a backup is as simple as making a copy of the `WTF` folder in some way. If you have [Wowup](https://wowup.io/) there is a simple backup feature hidden in the menu to the right of "Check Updates". It creates a zip archive of your `WTF` folder whenever you click "Create Backup".
+
+<figure className="flex flex-col justify-center items-center">
+  <div className="grid gap-4 sm:grid-cols-[auto_60%] w-full h-[13rem]">
+    <div className="flex relative">
+      <Image className="object-cover object-center rounded-lg" fill src={wowup} alt="Wowup menu" />
+    </div>
+    <div className="flex relative">
+      <Image className="object-cover object-center rounded-lg" fill src={wowupBackup} alt="NanaZip archival" />
+    </div>
+  </div>
+</figure>
+
+
+If you're doing it manually I recommend NanaZip which you can get from the [Windows Store](https://apps.microsoft.com/detail/9N8G7TSCL18R?hl=en&gl=US&ocid=pdpshare) or [manually](https://sourceforge.net/projects/nanazip/). It's essentially 7zip with a more modern user interface, such as not having to click "Show more options" or shift-right-clicking to see it in the context menu when right-clicking a folder or file. The default archiving capabilities of Windows are miles slower, especially when extracting an archive. However, if you WinRAR installed please remove that shit. It's an outdated, inferior tool, relatable I know.
+
+1. Right click on the `WTF` folder and select `NanaZip`, then `Add to archive...`.
+2. Give the archive a name at the top of the popup.
+3. Pick your preferred settings, but I would only touch the following:
+    - I recommend the `7z` format as it will make a significantly smaller archive than `zip`.
+    - You can optionally increase the `Compression level` if you want it to squeeze the archive as small as possible at the cost of speed.
+4. Hit `OK`, and when it's done move your archive somewhere safe. I keep mine in my OneDrive folder, among other important things, so if my computer explodes I have one less thing to throw up about.
+
+<figure>
+  <div className="grid gap-4 grid-cols-2 h-[300px]">
+    <div className="flex relative ">
+      <Image className="object-cover object-left-bottom rounded-lg" fill src={nanazip} alt="NanaZip add to archive" />
+    </div>
+    <div className="flex relative ">
+      <Image className="object-cover object-left-top rounded-lg" fill src={nanazipArchive} alt="NanaZip archival" />
+    </div>
+  </div>
+  <figcaption className="text-center">
+    Click on an image to <Sparkles className="font-normal">embiggen</Sparkles> it.
+  </figcaption>
+</figure>
+
+## Frequently Asked Questions
+
+1. Should I backup the `AddOns` folder?
+
+    I wouldn't recommend backing up the whole folder, no. My AddOns folder is `736 MB` and my entire Interface folder is `2.5 GB` (because I use [AI upscaled spell icons](https://github.com/kodewdle/IconPacks)). It's a waste of storage to back up the addon files when you can just redownload them from Wowup or Curseforge. The only situation I would do it is if I was directly copying my interface from one computer to the next.
+
+    However, if you have something in your Interface folder that isn't from Wowup or Curseforge (and isn't a couple gigs of icons), it may be worth keeping a backup of it somewhere. Think custom sound files, textures, fonts, or any custom files needed to setup a WeakAura.
+
+2. When does WoW save to the `WTF` folder?
+
+    The game 
+
+## Advanced Backups
+
+I utilize a custom script that creates a backup archive with a list of folders I want to include in the `_retail_` folder. This includes `WTF`, but also `Interface\AddOns\Rubbewduck`, `Interface\AddOns\ElvUI_DuckTools` and `Interface\Tooltips\Chatbubble*.BLP`. The two former are custom addons I tinker with whereas the latter are custom textures for chat bubbles in raids. If you use a streamer's interface they often have an addon, e.g. `AtrocityMedia` that help you import their profiles but also contains textures and fonts necessary for their profile. I like to include in my backups basically anything like this that I can't download off of Wowup.
+
+> If you're worried you may forget which addons you have installed, no worries. If you navigate into `_retail_/WTF/Account/<account_id>/<realm_name>/<character_name>` and open `AddOns.txt` you will see a list of all addons you had at some point for that character and if they're enabled or not. Addons you uninstall aren't removed from this list, but it doesn't bother me. I may update the script in the future so that it makes its own `AddOns.txt` file for the archive of only currently installed addons.
+
+```bat
+@echo off
+title World of Warcraft Backup
+
+@REM Configure the location of your World of Warcraft installation,
+@REM where you want the backups stored, and if you want it to delete
+@REM archives older than a certain number of days.
+
+set WOW_DIRECTORY="C:\Program Files (x86)\World of Warcraft\_retail_"
+set BACKUP_DIRECTORY="C:\Users\Johnny\OneDrive\Backups\World of Warcraft"
+set AUTO_CLOSE="true"
+
+@REM Do not edit below this line.
+
+set YYYY=%DATE:~10,4%
+set MM=%DATE:~4,2%
+set DD=%DATE:~7,2%
+set HH=%time:~0,2%
+set NN=%time:~3,2%
+
+set FILENAME="WoW-%YYYY%-%MM%-%DD%-%HH%-%NN%"
+
+pushd %WOW_DIRECTORY%
+
+7z a -mx3 %BACKUP_DIRECTORY%\%FILENAME% Interface\Tooltips\Chatbubble*.BLP WTF 
+
+popd
+
+if %AUTO_CLOSE% NEQ "true" (
+    echo Backup complete, press any key to close...
+    pause >nul
+)
+```
+
+If you wanted to add a folder, like `AtrocityMedia` discussed prior, you can modify the line starting with `7z`:
+
+```bat
+7z a -mx3 %BACKUP_DIRECTORY%\%FILENAME% Interface\AddOns\AtrocityMedia WTF
+```
+> This is set to only backup the `WTF` and `Interface\AddOns\AtrocityMedia` folders. This is relative to the `_retail_` folder, seen at the top of the script.
+

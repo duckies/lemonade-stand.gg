@@ -4,12 +4,16 @@ import createBundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
 
 const nextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-  transpilePackages: ["@lemonade-stand/ui"],
+  transpilePackages: ["@lemonade-stand/ui", "@lemonade-stand/markdown"],
 } satisfies NextConfig;
 
 const withMDX = createMDX({
   options: {
+    // providerImportSource: "@mdx-js/react",
     remarkPlugins: [
       ["remark-frontmatter"],
       ["remark-mdx-frontmatter"],
@@ -17,7 +21,13 @@ const withMDX = createMDX({
       ["remark-toc", { maxDepth: 3 }],
     ],
     rehypePlugins: [
-      ["rehype-slug"],
+      [
+        "@lemonade-stand/markdown/rehype-slug",
+        {
+          ignoreParents: ["TabsContent", "Mechanic"],
+        },
+      ],
+      ["@lemonade-stand/markdown/rehype-toc"],
       [
         "rehype-shiki",
         {
@@ -25,7 +35,7 @@ const withMDX = createMDX({
           useBackground: false,
         },
       ],
-      ["rehype-mdx-import-media"],
+      ["rehype-mdx-import-media", { resolve: false }],
     ],
     // The string-based resolution for turbopack does not respect @mdx-js/loader's `Options` type.
   } as any,

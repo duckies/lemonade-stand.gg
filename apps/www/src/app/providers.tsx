@@ -2,6 +2,7 @@
 
 import { TooltipProvider } from "@lemonade-stand/ui";
 import { QueryClient, QueryClientProvider, isServer } from "@tanstack/react-query";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { ThemeProvider } from "next-themes";
 
 function makeQueryClient() {
@@ -35,6 +36,12 @@ export function Providers({ children }: Readonly<{ children: React.ReactNode }>)
     <TooltipProvider>
       <ThemeProvider defaultTheme="dark" attribute="data-theme">
         <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+        <ProgressBar
+          height="3px"
+          color="var(--color-primary)"
+          options={{ showSpinner: false }}
+          shallowRouting
+        />
       </ThemeProvider>
     </TooltipProvider>
   );

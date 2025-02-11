@@ -1,6 +1,7 @@
 export * from "./components/ui/accordion";
 export * from "./components/ui/avatar";
 export * from "./components/ui/badge";
+export * from "./components/ui/breadcrumb";
 export * from "./components/ui/button";
 export * from "./components/ui/calendar";
 export * from "./components/ui/card";
@@ -15,8 +16,8 @@ export * from "./components/ui/menubar";
 export * from "./components/ui/navigation-menu";
 export * from "./components/ui/popover";
 export * from "./components/ui/progress";
-export * from "./components/ui/select-multiple";
 export * from "./components/ui/select";
+export * from "./components/ui/select-multiple";
 export * from "./components/ui/separator";
 export * from "./components/ui/sheet";
 export * from "./components/ui/skeleton";

@@ -1,12 +1,13 @@
 "use client";
 
-import { nanoid } from "nanoid";
-import { type CSSProperties, type ReactNode, useRef, useState } from "react";
+import { cn } from "@lemonade-stand/ui";
 import { useIsOnScreen } from "hooks/use-is-on-screen";
 import { usePrefersReducedMotion } from "hooks/use-prefers-reduced-motion";
 import { useRandomInterval } from "hooks/use-random-interval";
 import { sample } from "lib/array";
 import { random } from "lib/number";
+import { nanoid } from "nanoid";
+import { type CSSProperties, type ReactNode, useRef, useState } from "react";
 
 const generatePosition = (size: number) => ({
   left: `${random(0, 100)}%`,
@@ -51,6 +52,7 @@ export type SparklesProps = {
   minSize?: number;
   maxSize?: number;
   children: ReactNode;
+  className?: string;
 };
 
 export function Sparkles({
@@ -60,6 +62,7 @@ export function Sparkles({
   minSize = 10,
   maxSize = 20,
   children,
+  className,
 }: SparklesProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
@@ -94,7 +97,10 @@ export function Sparkles({
 
   return (
     <span
-      className="inline-block relative isolate [text-shadow:0_0_3px_var(--color-background),1px_1px_1px_var(--color-background)]"
+      className={cn(
+        "inline-block relative font-bold isolate [text-shadow:0_0_3px_var(--color-background),1px_1px_1px_var(--color-background)]",
+        className,
+      )}
       ref={ref}
     >
       {sparkles.map((sparkle) => (
@@ -105,7 +111,7 @@ export function Sparkles({
           style={sparkle.style}
         />
       ))}
-      <strong className="relative z-1 font-bold">{children}</strong>
+      <span className="relative z-1">{children}</span>
     </span>
   );
 }

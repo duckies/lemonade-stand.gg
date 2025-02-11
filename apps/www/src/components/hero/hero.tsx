@@ -5,10 +5,7 @@ import type { ComponentPropsWithoutRef } from "react";
 
 function Root({ children, className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
-    <div
-      className={cn("flex items-center justify-between h-[400px] relative w-full", className)}
-      {...props}
-    >
+    <div className={cn("hero", className)} {...props}>
       {children}
     </div>
   );
@@ -16,13 +13,17 @@ function Root({ children, className, ...props }: ComponentPropsWithoutRef<"div">
 
 type HeroBackgroundProps = Omit<ComponentPropsWithoutRef<typeof Image>, "alt"> & {
   alt?: string;
+  gradientClassName?: string;
 };
 
-function Background({ src, className, alt, ...props }: HeroBackgroundProps) {
+function Background({ src, className, alt, gradientClassName, ...props }: HeroBackgroundProps) {
   return (
     <>
       <Image
-        className={cn("w-full h-auto object-top object-cover animate-fade-in", className)}
+        className={cn(
+          "w-full h-auto object-center object-cover animate-in fade-in duration-300",
+          className,
+        )}
         src={src}
         sizes="100vw"
         fill
@@ -38,7 +39,7 @@ function Background({ src, className, alt, ...props }: HeroBackgroundProps) {
 export const HeroContentStyles = cva("container w-full relative", {
   variants: {
     variant: {
-      default: "text-center lg:text-left",
+      default: "slide-enter",
       centered: "text-center",
     },
   },
@@ -60,16 +61,28 @@ function Content({
   );
 }
 
-function Title({ className, ...props }: ComponentPropsWithoutRef<"h1">) {
-  return (
-    <h1
-      className={cn(
-        "text-6xl dark:drop-shadow-sm mb-2 font-serif font-bold tracking-wide",
-        className,
-      )}
-      {...props}
-    />
-  );
+const TitleStyles = cva(
+  "drop-shadow mb-2 font-serif font-bold tracking-wide text-balance transition-all",
+  {
+    variants: {
+      variant: {
+        larger: "text-7xl lg:text-8xl",
+        large: "text-6xl",
+        normal: "text-5xl lg:text-left",
+      },
+    },
+    defaultVariants: {
+      variant: "normal",
+    },
+  },
+);
+
+function Title({
+  className,
+  variant,
+  ...props
+}: ComponentPropsWithoutRef<"h1"> & VariantProps<typeof TitleStyles>) {
+  return <h1 className={cn(TitleStyles({ variant }), className)} {...props} />;
 }
 
 function Description({ className, ...props }: ComponentPropsWithoutRef<"p">) {

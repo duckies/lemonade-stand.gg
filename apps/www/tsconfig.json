@@ -24,8 +24,15 @@
       "~/*": [
         "./*"
       ],
-      "public/*": ["../public/*"],
-      "#content/*": ["../content/*"] 
+      "#public/*": [
+        "../public/*"
+      ],
+      "#content/*": [
+        "./content/*"
+      ],
+      "#assets/*": [
+        "./assets/*"
+      ]
     },
     "allowJs": true
   },
