@@ -72,14 +72,14 @@ export async function getRouteContent(file: RouteFile): Promise<RouteContent> {
     };
   } catch (error: any) {
     if (error.code === "MODULE_NOT_FOUND") {
-      throw new Error(`[module:content] failed to resolve ${file.path}`, {
-        cause: file,
-      });
+      throw new Error(
+        `[collections] failed to dynamically import ${file.path}`,
+        {
+          cause: file,
+        },
+      );
     }
-    // console.log("noise:content", error);
-    // if (error.code === "MODULE_NOT_FOUND") {
 
-    // }
     throw error;
   }
 }
