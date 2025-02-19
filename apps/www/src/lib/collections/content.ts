@@ -3,10 +3,7 @@ import type { MDXContent } from "mdx/types";
 import { basename, extname, join } from "node:path";
 import * as v from "valibot";
 import type { TocHeading } from "~/components/markdown/table-of-contents";
-import {
-  type RouteMetadata,
-  RouteMetadataSchema,
-} from "~/lib/collections/schemas";
+import { type RouteMetadata, RouteMetadataSchema } from "~/lib/collections/schemas";
 
 export interface RouteFile {
   name: string;
@@ -60,24 +57,26 @@ export interface RouteContent {
 
 export async function getRouteContent(file: RouteFile): Promise<RouteContent> {
   try {
-    const { default: Content, frontmatter, toc, ...rest } = await import(
-      `../../content/${file.path}`
-    );
+    const {
+      default: Content,
+      frontmatter,
+      toc,
+      ...rest
+    } = await import(`../../content/${file.path}`);
+
+    const metadata = v.parse(RouteMetadataSchema, frontmatter);
 
     return {
       Content,
-      metadata: v.parse(RouteMetadataSchema, frontmatter),
+      metadata,
       toc,
       ...rest,
     };
   } catch (error: any) {
     if (error.code === "MODULE_NOT_FOUND") {
-      throw new Error(
-        `[collections] failed to dynamically import ${file.path}`,
-        {
-          cause: file,
-        },
-      );
+      throw new Error(`[collections] failed to dynamically import ${file.path}`, {
+        cause: file,
+      });
     }
 
     throw error;

@@ -59,6 +59,26 @@
   }
 }
 
+@utility home-layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: --spacing(4);
+  grid-template-areas:
+    "article aside"
+    "article aside"
+    "article aside"
+    "article aside"
+    "article aside";
+
+  &-__article {
+    grid-area: article;
+  }
+
+  &-__aside {
+    grid-area: aside;
+  }
+}
+
 @utility container {
   max-width: 68rem;
   margin-inline: auto;

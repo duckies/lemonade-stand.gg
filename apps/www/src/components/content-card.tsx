@@ -20,7 +20,7 @@ export function ContentCard({ title, label, background, href, disabled }: Conten
       <div className="relative flex items-end bg-card px-7 py-10 min-h-[300px]">
         <Image
           className={cn(
-            "media-card__img absolute inset-0 object-cover object-center grow-slide",
+            "absolute inset-0 object-cover object-center grow-slide",
             disabled && "grayscale",
             Component === "a" &&
               "origin-bottom-left transition-transform duration-500 ease-in-out-circ group-hover:scale-110",

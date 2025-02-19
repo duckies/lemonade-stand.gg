@@ -49,7 +49,8 @@ export function Wowhead() {
       <Script
         src="https://wow.zamimg.com/js/tooltips.js"
         strategy="lazyOnload"
-        onLoad={patchWowhead}
+        // Disabled until I can gracefully handle not having icons yet, e.g. PTR icons.
+        // onLoad={patchWowhead}
       />
       <Script id="wowhead">{"let whTooltips = {colorLinks: false, iconSize: true};"}</Script>
     </>

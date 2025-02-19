@@ -1,29 +1,32 @@
-import HeroBackground from "#public/images/hero/nerubar-palace.jpg";
-import { Hero } from "components/hero";
-import { GuideMDXComponents } from "components/markdown";
+import DefaultHeroBackground from "#public/images/hero/darkshore_turtle_skeleton.jpg";
 import { Breadcrumbs } from "~/components/breadcrumbs";
+import { Hero } from "~/components/hero";
+import { ImageZoom } from "~/components/markdown/image-zoom";
 import { ContentMetadata } from "~/components/markdown/metadata";
 import { TableOfContents } from "~/components/markdown/table-of-contents";
 import { Wowhead } from "~/components/wowhead";
-import { getRoutes } from "~/lib/collections/content";
 import { router } from "~/lib/collections/router";
 import type { PageProps } from "~/types";
 
 export async function generateStaticParams() {
-  const allRoutes = await getRoutes();
-  const guideRoutes = [...allRoutes].filter(([route]) => route.startsWith("guides/"));
+  const blogPosts = await router.findAll("blog");
 
-  return guideRoutes.map(([route]) => ({ slugs: route.split("/").slice(1) }));
+  return blogPosts.map(({ url }) => {
+    return { slugs: url.split("/").slice(1) };
+  });
 }
 
-export default async function GuidePage({ params }: PageProps<{ slugs: string[] }>) {
+export default async function BlogPostPage({ params }: PageProps<{ slugs: string[] }>) {
   const slugs = (await params).slugs;
-  const { Content, metadata, toc, ...rest } = await router.findOne("guides", ...slugs);
+  const { Content, metadata, toc, ...rest } = await router.findOne("blog", ...slugs);
 
   return (
     <>
       <Hero.Root>
-        <Hero.Background src={HeroBackground} />
+        <Hero.Background
+          src={metadata.hero?.image || DefaultHeroBackground}
+          className="object-top"
+        />
         <Hero.Content>
           <ContentMetadata metadata={metadata} />
 
@@ -37,11 +40,12 @@ export default async function GuidePage({ params }: PageProps<{ slugs: string[] 
       </Hero.Root>
 
       <Wowhead />
+      <ImageZoom />
 
       <div className="container -mt-10">
         <section className="relative prose-layout">
           <article className="prose dark:prose-invert relative slide-enter-content">
-            <Content components={{ ...GuideMDXComponents }} {...metadata} {...rest} />
+            <Content {...metadata} {...rest} />
           </article>
           {toc && toc.length > 0 && (
             <aside className="hidden lg:block">

@@ -2,12 +2,16 @@
 
 @layer components {
   .prose-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 250px;
-    gap: --spacing(8);
+    /* grid-template-columns: minmax(0, 1fr) 250px; */
 
     > :only-child {
       grid-column: span 2;
+    }
+
+    @variant lg {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      gap: --spacing(8);
     }
   }
 

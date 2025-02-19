@@ -44,13 +44,13 @@ async function getGuildStatistics(raidSlug: string) {
   };
 }
 
-export async function ProgressCard() {
+export async function ProgressCard({ className }: { className?: string }) {
   const { error, data } = await getGuildStatistics("nerubar-palace");
 
   if (error) return null;
 
   return (
-    <Card>
+    <Card className={className}>
       <CardHeader>
         <CardTitle className="font-serif tracking-wider text-xl">
           Nerub-ar Palace {data.progress.mythic_bosses_killed}/{data.progress.total_bosses} M

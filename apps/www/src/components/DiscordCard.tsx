@@ -7,10 +7,11 @@ import {
   CardHeader,
   CardTitle,
   Skeleton,
+  cn,
 } from "@lemonade-stand/ui";
 import { useQuery } from "@tanstack/react-query";
 
-export function DiscordCard() {
+export function DiscordCard({ className }: { className?: string }) {
   const { data, status } = useQuery({
     queryKey: ["discord-stats"],
     queryFn: async () => {
@@ -46,7 +47,7 @@ export function DiscordCard() {
 
   if (status === "pending" || !data) {
     return (
-      <Card>
+      <Card className={className}>
         <CardHeader>
           <CardTitle>
             <Skeleton className="h-4 w-[250px]" />
@@ -57,7 +58,9 @@ export function DiscordCard() {
   }
 
   return (
-    <Card className="relative overflow-hidden from-[#5865F2]/40 bg-linear-to-b to-80%">
+    <Card
+      className={cn("relative overflow-hidden from-[#5865F2]/40 bg-linear-to-b to-80%", className)}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 127.14 96.36"
