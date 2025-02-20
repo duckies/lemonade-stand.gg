@@ -48,7 +48,7 @@ function NavigationMenuItem({
 }
 
 const navigationMenuTriggerStyle = cva([
-  "group flex relative h-10 w-max items-center justify-center px-4 py-2 text-sm focus:text-accent-foreground focus:outline-hidden disabled:pointer-events-none disabled:opacity-50",
+  "group flex relative h-10 w-max items-center justify-center px-4 py-2 focus:text-accent-foreground focus:outline-hidden disabled:pointer-events-none disabled:opacity-50",
   "hover:text-primary data-[state=open]:text-primary",
 ]);
 

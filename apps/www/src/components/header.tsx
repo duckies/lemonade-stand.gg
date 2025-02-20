@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import type React from "react";
 import type { ComponentPropsWithRef, ReactNode, SVGAttributes } from "react";
+import { MobileNav } from "~/components/mobile-nav";
 import { LemonLogo } from "./icons/logo";
 import { NavigationMenuInternalLink } from "./navigation-menu-internal-link";
 
@@ -104,17 +105,18 @@ export function Header({ children }: { children?: React.ReactNode }) {
   return (
     <header className="absolute top-4 inset-x-0 z-50">
       <NavigationMenu.Root className="">
-        <div className="mx-auto px-4 max-md:max-w-[24rem] w-[95vw] md:w-fit bg-surface/70 backdrop-blur-md rounded-xl">
+        <div className="mx-auto px-5 lg:px-4 w-[95vw] md:w-fit bg-surface/70 backdrop-blur-md rounded-xl">
           <div className="flex justify-between gap-4">
-            <Link className="flex items-center space-x-2" href="/">
-              <div className="p-3 rounded-full">
-                <LemonLogo className="w-7 h-7 drop-shadow-xs ease-in-back transition-transform rotate-0 hover:rotate-90 duration-1000" />
+            <Link className="flex items-center justify-center gap-3" href="/">
+              <LemonLogo className="flex w-7 h-7 ease-in-back transition-transform rotate-0 hover:rotate-90 duration-1000" />
+              <div className="md:hidden font-serif text-xl font-semibold tracking-wider">
+                Lemonade Stand
               </div>
             </Link>
 
-            <div className="hidden md:flex h-14 pt-2 pr-2 pb-2 pl-2 items-center">
+            <div className="flex h-14 pt-2 pr-2 pb-2 pl-2 items-center">
               <div className="flex h-14 items-center">
-                <div className="items-center gap-4 text-sm lg:gap-6">
+                <div className="hidden md:block items-center gap-4 text-sm lg:gap-6">
                   <NavigationMenu.List>
                     <NavigationMenu.Item>
                       <NavigationMenuInternalLink href="/">Home</NavigationMenuInternalLink>
@@ -122,10 +124,10 @@ export function Header({ children }: { children?: React.ReactNode }) {
                     <NavigationMenu.Item>
                       <NavigationMenu.Trigger>Posts</NavigationMenu.Trigger>
                       <NavigationMenu.Content>
-                        <ul className="grid grid-cols-[max-content_1fr] gap-1 p-4 w-auto text-sm">
+                        <ul className="grid md:grid-cols-[max-content_1fr] gap-1 p-4 w-auto text-sm">
                           <li className="row-span-3">
                             <NavigationMenu.Link asChild>
-                              <Link href="/guides" className="group flex p-2 h-full">
+                              <Link href="/guides" className="group flex p-2 h-full min-h-[200px]">
                                 <div className="flex p-2 relative">
                                   <div className="absolute inset-0 bg-[url(/images/hero/liberation_of_undermine.jpg)] bg-cover h-full rounded-lg after:absolute after:inset-0 after:bg-linear-to-tr/oklch after:from-surface/80 after:from-25% after:to-secondary/70 border border-border" />
 
@@ -179,7 +181,6 @@ export function Header({ children }: { children?: React.ReactNode }) {
                         </ul>
                       </NavigationMenu.Content>
                     </NavigationMenu.Item>
-
                     <NavigationMenu.Indicator>
                       <NavigationMenu.Arrow className="bg-surface/80 backdrop-blur-md" />
                     </NavigationMenu.Indicator>
@@ -188,7 +189,10 @@ export function Header({ children }: { children?: React.ReactNode }) {
               </div>
             </div>
 
-            <div className="flex gap-3 items-center">{children}</div>
+            <div className="flex gap-3 items-center">
+              <MobileNav />
+              <div className="hidden md:block">{children}</div>
+            </div>
           </div>
         </div>
         <NavigationMenu.Viewport className="bg-surface/90 backdrop-blur-md border border-border" />
