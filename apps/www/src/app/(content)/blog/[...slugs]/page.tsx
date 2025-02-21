@@ -1,4 +1,5 @@
 import DefaultHeroBackground from "#public/images/hero/darkshore_turtle_skeleton.jpg";
+import type { ResolvingMetadata } from "next";
 import { Breadcrumbs } from "~/components/breadcrumbs";
 import { Hero } from "~/components/hero";
 import { ImageZoom } from "~/components/markdown/image-zoom";
@@ -7,6 +8,32 @@ import { TableOfContents } from "~/components/markdown/table-of-contents";
 import { Wowhead } from "~/components/wowhead";
 import { router } from "~/lib/collections/router";
 import type { PageProps } from "~/types";
+
+export async function generateMetadata(
+  { params }: PageProps<{ slugs: string[] }>,
+  parent: ResolvingMetadata,
+) {
+  const slugs = (await params).slugs;
+  const post = await router.findOne("blog", ...slugs);
+
+  return {
+    openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.description,
+      url: `/${slugs.join("/")}`,
+      siteName: "Lemonade Stand",
+      images: [
+        {
+          alt: `Lemonade Stand • ${post.metadata.title}`,
+          type: "image/png",
+          width: 1200,
+          height: 630,
+          url: `/opengraph/${slugs.join("/")}`,
+        },
+      ],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const blogPosts = await router.findAll("blog");
