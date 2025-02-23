@@ -6,9 +6,9 @@ import { cn } from "@lemonade-stand/ui";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
 import { UserNav } from "components/user-nav";
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { DM_Mono, Lexend } from "next/font/google";
 import localFont from "next/font/local";
+import { Toaster } from "sonner";
 import { website } from "~/config";
 import { Providers } from "./providers";
 
@@ -79,6 +79,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <UserNav />
             </Header>
             {children}
+            <Toaster />
             <Footer />
           </div>
         </Providers>

@@ -2,8 +2,10 @@
 
 import { TooltipProvider } from "@lemonade-stand/ui";
 import { QueryClient, QueryClientProvider, isServer } from "@tanstack/react-query";
+import { Provider } from "jotai";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { ThemeProvider } from "next-themes";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -33,16 +35,20 @@ export function Providers({ children }: Readonly<{ children: React.ReactNode }>)
   const queryClient = getQueryClient();
 
   return (
-    <TooltipProvider>
-      <ThemeProvider defaultTheme="dark" attribute="data-theme">
-        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-        <ProgressBar
-          height="3px"
-          color="var(--color-primary)"
-          options={{ showSpinner: false }}
-          shallowRouting
-        />
-      </ThemeProvider>
-    </TooltipProvider>
+    <Provider>
+      <NuqsAdapter>
+        <TooltipProvider>
+          <ThemeProvider defaultTheme="dark" attribute="data-theme">
+            <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+            <ProgressBar
+              height="3px"
+              color="var(--color-primary)"
+              options={{ showSpinner: false }}
+              shallowRouting
+            />
+          </ThemeProvider>
+        </TooltipProvider>
+      </NuqsAdapter>
+    </Provider>
   );
 }
