@@ -2,11 +2,11 @@ import { type VariantProps, cva } from "class-variance-authority";
 import NextLink, { type LinkProps as NextLinkProps } from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 
-export type LinkProps = ComponentPropsWithoutRef<"a"> &
+export type DynamicLinkProps = ComponentPropsWithoutRef<"a"> &
   NextLinkProps &
-  VariantProps<typeof linkStyle> & {};
+  VariantProps<typeof dynamicLinkStyle> & {};
 
-export const linkStyle = cva("", {
+export const dynamicLinkStyle = cva("", {
   variants: {
     variant: {
       plain: "",
@@ -19,9 +19,9 @@ export const linkStyle = cva("", {
   },
 });
 
-export function Link({ href, variant, className, children, ...props }: LinkProps) {
+export function DynamicLink({ href, variant, className, children, ...props }: DynamicLinkProps) {
   const isInternal = href.startsWith("/");
-  const styles = linkStyle({ variant, className });
+  const styles = dynamicLinkStyle({ variant, className });
 
   if (isInternal) {
     return (

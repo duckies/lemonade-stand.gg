@@ -1,0 +1,198 @@
+---
+title: Heroic Vexie and the Geargrinders
+description: Sub biggie
+published: "2025-02-23T17:00:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Guides
+    url: /guides
+  - label: Liberation of Undermine
+    url: /guides/liberation-of-undermine
+  - label: Heroic Vexie and the Geargrinders
+    url: /guides/liberation-of-undermine/vexie-and-the-geargrinders/heroic
+---
+
+import { Badge } from "@lemonade-stand/ui"
+
+Vexie rides the Geargrinder, a bike with protective shielding that is building energy to wipe the raid in fiery shrapnel. In order to remove the protective shielding, which will cause the Geargrinder to break down and enter a vulnerable phase, we can kill biker adds and launch their bikes at the Geargrinder.
+
+## Links
+
+- [Dratnos Heroic Vexie & The Geargrinders Raid Testing Video](https://www.youtube.com/watch?v=YaxA6NUHnfQ)
+- [QuestionablyEpic PDF Notes](https://questionablyepic.com/undermine/vexie/)
+- [Raid Testing Logs](https://docs.google.com/spreadsheets/d/1YT4GpIT90o73NMl4EAzOnBJv4XuXIHlf3-AoAFSebFM/edit?gid=1103073992#gid=1103073992)
+
+## Mechanics
+
+### Phase One
+
+<Mechanic.Root id="466615" env="ptr-2" name="Protective Shielding" caption="No touchy">
+
+The Geargrinder remains active while it has any stacks of Protective Shielding. At the start of each active phase, the Geargrinder applies 6 stacks of this buff to itself.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="471403" env="ptr-2" name="Unrelenting CAR-nage" caption="Enrage at 100 energy">
+
+If the Geargrinder reaches 100 energy it will cast [Unrelenting CAR-nage][unrelenting-carnage], dealing 1.2m fire damage to the raid every 2 seconds and applying a stacking 755k fire damage every 1 sec for 8 seconds, stacking. This can be interrupted by removing any remaining protective shielding.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="459943" env="ptr-2" name="Call Bikers" caption="Sons of Anarchy but make it Wizard of Oz">
+
+The Geargrinder periodically summons Geargrinder Bikers that cast [Hot Wheels][hot-wheels], charging across the platform at a random player dealing massive damage to anyone hit and knocking them back.
+
+If they charge through an [Oil Slick][oil-slick] they will be stunned for 5 seconds, otherwise they will charge through their targeted player's location and into the arena wall, stunning them momentarily before picking a new target.
+
+When a Geargrinder Biker is killed players can interact with the bike to enter a vehicle UI. The bike can be angled but not moved, and the player has a singular button, [Blaze of Glory][blaze-of-glory], which launches the bike at the Geargrinder, dealing 1.2m fire damage to the raid and applying 100 energy to the Geargrinder.
+
+<Callout type="warning">
+
+You only have 20 seconds in the vehicle.
+
+</Callout>
+
+</Mechanic.Root>
+
+<Mechanic.Root id="459671" env="ptr-2" name="Spew Oil" caption="Baby oil slick" pill={["Heroic", <Mechanic.Pill className="bg-violet-400">Private Aura</Mechanic.Pill>]}>
+
+The Geargrinder launches oil at targeted players after 5 seconds, dousing players within 12 yards of their location with a mild dot for 12 seconds and leaving behind an [Oil Slick][oil-slick] on Heroic.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="468207" env="ptr-2" name="Incendiary Fire" caption="Fireball Bombardment" pill={[<Mechanic.Pill className="bg-violet-400">Private Aura</Mechanic.Pill>]}>
+
+Several players are fixated for a fire bombardment for 6 seconds, launching every 0.5 sec. Each swirl deals medium fire damage and burns away any [Oil Slick][oil-slick] it hits.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="459974" env="ptr-2" name="Bomb Voyage!" caption="Periodic DoT on several players">
+
+Geargrinder bombers debuff several players with bombs, that do medium damage on application and apply a medium DoT that ticks Fire damage every 1.5 sec for 9 sec.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="459627" env="ptr-2" name="Tank Buster" caption="Just read the name">
+
+The Geargrinder slams its current target for a massive amount of physical damage, knocking them back and applying a medium bleed for 25 sec. This applies a 200% stacking vulnerability for 25 sec.
+
+This leaves behind an [Oil Slick][oil-slick] on Heroic, requiring the boss be rotated around the arena, and casts [Exhaust Fumes][exhaust-fumes] on the raid, dealing mild rot damage to the raid for 6 seconds, increasing in intensity by 25% with every cast.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="466040" env="ptr-2" name="Blaze of Glory" caption="Kamikaze Biking">
+
+Players can interact with a slain Geargrinder Biker's bike to enter the vehicle. The player can angle the bike at the Geargrinder, but not move it, and press the single action button, [Blaze of Glory][blaze-of-glory], which launches the bike at the Geargrinder.
+
+If the bike hits the Geargrinder it will take 1% of its max health, lose 1 stack of [Protective Shielding][protective-shielding], deal mild raid damage, and causes [Burning Shrapnel][burning-shrapnel] swirls to rain down on the raid.
+
+</Mechanic.Root>
+
+### Phase Two
+
+<Mechanic.Root id="460603" env="ptr-2" name="Mechanical Breakdown" caption="Get Menty-B(ent)">
+
+When all stacks of [Protective Shielding][protective-shielding] are removed, the Geargrinder breaks down causing it to take 100% increased damage until Vexie completes a [Tune-Up][tune-up] over 45 seconds, applying new plating.
+
+Simultaneously, [Pit Mechanics](https://www.wowhead.com/ptr-2/npc=228514/pit-mechanic/heroic-encounter-journal) will spawn that repeatedly try to channel an interruptible and cc-able cast, [Repair][repair] until killed, hastening repairs by 2% every 2 sec.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="460386" env="ptr-2" name="Backfire" caption="The air is spicy" >
+
+For the duration of the phase Geargrinder deals 1.5 million fire damage to the raid every 2 seconds.
+
+</Mechanic.Root>
+
+## Overview
+
+<Tabs defaultValue="p1">
+  <TabsList>
+    <TabsTrigger value="p1">Part 1</TabsTrigger>
+    <TabsTrigger value="p2">Part 2</TabsTrigger>
+    <TabsTrigger value="p3">Part 3</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="p1">
+    <figure>
+      ![](#assets/images/guides/liberation-of-undermine/vexie-and-the-geargrinders/heroic/raidplan_p1.png)
+      <figcaption>
+      You can click on any of these images to make them bigger.
+      </figcaption>
+    </figure>
+
+    There are a few different approaches to boss positioning. The approach I am illustrating is one of the "planting" strategies. Geargrinder Bikers will be grouped together by the fact that the raid is always grouped. The downside is that the [Oil Slick][oil-slick] pools must be dealt with by clearing them with [Incendiary Fire][incendiary-fire].
+   
+  </TabsContent>
+
+  <TabsContent value="p2">
+    ![](#assets/images/guides/liberation-of-undermine/vexie-and-the-geargrinders/heroic/raidplan_p2.png)
+
+    As implied by the last slide, the oil pools are placed under the boss (from the tank swap mechanic), and player pools from [Spew Oil][spew-oil] are placed on random markers off to the side.
+
+    There is nothing special about the placement of the oil except to have consistent locations for the players who get [Incendiary Fire][incendiary-fire] to run through, clearing the oil.
+
+    You will take some damage and are slowed while in an [Oil Slick][oil-slick], but it is not biblical. You are more likely to die to a combination of — the oil being slippery and changing direction being a pain, the fire swirls, and if you get the random DoT, [Bomb Voyage][bomb-voyage].
+  </TabsContent>
+
+  <TabsContent value="p3">
+    ![](#assets/images/guides/liberation-of-undermine/vexie-and-the-geargrinders/heroic/raidplan_p3.png)
+
+    <Callout type="error">
+      It's not clear how the Bikers spawn, worsened by the fact that they don't exist on logs. The most compelling theory is that they spawn from the fire walls opposite the group. It's entirely possible since the bikes only spawn by the fire walls that they work similar to the Raszageth phase 2 beams — she had fixed positions where she could spawn so she always spawned opposite the platform section with the most people in it. If the raid is vaguely split across platform sections, the mechanic seems more random then it is. This rant doesn't help you, but this doesn mean there's possibly another good reason to stay with the group.
+    </Callout>
+
+    <Sparkles className="font-normal">Regardless</Sparkles>, they will spawn, pick someone, and charge at them (or get stuck in oil). However, pretend the oil doesn't stop them and always move out of the way of beams. If they're near the boss melee should peel off and attack them, but ranged should be applying considerably more pressure to them. 
+
+    There are 4 rounds of bikes with 3 bikes per round, but the last round is cutting it close to the enrage. This still provides 9 bikes to launch at the boss, of which you need 6 to hit.
+
+    As for who sends the bikes into the boss, the recommendation is the offtank. There needs to be a grace period between bikes because they do raid damage when they hit the boss. One person doing them naturally provides that buffer.
+    
+    Then we'll enter the second phase, lust, and focus the boss while CCing and interrupting the Pit Mechanics. Congratulation, you have kill.
+  </TabsContent>
+</Tabs>
+
+## Timing Sequence
+
+The timings of when the Bikers cast [Hot Wheels][hot-wheels] are estimations based on when someone got hit by the charge. The Bikers are completely absent from logs.
+
+| Time | Mechanic | Count | Delta |
+|------|----------|-------|-------|
+| 0:09 | [Tank Buster][tank-buster] | 1 | - |
+| 0:17 | [Spew Oil][spew-oil] | 1 | -|
+| 0:21 | [Call Bikers][call-bikers] | 1 | - |
+| 0:26 | [Incendiary Fire][incendiary-fire] | 1 | - |
+| 0:31 | [Tank Buster][tank-buster] | 2 | 0:23 |
+| 0:33 | [Hot Wheels][hot-wheels] | 1 | - |
+| 0:50 | [Call Bikers][call-bikers] | 2 | 0:29 |
+| 0:55 | [Spew Oil][spew-oil] | 2 | 0:38 |
+| 0:58 | [Tank Buster][tank-buster] | 3 | 0:27 |
+| 0:58 | [Incendiary Fire][incendiary-fire] | 2 | 0:32 |
+| 1:02 | [Hot Wheels][hot-wheels] | 2 | 0:33 |
+| 1:18 | [Call Bikers][call-bikers] | 3 | 0:28 |
+| 1:19 | [Tank Buster][tank-buster] | 4 | 0:21 |
+| 1:24 | [Incendiary Fire][incendiary-fire] | 3 | 0:26 |
+| 1:30 | [Hot Wheels][hot-wheels] | 3 | 0:28 |
+| 1:33 | [Spew Oil][spew-oil] | 3 | 0:38 |
+| 1:41 | [Tank Buster][tank-buster] | 5 | 0:22 |
+| 1:47 | [Call Bikers][call-bikers] | 4 | 0:29 |
+| 1:49 | [Incendiary Fire][incendiary-fire] | 4 | 0:25 |
+| 1:59 | [Hot Wheels][hot-wheels] | 4 | 0:29 |
+
+
+[protective-shielding]: <https://www.wowhead.com/ptr-2/spell=466615/protective-shielding?dd=15&ddsize=30> "Protective Shielding"
+[tank-buster]: <https://www.wowhead.com/ptr-2/spell=459627/tank-buster?dd=15&ddsize=30> "Tank Buster"
+[call-bikers]: <https://www.wowhead.com/ptr-2/spell=459943/call-bikers?dd=15&ddsize=30> "Call Bikers"
+[unrelenting-carnage]: <https://www.wowhead.com/ptr-2/spell=471403/unrelenting-car-nage?dd=15&ddsize=30> "Unrelenting CAR-nage"
+[spew-oil]: <https://www.wowhead.com/ptr-2/spell=459671/spew-oil?dd=15&ddsize=30> "Spew Oil"
+[bomb-voyage]: <https://www.wowhead.com/ptr-2/spell=459974/bomb-voyage?dd=15&ddsize=30> "Bomb Voyage"
+[incendiary-fire]: <https://www.wowhead.com/ptr-2/spell=468207/incendiary-fire?dd=15&ddsize=30> "Incendiary Fire"
+[hot-wheels]: <https://www.wowhead.com/ptr-2/spell=459994/hot-wheels?dd=15&ddsize=30> "Hot Wheels"
+[oil-slick]: <https://www.wowhead.com/ptr-2/spell=459679/oil-slick?dd=15&ddsize=30> "Oil Slick"
+[blaze-of-glory]: <https://www.wowhead.com/ptr-2/spell=466040/blaze-of-glory?dd=15&ddsize=30> "Blaze of Glory"
+[burning-shrapnel]: <https://www.wowhead.com/ptr-2/spell=460625/burning-shrapnel?dd=15&ddsize=30> "Burning Shrapnel"
+[exhaust-fumes]: <https://www.wowhead.com/ptr-2/spell=468147/exhaust-fumes?dd=15&ddsize=30> "Exhaust Fumes"
+[tune-up]: <https://www.wowhead.com/ptr-2/spell=460116/tune-up?dd=15&ddsize=30> "Tune-Up"
+[repair]: <https://www.wowhead.com/ptr-2/spell=460153/repair?dd=15&ddsize=30> "Repair"

@@ -63,15 +63,15 @@ import img_mechanic_web_blades from "#assets/images/nerubar-palace/queen-ansurek
   </TabsList>
 
   <TabsContent value="1" variant="ghost">
-    <Mechanic id="437592" name="Reactive Toxin" caption="Sets 2 and 3 spawn 3 bombs instead of 2.">
+    <Mechanic.Root id="437592" name="Reactive Toxin" caption="Sets 2 and 3 spawn 3 bombs instead of 2.">
     The major change to Phase 1, the 2nd and 3rd set of Reactive Toxin goes out 3 players, spawning 3 [Reactive Froth](https://www.wowhead.com/spell=438846) bombs instead of 2. Be weary of looking at old preparation materials for this fight as the third set used to have 4 bombs (2-3-4), post-nerf it’s 2-3-3.
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="460133" name="Toxic Reaction" caption="Bomb popping must be staggered.">
+    <Mechanic.Root id="460133" name="Toxic Reaction" caption="Bomb popping must be staggered.">
     When a [Reactive Froth](https://www.wowhead.com/spell=438846) bomb is popped everyone is given a 2000% vulnerability to this mechanic for 1 second, requiring bomb popping to be staggered. 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="439814" name="Silken Tomb" caption="Roots need to be cleared as fast as possible.">
+    <Mechanic.Root id="439814" name="Silken Tomb" caption="Roots need to be cleared as fast as possible.">
 
     The roots are mechanically the same as on heroic. However, most mechanics in phase one happen every 5 seconds, and often with sensitive positioning urging us to clear them as fast as possible. Players will self-clear wherever possible and things like Master’s Call will be assigned to help those in need. A small number of roots will need to be cleaved down each set (they have 18 million health).
 
@@ -126,27 +126,27 @@ import img_mechanic_web_blades from "#assets/images/nerubar-palace/queen-ansurek
 
     > *These classes don't have the ability to clear themselves 3 times.<br/>**These classes require Time Spiral to clear themselves 3 times.
 
-    </Mechanic>
+    </Mechanic.Root>
   </TabsContent>
 
   <TabsContent value="2" variant="ghost">
-    <Mechanic id="447170" name="Predation Threads" caption="Tiny aoe damage around players.">
+    <Mechanic.Root id="447170" name="Predation Threads" caption="Tiny aoe damage around players.">
 
     Players will take 402k nature damage every 1.5 seconds to players within 2 yards. This was a mechanic on heroic and it still does not do a lot of damage. It's safe to run through players to reposition for [Wrest](https://www.wowhead.com/spell=447411/wrest), but otherwise loosely spread to the best of your ability.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="441958" name="Grasping Silk" caption="Move ahead of growing miasma.">
+    <Mechanic.Root id="441958" name="Grasping Silk" caption="Move ahead of growing miasma.">
 
     Throughout the duration of the phase the [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma left behind in the previous phase will grow. In addition, each [Wrest](https://www.wowhead.com/spell=447411/wrest) will also spawn more [Grasping Silk](https://www.wowhead.com/spell=441958/grasping-silk) miasma which also grows.
 
     Stay ahead of the miasma but also make sure to be ahead of any incoming [Paralyzing Waves](https://www.wowhead.com/spell=451607/paralyzing-waves), which will kill you.
 
-    </Mechanic>
+    </Mechanic.Root>
   </TabsContent>
 
   <TabsContent value="3" variant="ghost">
-    <Mechanic id="464056" name="Gloom Touch" caption="The bad touch, the good touch?">
+    <Mechanic.Root id="464056" name="Gloom Touch" caption="The bad touch, the good touch?">
 
     This is a magic-dispellable debuff that we've seen in heroic from the Devoted Worshippers, aka the shielded mobs on the 2nd phase 2 platform. It deals mild, 575k shadow damage every 1.5 seconds for 12 seconds, now also cleaving this damage to anyone within 8 yards in mythic.
 
@@ -160,9 +160,9 @@ import img_mechanic_web_blades from "#assets/images/nerubar-palace/queen-ansurek
 
     </Callout>
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="460366" name="Shadowgate" caption="A player in each group periodically swaps platforms.">
+    <Mechanic.Root id="460366" name="Shadowgate" caption="A player in each group periodically swaps platforms.">
 
     In Mythic, the adds that share health across platforms via [Echoing Connection](<https://www.wowhead.com/spell=462692/echoing-connection>) will emerge from a Shadowgate on each platform. The gates themselves spam a 12 second cast of the same name, [Shadowgate](https://www.wowhead.com/spell=460369/shadowgate), that will kill their side of the room if it goes off. This cast can be reset by stepping into them, teleporting the player to the opposite platform's Shadowgate, but afflicting the player with two debuffs:
 
@@ -171,115 +171,115 @@ import img_mechanic_web_blades from "#assets/images/nerubar-palace/queen-ansurek
 
     When we clear a platform the Shadowgate will jump to the next platform and spawn the next set of adds. Importantly, when a Shadowgate jumps it will reset its cast timer, though it will start casting immediately on the new platform even before we get there. Lastly, killing the final add of phase 2, the lone Ascended Voidspeaker, will destroy the Shadowgates as well as any active [Gloom Touch](https://www.wowhead.com/spell=464056/gloom-touch) debuffs.
 
-    </Mechanic>
+    </Mechanic.Root>
           
     ### Ascended Voidspeaker
 
     The Ascended Voidspeakers spawn at the beginning and end of phase 2, share health, and knock us across platforms. They have the same, simple heroic mechanics scaled to lethal levels.
 
-    <Mechanic id="447950" name="Shadowblast" caption="Kick if you like the target.">
+    <Mechanic.Root id="447950" name="Shadowblast" caption="Kick if you like the target.">
 
     [Shadowblast](https://www.wowhead.com/spell=447950/shadowblast) is a 4-second cast that will kill whoever it is cast on. We will be using the interrupt anchor WeakAura to orchestrate a kick order.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="447999" name="Radiating Gloom" caption="Periodic rot damage and orbs.">
+    <Mechanic.Root id="447999" name="Radiating Gloom" caption="Periodic rot damage and orbs.">
 
     [Radiating Gloom](https://www.wowhead.com/spell=447999/radiating-gloom) is periodic rot damage within 45 yards of the Voidspeaker. They also spawn a void zone under a random ranged that shoot [Gloom Orbs](https://www.wowhead.com/spell=448176/gloom-orbs) from it. The void zone and orbs will probably kill anyone hit.
 
-    </Mechanic>
+    </Mechanic.Root>
 
     ### Chamber Guardian
 
-    <Mechanic id="448147" name="Oust" caption="Let the tanks take the lead.">
+    <Mechanic.Root id="448147" name="Oust" caption="Let the tanks take the lead.">
 
     These are actively tanked mobs, with [Oust](https://www.wowhead.com/spell=448147/oust) dealing massive damage to its target and knocking them away. This ability also spawns a few [Ousting Fragments](https://www.wowhead.com/spell=460315/ousting-fragments) as swirlies that deal large damage on impact and knocking away anyone hit.
 
-    </Mechanic>
+    </Mechanic.Root>
 
     ### Chamber Expeller
 
-    <Mechanic id="451600" name="Expulsion Beam" caption="The most likely reason you die in phase 2.">
+    <Mechanic.Root id="451600" name="Expulsion Beam" caption="The most likely reason you die in phase 2.">
 
     Seen in heroic, the expeller teleports around and casts [Expulsion Beam](https://www.wowhead.com/spell=451600/expulsion-beam) at a random player. Anyone hit will take lethal damage and be knocked away. This overlapping with [Wrest](https://www.wowhead.com/spell=450191/wrest) can be deadly to anyone poorly positioned.
 
-    </Mechanic>
+    </Mechanic.Root>
 
     ### Devoted Worshipper
 
-    <Mechanic id="447965" name="Gloom Touch" caption="The bad (healer) touch.">
+    <Mechanic.Root id="447965" name="Gloom Touch" caption="The bad (healer) touch.">
 
     I've explained this mechanic above. 🥰 This one is only cast once per side, on a random healer.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="448488" name="Worshippers Protection" caption="The m'lady shield.">
+    <Mechanic.Root id="448488" name="Worshippers Protection" caption="The m'lady shield.">
 
     Worshippers sacrifice their 95 million health pool for 1 health and a 95 million shield because they're stupid or something. If anyone was completely asleep at the wheel in heroic this means executes deal full damage to them, especially executes that activate give temporary damage buffs such as [Touch of Death](https://www.wowhead.com/spell=115080/touch-of-death).
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id="448458" name="Cosmic Apocalypse" caption="The final form of a Redditor.">
+    <Mechanic.Root id="448458" name="Cosmic Apocalypse" caption="The final form of a Redditor.">
 
     If we take too long to get to the Devoted Worshipper and kill it before this 1.2 minute cast goes off, it will do 5.1 million Shadow damage to everyone nearby and an additional 2.3 million Shadow damage every 2 seconds, forever. It also coats the platform in [Gloom](https://www.wowhead.com/spell=443403/gloom) for added flair.
 
     The cast starts when we enter phase 2, giving us about 30 seconds from when we reach the second phase 2 platform to kill it, and we should be on the next platform by then.
 
-    </Mechanic>
+    </Mechanic.Root>
 
     ### Chamber Acolyte
 
-    <Mechanic id="455374" name="Dark Detonation" caption="Spider wizard spells.">
+    <Mechanic.Root id="455374" name="Dark Detonation" caption="Spider wizard spells.">
 
     The incomparable <Sparkles>Chamber Acolytes</Sparkles> with their cute little mage hoods wiggle their hands around for 10 seconds to cast [Dark Detonation](https://www.wowhead.com/spell=455374/dark-detonation), simply killing everyone on that side of the room if not interrupted 😍. Talk about a cuteness overload.
 
-    </Mechanic>
+    </Mechanic.Root>
   </TabsContent>
 
   <TabsContent value="4" variant="ghost">
-    <Mechanic id={443325} name="Infest" caption="Spiderlings we focus down.">
+    <Mechanic.Root id={443325} name="Infest" caption="Spiderlings we focus down.">
 
     [Infest][infest] applies [Infested Gloomburst][infested-gloomburst] to a tank as a 15 yard debuff that deals large damage to anyone within when it expires and spawns [Gloom Hatchlings][gloom-hatchling] that will wipe the raid if they reach the boss. Hatchlings leave [Gloom][gloom] miasma behind when they die.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id={443336} name="Gorge" caption="Raid damage and swirlies.">
+    <Mechanic.Root id={443336} name="Gorge" caption="Raid damage and swirlies.">
 
     [Gorge][gorge] is the other tank swap mechanic causes raid damage and [Gloom Splatter][gloom-splatter] as swirlies under players feet that leaves behind [Gloom][gloom] miasma.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id={438976} name="Royal Condemnation" caption="Falloff damage into tethers.">
+    <Mechanic.Root id={438976} name="Royal Condemnation" caption="Falloff damage into tethers.">
 
     [Royal Condemnation][royal-condemnation] is applied to 3 players as debuffs that deal large falloff damage and leave behind [Royal Shackles][royal-shackles] that grip players with increasing strength, encasing them in a [Royal Cocoon](https://www.wowhead.com/spell=441872/royal-cocoon) if pulled all the way in.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id={445268} name="Dreadful Presence" caption="Increasing rot damage.">
+    <Mechanic.Root id={445268} name="Dreadful Presence" caption="Increasing rot damage.">
 
     The raid takes mild damage every 2 seconds throughout the phase, increasing by 20% when [Abyssal Conduit][abyssal-conduit] portals open. If Ansurek reaches 4 stacks of this buff she will not stop casting [Frothing Gluttony][frothing-gluttony]. 
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id={445152} name="Acolyte's Essence" caption="Hot potato, but souls.">
+    <Mechanic.Root id={445152} name="Acolyte's Essence" caption="Hot potato, but souls.">
 
     Killing a Summoned Acolyte leaves behind the [Acolyte's Essence][essence]. A glowing orb on the ground that can be picked up by walking over it that deals moderate damage for 15 seconds before falling back on the floor. When it does expire, the player becomes [Essence Scarred](https://www.wowhead.com/spell=446012/essence-scarred) which will cause any other essences they pick up to deal 500% more damage to them.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id={445422} name="Frothing Gluttony" caption="Collapsing ring of hunger.">
+    <Mechanic.Root id={445422} name="Frothing Gluttony" caption="Collapsing ring of hunger.">
 
     Ansurek hovers above the center of the platform as she casts [Frothing Gluttony][frothing-gluttony], tethering players with [Glutton Threads][glutton-threads] that pulls them with increasing force towards her, killing anyone who is pulled to her location by [Consume](https://www.wowhead.com/spell=461408/consume).
 
     If any [Acolyte's Essence][essence] are not held by players and are touched by [Frothing Gluttony][frothing-gluttony], it explodes as [Froth Vapor](https://www.wowhead.com/spell=445877/froth-vapor), killing the raid.
 
-    </Mechanic>
+    </Mechanic.Root>
 
-    <Mechanic id={443915} name="Abyssal Conduit" caption="Linked portals.">
+    <Mechanic.Root id={443915} name="Abyssal Conduit" caption="Linked portals.">
 
     Two players are given [Abyssal Infusion][abyssal-infusion] debuffs that leave behind [Abyssal Conduit][abyssal-conduit] portals when they expire. Players can use one portal to exit the other, though doing so applies [Abyssal Reverberation][abyssal-reverberation] that deals large damage to nearby players after 4 seconds. The portals can be used to safely move [Acolyte's Essence][essence] away from the [Frothing Gluttony][frothing-gluttony] ring, but this causes [Canduit Collapse](https://www.wowhead.com/spell=444502/conduit-collapse), collapsing the portal shortly after and leaving behind [Gloom][gloom] miasma. When an [Abyssal Conduit][abyssal-conduit] is created or destroyed, it also spawns [Conduit Ejections][conduit-ejections], orbs that shoot out from the portal. 
 
-    </Mechanic>
+    </Mechanic.Root>
   </TabsContent>
 </Tabs>
 

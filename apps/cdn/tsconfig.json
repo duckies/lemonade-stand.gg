@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "es2021",
+		"lib": [
+			"es2021"
+		],
+		"jsx": "react-jsx",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"types": [
+			"@cloudflare/workers-types"
+		],
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"noEmit": true,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"skipLibCheck": true
+	}
+}

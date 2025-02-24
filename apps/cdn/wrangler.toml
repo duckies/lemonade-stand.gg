@@ -1,0 +1,16 @@
+name = "lemonade-stand-cdn"
+main = "src/index.ts"
+compatibility_date = "2025-02-24"
+minify = true
+routes = [{ pattern = "cdn.lemonade-stand.gg", custom_domain = true }]
+
+[vars]
+CACHE_CONTROL = "max-age=86400"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "lemonade-assets"
+preview_bucket_name = "lemonade-assets"
+
+[placement]
+mode = "smart"

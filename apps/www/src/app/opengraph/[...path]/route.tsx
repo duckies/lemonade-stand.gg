@@ -3,23 +3,25 @@ import type { NextRequest } from "next/server";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Lemonade Stand";
-export const size = {
-  width: 1200,
-  height: 630,
+// export const alt = "Lemonade Stand";
+// export const size = {
+//   width: 1200,
+//   height: 630,
+// };
+
+// export const contentType = "image/png";
+
+// type OpenGraphImageProps = {
+//   params: {};
+// };
+
+type Context = {
+  params: Promise<{ path: string[] }>;
 };
 
-export const contentType = "image/png";
-
-type OpenGraphImageProps = {
-  params: {};
-};
-
-export async function GET(req: NextRequest, params: Promise<{ params: { path: string[] } }>) {
+export async function GET(req: NextRequest, { params }: Context) {
   const { ...data } = await params;
   const fonbtSerif = await readFile(join(process.cwd(), "public/fonts/recoleta/recoleta-bold.ttf"));
-
-  console.log("image.get", data);
 
   return new ImageResponse(
     <div
@@ -36,7 +38,8 @@ export async function GET(req: NextRequest, params: Promise<{ params: { path: st
       Lemonade Stand
     </div>,
     {
-      ...size,
+      width: 1200,
+      height: 620,
       fonts: [
         {
           name: "Recoleta",

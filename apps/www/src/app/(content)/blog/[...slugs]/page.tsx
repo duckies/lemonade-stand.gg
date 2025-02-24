@@ -5,7 +5,7 @@ import { Hero } from "~/components/hero";
 import { ImageZoom } from "~/components/markdown/image-zoom";
 import { ContentMetadata } from "~/components/markdown/metadata";
 import { TableOfContents } from "~/components/markdown/table-of-contents";
-import { Wowhead } from "~/components/wowhead";
+import { Wowhead } from "~/components/wowhead/script";
 import { router } from "~/lib/collections/router";
 import type { PageProps } from "~/types";
 

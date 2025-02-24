@@ -1,0 +1,97 @@
+---
+title: Heroic Cauldron of Carnage
+description: A rapturous, neverending hellscape of ground mechanics.
+published: "2025-02-23T17:00:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Guides
+    url: /guides
+  - label: Liberation of Undermine
+    url: /guides/liberation-of-undermine
+  - label: Heroic Cauldron of Carnage
+    url: /guides/liberation-of-undermine/cauldron-of-carnage/heroic
+---
+
+In these mean streets, there has never been a rivalry more sinister and diarrhea inducing than the, obvious, fued between the mecha-fire-t-rexes and a gorilla that has mastered the art of lightning wizardry.
+
+## Resources
+
+- [QuestionablyEpic PDF Notes](https://questionablyepic.com/undermine/cauldron-of-carnage)
+
+<Video src="https://www.youtube.com/watch?v=uI48bitJt-Y" />
+
+## Mechanics
+
+### Shared
+
+- At 100 energy, Flarendo and Torq <span className="line-through">kiss</span> [Colossal Clash][colossal-clash] in the middle of the arena for 20 seconds. The raid takes minor fire and nature damage every second, increasing by 25% every time they clash. As this happens, [lightning circles][zapbolt] and [fire waves][fiery-wave] spawn around the arena.
+- The bosses cannot be within 40 yards of each other during phase 1, otherwise they cast [Raised Guard][raised-guard] and take 99% reduced damage.
+- They do not share health, and if one dies the other is [buffed][king-of-carnage], gaining 50% increased damag every 5 seconds and "vastly increasing the range of some abilities".
+- Every 5 seconds the bosses apply a stack of [Blistering Spite][blistering-spite] or [Galvanized Spite][galvanized-spite] to players within 60 yards. They both do minor fire or nature damage, respectively. It's possible for players to obtain both debuffs if they're in the middle of the arena.
+
+### 💅 Flarendo the Fabulous, er, Furious
+
+- A meteor mechanic, [Scrapbomb][scrapbomb], splits 4.4 million fire damage to *all* players, reduced for each soaking player.
+  - <Badge>Heroic</Badge> It leaves behind a [pool][molten-pool] of fire miasma that spawns [waves][fiery-wave] of fire that travel outwards.
+- <Badge>Heroic</Badge> Players are covered in [fire snot][molten-phlegm], dealing moderate fire damage to them and anyone around them.
+- <Badge variant="destructive">Danger, Will Robinson</Badge> <Image className="rounded-lg float-right" src="https://meia1.tenor.com/m/L3mWw18RHDMAAAAC/trailer-park-boys.gif" width="180" height="180" alt="holy shit" unoptimized /> Flarendo has fixating frontal mechanic, [Blastburn Roarcannon][blastburn-roarcannon], that tracks a player for 3 seconds, stays locked and dodgeable for 2 seconds, then fires over 3 seconds. It deals a demure 50 million fire damage every 0.1 sec to anyone hit.
+- The tank is [stomped][eruption-stomp] on, taking a bunch of fire damage, getting knocked in the air, and [waves][fiery-wave] shoot outwards from where they were hit.
+    
+### Torq the Tempest
+
+- Torq makes players [staticky][static-charge], taking extra rot damage build and giving them an energy bar on their screen that fills as they move and draining when stationary, [stunning][static-discharge] them for 6 seconds if it fills up completely.
+- [Thunderdrum Salvo][thunderdrum-salvo] rapidly bombards everyone with swirls for 6 seconds, dealing large damage to anyone hit.
+- <Badge>Heroic</Badge> [Images][voltaic-image] fixate a player for 12 seconds, dealing large damage to anyone within 10 yards if it reaches them and leaving behind [silencing miasma][lingering-electricity]. They can be crowd-controlled until they disperse.
+- The tank is [smooshed][lightning-bash], taking massive physical damage that hits again 100% of unmitigated damage as nature damage.
+
+## Strategy
+
+![](#assets/images/guides/liberation-of-undermine/cauldron-of-carnage/heroic/raidplan_p1.png)
+
+
+### Flarendo Side
+The Flarendo side has diminishing space because of the [miasma][molten-pool] left behind by [Scrapbomb][scrapbomb] with two other considerations:
+
+1. The more people soaking the bomb the better. Everyone, including the playes fighting Torq, will take damage reduced by the number of people soaking. This negates any strategies of this being a tank-only, or immuneable mechanic.
+2. The bombs are baited on any non-tank player within melee range of Flarendo. This means the only way to bait the bombs is to move the boss.
+
+The gameplan is pretty simple — stack on the tank when possible* to bait and then soak [Scrapbombs][scrapbomb]. The group will get knocked away from soaking, and players should avoid the [Fiery Waves][fiery-wave] that will spawn from the bomb eruption. Three seconds later everyone will get [Molten Phlegm][molten-phlegm], forcing us to stay spread. This sequence happens back-to-back, with another bomb spawning as the spread circles disappear.
+
+> *It's not going to be possible to perfectly bait the 2nd and 3rd bombs because. I see conflicting timers if the bombs spawn before or after the phlegm circles disappear, but in timers that show the latter it's literally 1 second after, so there's no time to bait the bomb. This isn't important though, because it'll still pick someone in melee range. We just *then* stack on the tank wherever the bomb is.
+
+The only other mechanic of consequence is the [Blastburn Roarcannon][blastburn-roarcannon]. You will have a WeakAura that tells you when it's safe to move so you're not swinging the beam around like an idiot.
+
+### Torq Side
+
+There are no positioning requirements for Torq's side on Heroic. I don't recommend stacking on heroic because the [Thunderdrum Salvo][thunderdrum-salvo] is *more* dangerous if the group is only stacked within, for example, a Healing Rain sized circle instead of being pixel stacked. The people in the middle could be completely surrounded with nowhere safe to run. Until there's a reason for space management, e.g. Mythic, I would just spread out. As for the mechanics, I make these recommendations:
+
+- You *must* stutter-step the [Thunderdrum Salvo][thunderdrum-salvo] to avoid getting stunned. I don't know the timing of when the swirls explode, but there will likely be a WeakAura with markers in it to indicate this.
+- If you get a [Voltaic Image][voltaic-image] on you and you can't keep it crowd-controlled yourself, you should take it into the boss so the melee can keep it locked down. You'll just get yourself stunned and killed trying to just natty outrun it, only for the image drops a shame puddle on your Kentucky-fried corpse.
+
+<Callout type="info">
+  🤓👆 The Torq side will likely do a similar movement pattern to Flarendo on Mythic because the [images][voltaic-image] leave behind their [miasma][lingering-electricity] when they disperse, even if they don't hit anyone.
+</Callout>
+
+
+[colossal-clash]: <https://www.wowhead.com/ptr-2/spell=465833/colossal-clash?dd=15&ddsize=30>
+[zapbolt]: <https://www.wowhead.com/ptr-2/spell=463800/zapbolt?dd=15&ddsize=30>
+[fiery-wave]: <https://www.wowhead.com/ptr-2/spell=465446/fiery-wave?dd=15&ddsize=30>
+[raised-guard]: <https://www.wowhead.com/ptr-2/spell=471660/raised-guard?dd=15&ddsize=30>
+[king-of-carnage]: <https://www.wowhead.com/ptr-2/spell=471557/king-of-carnage?dd=15&ddsize=30>
+[blistering-spite]: <https://www.wowhead.com/ptr-2/spell=472220/blistering-spite?dd=15&ddsize=30>
+[scrapbomb]: <https://www.wowhead.com/ptr-2/spell=473650/scrapbomb?dd=15&ddsize=30>
+[molten-pool]: <https://www.wowhead.com/ptr-2/spell=1214039/molten-pool?dd=15&ddsize=30>
+[fiery-wave]: <https://www.wowhead.com/ptr-2/spell=465446/fiery-wave?dd=15&ddsize=30>
+[molten-phlegm]: <https://www.wowhead.com/ptr-2/spell=1213688/molten-phlegm?dd=15&ddsize=30>
+[blastburn-roarcannon]: <https://www.wowhead.com/ptr-2/spell=472231/blastburn-roarcannon?dd=15&ddsize=30>
+[eruption-stomp]: <https://www.wowhead.com/ptr-2/spell=1214190/eruption-stomp?dd=15&ddsize=30>
+
+[galvanized-spite]: <https://www.wowhead.com/ptr-2/spell=472223/galvanized-spite?dd=15&ddsize=30>
+[static-charge]: <https://www.wowhead.com/ptr-2/spell=473951/static-charge?dd=15&ddsize=30>
+[static-discharge]: <https://www.wowhead.com/ptr-2/spell=473983/static-discharge?dd=15&ddsize=30>
+[thunderdrum-salvo]: <https://www.wowhead.com/ptr-2/spell=463840/thunderdrum-salvo?dd=15&ddsize=30>
+[voltaic-image]: <https://www.wowhead.com/ptr-2/spell=1213994/voltaic-image?dd=15&ddsize=30>
+[lingering-electricity]: <https://www.wowhead.com/ptr-2/spell=463925/lingering-electricity?dd=15&ddsize=30>
+[lightning-bash]: <https://www.wowhead.com/ptr-2/spell=466178/lightning-bash?dd=15&ddsize=30>

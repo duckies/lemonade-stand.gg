@@ -1,15 +1,16 @@
 import { cn } from "@lemonade-stand/ui";
+import { useSpell } from "hooks/wowhead";
 import type { ImageProps } from "next/image";
-import Image from "next/image";
-import { useSpell } from "~/hooks/wowhead";
+import type { WowheadEnv } from "./constants";
 
 type WarcraftIconProps = Omit<ImageProps, "id" | "width" | "height" | "alt" | "src"> & {
   id: number;
   size?: number;
+  env?: WowheadEnv;
 };
 
-export function WarcraftIcon({ id, size, ...props }: WarcraftIconProps) {
-  const { data, status } = useSpell(id);
+export function WarcraftIcon({ id, size, env, ...props }: WarcraftIconProps) {
+  const { data, status } = useSpell(id, env);
 
   if (status === "pending") {
     return (
@@ -35,7 +36,7 @@ export function WarcraftIcon({ id, size, ...props }: WarcraftIconProps) {
       className="transition-opacity"
       width={size || 56}
       height={size || 56}
-      alt={data.name || ""}
+      alt={data?.name || ""}
       style={{ boxShadow: "0 0 0 1px rgb(250 214 122)" }}
       onLoad={(e) =>
         // Rather annoying way to remove a hyper-specific border-radius from Wowhead.

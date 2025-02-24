@@ -36,6 +36,9 @@
     },
     "allowJs": true
   },
+  "mdx": {
+    "checkMdx": true,
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

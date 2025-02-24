@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default async function HomePage() {
   const posts = await router.findAll("blog");
 

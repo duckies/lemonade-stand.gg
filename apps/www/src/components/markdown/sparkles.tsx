@@ -48,7 +48,7 @@ function generateSparkle({
 export type SparklesProps = {
   rate?: number;
   variance?: number;
-  colors: string[];
+  colors?: string[];
   minSize?: number;
   maxSize?: number;
   children: ReactNode;

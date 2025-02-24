@@ -1,17 +1,20 @@
 "use client";
 
 import { cn } from "@lemonade-stand/ui";
+import { DynamicLink } from "components/dynamic-link";
+import { type WowheadEnv, buildWowheadUrl } from "components/wowhead/constants";
+import { WarcraftIcon } from "components/wowhead/icon";
 import { ChevronDownIcon } from "lucide-react";
 import { AnimatePresence, type Transition, type Variants, motion } from "motion/react";
-import { type ReactNode, useCallback, useMemo, useState } from "react";
-import { Link } from "../Link";
-import { WarcraftIcon } from "../warcraft-icon";
+import { Fragment, type ReactNode, useCallback, useMemo, useState } from "react";
 
 type MechanicProps = {
   name: string;
   id: number;
+  env?: WowheadEnv;
   caption?: string;
-  pill?: string;
+  pill?: string | (string | ReactNode)[];
+  slot?: ReactNode;
   children: ReactNode;
 };
 
@@ -33,7 +36,12 @@ const transition = {
   ease: [0.04, 0.62, 0.23, 0.98],
 } satisfies Transition;
 
-export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
+type MechanicPillProps = {
+  className?: string;
+  children: ReactNode;
+}
+
+function Mechanic({ id, env, name, caption, pill, slot, children }: MechanicProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
@@ -43,10 +51,11 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
       <WarcraftIcon
         className="shadow-xl [box-shadow:0_0_0_1px_rgb(250_214_122)]"
         id={id}
+        env={env}
         size={45}
       />
     ),
-    [id],
+    [id, env],
   );
 
   return (
@@ -60,14 +69,32 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
         onKeyDown={(e) => e.key === "Enter" && toggle()}
       >
         <div className="flex shrink-0 items-center rounded-md animate-in fade-in">
-          <Link href={`https://wowhead.com/spell=${id}`} variant="plain">
+          <DynamicLink href={buildWowheadUrl("spell", id, env)} variant="plain">
             {MemoizedWarcraftIcon}
-          </Link>
+          </DynamicLink>
         </div>
         <div className="flex grow flex-col justify-evenly font-medium">
           <div className="text-xl leading-6">{name}</div>
           {caption && <span className="text-sm text-primary/90">{caption}</span>}
         </div>
+
+        {pill && (
+          <div className="flex items-center gap-2">
+            {Array.isArray(pill) ? (
+              pill.map((p, i) => (
+                typeof p === 'string' ? (
+                  <Pill key={i}>{p}</Pill>
+                ) : (
+                  <Fragment key={i}>{p}</Fragment>
+                )
+              ))
+            ) : (
+              <Pill>{pill}</Pill>
+            )}
+          </div>
+        )}
+
+        {slot && <div className="flex items-center gap-3">{slot}</div>}
 
         <div className={cn("flex items-center mr-2")}>
           <ChevronDownIcon className="h-7 w-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
@@ -91,3 +118,16 @@ export function Mechanic({ id, name, caption, pill, children }: MechanicProps) {
     </div>
   );
 }
+
+function Pill({ className, children }: MechanicPillProps) {
+  return (
+    <span className={cn("flex items-center rounded-full bg-primary py-1 px-3 text-sm font-medium text-black shadow-md", className)}>
+      {children}
+    </span>
+  )
+}
+
+const Root = Mechanic;
+
+export { Pill, Root };
+

@@ -13,7 +13,6 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    // providerImportSource: "@mdx-js/react",
     remarkPlugins: [
       ["remark-frontmatter"],
       ["remark-mdx-frontmatter"],

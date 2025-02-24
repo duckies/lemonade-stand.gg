@@ -2,9 +2,10 @@ import HeroBackground from "#public/images/hero/nerubar-palace.jpg";
 import { Hero } from "components/hero";
 import { GuideMDXComponents } from "components/markdown";
 import { Breadcrumbs } from "~/components/breadcrumbs";
+import { ImageZoom } from "~/components/markdown/image-zoom";
 import { ContentMetadata } from "~/components/markdown/metadata";
 import { TableOfContents } from "~/components/markdown/table-of-contents";
-import { Wowhead } from "~/components/wowhead";
+import { Wowhead } from "~/components/wowhead/script";
 import { getRoutes } from "~/lib/collections/content";
 import { router } from "~/lib/collections/router";
 import type { PageProps } from "~/types";
@@ -37,6 +38,7 @@ export default async function GuidePage({ params }: PageProps<{ slugs: string[] 
       </Hero.Root>
 
       <Wowhead />
+      <ImageZoom />
 
       <div className="container -mt-10">
         <section className="relative prose-layout">
