@@ -10,7 +10,7 @@ import { Fragment, type ReactNode, useCallback, useMemo, useState } from "react"
 
 type MechanicProps = {
   name: string;
-  id: number;
+  id: number | string;
   env?: WowheadEnv;
   caption?: string;
   pill?: string | (string | ReactNode)[];
@@ -39,7 +39,7 @@ const transition = {
 type MechanicPillProps = {
   className?: string;
   children: ReactNode;
-}
+};
 
 function Mechanic({ id, env, name, caption, pill, slot, children }: MechanicProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,13 +81,10 @@ function Mechanic({ id, env, name, caption, pill, slot, children }: MechanicProp
         {pill && (
           <div className="flex items-center gap-2">
             {Array.isArray(pill) ? (
-              pill.map((p, i) => (
-                typeof p === 'string' ? (
-                  <Pill key={i}>{p}</Pill>
-                ) : (
-                  <Fragment key={i}>{p}</Fragment>
-                )
-              ))
+              pill.map((p, i) =>
+                // biome-ignore lint/suspicious/noArrayIndexKey: I have no other properties :)
+                typeof p === "string" ? <Pill key={p}>{p}</Pill> : <Fragment key={i}>{p}</Fragment>,
+              )
             ) : (
               <Pill>{pill}</Pill>
             )}
@@ -121,13 +118,17 @@ function Mechanic({ id, env, name, caption, pill, slot, children }: MechanicProp
 
 function Pill({ className, children }: MechanicPillProps) {
   return (
-    <span className={cn("flex items-center rounded-full bg-primary py-1 px-3 text-sm font-medium text-black shadow-md", className)}>
+    <span
+      className={cn(
+        "flex items-center rounded-full bg-primary py-1 px-3 text-sm font-medium text-black shadow-md",
+        className,
+      )}
+    >
       {children}
     </span>
-  )
+  );
 }
 
 const Root = Mechanic;
 
 export { Pill, Root };
-

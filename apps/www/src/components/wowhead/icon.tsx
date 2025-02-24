@@ -4,7 +4,7 @@ import type { ImageProps } from "next/image";
 import type { WowheadEnv } from "./constants";
 
 type WarcraftIconProps = Omit<ImageProps, "id" | "width" | "height" | "alt" | "src"> & {
-  id: number;
+  id: number | string;
   size?: number;
   env?: WowheadEnv;
 };

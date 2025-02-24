@@ -8,7 +8,7 @@ export interface WowheadTooltipSpell {
   tooltip2: string;
 }
 
-export function useSpell(id: number, env?: WowheadEnv) {
+export function useSpell(id: number | string, env?: WowheadEnv) {
   return useQuery({
     queryKey: ["wowhead", "spell", id, env],
     queryFn: async () => {

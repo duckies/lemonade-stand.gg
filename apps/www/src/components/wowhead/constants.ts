@@ -15,7 +15,7 @@ export type WowheadEnv = keyof typeof WowheadEnvs;
 
 export function buildWowheadUrl(
   type: "spell" | "item" | "npc" | "zone" | "quest",
-  id: number,
+  id: string | number,
   env: WowheadEnv = "main",
 ) {
   const environment = env === "main" ? "" : `${env}/`;
