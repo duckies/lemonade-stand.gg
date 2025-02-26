@@ -13,10 +13,9 @@ function Root({ children, className, ...props }: ComponentPropsWithoutRef<"div">
 
 type HeroBackgroundProps = Omit<ComponentPropsWithoutRef<typeof Image>, "alt"> & {
   alt?: string;
-  gradientClassName?: string;
 };
 
-function Background({ src, className, alt, gradientClassName, ...props }: HeroBackgroundProps) {
+function Background({ src, className, alt, ...props }: HeroBackgroundProps) {
   return (
     <>
       <Image

@@ -1,0 +1,131 @@
+---
+title: Heroic Rik Reverb
+description: WHAT IS THAT MELODY?
+published: "2025-02-23T17:00:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Guides
+    url: /guides
+  - label: Liberation of Undermine
+    url: /guides/liberation-of-undermine
+  - label: Heroic Rik Reverb
+    url: /guides/liberation-of-undermine/rik-reverb/heroic
+---
+
+## Resources
+
+- [PTR Heroic Rik Reverb Logs](https://docs.google.com/spreadsheets/d/1YT4GpIT90o73NMl4EAzOnBJv4XuXIHlf3-AoAFSebFM/edit?gid=1398338665#gid=1398338665)
+
+## Mechanics
+
+### Phase One
+
+- Rik uses [Amplification!][amplification] to spawn an [Amplifier][amplifier] underneath him, dealing damage to anyone near their spawn and stunning them. The boss will cast this 2 more times in phase 1, but the second and third sets also spawns an amplifier 
+  - In this phase the amplifiers are a source of [rot damage][noise-pollution] increased by each active amplifier, and [waves][resonant-echoes] that are shot in random directions from them.
+  - They have an energy bar above them that, if full, causes them to go [haywire][haywire], pulsing considerably more raid damage and shooting more waves. Players can interact with them to channel and [drain][lingering-voltage] this energy, dealing damage to them. Anyone can drain an amplifier at any time, but on heroic draining applies a 50% vulnerability to successive drains for 45 seconds, stacking.
+  - It's my (limited) understanding that you will continue to drain an amplifier until it runs out of energy, or you run away and snap the tether it places on you. You should be able to cast simultaneously.
+  - The boss cannot be within 15 yards of an amplifier or they gain energy much [faster][resonance].
+- The boss has two frontals, the [tank swap][sonic-blast] which applies a stacking 100% [vulnerability][tinnitus] to sonic damage (everything on the fight), and [Sound Cannon][sound-cannon] which is a frontal that locks onto the player before dealing large damage to anyone in the line of fire. The targeted player cannot dodge the frontal.
+- Several players can get [Faulty Zap][faulty-zap] a dangerous debuff that radiates damage around them and increases their nature damage taken by 75% for the duration.
+- Rik summons Pyrotechnics, firework adds that deal damage around them as they land and constantly bombard the room with fire swirls. Attacking pyrotechnics gives players the [tingles][excitement], increasing movement speed by 10% and haste by 2% for 10 seconds, stacking 3 times.
+  - The pyrotechnics have a 15 second timer, after which they explode, applying a stacking, [massive dot][grand-finale] for 15 seconds to the raid if not killed beforehand.
+
+### Intermission
+
+- At 100 energy Rik shields himself with a [Sound Cloud][sound-cloud] 🙄, reducing his damage taken by 99% for 36 seconds, the duration of the intermission.
+- A [ring][blaring-drop] of country music will radiate outward from him 4 times, dealing large damage every 0.5 seconds for 3 seconds to anyone hit.
+- At the same time, the amplifiers are [overloading][blowout] in sequence in order of highest energy, indicated by a blue ring around them. Standing in the ring while the ring hits the amplifier causes it to explode, knocking players back and granting immunity to the ring.
+    <Callout type="warning">
+      This knockback originates from the amplifier in all directions. You will want to place yourself in line with the exploding amplifier and the next highest energy one.
+    </Callout>
+- The boss spawns 5 amplifiers in phase 1 and destroys 4 in each intermission, increasing the number of amplifiers the raid has to drain and heal through for the next phase. 
+- The third intermission he [enrages][hype-fever].
+
+## Strategy
+
+The following strategy is adapted from a theoretical mythic strategy theory by Reloe, as this is a noticably more annoying fight than the previous two so there is merit to one. The goal is optimize ranged having to move as little as possible despite us constantly needing to drain the amplifiers. It's reasonable for us to yolo this boss in heroic, or fail at something like below to the point it's essentially yoloing the fight, but I'm describing the thought process so you understand how to think about the fight.
+
+<Tabs defaultValue="p1">
+  <TabsList>
+    <TabsTrigger value="p1">1</TabsTrigger>
+    <TabsTrigger value="p2">2</TabsTrigger>
+    <TabsTrigger value="p3">3</TabsTrigger>
+    <TabsTrigger value="p4">4</TabsTrigger>
+    <TabsTrigger value="p5">5</TabsTrigger>
+    <TabsTrigger value="p6">6</TabsTrigger>
+  </TabsList>
+  <TabsContent value="p1">
+    ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p1.png)
+
+    A ring of arbitrary markers are placed in a circle around the room. The tanks will bring the boss to <Square /> on pull, and the boss will drop a single amplifier underneath him. Ranged will hang around <Triangle />.
+  </TabsContent>
+  <TabsContent value="p2">
+    <figure>
+      ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p2.png)
+      <figcaption>
+        I am using ovals to denote amplifiers that spawn at the same time.
+      </figcaption>
+    </figure>
+
+    The boss will then be moved to <Diamond /> until he drops the second amplifier. When this happens ranged will spawn the third amplifier underneath them at <Triangle />.
+
+    As melee are chilling on <Diamond /> until the second amplifier spawns, they will need to peel off and occasionally drain the amplifier at <Square />. We only need two melee assigned to alternate soaking the amplifier at this location for the duration of the fight.
+  </TabsContent>
+  <TabsContent value="p3">
+    ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p3.png)
+
+    The boss is moved to the middle after the second round of amplifiers spawn and ranged will shift counter-clockwise to <Star />. A pair of melee will now be responsible for keeping the amplifier at <Diamond /> drained, and a pair of ranged will be responsible for the <Triangle /> amplifier.
+
+    Ranged will remain at <Star /> until they spawn the fourth amplifier, but the tanks will need to move the boss to <Circle /> in time for the fifth to spawn there. The amplifiers spawn 40 seconds apart, so the tanks should leave the boss in the middle of the room for about 30 seconds.
+  </TabsContent>
+  <TabsContent value="p4">
+    ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p4.png)
+
+    In the intermission the boss puts out his [Sound Cloud][sound-cloud] remix, causing the highest energy amplifier to fangirl and rapidly bring itself to [haywire][haywire]. This repeats four times and then the intermission ends. This means an amplifier will carry over to the next phase 1, for 6 total, then 7, then the last intermission he enrages.
+    
+    The amplifiers have been modified throughout the PTR, and the latest information I have is that the amplifiers that aren't fangirling lose energy during the intermission to the point where it's random which amplifier explodes 3rd and 4th.
+  </TabsContent>
+  <TabsContent value="p5">
+    ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p5.png)
+    
+    The second time we reach phase 3, assuming the random amplifier issue continues onto live servers, the solution is simple — we start counter-clockwise of wherever the remaining amplifier is. The movements are all the same, just with a different starting position. This allows ranged to still only move between 2 adjacent markers.
+  </TabsContent>
+  <TabsContent value="p6">
+
+    The third and final time we enter phase 1 we will have 2 extra amplifiers. This might seem confusing but we always want to start counter-clockwise, or to the left if we're in the middle of the room facing the markers, of the amplifier that gives us the most space.
+
+    - If the remaining amplifiers have less than 2 markers between them, we can repeat what we did the second time we got to phase 1, starting to the left of an amplifier such that we have 5 contiguous markers to work with.
+    - If the remaining amplifiers have 2 markers between them, we still want to start to the left (from the inside looking out; counter-clockwise) of the amplifier that gives us the most free markers. This still allows ranged to only need to move between 2 markers. The melee will have to skip over an amplifier on the last set.
+
+      ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p7.png)
+    
+    - If the remaining amplifiers are equidistent from each other, aka they have 3 markers between them, the placement decision is arbitrary and ranged will need to jump a marker after the second set.
+    
+      ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p6.png)
+  </TabsContent>
+</Tabs>
+
+[amplification]: <https://www.wowhead.com/ptr-2/spell=473748&dd=15&ddsize=30>
+[amplifier]: <https://www.wowhead.com/ptr-2/npc=236511/amplifier&dd=15&ddsize=30>
+[lingering-voltage]: <https://www.wowhead.com/ptr-2/spell=1217120/lingering-voltage?dd=15&ddsize=30>
+[resonant-echoes]: <https://www.wowhead.com/ptr-2/spell=468119/resonant-echoes?dd=15&ddsize=30>
+[noise-pollution]: <https://www.wowhead.com/ptr-2/spell=465795/noise-pollution?dd=15&ddsize=30>
+[haywire]: <https://www.wowhead.com/ptr-2/spell=466093/haywire?dd=15&ddsize=30>
+[echoing-chant]: <https://www.wowhead.com/ptr-2/spell=466866/echoing-chant?dd=15&ddsize=30>
+[sound-cannon]: <https://www.wowhead.com/ptr-2/spell=467606/sound-cannon?dd=15&ddsize=30>
+[faulty-zap]: <https://www.wowhead.com/ptr-2/spell=466961/faulty-zap?dd=15&ddsize=30>
+[sparkblast-ignition]: <https://www.wowhead.com/ptr-2/spell=472306/sparkblast-ignition?dd=15&ddsize=30>
+[grand-finale]: <https://www.wowhead.com/ptr-2/spell=472294/grand-finale?dd=15&ddsize=30>
+[excitement]: <https://www.wowhead.com/ptr-2/spell=1214164/excitement?dd=15&ddsize=30>
+[resonance]: <https://www.wowhead.com/ptr-2/spell=466128/resonance?dd=15&ddsize=30>
+[sonic-blast]: <https://www.wowhead.com/ptr-2/spell=464488/sonic-blast?dd=15&ddsize=30>
+[tinnitus]: <https://www.wowhead.com/ptr-2/spell=464518/tinnitus?dd=15&ddsize=30>
+
+[blowout]: <https://www.wowhead.com/ptr-2/spell=466722/blowout?dd=15&ddsize=30>
+[sound-cloud]: <https://www.wowhead.com/ptr-2/spell=1213817/sound-cloud?dd=15&ddsize=30>
+[blaring-drop]: <https://www.wowhead.com/ptr-2/spell=467991/blaring-drop?dd=15&ddsize=30>
+[hype-fever]: <https://www.wowhead.com/ptr-2/spell=473655/hype-fever?dd=15&ddsize=30>
+
+

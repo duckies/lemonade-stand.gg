@@ -1,0 +1,27 @@
+---
+title: Liberation of Undermine
+description: It's a goblininomenon.
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Guides
+    url: /guides
+  - label: Liberation of Undermine
+    url: /guides/liberation-of-undermine
+---
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@lemonade-stand/ui";
+import { BossGrid } from "~/components/markdown/boss-grid";
+
+<Card className="not-prose">
+  <CardHeader>
+    <CardTitle className="text-2xl font-serif font-semibold tracking-wide text-foreground">
+      Boss Guides
+    </CardTitle>
+    <CardDescription>Guides for the bosses in the Liberation of Undermine raid.</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <BossGrid />
+  </CardContent>
+</Card>

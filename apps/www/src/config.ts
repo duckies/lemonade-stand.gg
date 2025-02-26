@@ -16,11 +16,69 @@ export const Expansions = [
   },
 ];
 
-export const Raids = [
+export interface Encounter {
+  name: string;
+  slug: string;
+  icon: string;
+}
+
+export interface Instance {
+  name: string;
+  slug: string;
+  encounters: Encounter[];
+}
+
+export const instances = [
+  {
+    name: "Liberation of Undermine",
+    slug: "liberation-of-undermine",
+    encounters: [
+      {
+        name: "Vexie and the Geargrinders",
+        slug: "vexie-and-the-geargrinders",
+        icon: "inv_111_raid_achievement_vexieandthegeargrinders",
+      },
+      {
+        name: "Cauldron of Carnage",
+        slug: "cauldron-of-carnage",
+        icon: "inv_11_arenaboss_colossalclash",
+      },
+      {
+        name: "Rik Reverb",
+        slug: "rik-reverb",
+        icon: "inv_111_raid_achievement_rikreverb",
+      },
+      {
+        name: "Stix Bunkjunker",
+        slug: "stix-bunkjunker",
+        icon: "inv_111_raid_achievement_stixbunkjunker",
+      },
+      {
+        name: "Sprocketmonger Lockenstock",
+        slug: "sprocketmonger-lockenstock",
+        icon: "inv_111_raid_achievement_sprocketmongerlocknstock",
+      },
+      {
+        name: "The One-Armed Bandit",
+        slug: "one-armed-bandit",
+        icon: "inv_111_raid_achievement_onearmedbandit",
+      },
+      {
+        name: "Mug'zee, Heads of Security",
+        slug: "mugzee-heads-of-security",
+        icon: "inv_111_raid_achievement_mugzeeheadsofsecurity",
+      },
+      {
+        name: "Chrome King Gallywix",
+        slug: "chrome-king-gallywix",
+        icon: "inv_111_raid_achievement_chromekinggallywix",
+      },
+    ],
+  },
   {
     name: "Nerub-ar Palace",
     slug: "nerubar-palace",
-    bosses: [
+    encounters: [
       {
         name: "Ulgrax the Devourer",
         slug: "ulgrax-the-devourer",
@@ -59,11 +117,11 @@ export const Raids = [
       {
         name: "Queen Ansurek",
         slug: "queen-ansurek",
-        icons: "inv_achievement_raidnerubian_queenansurek",
+        icon: "inv_achievement_raidnerubian_queenansurek",
       },
     ],
   },
-] as const;
+] as const satisfies Instance[];
 
 export const website = {
   metadata,

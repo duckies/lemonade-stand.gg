@@ -10,7 +10,7 @@ export default async function ResourcesPage() {
 
   return (
     <>
-      <Hero.Root className="-mb-24 [--hero-from-opacity:0%]">
+      <Hero.Root className="-mb-24">
         <Hero.Background className="object-center" src={HeroBackground} />
         <Hero.Content>
           <Hero.Title>Resources</Hero.Title>

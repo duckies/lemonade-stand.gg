@@ -7,9 +7,8 @@ const Instances = [
   {
     name: "Liberation of Undermine",
     label: "Upcoming Raid",
-    href: "/guides/undermine",
+    href: "/guides/liberation-of-undermine",
     background: "/images/hero/liberation_of_undermine.jpg",
-    disabled: true,
   },
   {
     name: "Nerub-ar Palace",
@@ -83,7 +82,7 @@ export default async function GuidesIndexPage() {
                 title={instance.name}
                 label={instance.label}
                 background={instance.background}
-                disabled={instance.disabled}
+                // disabled={instance.disabled}
                 href={instance.href}
               />
             ))}

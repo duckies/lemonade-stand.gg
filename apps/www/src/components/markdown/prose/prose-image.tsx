@@ -10,10 +10,22 @@ export interface ProseImageProps
 /**
  * The `rehype-mdx-import-media` plugin will replace relative image paths with imported ones which resolve to {@link StaticImageData}. We can use this to obtain the image dimensions and thus use the {@link Image} component without having to manually specify dimensions.
  */
-export function ProseImage({ src, alt, ...props }: ProseImageProps) {
-  if (typeof src !== "string") {
-    return <Image src={src} placeholder="blur" {...props} alt={alt || ""} />;
+export function ProseImage({ src, alt = "", title, ...props }: ProseImageProps) {
+  const image =
+    typeof src !== "string" ? (
+      <Image src={src} placeholder="blur" alt={alt} {...props} />
+    ) : (
+      <img src={src} alt={alt} {...props} />
+    );
+
+  if (title) {
+    return (
+      <figure>
+        {image}
+        <figcaption>{title}</figcaption>
+      </figure>
+    );
   }
 
-  return <img src={src} alt={alt || ""} {...props} />;
+  return image;
 }

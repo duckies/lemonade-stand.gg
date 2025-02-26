@@ -39,11 +39,11 @@ export function ContentMetadata({
   }
 
   return (
-    <div className="flex items-center text-sm gap-1">
+    <div className="flex items-center gap-1">
       <Avatar className="inline size-5">
         <Image src={metadata.author.avatar} alt={metadata.author.name} />
       </Avatar>
-      <span className="text-muted-foreground">
+      <span className="text-[#ddd] [text-shadow:2px_2px_3px_rgba(0,0,0,0.6)]">
         {metadata.author.name} • <ContentPublishedDate published={metadata.published} />
       </span>
       {children}

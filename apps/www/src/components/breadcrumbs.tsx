@@ -9,7 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   BreadcrumbItem as _BreadcrumbItem,
-  cn,
 } from "@lemonade-stand/ui";
 import { ChevronDownIcon } from "lucide-react";
 import Link from "next/link";
@@ -51,8 +50,8 @@ interface BreadcrumbsProps {
 
 export function Breadcrumbs({ breadcrumbs, className }: BreadcrumbsProps) {
   return (
-    <Breadcrumb className={cn(className)}>
-      <BreadcrumbList>
+    <Breadcrumb className={className}>
+      <BreadcrumbList className="text-base [text-shadow:2px_2px_3px_rgba(0,0,0,0.6)]">
         {breadcrumbs.map((breadcrumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
           const label = isLast ? (

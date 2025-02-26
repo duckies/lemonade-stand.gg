@@ -26,7 +26,7 @@ function createRouter() {
         const content = await getRouteContent(file);
 
         return {
-          url: route,
+          url: `/${route}`,
           file,
           content,
         };

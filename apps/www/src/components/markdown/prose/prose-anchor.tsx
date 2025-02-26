@@ -16,6 +16,14 @@ export function ProseAnchor({ href, ...props }: ProseAnchorProps) {
   // regex to scan for specific urls, e.g. icon, spell.
   const isTooltip = href?.startsWith("https://www.wowhead.com");
 
+  // if (isTooltip && typeof props.children === "string") {
+  //   const char = props.children.charAt(0);
+
+  //   if (char.toLowerCase() === char) {
+  //     isTooltip = false;
+  //   }
+  // }
+
   return (
     <a
       href={href}

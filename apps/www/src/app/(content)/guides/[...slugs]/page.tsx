@@ -24,7 +24,7 @@ export default async function GuidePage({ params }: PageProps<{ slugs: string[] 
   return (
     <>
       <Hero.Root>
-        <Hero.Background src={HeroBackground} />
+        <Hero.Background src={metadata.hero?.image || HeroBackground} />
         <Hero.Content>
           <ContentMetadata metadata={metadata} />
 
