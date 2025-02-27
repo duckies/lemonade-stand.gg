@@ -38,6 +38,12 @@ const Mechanic = {
   Pill: MechanicPill,
 };
 
+const Pills = {
+  HealerPill: () => <Mechanic.Pill className="bg-emerald-300">Healers</Mechanic.Pill>,
+  TankPill: () => <Mechanic.Pill className="bg-sky-300">Tanks</Mechanic.Pill>,
+  DangerPill: () => <Mechanic.Pill className="bg-rose-400">Danger</Mechanic.Pill>,
+};
+
 export const GuideMDXComponents = {
   ...ClassColors,
   ...Markers,
@@ -46,4 +52,5 @@ export const GuideMDXComponents = {
   TabsTrigger,
   TabsContent,
   Mechanic,
+  ...Pills,
 } as const satisfies MDXComponents;

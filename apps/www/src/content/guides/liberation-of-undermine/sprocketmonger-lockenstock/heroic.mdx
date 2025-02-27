@@ -16,6 +16,203 @@ hero:
   image: /images/hero/incontinental-hotel.jpg
 ---
 
+## Mechanics
+
+<div className="not-prose grid grid-rows-9 rounded-xl [&>div]:border-2 [&>div]:border-slate-900 [&>div:nth-child(1)]:py-2 font-bold text-xl">
+  <div className="row-span-1 flex items-center justify-center bg-slate-700">
+    <p className="">[Blazing Beam][blazing-beam] Conveyor</p>
+  </div>
+  <div className="row-span-3 grid grid-cols-9 bg-slate-700/10">
+    <div className="col-span-4 flex items-center justify-center">
+      <p className="text-3xl font-bold">3</p>
+    </div>
+    <div className="col-span-1 bg-slate-700 border-y-2 border-border [writing-mode:sideways-lr] flex items-center justify-center text-base px-2">
+      <p>[Trap][blisterizer-mk-ii] Conveyor</p>
+    </div>
+    <div className="col-span-4 flex items-center justify-center">
+      <p className="text-3xl font-bold">1</p>
+    </div>
+  </div>
+  <div className="row-span-1 bg-slate-700 flex items-center justify-around px-3">
+    <div className="text-xl font-bold">Entrance</div>
+    <p className="">[Magnet][mega-magnetize] Conveyor</p>
+    <div className="text-xl font-bold">Boss Start</div>
+  </div>
+  <div className="row-span-3 grid grid-cols-9 bg-slate-700/10">
+    <div className="col-span-4 flex items-center justify-center">
+      <p className="text-3xl font-bold">4</p>
+    </div>
+    <div className="col-span-1 bg-slate-700 border-y-2 border-border [writing-mode:sideways-lr] flex items-center justify-center text-base px-2">
+      <p>[Trap][blisterizer-mk-ii] Conveyor</p>
+    </div>
+    <div className="col-span-4 flex items-center justify-center">
+      <p className="text-3xl font-bold">2</p>
+    </div>
+  </div>
+  <div className="row-span-1 bg-slate-700 flex items-center justify-center">
+    <p className="my-0">[Rocket][rocket-barrage] Conveyor</p>
+  </div>
+</div>
+
+The boss room is a mechanic itself which consists of 4 metal platforms separated by 3 large conveyer belts running the length of the platform and 2 smaller conveyer belts that separate the platforms.
+
+### Phase One
+
+Sprockystocky has a timed, energy-based phase 1 that lasts 2 minutes.
+
+<Mechanic.Root id="466235" name="Wire Transfer" caption="Safety Dance">
+
+For the duration of the phase Lockenstock will have 2 of the 4 platforms electrified in a pattern consistent pull-to-pull. Anyone who stands on them takes 1 million nature damage per second while being slowed by 40%.
+
+This happens almost immediately into each phase 1 then 40, 15, and 15 seconds later until the phase 2, then it repeats ✨.
+
+> The below image courtesy of Wowhead.com.gov.co.uk shows the sequence. The blue platforms are electrified, so we start the boss opposite the doorway (the icon at the bottom). The red dots indicate landmines, discussed later.
+
+<Image src="https://wow.zamimg.com/uploads/screenshots/normal/1213373.png" height="3166" width="2813" alt="Wire Transfer Sequence" unoptimized />
+
+</Mechanic.Root>
+
+<Mechanic.Root id="471308" name="Blisterizer Mk. II" caption="DEI Mechanic">
+
+The small horizontal conveyor belts are a static feature; they do not stop moving, change direction (as far as I can tell), or do anything other than continuously spawn a single fire trap over and over.
+
+Standing on the trap deals a mild amount of damage and knocks you up into the air and giving you a 60% movement speed <Sparkles>increase</Sparkles> for 6 seconds.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="473276" name="Activate Inventions!" caption="Tesla Factory Assembly Line">
+
+As we fight the boss one of the large conveyer belts will be carrying in an invention, after which the boss will [Activate Inventions!][activate-inventions], halting and electrifying the (large) belts while turning on the inventions.
+
+- The left conveyor carries in fire turrets that cast [Blazing Beam][blazing-beam] across the platforms dealing massive damage every 0.2 seconds to anyone hit.
+- The middle conveyor carries in magnets that become [Mega Magnetized][mega-magnetize], pulling players towards them and stunning players on contact for 6 seconds.
+- The right conveyor carries in cannons which fire a [Rocket Barrage][rocket-barrage] across the platforms dealing large damage to anyone hit.
+
+The intermissions are where the boss empowers his inventions and not only are they more dangerous, they start to overlap each other. 
+
+- The first time we re-enter phase 1 the the left conveyor turrets now cast [Jumbo Void Beam][jumbo-void-beam] which are much wider and do damage to you incredibly quickly — every 0.2 seconds.
+- The second time we re-enter phase 1 the right conveyor cannons now fire a [Void Barrage][void-barrage] which launches shadow orbs that deal large damage on hit but also deal damage to the rest of the raid via [Voidsplash][voidsplash].
+
+It's hard to confirm this because of PTR logs being buggy and these bosses being barely tested, but from videos the inventions follow a fire, rockets, magnets order. However, the empowered inventions will cast every time.
+
+- First Phase 1: The vanilla order.
+  1. [Blaze Beam][blazing-beam]
+  2. [Rocket Barrage][rocket-barrage]
+  3. [Mega Magnetize][mega-magnetize]
+- Second Phase 1: The [Blaze Beam][blazing-beam] is replaced with [Jumbo Void Beam][jumbo-void-beam] and will now always happen during inventions.
+  1. [Jumbo Void Beam][jumbo-void-beam]
+  2. [Jumbo Void Beam][jumbo-void-beam] & [Rocket Barrage][rocket-barrage]
+  3. [Jumbo Void Beam][jumbo-void-beam] & [Mega Magnetize][mega-magnetize]
+- Third Phase 1: The [Rocket Barrage][rocket-barrage] is replaced with [Void Barrage][void-barrage] and is now also cast every time.
+  1. [Jumbo Void Beam][jumbo-void-beam] & [Void Barrage][void-barrage]
+  2. [Jumbo Void Beam][jumbo-void-beam] & [Void Barrage][void-barrage]
+  3. [Jumbo Void Beam][jumbo-void-beam] & [Void Barrage][void-barrage] & [Mega Magnetize][mega-magnetize]
+
+</Mechanic.Root>
+
+<Mechanic.Root id="465232" name="Sonic Ba-Boom" caption="1 Big & 20 Small Booms" pill={[<HealerPill />]}>
+
+Lockenstock flexes on us, dealing moderate raid damage and applying a 10 second DoT to the raid.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1216508" name="Screw Up" caption="Stunning Displays of Drilling">
+
+Several players are given a bombard mechanic, dealing damage and causing them to spawn a drill under their feet every 1.5 seconds for 4.5 seconds.
+
+You become totally [Screwed!][screwed] if hit, stunning them and applying a moderate 6 second bleed.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1216406" name="Unstable Explosion" caption="Swagger into Staggered Landmines">
+
+Lockenstock places several landmines across the room. Stepping on one triggers [Unstable Explosion][unstable-explosion], dealing large raid damage and giving everyone a 200% vulnerability to this damage for 2 seconds. The player who trigger the landmine gets [Unstable Shrapnel][unstable-shrapnel] foot blisters, inflicting large damage and applying a 1000% vulnerability to this damage for 2 minutes.
+
+There will always be 4 landmines spawning each time the floor pattern changes via [Wire Transfer][wire-transfer], and the landmines spawn in the same positions each time – on the 2nd and 4th piece of sheet metal on each non-electrified platform.
+
+With 3 different floor patterns per phase 1 that's 3 sets of landmines for 12 total mines. They do not time out, but they will detonate if an invention hits them or the platform beneath them becomes electrified.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1214872" name="Pyro Party Pack" caption="Explosive Tank Surprise" pill={[<TankPill/>]}>
+
+Lockenstock gifts his current target an explosive that explodes after 6 seconds dealing large fire damage to the entire raid, reduced by distance.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="465917" name="Gravi-Gunk" caption="Sticky Tank Shoes" pill={[<TankPill/>]}>
+
+The active tank receives a [Gravi-Gunk][gravi-gunk] from Lockenstock's attacks, increasing damage taken by 20% and reducing movement speed by 5%, stacking.
+
+</Mechanic.Root>
+
+## Intermission
+
+When the boss reaches 100 energy he casts a [knockback][beta-launch] which launches players to the entrance wall of the room while he gives lubes up his toys with black blood. At this time, all of the conveyor belts are trying to move you back towards the entrance.
+
+> He jumps to the middle of the top right most platform, standing on its edge where it meets the conveyor. This allows melee to smack him while he channels. The second intermission he flips sides. 
+
+<Mechanic.Root id="466860" name="Bleeding Edge" caption="">
+
+Lockenstock channels for 20 seconds as he enriches an invention with evil blood. The room, of a similarly moody aesthetic, has all 4 platforms electrified while [Black Bloodsplatter][black-bloodsplatter] rains down on the room. Anyone hit takes moderate damage and are disoriented for 2 seconds.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1218319" name="Voidsplosion" caption="Pulsating Raid Damage" pill={[<DangerPill/>, <HealerPill />]}>
+
+Every 5 seconds in the intermission everyone in the raid will take large shadow damage and be given a 1.3 million healing absorbed. This happens 4 times, then the intermission ends (every 5 seconds in his 20 second channel).
+
+On the PTR there were some safe spots where you could stand still that people reserved for healers, in particular where the outside conveyors meet the inner ones. It's not clear if this is a clever use of game mechanics and healers are meant to be doing cardio on the conveyors just like everyone else.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1218344" name="Upgraded Bloodtech" caption="+15% Boss Damage, Stacking">
+
+The fiddling with black blood gives Lockenstock a stacking 15% damage buff every time he exits his intermission.
+
+</Mechanic.Root>
+
+## Strategy
+
+import RaidPlan from "#assets/images/guides/liberation-of-undermine/sprocketmonger-lockenstock/heroic/raidplan.png";
+import { DVDLogo } from "components/dvd-logo";
+
+Crockenshmuck is a completely scripted boss so the strategy is written in stone and all we can do is pretend we can read. I was planning on making a couple of pictures showing key areas of the room for certain mechanics, but I guess budget cuts hit the conveyor belt department or something.
+
+<Image className="rounded-xl my-5" src={RaidPlan} alt="The um, RaidPlan?" />
+
+I am not going to unpack whatever is going on there just now. It takes a lot of time to make RaidPlans for time, sequence-based fights and especially on Heroic, potentially for little benefit when people just need to see the mechanics.
+
+<div className="text-center bg-rose-500/30 px-3 py-3 rounded-xl mb-5 overflow-hidden">
+
+  <div className="absolute top-3 left-3 rotate-45 -z-1 opacity-30">
+    <img src="https://cdn.lemonade-stand.gg/icons/icon_7fx_nightborn_astromancer_red.jpg" height="120" width="120" />
+  </div>
+  <div className="absolute right-2 rotate-15 -z-1 opacity-30">
+    <img src="https://cdn.lemonade-stand.gg/icons/icon_7fx_nightborn_astromancer_green.jpg" height="120" width="120" />
+  </div>
+  <div className="absolute top-0 left-[30%] rotate-5 -z-1 opacity-30">
+    <img src="https://cdn.lemonade-stand.gg/icons/icon_7fx_nightborn_astromancer_yellow.jpg" height="120" width="120" />
+  </div>
+  <div className="absolute top-5 right-[30%] -rotate-12 -z-1 opacity-30">
+    <img src="https://cdn.lemonade-stand.gg/icons/icon_7fx_nightborn_astromancer_blue.jpg" height="120" width="120" />
+  </div>
+
+  I can save the preparation work for when we have to do all of this on Mythic but with one of the greatest hits of our generation. Like Shirley Temple? Or maybe the trine mechanic from<br/><span className="font-serif font-bold tracking-wide text-3xl italic animate-strobe">Star Augur Fucking Etraeus</span>
+
+  <Video src="https://www.youtube.com/watch?v=DIs-LTos3GI" />
+</div>
+
+If you scrolled this far, here are some tips and bits:
+
+- The first two sets of landmines are followed by inventions, meaning we can let the the fourth landmine die, uninsured, via acts of god. The third set of landmines is immediately followed by the intermission which is healing intensive, so we want to clear all of those.
+
+- In the intermission we should gateway to just behind where the boss is channeling on the conveyor belt. There is a short delay before the blood rain starts falling where we want to do this otherwise we risk everyone gating into a disorient.
+
+- The rails of the conveyor belts let you stand still and cast in the intermission, though you still have to dodge the blood.
+
+- There were rumors of a spell by some, its name forgotten by me, that just kills everyone if you go into his third intermission. I don't see any signs of it, but if it is missing then the stacking 15% damage buff is perhaps a soft enrage? 
+
 [activate-inventions]: <https://www.wowhead.com/spell=473276/activate-inventions?dd=15&ddsize=30>
 [blazing-beam]: <https://www.wowhead.com/spell=1216414/blazing-beam?dd=15&ddsize=30>
 [rocket-barrage]: <https://www.wowhead.com/spell=1216525/rocket-barrage?dd=15&ddsize=30>
