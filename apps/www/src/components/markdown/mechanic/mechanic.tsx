@@ -16,6 +16,7 @@ type MechanicProps = {
   pill?: string | (string | ReactNode)[];
   slot?: ReactNode;
   children: ReactNode;
+  className?: string;
 };
 
 const variants = {
@@ -41,7 +42,7 @@ type MechanicPillProps = {
   children: ReactNode;
 };
 
-function Mechanic({ id, env, name, caption, pill, slot, children }: MechanicProps) {
+function Mechanic({ id, env, name, caption, pill, slot, children, className }: MechanicProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
@@ -60,7 +61,7 @@ function Mechanic({ id, env, name, caption, pill, slot, children }: MechanicProp
 
   return (
     <div
-      className="group relative my-4 max-w-none rounded-lg bg-muted shadow-lg"
+      className={cn("group relative my-4 max-w-none rounded-lg bg-muted shadow-lg", className)}
       data-state={isOpen ? "open" : "closed"}
     >
       <div

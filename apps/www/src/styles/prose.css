@@ -1,6 +1,26 @@
 @custom-variant prose-enabled (&:not(:where([class~="not-prose"], [class~="not-prose"] *)));
 
 @layer components {
+  .link {
+    color: var(--color-primary);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 300ms, color 300ms;
+
+    &:hover {
+      background-size: 100% 1px;
+    }
+
+    &[data-wh-icon-added="true"] {
+      background-position: 21px 100%;
+    }
+  }
+}
+
+@layer components {
   .prose-layout {
     /* grid-template-columns: minmax(0, 1fr) 250px; */
 
@@ -32,7 +52,6 @@
 
         &:hover {
           background-size: 100% 1px;
-          /* color */
         }
 
         &[data-wh-icon-added="true"] {

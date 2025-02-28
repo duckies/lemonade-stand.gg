@@ -1,0 +1,245 @@
+---
+title: Heroic Mug'Zee, Heads of Security
+description: I'd kiss me.
+published: "2025-02-23T17:00:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Guides
+    url: /guides
+  - label: Liberation of Undermine
+    url: /guides/liberation-of-undermine
+  - label: Heroic Mug'Zee, Heads of Security
+    url: /guides/liberation-of-undermine/mugzee-heads-of-security/heroic
+hero:
+  image: /images/hero/incontinental-hotel.jpg
+---
+
+import { PrereleaseWarning } from "../components/prerelease-warning";
+
+## Resources
+
+- <PrereleaseWarning />
+- [Dratnos PTR Testing Commentary](https://www.youtube.com/watch?v=Y7O1cLDbF18)
+- [Wowhead Mug'zee Cheat Sheet](https://www.wowhead.com/guide/the-war-within/raids/liberation-of-undermine/mugzee-boss-strategy-abilities)
+
+## Mechanics
+
+### Shared Phase One Mechanics
+
+<Mechanic.Root id="466376" name="Head Honcho" caption="Room Section Based Abilities">
+
+The heart-shaped platform has a red side associated with the Mug head and a, uh, metallic side I'll call blue associated with the Zee head. The associated head takes control when a majority of players are on their side.
+
+- The personality taking control channels raid damage over 6 seconds and applies a stack of their brand. These are 2-minute buffs on the boss that stack, forcing us to spend about a minute per side.
+   - Mug casts [Elemental Carnage][elemental-carnage] and brands himself with [Elemental Calamity][elemental-calamity].
+   - Zee casts [Uncontrolled Destruction][uncontrolled-destruction] and brands himself with [Uncontrolled Burn][uncontrolled-burn].
+
+</Mechanic.Root>
+
+<Mechanic.Root id="466385" name="Moxie" caption="The Evolving Brute">
+
+Mug'Zee gains 1% damage every 5 seconds. Changing sides removes 10 of these stacks.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1216142" name="Double-Minded Fury" caption="Mental Breakdown(s)">
+
+If Mug or Zee remain in charge long enough to gain 100 energy they do this, lethally.
+
+<Image className="rounded-xl" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG5ldjBxdXo5Y28xY2pleHMyenNhMXBzMjU1ZGZvcnJ2Y3ZjeGExYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/v8omVdExrQ9ig/giphy.gif" width="300" height="159" alt="The Hills Have Lead" unoptimized />
+
+</Mechanic.Root>
+
+### Mug Mechanics
+
+import GallagioGoon from "#assets/images/guides/liberation-of-undermine/mugzee-heads-of-security/gallagio-goon.png";
+
+<Mechanic.Root id="472631" name="Earthshaker Gaol" caption="Archaic (English) Jail">
+
+  <Image className="rounded-3xl float-right ml-3 shadow-lg border-3 border-violet-500" src={GallagioGoon} width="200" height="200" alt="Gallagio Goon" unoptimized />
+
+  <p className="mt-0">Mug summons these absolutely magnificent rock elementals, the [Gallagio Goons](https://www.wowhead.com/npc=233474/gallagio-goon) to spawn beneath two players, dealing large damage split between those who help soak. This places these two groups of players in rock gaols (jails).</p>
+
+  - If Mug'Zee or another goon overlap the jail, or if all players escape the jail, the goon [enrages][enraged].   
+  - The goon will cast a [frontal cone][shakedown] to be dodged and a [cast][pay-respects] that needs to be interrupted or it gives the boss a large shield.
+  - On death, the goon [erupts][gaol-break] dealing large damage to players within the gaol and knocking them back. If a player is knocked back into the wall of a goal they will break it.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="466476" name="Frostshatter Boots" caption="Ice, Wall, Crazy" pill={[<DangerPill />]}>
+
+Mug freezes the toes of several players who arent in a Gaol, dealing heavy damage for 8 seconds and causing them to slide around.
+
+- <Badge>Heroic</Badge> [Frostshatter Spear][frostshatter-spear] is launched at players with the debuff, inflicting lethal frost damage and freezing them for 30 seconds. The spear can be incercepted by a Gaol wall or Unstable Crawler Mine.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="466509" name="Stormfury Finger Gun" caption="Pull That Finger">
+
+Mug uses his finger gun to shoot a beam of lightning at a fixated player, dealing heavy damage over 4 seconds to anyone in the beam. A [Stormfury Cloud][stormfury-cloud] malingers in at the impact locations (the hit player(s)?) dealing large damage and stunning nearby players.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="466518" name="Molten Gold Knuckles" caption="Dripping in Gold" pill={[<TankPill />]}>
+
+Mug does a frontal cone knockback at his current target which applies 30 stacks of [Golden Drip][golden-drip] to anyone hit. As the player moves a stack of the debuff is removed and leaves a [pool][molten-gold-pool] of molten gold on the ground for 3 minutes. If the player doesn't remove all stacks of the debuff within 12 seconds they are turned into [Solid Gold][solid-gold], stunning them for 30 seconds.
+
+</Mechanic.Root>
+
+### Zee Mechanics
+
+<Mechanic.Root id="466539" name="Unstable Crawler Mines" caption="Would hate to see these stable" pill={[<Mechanic.Pill className="bg-rose-500 font-bold animate-strobe">Holy Shit</Mechanic.Pill>]}>
+
+Zee scatters a *bunch* of Crawler Mines that slowly scuttle towards fixated players that explodes on contact. That's not the problem though 😇
+
+- <Badge className="bg-rose-500">Bullshit</Badge> [Unstable Cluster Bomb][unstable-cluster-bomb] on heroic the mine explodes into 4 bombs that rain down nearby that can be soaked by players. Failure to soak a bomb causes it to huge deal raid-wide damage.
+- [Searing Shrapnel][searing-shrapnel] is applied to the mine popper, causing them to absorb healing and taking damage until healed off.
+- [Experimental Plating][experimental-plating] crawler mines are immune to our pathetic damage. At 100 energy, they also become immune to crowd-control and gain a 200% movement speed buff.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="467381" name="Goblin-guided Rocket" caption="TSally Bomba">
+
+A volunteer goblin throws it back on a random player from orbit, dealing large damage split meteor style, leaving behind a pool of [Hot Mess][hot-mess].
+
+- This impact also detonates Unstable Crawler Mines.
+- If less than 5 people soak, it deals damage to the entire raid.
+- <Badge>Heroic</Badge> Players who soak the rocket take 500% increased damage from rockets for 3 minutes via [Radiation Sickness][radiation-sickness].
+
+</Mechanic.Root>
+
+<Mechanic.Root id="469490" name="Double Whammy Shot" caption="The Only Shot Approved By RFK Jr.">
+
+Zee aims to fire a fancy bullet at a random player, inflicting huge physical damage to the closest player and applying [Perforating Wound][perforating-wound], dealing moderate physical damage every 1.5 seconds for 45 seconds, stacking. All other players in the line of fire take the same amount of damage reduced by this "closest player's" mitigation.
+
+- Unstable Crawler Mines in the line of fire are detonated.
+- All players hit are stunned for 2 seconds.
+
+The original target is also affected by [Explosive Payload][explosive-payload], exploding after 6 seconds inflicting large damage to anyone nearby and *also* detonated any Unstable Crawler Mines in the radius.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="466545" name="Spray and Pray" caption="Multi-Bullet Jutsu">
+
+Zee fires a cone of bullets at a random player, dealing moderate damage every 0.3 seconds for 3 seconds to players in the effect and detonating any Unstable Crawler Mines hit, because fuck you.
+
+</Mechanic.Root>
+
+#### MK II Electro Shocker
+
+Zee spawns 2 Electro Shocker adds when he becomes head honcho.
+
+<Mechanic.Root id="1214991" name="Surging Arc" caption="Chain Lightning, but Different">
+
+The Mk II Electro Shocker fires an arc of electricity at a random player, dealing medium damage and jumping up to 3 other players, increasing in damage with each jump.
+
+</Mechanic.Root>
+
+<Mechanic.Root id="1215991" name="Faulty Wiring" caption="It Fell Over In Exhaustion">
+
+When a Mk II Electro Shocker reaches 80% health is becomes stunned for 8 seconds, taking 100% increased damage.
+
+</Mechanic.Root>
+
+#### Volunteer Rocketeer
+
+The [Goblin-guided Rocket][goblin-guided-rocket]'s pilot survived, barely. 
+
+<Mechanic.Root id="1215488" name="Disintegration Beam" caption="Gradual Spiciness">
+
+The rocketeer fires a disintegration beam at a random player dealing low damage that increases by 100% every second.
+
+</Mechanic.Root>
+<Mechanic.Root id="1216202" name="Rocket Jump" caption="Near death, but never near the ground">
+
+The goblina jumps around to random players.
+
+</Mechanic.Root>
+
+### Intermission
+
+At 40% Mug'Zee transitions into the intermission. There's no footage of the boss below 80% health let alone 40% so, these are just words.
+
+<Mechanic.Root id="1215953" name="Static Charge" caption="Lightning McQueef">
+
+Mug'Zee charges at a random player, dealing large damage to anyone in the path and destroying any Gaols and Mines along the way before casting [Bulletstorm][bulletstorm].
+
+</Mechanic.Root>
+
+<Mechanic.Root id="471574" name="Bulletstorm" caption="The Hills Are No Longer Alive">
+
+Mug'Zee does a twirl after [Static Charge][static-charge], firing lightning out of his Mug side and bullets out of his Zee side. They do damage, unsurprisingly. Oh don't forget this damage destroys Gaols and Unstable Crawler Mines.
+
+<Image className="rounded-xl" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG5ldjBxdXo5Y28xY2pleHMyenNhMXBzMjU1ZGZvcnJ2Y3ZjeGExYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/v8omVdExrQ9ig/giphy.gif" width="300" height="159" alt="The Hills Have Lead" unoptimized />
+
+</Mechanic.Root>
+
+### Phase Two Mechanics
+
+The conflicting personalities of Mug and Zee come together in a rapturous marriage of shamanism and NRA meetings. What are they doing? So glad you asked, it's everything — they just do all of their phase one mechanics. Oh, and they [Bloodlust][bloodlust].
+
+## "Strategy"
+
+### Mug, Red Side
+
+![](#assets/images/guides/liberation-of-undermine/mugzee-heads-of-security/heroic/raidplan_p1.jpg)
+
+The red side with the Mugmug is the tolerable side as of February 27th, 2025 AD. We need two groups of 5 players to stand in each Gaol to help kill the Goon-filled center. I heard that even once part of the wall is broken you still can't hit the Goon without being in the Gaol, but that could be fake news. The players on the outside need to be mentally prepared for just how slippery [Frostshatter Boots][frostshatter-boots] are, movement, stopping, and turning is a nightmare.
+
+### Zee, Blue Side
+
+![](#assets/images/guides/liberation-of-undermine/mugzee-heads-of-security/heroic/raidplan_p2.jpg)
+
+If you've watched a video then you know that this side is problematic. There is a vulnerability soak mechanic that might require us to split the soaks if we get the mechanic more than once, but I'll discuss the two major mechanics.
+
+- Quite a few [Unstable Crawler Mines][unstable-crawler-mines] spawn and fixate players. They are crowd-controllable until they reach full energy, but even if we successfully leave them in some corner of the room they'll eventually rejoin the fight and a myriad of mechanics break the mines. The problem with the mines is not the mines themselves, but the bombs that fly out of them as 4 soak circles that deal massive raid damage if *any* of them are missed. If the mines are even slightly close to each other the resulting bombs could land under another mine, cascading into the entire raid scrambling to soak bombs.
+
+   I genuinely don't know how to approach this mechanic as of right now. Neither did anyone on the PTR, so we'll have to see what clever use of game mechanics Liquid and Echo come up with. Or whatever nerfs Blizard makes watching them fail to it.
+
+- The [Double Whammy Shot][double-whammy-shot] is a, "lets really try to kill this player" kind of boss mechanic. The player selected is at the mercy of a tank to use as much active mitigation as possible and anything unmitigated is dealt to the original target (or any other person in the line of fire). That player isn't out of the woods yet, as they explode for another massive amount of damage 6 seconds later, hence the "Double-Whammy".
+
+### Intermission & Phase Two
+
+Uncharted waters, these are. The intermission is uninspiring with Mug'Zee charging at someone and spinning around doing conical damage from each arm as he T-poses. Phase 2 has no other mechanics, just all of them from phase 1 at the same time, and he [Bloodlusts][bloodlust].
+
+[head-honcho]: <https://www.wowhead.com/spell=466376/head-honcho?dd=15&ddsize=30>
+[moxie]: <https://www.wowhead.com/spell=466385/moxie?dd=15&ddsize=30>
+[elemental-carnage]: <https://www.wowhead.com/spell=468658/elemental-carnage?dd=15&ddsize=30>
+[elemental-calamity]: <https://www.wowhead.com/spell=468663/elemental-calamity?dd=15&ddsize=30>
+[uncontrolled-destruction]: <https://www.wowhead.com/spell=468694/uncontrolled-destruction?dd=15&ddsize=30>
+[uncontrolled-burn]: <https://www.wowhead.com/spell=469715/uncontrolled-burn?dd=15&ddsize=30>
+[double-minded-fury]: <https://www.wowhead.com/spell=1216142/double-minded-fury?dd=15&ddsize=30>
+[earthshaker-gaol]: <https://www.wowhead.com/spell=472631/earthshaker-gaol?dd=15&ddsize=30>
+[enraged]: <https://www.wowhead.com/spell=1214623/enraged?dd=15&ddsize=30>
+[shakedown]: <https://www.wowhead.com/spell=472659/shakedown?dd=15&ddsize=30>
+[pay-respects]: <https://www.wowhead.com/spell=472782/pay-respects?dd=15&ddsize=30>
+[gaol-break]: <https://www.wowhead.com/spell=470910/gaol-break?dd=15&ddsize=30>
+[shaken-earth]: <https://www.wowhead.com/spell=474554/shaken-earth?dd=15&ddsize=30>
+[frostshatter-boots]: <https://www.wowhead.com/spell=466476/frostshatter-boots?dd=15&ddsize=30>
+[frostshatter-spear]: <https://www.wowhead.com/spell=466480/frostshatter-spear?dd=15&ddsize=30>
+[stormfury-finger-gun]: <https://www.wowhead.com/spell=466509/stormfury-finger-gun?dd=15&ddsize=30>
+[stormfury-cloud]: <https://www.wowhead.com/spell=466516/stormfury-cloud?dd=15&ddsize=30>
+[molten-gold-knuckles]: <https://www.wowhead.com/spell=466518/molten-gold-knuckles?dd=15&ddsize=30>
+[golden-drip]: <https://www.wowhead.com/spell=467202/golden-drip?dd=15&ddsize=30>
+[solid-gold]: <https://www.wowhead.com/spell=467225/solid-gold?dd=15&ddsize=30>
+[molten-gold-pool]: <https://www.wowhead.com/spell=470089/molten-gold-pool?dd=15&ddsize=30>
+[unstable-crawler-mines]: <https://www.wowhead.com/spell=466539/unstable-crawler-mines?dd=15&ddsize=30>
+[unstable-cluster-bomb]: <https://www.wowhead.com/spell=1220551/unstable-cluster-bomb?dd=15&ddsize=30>
+[searing-shrapnel]: <https://www.wowhead.com/spell=469043/searing-shrapnel?dd=15&ddsize=30>
+[experimental-plating]: <https://www.wowhead.com/spell=1219283/experimental-plating?dd=15&ddsize=30>
+[goblin-guided-rocket]: <https://www.wowhead.com/spell=467381/goblin-guided-rocket?dd=15&ddsize=30>
+[disintegration-beam]: <https://www.wowhead.com/spell=1215488/disintegration-beam?dd=15&ddsize=30>
+[rocket-jump]: <https://www.wowhead.com/spell=1216202/rocket-jump?dd=15&ddsize=30>
+[hot-mess]: <https://www.wowhead.com/spell=472057/hot-mess?dd=15&ddsize=30>
+[radiation-sickness]: <https://www.wowhead.com/spell=469076/radiation-sickness?dd=15&ddsize=30>
+[spray-and-pray]: <https://www.wowhead.com/spell=466545/spray-and-pray?dd=15&ddsize=30>
+[surging-arc]: <https://www.wowhead.com/spell=1214991/surging-arc?dd=15&ddsize=30>
+[faulty-wiring]: <https://www.wowhead.com/spell=1215591/faulty-wiring?dd=15&ddsize=30>
+[double-whammy-shot]: <https://www.wowhead.com/spell=469490/double-whammy-shot?dd=15&ddsize=30>
+[perforating-wound]: <https://www.wowhead.com/spell=469391/perforating-wound?dd=15&ddsize=30>
+[explosive-payload]: <https://www.wowhead.com/spell=469375/explosive-payload?dd=15&ddsize=30>
+[static-charge]: <https://www.wowhead.com/spell=1215953/static-charge?dd=15&ddsize=30>
+[bulletstorm]: <https://www.wowhead.com/spell=471574/bulletstorm?dd=15&ddsize=30>
+[bloodlust]: <https://www.wowhead.com/spell=463967/bloodlust?dd=15&ddsize=30>
