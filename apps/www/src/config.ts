@@ -1,11 +1,11 @@
 import DuckyAvatar from "#public/images/avatars/ducky.png";
 
 const metadata = {
+  description: "The lemon-scented World of Warcraft raiding community.",
   title: {
     default: "Lemonade Stand",
     template: "%s | Lemonade Stand",
   },
-  description: "The lemon-scented World of Warcraft raiding community.",
 };
 
 export const Expansions = [
@@ -17,109 +17,109 @@ export const Expansions = [
 ];
 
 export interface Encounter {
+  icon: string;
   name: string;
   slug: string;
-  icon: string;
 }
 
 export interface Instance {
+  encounters: Encounter[];
   name: string;
   slug: string;
-  encounters: Encounter[];
 }
 
 export const instances = [
   {
-    name: "Liberation of Undermine",
-    slug: "liberation-of-undermine",
     encounters: [
       {
+        icon: "inv_111_raid_achievement_vexieandthegeargrinders",
         name: "Vexie and the Geargrinders",
         slug: "vexie-and-the-geargrinders",
-        icon: "inv_111_raid_achievement_vexieandthegeargrinders",
       },
       {
+        icon: "inv_11_arenaboss_colossalclash",
         name: "Cauldron of Carnage",
         slug: "cauldron-of-carnage",
-        icon: "inv_11_arenaboss_colossalclash",
       },
       {
+        icon: "inv_111_raid_achievement_rikreverb",
         name: "Rik Reverb",
         slug: "rik-reverb",
-        icon: "inv_111_raid_achievement_rikreverb",
       },
       {
+        icon: "inv_111_raid_achievement_stixbunkjunker",
         name: "Stix Bunkjunker",
         slug: "stix-bunkjunker",
-        icon: "inv_111_raid_achievement_stixbunkjunker",
       },
       {
+        icon: "inv_111_raid_achievement_sprocketmongerlocknstock",
         name: "Sprocketmonger Lockenstock",
         slug: "sprocketmonger-lockenstock",
-        icon: "inv_111_raid_achievement_sprocketmongerlocknstock",
       },
       {
+        icon: "inv_111_raid_achievement_onearmedbandit",
         name: "The One-Armed Bandit",
         slug: "one-armed-bandit",
-        icon: "inv_111_raid_achievement_onearmedbandit",
       },
       {
+        icon: "inv_111_raid_achievement_mugzeeheadsofsecurity",
         name: "Mug'zee, Heads of Security",
         slug: "mugzee-heads-of-security",
-        icon: "inv_111_raid_achievement_mugzeeheadsofsecurity",
       },
       {
+        icon: "inv_111_raid_achievement_chromekinggallywix",
         name: "Chrome King Gallywix",
         slug: "chrome-king-gallywix",
-        icon: "inv_111_raid_achievement_chromekinggallywix",
       },
     ],
+    name: "Liberation of Undermine",
+    slug: "liberation-of-undermine",
   },
   {
-    name: "Nerub-ar Palace",
-    slug: "nerubar-palace",
     encounters: [
       {
+        icon: "inv_achievement_raidnerubian_nerubianhulk",
         name: "Ulgrax the Devourer",
         slug: "ulgrax-the-devourer",
-        icon: "inv_achievement_raidnerubian_nerubianhulk",
       },
       {
+        icon: "inv_achievement_raidnerubian_blackblood",
         name: "The Bloodbound Horror",
         slug: "the-bloodbound-horror",
-        icon: "inv_achievement_raidnerubian_blackblood",
       },
       {
+        icon: "inv_achievement_raidnerubian_nerubianevolved",
         name: "Sikran, Captain of the Sureki",
         slug: "sikran-captain-of-the-sureki",
-        icon: "inv_achievement_raidnerubian_nerubianevolved",
       },
       {
+        icon: "inv_achievement_raidnerubian_flyingnerubianevolved",
         name: "Rasha'nan",
         slug: "rasha-nan",
-        icon: "inv_achievement_raidnerubian_flyingnerubianevolved",
       },
       {
+        icon: "inv_achievement_raidnerubian_swarmmother",
         name: "Bloodtwister Ovi'nax",
         slug: "bloodtwister-ovinax",
-        icon: "inv_achievement_raidnerubian_swarmmother",
       },
       {
+        icon: "inv_achievement_raidnerubian_etherealassasin",
         name: "Nexus-Princess Ky'veza",
         slug: "nexus-princess-kyveza",
-        icon: "inv_achievement_raidnerubian_etherealassasin",
       },
       {
+        icon: "inv_achievement_raidnerubian_council",
         name: "The Silken Court",
         slug: "the-silken-court",
-        icon: "inv_achievement_raidnerubian_council",
       },
       {
+        icon: "inv_achievement_raidnerubian_queenansurek",
         name: "Queen Ansurek",
         slug: "queen-ansurek",
-        icon: "inv_achievement_raidnerubian_queenansurek",
       },
     ],
+    name: "Nerub-ar Palace",
+    slug: "nerubar-palace",
   },
 ] as const satisfies Instance[];
 
@@ -129,12 +129,12 @@ export const website = {
 
 export const authors = {
   ducky: {
-    name: "Ducky",
     avatar: DuckyAvatar,
+    name: "Ducky",
   },
 } as const;
 
 export const authorSlugs: AuthorSlug[] = ["ducky"];
 
-export type AuthorSlug = keyof typeof authors;
 export type Author = (typeof authors)[AuthorSlug];
+export type AuthorSlug = keyof typeof authors;

@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@lemonade-stand/ui";
 import { useSpell } from "hooks/wowhead";
 import type { ImageProps } from "next/image";
@@ -7,10 +9,12 @@ type WarcraftIconProps = Omit<ImageProps, "id" | "width" | "height" | "alt" | "s
   id: number | string;
   size?: number;
   env?: WowheadEnv;
+  dd?: string | number;
+  ddsize?: number | string;
 };
 
-export function WarcraftIcon({ id, size, env, ...props }: WarcraftIconProps) {
-  const { data, status } = useSpell(id, env);
+export function WarcraftIcon({ id, size, env, dd, ddsize, ...props }: WarcraftIconProps) {
+  const { data, status } = useSpell(id, env, dd, ddsize);
 
   if (status === "pending") {
     return (

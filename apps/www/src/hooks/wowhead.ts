@@ -8,14 +8,21 @@ export interface WowheadTooltipSpell {
   tooltip2: string;
 }
 
-export function useSpell(id: number | string, env?: WowheadEnv) {
+export function useSpell(id: number | string, env?: WowheadEnv, dd?: string | number, ddsize?: number | string) {
   return useQuery({
     queryKey: ["wowhead", "spell", id, env],
     queryFn: async () => {
-      const dataEnv = env ? WowheadEnvs[env] : 1;
-      const response = await fetch(
-        `https://nether.wowhead.com/tooltip/spell/${id}?dataEnv=${dataEnv}`,
-      );
+      const url = new URL(`https://nether.wowhead.com/tooltip/spell/${id}`)
+
+      if (dd) {
+        url.searchParams.set("dd", dd.toString());
+      }
+      if (ddsize) {
+        url.searchParams.set("ddsize", ddsize.toString());
+      }
+      url.searchParams.set("dataEnv", (env ? WowheadEnvs[env] : 1).toString());
+
+      const response = await fetch(url);
       const data = await response.json();
 
       if (!response.ok) {

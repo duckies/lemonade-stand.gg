@@ -16,57 +16,146 @@ hero:
   image: /images/hero/incontinental-hotel.jpg
 ---
 
-import { Badge } from "@lemonade-stand/ui"
+import { PrereleaseWarning } from "../components/prerelease-warning";
 
-import RubbishBar from "#assets/images/guides/liberation-of-undermine/stix-bunkjunker/heroic/rolling-rubbish-bar2.jpg"
 
 This is a phaseless patchwerk with add cleave fight where about 23 seconds into the fight and every 50 thereafter he fills the room with bombs and trash piles. He also gives 5 players a rolling Katamari ball that absorbs trash piles and adds to grow in size, allowing players to make them large enough to destroy these bombs or slam them into the boss himself for damage. Just make sure not to roll over the spicy crabs.
 
 > That which has no fins nor scales in the waters, that is a detestable thing unto you.
 
+
 ## Resources
 
-- [QuestionablyEpic One-Page Notes](https://questionablyepic.com/undermine/stix-bunkjunker)
-- [Wowhead One-Page Notes](https://www.wowhead.com/guide/the-war-within/raids/liberation-of-undermine/stix-bunkjunker-boss-strategy)
+- <PrereleaseWarning />
+- [Wowhead Cheat Sheet](https://www.wowhead.com/guide/the-war-within/raids/liberation-of-undermine/stix-bunkjunker-boss-strategy)
+- [PTR Logs](https://docs.google.com/spreadsheets/d/1YT4GpIT90o73NMl4EAzOnBJv4XuXIHlf3-AoAFSebFM/edit?gid=497147122#gid=497147122)
+
+<Video src="https://www.youtube.com/watch?v=QnbzGp0Esqo" />
+
+import { Badge } from "@lemonade-stand/ui";
+
+import RubbishBar from "#assets/images/guides/liberation-of-undermine/stix-bunkjunker/heroic/rolling-rubbish-bar2.jpg";
 
 ## Mechanics
 
 ### Phase One
 
-- [Electromagnetic Sorting][electromagnetic-sorting] is cast every time the boss reaches full energy, causing him to deal large raid damage over 5 seconds and flinging [Garbage Piles][garbage-pile] and [Discarded Doomsplosive][discarded-doomsplosive] bombs across the arena as well as giving 1 tank and 4 random players [Rolling Rubbish][rolling-rubbish].
+<Mechanic id="464399" difficulty="heroic" name="Electromagnetic Sorting" caption="Garbage Piles">
 
-- <Image className="md:float-right md:ml-3" src={RubbishBar} alt="Medium size trash ball" />  [Rolling Rubbish][rolling-rubbish] causes a player to roll around on a ball of trash Katamari-style for 20 seconds while taking 75% reduced damage. The ball can be grown when collecting trash of equal or smaller size. The ball starts out small and can grow to a medium, and finally large, size.
+When Stix reaches full energy he deals 1.1 million nature damage to all players every 1 sec for 5 sec and flinging 
+
+</Mechanic>
+
+<Mechanic id="461536" difficulty="heroic" name="Rolling Rubbish" caption="Trashy Katamari">
+
+<Image className="md:float-right md:ml-3" src={RubbishBar} alt="Medium size trash ball" /> Stix gives 5 players a ball of trash to roll around on Katamari-style for 20 seconds while taking 75% reduced damage. The ball can be grown when collecting trash of equal or smaller size. The ball starts out small and can grow to a medium, and finally large, size.
   - Small balls can grow to a medium size by rolling over any combination of 4 Junkyard Hyenas or small garbage piles.
-  - Medium balls can grow to a large size by rolling over any combination of 4 Scrapmasters or medium garbage piles in addition to every 2 small garbage piles.
-  - Large balls can be rolled into Stix causing [Garbage Dump][garbage-dump], dealing up to 1.5% of his max health as nature damage corresponding to the size of the ball. This destroys the ball in the process.
-  - Balls can be destroyed by either rolling them into Stix causing [Garbage Dump][garbage-dump], dealing up to 1.5% of his max health in damage corresponding to the size of the ball, or growing the ball to a large size and running into bombs, muffling their explosion.
+  - Medium balls can grow to a large size by rolling over any combination of 4 Scrapmasters or medium garbage piles and 8 small garbage piles.
+  - Balls can be (intentionally) destroyed by either rolling them into Stix causing [Garbage Dump][garbage-dump], dealing up to 1.5% of his max health in damage corresponding to the size of the ball, or growing the ball to a large size and running into bombs, muffling their explosion.
   - When a player's ball is destroyed any enemies absorbed are [ejected][messed-up] nearby, causing them to take 100% increased damage but they can no longer be absorbed by balls anymore.
   - Rolling over a player [stuns][rolled] them for 1 second and deals large damage.
 
-- [Discarded Doomplosives][discarded-doomsplosive] are large bombs that explode after 26 seconds, dealing 2.4 million fire damage to the raid and applying [Doomsploded][doomsploded] to everyone, a light dot that lasts 1 minute but increases damage taken by a bomb going off by 200% for the duration. A player with a large [Rolling Rubbish][rolling-rubbish] ball can roll over these bombs, causing a [Muffled Doomsplosion][muffled-doomsplosion], destroying both the bomb and the player's ball while doing mild raid damage.
-- <Badge>Heroic</Badge> [Territorial][territorial] Bombshells are crab bombs that guard trash piles, refusing to leave and brushing off crowd-control while they're above 75% health. They [explode][short-fuse] after 30 seconds or if a large enough (?) [Rolling Rubbish][rolling-rubbish] comes into contact with them, dealing large raid damage and applying a small dot for 8 seconds, killing itself in the process.
-- Scrapmasters [leap][dumpster-dive] at players, dealing large damage and knocking back players at the point of impact. They also channel the interruptible ability [Scrap Rockets][scrap-rockets] at a random player, dealing moderate damage every 0.75 seconds for 9 seconds.
-- Junkyard Hyenas melee and [bite][infected-bite] players, a heroic mechanic dealing large physical damage and applying a disease reducing healing received by 10% for 10 seconds.
-- Stix marks random players, and sometimes garbage piles, with [Incinerator][incinerator] for 3 seconds, after which debuffing them with [Incineration][incineration], causing them and those around them to take large fire damage over 3 seconds. If this debuff hits a [Garbage Pile][garbage-pile] it ignites into [Hot Garbage][hot-garbage], turning the area into fire miasma and applying a permanent stacking dot, [Toxic Fumes][toxic-fumes], to the raid.
-- In addition to a tank always being chosen for [Rolling Rubbish][rolling-rubbish], there are two other abilities the boss casts on his current target:
-  - [Demolish][demolish] is a standard taunt swap mechanic that deals large nature and physical damage in addition to applying a 100% vulnerability to all damage taken for 50 seconds.
-  - <Badge>Heroic</Badge> [Meltdown][meltdown] deals large nature damage every 1 sec for 3 sec to his current target.
+</Mechanic>
 
-- The boss goes into [Overdrive][overdrive] after 2 garbage cycles causing him to fly up into the air while taking 99% reduced damage. He rains down [swirls][overcharged-bolt] before [landing][trash-compactor], dealing fatal damage to anyone in the impact area as well as dealing large raid damage and knocking players back. For the rest of the encounter he is buffed by [Maximum Output][maximum-output], increasing attack speed by 25% for the rest of the encounter that also permanently buffs each garbage cycle:
+<Mechanic id="464865" difficulty="heroic" name="Discarded Doomsplosive" caption="Bombs">
+
+Stix spawns large bombs that explode after 26 seconds, dealing 18.8 million fire damage to the raid and applying [Doomsploded][doomsploded], a dot that deals 377k fire damage every 2 sec and increasing damage taken by Doomsploded by 200% for 1 minute. You know, if enough people lived the 18.8 million explosion to not immediately wipe.
+
+A player with a large [Rolling Rubbish][rolling-rubbish] ball can roll over these bombs, causing a [Muffled Doomsplosion][muffled-doomsplosion], destroying both the bomb and the player's ball while doing mild raid damage.
+
+</Mechanic>
+
+### Territorial Bombshell
+
+Territorial Bombshells guard a trash pile precious to them.
+
+<Mechanic id="463066" difficulty="heroic" name="Territorial" caption="Clinger Crabs">
+
+The bombshell refuses to leave a trash pile, gaining immunity to crowd control effects while above 75% health.
+
+</Mechanic>
+
+<Mechanic id="473115" difficulty="heroic" name="Short Fuse" caption="Crab Ranboom">
+
+After 30 seconds the bombshell explodes, dealing 1.1 million fire damage to all players and applying a dot that deals 566k fire damage every 1 sec for 8 sec, killing itself in the process. 
+
+A player with a large enough (?) [Rolling Rubbish][rolling-rubbish] ball coming into contact with a bombshell causes this effect instantly and destroying the Rolling Rubbish.
+
+</Mechanic>
+
+<Mechanic id="472893" difficulty="heroic" name="Incineration" caption="Fire DoT">
+
+Stix fires rockets at random players and occasionally garbage piles themselves, dealing 1.4 million fire damage and applying [Incineration][incineration] for 10 seconds.
+
+- [Incineration][incineration] is a dot which deals 944k fire damage every 0.75 sec to anyone within 3 yards of the target.
+
+</Mechanic>
+
+<Mechanic id="464248" difficulty="heroic" name="Hot Garbage" caption="Garbage Fumes">
+
+If any of the [Garbage Piles][garbage-pile] are hit by [Incinerator][incinerator] or [Incineration][incineration] they ignite into [Hot Garbage][hot-garbage], turning the area into fire miasma dealing 1.8 million fire damage every 1 sec to players in the area and applying a permanent stacking dot, [Toxic Fumes][toxic-fumes], to the raid.
+
+[Toxic Fumes][toxic-fumes] deals 78k nature damage every 2 seconds to all players.
+
+</Mechanic>
+
+<Mechanic id="464112" difficulty="heroic" name="Demolish" caption="Taunt Swap" pill={[<MechanicPill key="1" variant="blue">Tanks</MechanicPill>]}>
+
+Demolish is a standard taunt swap mechanic that deals 6.2 million nature and physical damage in addition to applying a 100% vulnerability to all damage taken for 50 seconds.
+
+</Mechanic>
+
+<Mechanic id="1217954" difficulty="heroic" name="Meltdown" caption="Channeled Tank Damage" pill={[<MechanicPill key="1" variant="blue">Tanks</MechanicPill>]}>
+
+Stix channels a 5 million nature damage every 1 sec for 3 sec into his cuurrent target.
+
+</Mechanic>
+
+<Mechanic id="467117" difficulty="heroic" name="Overdrive" caption="Power-Up After 2 Garbage Cycles">
+
+After 2 garbages cycles Stix flies into the air while taking 99% reduced damage. He rains down [swirls][overcharged-bolt] before [landing][trash-compactor], dealing fatal damage to anyone in the impact area as well as dealing large raid damage and knocking players back. For the rest of the encounter he is buffed by [Maximum Output][maximum-output], increasing attack speed by 25% and permanently buffing garbage cycles:
   - He spawns 1 additional bomb, 2 additional Territorial Bombshells, and extra Scrapmasters and Junkyard Hyenas.
   - Junkyard Hyenas have 25% additional attack speed.
+
+</Mechanic>
+
+### Scrapmasters
+
+Jumpy little goblin buggers that have an interruptible cast.
+
+<Mechanic id="466742" difficulty="heroic" name="Dumpster Dive" caption="Jump Jump">
+
+They jump around at random players, dealing 3.7 million nature damage to anyone within 8 yards.
+
+</Mechanic>
+
+<Mechanic id="1219384" difficulty="heroic" name="Scrap Rockets" caption="Interruptible Cast" pill={[<MechanicPill key="1">Interruptible</MechanicPill>]}>
+
+The scrapmaster fires rockets at a random player, dealing 881k fire damage every 0.75 sec for 9 sec.
+
+</Mechanic>
+
+### Junkyard Hyenas
+
+Unclean hyenas that bite random ankles.
+
+<Mechanic id="466748" difficulty="heroic" name="Infected Bite" caption="Bite Bite" pill={[<MechanicPill key="1">Heroic</MechanicPill>]}>
+
+They bite a player, a heroic mechanic dealing large physical damage and applying a disease reducing healing received by 10% for 10 seconds.
+
+</Mechanic>
 
 ## Strategy
 
 The boss spawns 2 [Discarded Doomsplosive][discarded-doomsplosive] the first 2 times he reaches 100 energy, 3 every time thereafter, and always gives 5 players [Rolling Rubbish][rolling-rubbish]. One of these players is always a tank. It can pick healers, but it's possible it tries to only pick at most 1 healer.
 
 We are allowed to give select people different jobs with the balls, and hence a strategy with options, maybe.
-- We need as many players as there are bombs to grow their ball until it is large to destroy them. These players should also be prepared to delay breaking a bomb if the raid is unhealthy.
+- We need as many players as there are bombs to grow their ball until it is large to destroy them. These players should also be prepared to delay breaking a bomb if the raid is unhealthy — aka listening to the raid leader.
 - The other players have to remove their balls by rolling them into the boss, preferably when it's large to deal the maximum 1.5% of his health. Additionally, these players should prioritize soaking up adds so that when their bomb is destroyed on the boss, the adds are released nearby and take increased damage.
 
 Until we know more about the tuning it's best to expect should you be given a ball to opportunistically grow it to a large size as safely as can be without being a total terrorist running over people or any Territorial Bombshells. If we hard assign 3 people to do bombs and one of them accidentally hits a Bombshell, and nobody is left to break it, we could wipe to overthinking the mechanic.
 
-On the other hand, I would not be surprised if there ends up being a strategy where you 6 heal the boss, assign a tank to always do one of the bombs, and then pick one other person on the fly to do the 2nd bomb. When there are 3 bombs you can let the third explode if you can survive the initial hit and sustain the 1 minute dot associated with the vulnerability. The time between each cycle is 50 seconds and it takes 26 for a bomb to explode after spawning, meaning that outside of attrition, the only binary wipe mechanics are letting 2 bombs go off in the same cycle, or maybe a bomb and a crab are rolled over at the same time and a combination of this damage overwhelms the healers.
+There's nothing worth showing spatially, so watch a video!
 
 [electromagnetic-sorting]: <https://www.wowhead.com/spell=464399/electromagnetic-sorting?dd=15&ddsize=30>
 [rolling-rubbish]: <https://www.wowhead.com/spell=461536/rolling-rubbish?dd=15&ddsize=30>

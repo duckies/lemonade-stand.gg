@@ -6,12 +6,13 @@ import { type WowheadEnv, buildWowheadUrl } from "components/wowhead/constants";
 import { WarcraftIcon } from "components/wowhead/icon";
 import { ChevronDownIcon } from "lucide-react";
 import { AnimatePresence, type Transition, type Variants, motion } from "motion/react";
-import { Fragment, type ReactNode, useCallback, useMemo, useState } from "react";
+import { Fragment, type ReactNode, useCallback, useState } from "react";
 
 type MechanicProps = {
   name: string;
   id: number | string;
   env?: WowheadEnv;
+  difficulty?: "normal" | "heroic" | "mythic";
   caption?: string;
   pill?: string | (string | ReactNode)[];
   slot?: ReactNode;
@@ -37,12 +38,16 @@ const transition = {
   ease: [0.04, 0.62, 0.23, 0.98],
 } satisfies Transition;
 
-type MechanicPillProps = {
+export type MechanicPillProps = {
   className?: string;
   children: ReactNode;
 };
 
-function Mechanic({ id, env, name, caption, pill, slot, children, className }: MechanicProps) {
+import { useMemo } from "react";
+
+
+
+function Mechanic({ id, env, difficulty, name, caption, pill, slot, children, className }: MechanicProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
@@ -52,11 +57,13 @@ function Mechanic({ id, env, name, caption, pill, slot, children, className }: M
       <WarcraftIcon
         className="shadow-xl [box-shadow:0_0_0_1px_rgb(250_214_122)]"
         id={id}
+        dd={difficulty === "heroic" ? 15 : undefined}
+        ddsize={difficulty === "heroic" ? 30 : undefined}
         env={env}
         size={45}
       />
     ),
-    [id, env],
+    [id, env, difficulty],
   );
 
   return (
@@ -70,7 +77,7 @@ function Mechanic({ id, env, name, caption, pill, slot, children, className }: M
         onKeyDown={(e) => e.key === "Enter" && toggle()}
       >
         <div className="flex shrink-0 items-center rounded-md animate-in fade-in">
-          <DynamicLink href={buildWowheadUrl("spell", id, env)} variant="plain">
+          <DynamicLink href={buildWowheadUrl("spell", id, env, difficulty === "heroic" ? 15 : undefined, difficulty === "heroic" ? 30 : undefined)} variant="plain">
             {MemoizedWarcraftIcon}
           </DynamicLink>
         </div>
@@ -132,4 +139,5 @@ function Pill({ className, children }: MechanicPillProps) {
 
 const Root = Mechanic;
 
-export { Pill, Root };
+export { Mechanic, Pill, Root };
+

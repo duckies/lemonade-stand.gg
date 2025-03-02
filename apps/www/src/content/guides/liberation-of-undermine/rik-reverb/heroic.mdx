@@ -12,40 +12,116 @@ breadcrumbs:
     url: /guides/liberation-of-undermine
   - label: Heroic Rik Reverb
     url: /guides/liberation-of-undermine/rik-reverb/heroic
+hero:
+  image: /images/hero/incontinental-hotel.jpg
 ---
+
+import { PrereleaseWarning } from "../components/prerelease-warning";
+
+A step up from the previous two fights, Rik Reverb is a fight about draining the power of amplifier pylons with adds, sonic rings, frontals, beams, and all of the other things that people find annoying. This fight was considerably bugged on the PTR and has some unanswered questions about how some of the mechanics work.
 
 ## Resources
 
-- [PTR Heroic Rik Reverb Logs](https://docs.google.com/spreadsheets/d/1YT4GpIT90o73NMl4EAzOnBJv4XuXIHlf3-AoAFSebFM/edit?gid=1398338665#gid=1398338665)
+- <PrereleaseWarning />
+- [Wowhead Cheat Sheet](https://www.wowhead.com/guide/the-war-within/raids/liberation-of-undermine/rik-reverb-boss-strategy-abilities)
+- [PTR Logs](https://docs.google.com/spreadsheets/d/1YT4GpIT90o73NMl4EAzOnBJv4XuXIHlf3-AoAFSebFM/edit?gid=1398338665#gid=1398338665)
+
+<Video src="https://www.youtube.com/watch?v=T7w3teb6lxs" />
 
 ## Mechanics
 
 ### Phase One
 
-- Rik uses [Amplification!][amplification] to spawn an [Amplifier][amplifier] underneath him, dealing damage to anyone near their spawn and stunning them. The boss will cast this 2 more times in phase 1, but the second and third sets also spawns an amplifier 
-  - In this phase the amplifiers are a source of [rot damage][noise-pollution] increased by each active amplifier, and [waves][resonant-echoes] that are shot in random directions from them.
-  - They have an energy bar above them that, if full, causes them to go [haywire][haywire], pulsing considerably more raid damage and shooting more waves. Players can interact with them to channel and [drain][lingering-voltage] this energy, dealing damage to them. Anyone can drain an amplifier at any time, but on heroic draining applies a 50% vulnerability to successive drains for 45 seconds, stacking.
-  - It's my (limited) understanding that you will continue to drain an amplifier until it runs out of energy, or you run away and snap the tether it places on you. You should be able to cast simultaneously.
-  - The boss cannot be within 15 yards of an amplifier or they gain energy much [faster][resonance].
-- The boss has two frontals, the [tank swap][sonic-blast] which applies a stacking 100% [vulnerability][tinnitus] to sonic damage (everything on the fight), and [Sound Cannon][sound-cannon] which is a frontal that locks onto the player before dealing large damage to anyone in the line of fire. The targeted player cannot dodge the frontal.
-- Several players can get [Faulty Zap][faulty-zap] a dangerous debuff that radiates damage around them and increases their nature damage taken by 75% for the duration.
-- Rik summons Pyrotechnics, firework adds that deal damage around them as they land and constantly bombard the room with fire swirls. Attacking pyrotechnics gives players the [tingles][excitement], increasing movement speed by 10% and haste by 2% for 10 seconds, stacking 3 times.
-  - The pyrotechnics have a 15 second timer, after which they explode, applying a stacking, [massive dot][grand-finale] for 15 seconds to the raid if not killed beforehand.
+<Mechanic id="473748" difficulty="heroic" name="Amplification!" caption="JBL Speakers">
+
+Rik spawns spawns an [Amplifier][amplifier] underneath him, dealing 5 million damage to anyone in the impact area, knocking them away and stunning them for 3 seconds. The second and third time this ability is cast he also spawns one underneath a ranged player.
+
+</Mechanic>
+
+<Mechanic id="466128" difficulty="heroic" name="Resonance" caption="Keep Boss Away from Amplifiers">
+
+Rik significantly booses the power geneation of amplifiers within 15 yards of him.
+
+</Mechanic>
+
+<Mechanic id="464488" difficulty="heroic" name="Sonic Blast" caption="Melee Frontals" pill={[<MechanicPill key="1" variant="blue">Tank</MechanicPill>]}>
+
+Rik's melee attacks deal 1.5 million sonic damage in a 9 yard frontal cone and apply [Tinnitus][tinnitus], which applies a stacking 100% [vulnerability][tinnitus] to sonic damage (everything on the fight) for 10 seconds.
+
+</Mechanic>
+
+<Mechanic id="467606" difficulty="heroic" name="Sound Cannon" caption="Fixated Frontal">
+
+Rik tracks a random player before dealing large damage to anyone in the line of fire. The targeted player cannot dodge the frontal.
+
+</Mechanic>
+
+<Mechanic id="466961" difficulty="heroic" name="Faulty Zap" caption="Spread Circles">
+
+Rik jolts several players for 755k nature damage and applying a dot that deals 503k nature damage to everyone within 5 yards every 1.5 sec for 12 sec, additionally, the player takes 75% increased nature damage while affected.
+
+</Mechanic>
+
+<Mechanic id="472306" difficulty="heroic" name="Sparkblast Ignition" caption="Firework Adds!" pill={[<MechanicPill key="1" variant="red">Important</MechanicPill>]}>
+ 
+Rik summons several [Pyrotechnics](https://www.wowhead.com/npc=232612/pyrotechnics) firework bundles, dealing 3.1 million fire damage to anyone in their landing area and rain down fire circles that deal the same amount to anyone hit.
+
+- The pyrotechnics have a 15 second timer, after which they [explode][grand-finale], applying a stacking dot dealing 5.9 million fire every 1 sec for 15 secs to the raid.
+- Attacking pyrotechnics gives players [Excitement][excitement], increasing movement speed by 10% and haste by 2% for 10 seconds, stacking 3 times.
+
+</Mechanic>
+#### Amplifiers
+
+<Mechanic id="1217120" difficulty="heroic" name="Lingering Voltage" caption="Draining the Amplifier">
+
+Players can interact with amplifiers to channel and their energy, dealing 565,831 nature damage to them every 1 sec. Anyone can drain an amplifier at any time, but on heroic draining applies a 50% vulnerability to successive drains for 45 seconds, stacking.
+
+It's my (limited) understanding that you will continue to drain an amplifier until it runs out of energy, or you run away and snap the tether it places on you. You should be able to cast while draining an amplifier.
+
+</Mechanic>
+
+<Mechanic id="465795" difficulty="heroic" name="Noise Pollution" caption="Rot Damage">
+
+The amplifiers do 377k sonic damage every 2 seconds to all players,increased by 25% for each active amplifier.
+
+</Mechanic>
+
+<Mechanic id="468119" difficulty="heroic" name="Resonant Echoes" caption="Sonic Rings">
+
+The amplifiers shoot out a series of sonic waves that deal 503k sonic damage every 0.5 sec for 6 sec, stacking.
+
+</Mechanic>
+
+<Mechanic id="466093" difficulty="heroic" name="Haywire" caption="Full-Energy Enrage">
+
+An amplifier that has full energy goes haywire, dealing 503k sonic damage to all players every 1 sec and expelling additional [Resonant Echoes][resonant-echoes].
+
+</Mechanic>
+
 
 ### Intermission
 
-- At 100 energy Rik shields himself with a [Sound Cloud][sound-cloud] 🙄, reducing his damage taken by 99% for 36 seconds, the duration of the intermission.
-- A [ring][blaring-drop] of country music will radiate outward from him 4 times, dealing large damage every 0.5 seconds for 3 seconds to anyone hit.
-- At the same time, the amplifiers are [overloading][blowout] in sequence in order of highest energy, indicated by a blue ring around them. Standing in the ring while the ring hits the amplifier causes it to explode, knocking players back and granting immunity to the ring.
-    <Callout type="warning">
-      This knockback originates from the amplifier in all directions. You will want to place yourself in line with the exploding amplifier and the next highest energy one.
-    </Callout>
-- The boss spawns 5 amplifiers in phase 1 and destroys 4 in each intermission, increasing the number of amplifiers the raid has to drain and heal through for the next phase. 
-- The third intermission he [enrages][hype-fever].
+At 100 energy Rik shields himself with [Sound Cloud][sound-cloud] 🙄, taking 99% reduced damage and overloads his amplifiers with country music. He will cast [Blaring Drop][blaring-drop] and [Blowout][blowout] 4 times, destroying 4 of the 5 amplifiers each round, with the extra amplifier carrying over to the next phase. If he reaches the intermission for a 3rd time he casts [Hype Fever][hype-fever], enraging.
+
+<Mechanic id="467991" difficulty="heroic" name="Blaring Drop" caption="Sonic Wave">
+
+A ring of country music radiates outwards from Rik, dealing 3.1 million sonic damage every 0.5 sec for 3 sec to anyone hit.
+
+</Mechanic>
+
+<Mechanic id="466722" difficulty="heroic" name="Blowout" caption="Fangirling Amplifiers">
+
+Rik overloads an amplifier, indicated by a blue ring around it. Standing in the ring while [Blaring Drop][blaring-drop] hits the amplifier causes it to explode, knocking players back and granting immunity to the ring.
+
+  <Callout type="warning">
+    This knockback originates from the amplifier in all directions. You will want to place yourself in line with the exploding amplifier and the next highest energy one, or at least towards the ring.
+  </Callout>
+
+</Mechanic>
 
 ## Strategy
 
-The following strategy is adapted from a theoretical mythic strategy theory by Reloe, as this is a noticably more annoying fight than the previous two so there is merit to one. The goal is optimize ranged having to move as little as possible despite us constantly needing to drain the amplifiers. It's reasonable for us to yolo this boss in heroic, or fail at something like below to the point it's essentially yoloing the fight, but I'm describing the thought process so you understand how to think about the fight.
+The following strategy is adapted from a theoretical mythic strategy theory by Reloe, as this is a noticably more annoying fight than the previous two so there is merit to one. The goal is to optimize ranged having to move as little as possible despite us constantly needing to drain the amplifiers. It's reasonable for us to yolo this boss in heroic, or fail at something like below to the point it's essentially yoloing the fight, but I'm describing the thought process so you understand how to think about the fight.
 
 <Tabs defaultValue="p1">
   <TabsList>
@@ -83,7 +159,7 @@ The following strategy is adapted from a theoretical mythic strategy theory by R
   <TabsContent value="p4">
     ![](#assets/images/guides/liberation-of-undermine/rik-reverb/heroic/raidplan_p4.png)
 
-    In the intermission the boss puts out his [Sound Cloud][sound-cloud] remix, causing the highest energy amplifier to fangirl and rapidly bring itself to [haywire][haywire]. This repeats four times and then the intermission ends. This means an amplifier will carry over to the next phase 1, for 6 total, then 7, then the last intermission he enrages.
+    In the intermission the boss puts out his [Sound Cloud][sound-cloud] remix, causing the highest energy amplifier to fangirl and rapidly bring itself to [Haywire][haywire] and exploding from [Blowout][blowout], letting us avoid the [Blaring Drop][blaring-drop]. This repeats four times and then the intermission ends. This means an amplifier will carry over to the next phase 1, for 6 total, then 7, then the last intermission he enrages.
     
     The amplifiers have been modified throughout the PTR, and the latest information I have is that the amplifiers that aren't fangirling lose energy during the intermission to the point where it's random which amplifier explodes 3rd and 4th.
   </TabsContent>
@@ -107,25 +183,25 @@ The following strategy is adapted from a theoretical mythic strategy theory by R
   </TabsContent>
 </Tabs>
 
-[amplification]: <https://www.wowhead.com/ptr-2/spell=473748&dd=15&ddsize=30>
-[amplifier]: <https://www.wowhead.com/ptr-2/npc=236511/amplifier&dd=15&ddsize=30>
-[lingering-voltage]: <https://www.wowhead.com/ptr-2/spell=1217120/lingering-voltage?dd=15&ddsize=30>
-[resonant-echoes]: <https://www.wowhead.com/ptr-2/spell=468119/resonant-echoes?dd=15&ddsize=30>
-[noise-pollution]: <https://www.wowhead.com/ptr-2/spell=465795/noise-pollution?dd=15&ddsize=30>
-[haywire]: <https://www.wowhead.com/ptr-2/spell=466093/haywire?dd=15&ddsize=30>
-[echoing-chant]: <https://www.wowhead.com/ptr-2/spell=466866/echoing-chant?dd=15&ddsize=30>
-[sound-cannon]: <https://www.wowhead.com/ptr-2/spell=467606/sound-cannon?dd=15&ddsize=30>
-[faulty-zap]: <https://www.wowhead.com/ptr-2/spell=466961/faulty-zap?dd=15&ddsize=30>
-[sparkblast-ignition]: <https://www.wowhead.com/ptr-2/spell=472306/sparkblast-ignition?dd=15&ddsize=30>
-[grand-finale]: <https://www.wowhead.com/ptr-2/spell=472294/grand-finale?dd=15&ddsize=30>
-[excitement]: <https://www.wowhead.com/ptr-2/spell=1214164/excitement?dd=15&ddsize=30>
-[resonance]: <https://www.wowhead.com/ptr-2/spell=466128/resonance?dd=15&ddsize=30>
-[sonic-blast]: <https://www.wowhead.com/ptr-2/spell=464488/sonic-blast?dd=15&ddsize=30>
-[tinnitus]: <https://www.wowhead.com/ptr-2/spell=464518/tinnitus?dd=15&ddsize=30>
+[amplification]: <https://www.wowhead.com/spell=473748&dd=15&ddsize=30>
+[amplifier]: <https://www.wowhead.com/npc=236511/amplifier&dd=15&ddsize=30>
+[lingering-voltage]: <https://www.wowhead.com/spell=1217120/lingering-voltage?dd=15&ddsize=30>
+[resonant-echoes]: <https://www.wowhead.com/spell=468119/resonant-echoes?dd=15&ddsize=30>
+[noise-pollution]: <https://www.wowhead.com/spell=465795/noise-pollution?dd=15&ddsize=30>
+[haywire]: <https://www.wowhead.com/spell=466093/haywire?dd=15&ddsize=30>
+[echoing-chant]: <https://www.wowhead.com/spell=466866/echoing-chant?dd=15&ddsize=30>
+[sound-cannon]: <https://www.wowhead.com/spell=467606/sound-cannon?dd=15&ddsize=30>
+[faulty-zap]: <https://www.wowhead.com/spell=466961/faulty-zap?dd=15&ddsize=30>
+[sparkblast-ignition]: <https://www.wowhead.com/spell=472306/sparkblast-ignition?dd=15&ddsize=30>
+[grand-finale]: <https://www.wowhead.com/spell=472294/grand-finale?dd=15&ddsize=30>
+[excitement]: <https://www.wowhead.com/spell=1214164/excitement?dd=15&ddsize=30>
+[resonance]: <https://www.wowhead.com/spell=466128/resonance?dd=15&ddsize=30>
+[sonic-blast]: <https://www.wowhead.com/spell=464488/sonic-blast?dd=15&ddsize=30>
+[tinnitus]: <https://www.wowhead.com/spell=464518/tinnitus?dd=15&ddsize=30>
 
-[blowout]: <https://www.wowhead.com/ptr-2/spell=466722/blowout?dd=15&ddsize=30>
-[sound-cloud]: <https://www.wowhead.com/ptr-2/spell=1213817/sound-cloud?dd=15&ddsize=30>
-[blaring-drop]: <https://www.wowhead.com/ptr-2/spell=467991/blaring-drop?dd=15&ddsize=30>
-[hype-fever]: <https://www.wowhead.com/ptr-2/spell=473655/hype-fever?dd=15&ddsize=30>
+[blowout]: <https://www.wowhead.com/spell=466722/blowout?dd=15&ddsize=30>
+[sound-cloud]: <https://www.wowhead.com/spell=1213817/sound-cloud?dd=15&ddsize=30>
+[blaring-drop]: <https://www.wowhead.com/spell=467991/blaring-drop?dd=15&ddsize=30>
+[hype-fever]: <https://www.wowhead.com/spell=473655/hype-fever?dd=15&ddsize=30>
 
 

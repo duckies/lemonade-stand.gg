@@ -17,22 +17,23 @@ hero:
 ---
 
 import { LucideChevronsDown } from "lucide-react";
+import { PrereleaseWarning } from "../components/prerelease-warning";
+
+The One-Armed Bandit is an tongue-in-cheek play on rigged gambling as a fight more scripted than most. We pick up reel tokens and insert them into the slot machine to pick our own prizes and dealing with the consequences of our own actions. When he hits 30% health he fully rigs the game, rolling progressively more dangerous rewards before finally exploding, killing us all if we don't kill him first.
 
 ## Resources
 
-<Callout type="warning">
+- <PrereleaseWarning />
+- [Wowhead Cheat Sheet](https://www.wowhead.com/guide/the-war-within/raids/liberation-of-undermine/one-armed-bandit-boss-strategy)
+- [PTR Logs](https://docs.google.com/spreadsheets/d/1YT4GpIT90o73NMl4EAzOnBJv4XuXIHlf3-AoAFSebFM/edit?gid=308601033#gid=308601033)
 
-Liberation of Undermine resources are a based on PTR testing, and most bosses have had changes since then. Interactions, especially those not explained in tooltips, can and often change when they hit live servers.
-
-</Callout>
-
-- [Dratnos PTR Testing Commentary](https://www.youtube.com/watch?v=EGal-j9HHYI)
+<Video src="https://www.youtube.com/watch?v=EGal-j9HHYI" />
 
 ## Mechanics
 
 ### Phase One Mechanics
 
-<Mechanic.Root id="461060" name="Spin To Win!" caption="Predestined Slots">
+<Mechanic id="461060" difficulty="heroic" name="Spin To Win!" caption="Predestined Slots">
 
 The One-Armed Bandit spins its reels, summoning three "[Reel Assistants](https://www.wowhead.com/npc=234211/reel-assistant)" each with one of 4 unique symbols above their heads representing a Shock Token, Flame Token, Bomb Token, or Coin Token. Killing the attendants drops their token which can be picked up by walking over it. These coined-up players can then deposit their tokens using their Extra Action Button to form one of the 6 unique possible combinations and win a fabulous prize.
 
@@ -43,21 +44,21 @@ The One-Armed Bandit spins its reels, summoning three "[Reel Assistants](https:/
 - [Reward: Coin and Shock][reward:coin-and-shock] creates a [Premium Currency Coil](https://www.wowhead.com/npc=231020/premium-currency-coil) that attracts the gold in players bags, pulling them towards the coil, inflicting physical damage.
 - [Reward: Coin and Bomb][reward:coin-and-bomb] summons 6 (?) small [Premium Dynamite Booty](https://www.wowhead.com/npc=231027/premium-dynamite-booty) adds that fixate a player with [Explosive Gaze][explosive-gaze], but are "premium", and have 100% increased health, 50% increased damage, and are immune to crowd-control.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="461068" name="Fraud Detected!" caption="Predestined Slots">
+<Mechanic id="461068" difficulty="heroic" name="Fraud Detected!" caption="Predestined Slots">
 
 If the boss isn't given a **unique** combination of tokens, either by not doing the mechanic or giving him an already seen combination, he chooses for us and gives himself a 500% permanent damage buff.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="464705" name="Golden Ticket" caption="Stacking Boss Buff">
+<Mechanic id="464705" difficulty="heroic" name="Golden Ticket" caption="Stacking Boss Buff">
 
 Each time the One-Armed Bandit casts [Spin To Win!][spin-to-win] he gains 5% attack speed.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="460181" name="Pay-Line" caption="Good Fortune to the Skinny">
+<Mechanic id="460181" difficulty="heroic" name="Pay-Line" caption="Good Fortune to the Skinny">
 
 <Image className="float-right ml-5 my-3" src="https://gifdb.com/images/high/gaunt-tall-skinny-girl-90b8hga5gbftx4d1.webp" alt="Skinny" height="480" width="270" unoptimized /> The One-Armed Bandit rolls a coin at the raid telegraphed by a beam coming off of the boss. If a player is hit by the coin they are [Crushed!][crushed], taking massive damage and stunning them for 8 seconds.
 
@@ -67,23 +68,23 @@ If you are <Sparkles className="italic">Skinny 💅</Sparkles> and stand next to
 
 The boss gets a 5% stacking buff, [Up The Ante][up-the-ante] for however many coins are in play, even if they're lying on their side in the back of the room.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="460164" name="Foul Exhaust" caption="Casino Chair Farts" pill={[<HealerPill />]}>
+<Mechanic id="460164" difficulty="heroic" name="Foul Exhaust" caption="Casino Chair Farts" pill={[<MechanicPill key="1" variant="green">Healers</MechanicPill>]}>
 
 The One-Armed Bandit covers the raid in exhaust every 0.5 seconds for 1.5 seconds applying a stacking healing absorb. So long as the absorb persists it does mild shadow damage and reduced movement speed by 10% per application.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="460472" name="The Big Hit" caption="Tank Swap & Drop" pill={[<TankPill />]}>
+<Mechanic id="460472" difficulty="heroic" name="The Big Hit" caption="Tank Swap & Drop" pill={[<MechanicPill key="1" variant="blue">Tanks</MechanicPill>]}>
 
 The One-Armed Bandit does a massive amount of physical damage to its current target and applies a vulnerability increasing damage taken by this ability by 150% for 30 seconds, stacking.
 
 This also leaves behind [Shocking Field][shocking-field] miasma, dealing moderate nature damage and increasing damage taken by 100% to players within it.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="473009" name="Explosive Shrapnel" caption="No Touchy" pill={[<TankPill />]}>
+<Mechanic id="473009" difficulty="heroic" name="Explosive Shrapnel" caption="No Touchy" pill={[<MechanicPill key="1" variant="blue">Tanks</MechanicPill>]}>
 
 The 3 different coils that can spawn from [Spin To Win!][spin-to-win] can be interacted with, causing massive physical damage to the player, triggering the coil's spawning effect, and drawing in and clearing the 2 nearest [Shocking Fields][shocking-field].
 
@@ -92,59 +93,59 @@ As a reminder of what the coils do:
 - "[Dynamite-Laden Coil](https://www.wowhead.com/npc=230911/dynamite-laden-coil)" summons 5 small "[Dynamite Booty](https://www.wowhead.com/npc=228502/dynamite-booty)" adds that chase down players with [Explosive Gaze][explosive-gaze].
 - "[Premium Currency Coil](https://www.wowhead.com/npc=231020/premium-currency-coil)" pulls players towards it.
 
-</Mechanic.Root>
+</Mechanic>
 
 #### Reel Assistants
 
 The [assistants](https://www.wowhead.com/npc=234211/reel-assistant) have three mechanics of middling importance.
 
-<Mechanic.Root id="460582" name="Overload!" caption="Interruptible Raid Shock">
+<Mechanic id="460582" difficulty="heroic" name="Overload!" caption="Interruptible Raid Shock">
 
 An interruptible 10 second cast that deals damage to the raid and knocks all players back.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="472197" name="Withering Flames" caption="Dehydrated Raiders">
+<Mechanic id="472197" difficulty="heroic" name="Withering Flames" caption="Dehydrated Raiders">
 
 The Reel Assistants put a moderate dot on players that lasts for 30 seconds. However, each tick reduces the player's maximum health by 2%. This can be dispelled but [Traveling Flames][traveling-flames] spawn from the player.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="460847" name="Electric Blast" caption="Vicarious Spiciness">
+<Mechanic id="460847" difficulty="heroic" name="Electric Blast" caption="Vicarious Spiciness">
 
 The Reel Assistant deals large nature damage to a random player every 2 seconds for 6 seconds with a portion of the damage arcing off to hit the entire raid, stacking.
 
-</Mechanic.Root>
+</Mechanic>
 
 ### Phase Two Mechanics
 
 At 30% health the boss begins a 1 minute 40 second hard enrage and replaces [Spin to Win!][spin-to-win] with [Cheat To Win!][cheat-to-win], picking their own choice of symbols. These abilities remain until the end of the fight once activated.
 
-<Mechanic.Root id="465432" name="Linked Machines" caption="Coil Clothesline" pill="Ability 1">
+<Mechanic id="465432" difficulty="heroic" name="Linked Machines" caption="Coil Clothesline" pill="Ability 1">
 
 The One-Armed Bandit rolls three shock symbols, now periodically spawning a [Hyper Coil](https://www.wowhead.com/npc=231193/hyper-coil), knocking back players when it spawns and tethering to the boss with [Voltaic Streak][voltaic-streak], a beam that deals massive damage every 0.3 seconds.
 
 Like the phase 1 coils, the Hyper Coils can also be reactivated, knocking back the raid again and casting [Explosive Shrapnel][explosive-shrapnel] on the tank.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="465322" name="Hot Hot Heat" caption="The Gift of Fire" pill={[<PrivateAuraPill />, "Ability 2"]}>
+<Mechanic id="465322" difficulty="heroic" name="Hot Hot Heat" caption="The Gift of Fire" pill={[<MechanicPill key="1" variant="purple">Private Aura</MechanicPill>, <MechanicPill key="2">Ability 2</MechanicPill>]}>
 
 The One-Armed Bandit rolls three flame symbols, now causing several players to periodically be  marked with a <LucideChevronsDown className="inline-flex size-7 text-orange-400" /> chevron for 5 seconds. The boss will then shoot a fire beam towards them dealing large damage to anyone struck. The afflicted players cannot dodge their own beams as they are fixated throughout.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="465580" name="Scattered Payout" caption="Coins, to the Face" pill={"Ability 4"}>
+<Mechanic id="465580" difficulty="heroic" name="Scattered Payout" caption="Coins, to the Face" pill={"Ability 4"}>
 
 The One-Armed Bandit rolls three coin symbols, causing him to fire gold coins at the raid dealing large damage to everyone every 2 seconds, perpetually.
 
-</Mechanic.Root>
+</Mechanic>
 
-<Mechanic.Root id="465587" name="Explosive Jackpot" caption="We all fall down!" pill={[<Mechanic.Pill className="bg-rose-400">Enrage</Mechanic.Pill>, "Ability 5"]}>
+<Mechanic id="465587" difficulty="heroic" name="Explosive Jackpot" caption="We all fall down!" pill={[<MechanicPill key="1" variant="red">Enrage</MechanicPill>, "Ability 5"]}>
 
 The One-Armed Bandit rolls 3 Bomb symbols causing him to explode. We all die!
 
-</Mechanic.Root>
+</Mechanic>
 
 ## Strategy
 
@@ -155,12 +156,11 @@ The One-Armed Bandit rolls 3 Bomb symbols causing him to explode. We all die!
 The above RaidPlan shows all of the spatial abilities in phase 1. I'll briefly share tips on them before discussing [Spin To Win!][spin-to-win].
 
 - [The Big Hit][the-big-hit] tank swap that spawns the [Shocking Field][shocking-field] should be done with the idea of keeping it in the northern half of the platform. On the PTR some tanks were overlapping the puddles, but I'm not sure what the tuning is like on this now. It was also not worth using [Explosive Shrapnel][explosive-shrapnel] to clear any of them because the boss would enrage before running out of room. Having a coil recast its ability is also super cringe.
-- The adds do seem to spawn near players and are thus baitable, however since we only need to kill 2 of them (albeit a specific 2) in 30 seconds, I don't see the point.
-- The [Withering Flames][withering-flames] debuff is probably the most likely thing to kill someone aside from the coins. It's highly recommended you use coms when you're reasonably out of the group instead of making healers crane our tired necks to find your ass.
-- The [Traveling Flames][traveling-flames] are somewhat slow 🐢.
-- I'm not going to recommend we try to send the coins back towards the raid for the buffs, but if you want to have some weird spot on the sides of the room in phase 1 to try it out I won't stop you.
+- The [Withering Flames][withering-flames] debuff is probably the most likely thing to kill someone aside from the coins. It's highly recommended you use coms when you're reasonably out of the group instead of making healers crane our tired necks to find your ass. We might use WeakAura communication for this.
+- The [Traveling Flames][traveling-flames] are somewhat slow kinda very slow 🐢.
+- I'm not going to recommend we try to send the coins back towards the raid for the buffs, but if you want to have some weird spot on the sides of the room in phase 1 to try it out I'll look the other way unless you or someone else die.
 
-[Spin To Win!][spin-to-win] reportedly spawns two waves of [Reel Assistants](https://www.wowhead.com/npc=234211/reel-assistant) with a consistent coin pattern. The third wave provides the tokens necessary to make a combination you haven't made before. Of which, there are lights behind where the boss spawns indicating which token combinations we <span className="text-rose-300">have not</span> made before. Here is a PTR kill order and the reasoning behind it:
+[Spin To Win!][spin-to-win] reportedly spawns two waves of [Reel Assistants](https://www.wowhead.com/npc=234211/reel-assistant) with a consistent coin pattern. The third wave provides the tokens necessary to make a combination you haven't made before. Of which, there are lights behind where the boss spawns indicating which token combinations we <span className="text-rose-300">have not</span> made before. A WeakAura will track the order for us also. Here is a PTR kill order and the reasoning behind it:
 
 1. [Reward: Flame and Coin][reward:flame-and-coin] which does the massive raid damage is easier to handle earlier in the fight with less mechanics out and doesn't distract your DPS.
 2. [Reward: Coin and Bomb][reward:coin-and-bomb] summons the [Premium Dynamite Booty](https://www.wowhead.com/npc=231027/premium-dynamite-booty) adds which fixate and cannot be crowd controlled. The adds themselves require immediate DPS attention but there are no other lingering mechanics.
@@ -171,7 +171,9 @@ The next three are the ones that use any of the Shock tokens. These are annoying
 4. [Reward: Shock and Bomb][reward:shock-and-bomb] summons the the coil which summons the unshielded [Dynamite Booty](https://www.wowhead.com/npc=228502/dynamite-booty) adds.
 5. [Reward: Coin and Shock][reward:coin-and-shock] summons the coil that pulls players towards it.
 
-The last combination, [Reward: Flame and Bomb][reward:flame-and-bomb] is maybe the most annoying combination that spawns adds since they have 100% more health, explode when they die, and spawn fire in the group (probably). You're not expected to get every single combination before you phase, with reports of skipping two during testing, so pushing our least favorite can potentially let us skip them.
+The last combination, [Reward: Flame and Bomb][reward:flame-and-bomb] is maybe the most annoying combination that spawns adds since they have 100% more health, explode when they die, and spawn fire from their corpse. This explosion and fire spawning is also probably going to happen in the group.
+
+You're not expected to get every single combination before you phase, with reports of skipping two during testing. If we order the rewards by least to most annoying we can hopefully brush them under the rug and forget about them.
 
 ### Phase Two Strategy
 

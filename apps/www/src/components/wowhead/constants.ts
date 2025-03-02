@@ -17,9 +17,18 @@ export function buildWowheadUrl(
   type: "spell" | "item" | "npc" | "zone" | "quest",
   id: string | number,
   env: WowheadEnv = "main",
+  dd?: string | number,
+  ddsize?: number | string,
 ) {
   const environment = env === "main" ? "" : `${env}/`;
   const url = new URL(`https://www.wowhead.com/${environment}${type}=${id}`);
+
+  if (dd) {
+    url.searchParams.set("dd", dd.toString());
+  }
+  if (ddsize) {
+    url.searchParams.set("ddsize", ddsize.toString());
+  }
 
   return url.toString();
 }

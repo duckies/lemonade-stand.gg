@@ -26,6 +26,7 @@ function patchWowhead() {
 }
 
 export function Wowhead() {
+  // TODO: This doesn't refresh when MDX content is hot-reloaded.
   useEffect(() => {
     window?.WH?.Tooltips?.init();
   }, []);

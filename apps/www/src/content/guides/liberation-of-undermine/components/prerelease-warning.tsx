@@ -17,7 +17,7 @@ export function PrereleaseWarning() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <button className="inline" type="button">
-          <span className="link cursor-pointer">Prelease Content Warning</span>
+          <span className="link cursor-pointer text-rose-300">Prelease Content Warning</span>
         </button>
       </DialogTrigger>
       <DialogContent>
@@ -31,8 +31,7 @@ export function PrereleaseWarning() {
             filled with inaccuracies and are provided as-is for research purposes only.
           </p>
           <p>
-            Understanding the spirit of a fight and how its mechanics weave together can learned now
-            to provide a sturdier foundation for when the specifics, the exact strategy, do matter.
+            Understanding the spirit of a fight and how its mechanics weave together provide a foundation for when the specifics, the exact strategy, do matter.
           </p>
         </div>
         <DialogFooter>
