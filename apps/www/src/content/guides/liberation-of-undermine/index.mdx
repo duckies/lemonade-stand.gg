@@ -13,17 +13,71 @@ hero:
   image: /images/hero/incontinental-hotel.jpg
 ---
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@lemonade-stand/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@lemonade-stand/ui";
+import { Disclosure, DisclosureContent, DisclosureHeader } from "components/markdown/disclosure";
 import { BossGrid } from "~/components/markdown/boss-grid";
 
-<Card className="not-prose">
-  <CardHeader>
-    <CardTitle className="text-2xl font-serif font-semibold tracking-wide text-foreground">
-      Boss Guides
-    </CardTitle>
-    <CardDescription>Guides for the bosses in the Liberation of Undermine raid.</CardDescription>
-  </CardHeader>
-  <CardContent>
+<div className="grid md:grid-cols-2 md:gap-3 mt-6">
+  <div className="prose">
+    ## Policies
+
+    - Raider Expectations & Guild Policies 🚧
+    - [RCLootCouncil Guide](/guides/loot-council)
+    - Wowudit & Wishlists Guide 🚧
+  </div>
+  <div className="prose">
+    ## Links
+
+    - [Viserio Cooldowns & Assignments](https://wowutils.com/viserio-cooldowns)
+    - [WoWAudit • Gear Wishlists](https://wowaudit.com/us/illidan/lemonade-stand/wishlists/personal)
+    - [WoWAudit • Slacker Spreadsheet](https://docs.google.com/spreadsheets/d/1WcYqF5lpU2yYxufQXkLIJqz3KFB7nu6M_xd_AooEUq8/edit?gid=241918221#gid=241918221)
+  </div>
+</div>
+## Required Tools
+
+<Dialog>
+The WeakAuras that are asterisked are required unless you <DialogTrigger className="link">know what you're doing</DialogTrigger>. You will also need to keybind the following macro for certain fights:
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>WeakAura Semi-Requirements</DialogTitle>
+      <DialogDescription className="text-base">You can make heavy modifications or replacements to these asterisked WeakAuras, but we offer no support.</DialogDescription>
+    </DialogHeader>
+    <div className="text-foreground prose text-base">
+      <p className="">The only auras you are allowed to modify or disable components of are in the [Liberation of Undermine](https://wago.io/Undermine) pack, disable the ones you don't like, ...etc.</p>
+      <p>Similarly, the [WeakAura Anchors](https://wago.io/WeakAuraAnchors) allow you to move the auras made by Reloe. Without them you will have to manually move all of the auras out of the center of your screen after each update (or by not checking "position" when updating). We offer no support if you break your auras trying to manually move them around.</p>
+    </div>
+  </DialogContent>
+</Dialog>
+
+```lua
+/run WeakAuras.ScanEvents("NS_PA_MACRO", true)
+```
+
+<div className="grid md:grid-cols-2 md:gap-3 mt-6">
+  <div className="prose">
+    ### AddOns
+
+    - [Method Raid Tools](https://www.curseforge.com/wow/addons/method-raid-tools)
+    - [WeakAuras](https://www.curseforge.com/wow/addons/weakauras-2)
+    - [RCLootCouncil](https://www.curseforge.com/wow/addons/rclootcouncil)
+      - [RCLootCouncil - wowaudit](https://www.curseforge.com/wow/addons/rclootcouncil-wowaudit) (Optional)
+    - [BigWigs](https://www.curseforge.com/wow/addons/big-wigs) (Preferred) or [DBM](https://www.curseforge.com/wow/addons/deadly-boss-mods)
+    - [Northern Sky Media](https://www.curseforge.com/wow/addons/northern-sky-media) (Optional)
+  </div>
+  <div className="prose">
+    ### WeakAuras
+
+    - [Northern Sky - Database & Functions](https://wago.io/gLfyc_GaD)
+    - [Northern Sky Liberation of Undermine](https://wago.io/NSUndermine)
+    - [Liberation of Undermine](https://wago.io/Undermine)*
+    - [WeakAura Anchors](https://wago.io/WeakAuraAnchors)*
+    - [Interrupt Anchors](https://wago.io/InterruptAnchor)
+    - [Kaze MRT Timers](https://wago.io/n7l5uN3YM)
+  </div>
+</div>
+
+## Boss Guides
+
+Guides and insights for Liberation of Undermine fight preparation.
+
     <BossGrid />
-  </CardContent>
-</Card>

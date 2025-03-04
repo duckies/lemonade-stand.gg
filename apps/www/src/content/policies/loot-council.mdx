@@ -1,0 +1,78 @@
+---
+title: Loot Council
+description: How we handle the loot.
+published: "2025-03-03T17:15:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Policies
+    url: /policies
+  - label: Loot Council
+    url: /policies/loot-council
+hero:
+  image: /images/hero/incontinental-hotel.jpg
+---
+
+import { Accordion, AccordionContent, AccordionHeader, AccordionItem, AccordionTrigger } from "@lemonade-stand/ui"
+import { Disclosure, DisclosureContent, DisclosureHeader } from "components/markdown/disclosure"
+import { LucideStopCircle } from "lucide-react"
+
+Gear is a tool the officer uphold to distribute in good faith to support the raid to the best of our ability. It is a balance of employing the broad strokes of numerical optimization while respecting the merits and abilities of each player and the raid as a whole.
+
+We can, and will, exercise our discretion to even out the raid or to factor in the immediate and past performance of a player in situations where the delta of an item's upgrade value across  two players is negligable.
+
+## Loot Distribution
+
+- Raiders are expected to be active in Mythic+ and maxing out their dungeon vault slots to the best of their ability until their character is fully mythic geared. Not doing so will be considered a violation of our basic requirements and will drastically reduce a player's standing with the council.
+- Council members will prioritize distributing tier to damage players who have the most powerful set bonuses for a given raid. Tanks and healers are a lower priority for tier.
+- Raiders are expected to consistently keep their wishlist data up to date on [Wowaudit](https://wowaudit.com/us/illidan/lemonade-stand/wishlists/personal).
+  - 
+  - Raiders are expected to have updated wishlists submitted before Sunday night to allow officers ample time to act on the data.
+- Raiders are expected to include any relevant context in the note when rolling for an item. This includes but is not limited to:
+  - If an item lets you upgrade your embellishments.
+  - If you want an item, but you cannot equip it right now for any reason, such as if you need an off-hand to use a main-hand that dropped.
+  - If you want to catalyze something, RCLootCouncil will force you to add a note. You should include if you would plan on catalyzing it now, next week, ...etc depending on available catalyst charges.
+  - If an item is simply better for your mental, such as going from 2 on-use trinkets to one, allows you to switch to an easier build, it's really important for you in mythic+, ...etc. We may say no, but we will always listen to your reasoning.
+- Raiders maining multiple specializations in the raid, as approved by officers, may use the non-offspec buttons for both specializations. However, the note should always indicate which specialization this item is being rolled for.
+- <span className="text-rose-300">BoE's that drop go to the guild to sell</span>, but a raider can put their name in for it to buy at a discounted price.
+
+## Wishlists
+
+- <span className="text-rose-300">Wishlists must be submitted to the guild [WoWAudit](https://wowaudit.com/us/illidan/lemonade-stand/wishlists/personal)</span> by <span className="underline">Sunday at midnight</span> to allow officers ample time to act on the data.
+- If <span className="text-rose-300">any</span> item of your raid set changes in any way you are expected to update your wishlist before the above deadline for the following week.
+- You are allowed to request loot with outdated wishlist data, meaning your gear set has changed, if both of the following conditions are met:
+
+  1. You have <span className="underline">not</span> changed many pieces of gear. If you upgraded a ring 1 time and changed your boots*, your wishlist is considered outdated, but we will accept it. This causes your droptimizer numbers to be slightly different as your stat distribution has changed, but this won't broadly effect the that something is, say, a 5k dps upgrade.
+  2. You are <span className="underline">not</span> requesting loot from the slot(s) which have changed. *If you've obtained new boots but haven't updated your wishlist, all information about the value of boot drops in the raid from your wishlist are now highly inaccurate.
+- The above point (2) and any other attempts to misrepresent or inflate the value of gear in your favor will not be tolerated.
+
+## RCLootCouncil
+
+- All participants in our raids are required to keep the [RCLootCouncil](https://www.curseforge.com/wow/addons/rclootcouncil) installed, up-to-date, and enabled in our raids.
+- All participants in our raids are expected to hit the red pass button on the **default** roll frame (Need, Greed, Disenchant, Pass) if it appears unless it's explicitly mentioned that we have suspended RCLootCouncil for the night (e.g. an alt run).
+
+<figure className="grid md:grid-cols-2 gap-5 justify-center not-prose">
+  <div className="flex justify-center rounded-xl overflow-hidden">
+    ![](#assets/images/policies/vanilla-roll-frame.png)
+  </div>
+    If you see this frame you should pass on the item. RCLootCouncil attempts to pass for you and hide this frame, but it might get stuck on your screen, in which case you can leave the frame alone. If it annoys you, reloading will make it go away.
+</figure>
+
+- You recommend everyone install the [RCLootCouncil - WoWAudit](https://www.curseforge.com/wow/addons/rclootcouncil-wowaudit) addon so you can see the item values the council is seeing. You do not have to install the [desktop client](https://wowaudit.com/us/illidan/lemonade-stand/wishlists/personal) to see the data as it will be synced from the officers.
+- The loot council reserves the right to ignore any player who does not have up-to-date wishlist data. If you update your wishlist data during the raid, let an officer know so they can refresh it and reload.
+- We prioritize "BiS" gear and our definition of it is an item you would not replace except for itself at a higher item level, socketed, or with tertiaries.
+
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="item-1">
+    <AccordionHeader className="not-prose">
+      <AccordionTrigger>Aren't best in slot lists outdated?</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      The council recognizes that the concept of a "best in slot" list is not a useful gearing metric, but it is useful in differentiating items that are much, much less likely to be replaced. The council uses this when an items permanence is a concern, like at the start of a tier, rare items, and first mythic kills. This does not mean you can "upgrade" an item to be considered BiS if it sims the same as another item in your BiS list. You can convey as much in your note, but inflating your BiS disenfranchises other players and is not tolerated.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+  
+
+    The council recognizes that the concept of a "best in slot" list is not a useful gearing metric, but it is useful in differentiating items that are much, much less likely to be replaced. The council uses this when an items permanence is a concern, like at the start of a tier, rare items, and first mythic kills. This does not mean you can "upgrade" an item to be considered BiS if it sims the same as another item in your BiS list. You can convey as much in your note, but inflating your BiS disenfranchises other players and is not tolerated.

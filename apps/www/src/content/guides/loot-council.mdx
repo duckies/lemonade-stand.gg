@@ -1,0 +1,116 @@
+---
+title: RCLootCouncil
+description: How to use RCLootCouncil with our guild
+published: "2025-03-04T00:00:00Z"
+author: ducky
+---
+
+import { Accordion, AccordionContent, AccordionHeader, AccordionItem, AccordionTrigger, Badge } from "@lemonade-stand/ui";
+import { BlockedIcon } from "components/icons/blocked";
+
+We distribute loot via a loot council of the guild officers orchestrated by the [RCLootCouncil](https://github.com/RCLootCouncil/RCLootCouncil) addon. This page describes how to use it.
+
+## Setup
+
+It's not necessary to configure the addon to use it. Just make sure you have it installed and enabled during raid. There are personal settings you can configure, such as auto-passing on transmog if you aren't interested in it.
+
+We also require you to keep the addon up to date. It's recommended to use [WowUp with Curseforge](https://wowup.io/) to manage your addons. You may also use the [CurseForge app](https://www.curseforge.com/download/app) (use the standalone version), or the [Wago](https://addons.wago.io/app) app.
+
+You may also install the [RCLootCouncil - wowaudit](https://www.curseforge.com/wow/addons/rclootcouncil-wowaudit) addon to see your droptimizer numbers by items. You do not need to install the desktop client for the addon to work.
+
+## Operation
+
+RCLootCouncil will initiate when a boss is killed, starting with telling your game to pass on all of the dropped loot on the standard Need / Greed frame for you. However, if you still see the default roll frame you should click the red pass button <BlockedIcon className="text-rose-400 inline-flex self-center items-center justify-center size-6 rotate-x-180" /> to pass on the loot, allowing the raid leader to collect all of the items to distribute. It's not uncommon for this frame to bug out and not disappear when trying to pass, this should just be a visual bug and you can ignore it or reload to make it go away.
+
+<figure>
+  ![](#assets/images/policies/vanilla-roll-frame.png)
+  <figcaption>
+    The default roll frame.
+  </figcaption>
+</figure>
+
+## Loot Buttons
+
+### Primary Buttons
+
+Our main buttons follow a standard format.
+
+![](#assets/images/policies/main-buttons.jpg)
+
+- <Badge className="font-normal">BiS</Badge> — Best in Slot in our guild means an item you would not replace except with itself at a higher item level, socketed, or with tertiaries. You can source what your BiS items are from the Wowhead guide for your specialization.
+- <Badge className="font-normal">Mainspec</Badge> — Items that are upgrades, small or large, but there is a better item in the raid or mythic+.
+- <Badge className="font-normal">Offspec</Badge> — You want the item for a specialization you are not playing in raid.
+- <Badge className="font-normal">Mythic+</Badge> — You want an item for running mythic+.
+- <Badge className="font-normal">Pass</Badge> — You can't make use of the item, or don't want it.
+
+### Armor Buttons
+
+Items that aren't jewelry have two additional buttons.
+
+![](#assets/images/policies/main-catalyst-buttons.jpg)
+
+- <Badge className="font-normal">Catalyst</Badge> — You want to catalyze the item, either into a tier piece or the bracers, belt, boots, or cloak from your class set. We consider this a lower priority over a player who wants the uncatalyzed item.
+
+- <Badge className="font-normal">Transmog</Badge> — You are looking to increase your transmog collection.
+
+### Tier Tokens
+
+When a tier token or omni-token (a curio) drops the buttons change drastically. Note that the tier buttons are assuming you are wearing that many tier pieces or have them or other tokens in your bags. This doesn't count any possible catalyst charges.
+
+![](#assets/images/policies/tier-buttons.jpg)
+
+- <Badge className="font-normal">1 PC</Badge> — You have 0 pieces of tier this would be your first.
+- <Badge className="font-normal">1PC » 2PC</Badge> — You have 1 piece of tier this would give you your 2 piece set bonus.
+- <Badge className="font-normal">2pc » 3PC</Badge> — You have 2 pieces of tier and this would make 3.
+- <Badge className="font-normal">3pc » 4PC</Badge> — You have 3 pieces of tier and this would give you your 4 piece set bonus.
+- <Badge className="font-normal">5PC</Badge> — You have 4 pieces of tier and your class is in the rare circumstance where it values all stats equally and thus wants wear all 5 tier pieces at once.
+- <Badge className="font-normal">Item Level</Badge> — You have a tier token in this slot from a lower raid difficulty and want to upgrade it, e.g. heroic to mythic.
+- <Badge className="font-normal">Tertiary</Badge> — You have this tier token at this item level already, but you'd take it for the chance it rolls a tertiary stat or socket (if applicable). This button will still show for curio tokens, but you cannot roll tertiaries by trading a curio in at the vendor.
+
+## I Won, Now What?
+
+Wait for the group leader to finish giving out loot and they will trade the item to you or you can attempt to open trade with them and RCLootCouncil will automatically give you the item you won in the leader's trade window, they just have to hit accept.
+
+## Questions & Answers
+
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="item-1">
+    <AccordionHeader className="not-prose">
+      <AccordionTrigger>Aren't best in slot lists outdated?</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      The council recognizes that the concept of a "best in slot" list is not a useful gearing mechanic, but it is useful in differentiating items that are much, much less likely to be replaced. The council values the concept of a BiS item when the permanence of an item is a concern, like at the start of a tier, rare items, and first mythic kills. This does not mean you can "upgrade" an item to be considered BiS if it sims the same as another item in your BiS list. You can convey as much in your note, but inflating your BiS disenfranchises other players and is not tolerated.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionHeader className="not-prose">
+      <AccordionTrigger>Is Wowhead the only place I can use to reference what is BiS? What if it's outdated?</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      I recommend an abundance of fear-for-your-life if you want to ever press BiS on an item in raid when it's not on your Wowhead BiS list. Consider two scenarios:
+        - Your class gets hotfix buffs and now you use a new hero talent build which changes up your stat weights. Your entire BiS list is now invalid. Don't arbitrary decide what's BiS or not and wait for a new list.
+        - A trinket is hotfixed and is now better. Your Discord leadermen say the new trinket is BiS, it just hasn't been reflected anywhere yet. Then sure, you can call it BiS.
+
+      It's easy for officers to look at WarcraftLogs or Archon.gg and see what the thousands of logs for players of your specialization are wearing. If you say something is BiS and it's used by 4% of your specialization in logs (and it wasn't hotfixed recently), we will not be agreeing. 
+      
+      Anyone is abusing the BiS button, intentionally or otherwise, will cause the council to treat all of your upgrades as mainspec upgrades and nothing more. We see numerically how good items are for you, but if you're ever unsure about something being BiS you can just say that you think it may be "basically" BiS, and we understand what that means.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionHeader className="not-prose">
+      <AccordionTrigger>If two items are worth the same to me, are they both BiS? I'm confused</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      You are confusing what a droptimizer is and what a best in slot list is. A best in slot list is a construction of the most optimal permutation of gear as a <span className="text-rose-300">complete set</span>; it does not describe value. A droptimizer on the other hand determines the <span className="text-rose-300">next</span> best possible item for you to wear, only describing value.
+
+      Imagine you show up to raid at the start of a tier and there are 2 possible staves you can loot. One is BiS, but the other is worth 1K more dps. You put in mainspec for the higher staff and you don't win it, but you do win your BiS staff. After raid you run a droptimizer and it tells you the next best upgrade you can get is a 10k dps upgrade ring. You get lucky and get the ring next, now your droptimizer doesn't show the other staff anymore. This shows that a specific item having the higher number in the moment doesn't matter, and specifically, neither does the BiS staff. So what is the point? Well, an item on a BiS list can be desired by 3 types of class:
+
+      1. Your class has a standard distribution of what stats it values that doesn't really change, so an item on your BiS list likely best follows that ramp. Your droptimizer is going to look for other items that match your stat distribution, likely other BiS items.
+      2. Your class doesn't differentiate about stats, in which case you only care about item level and thus your "BiS" items are as good as any.
+      3. Your class has volatile swings with stat breakpoints and limits. This makes the concept of a BiS list less helpful, though classes like this are rare.
+
+      The system does account for classes in the third category. First, we value an item being BiS vs. not as only one variable, a significant upgrade for someone is still likely to go to them even if it's not BiS, especially if a true BiS item is unreachable, e.g. Mythic Gallywix. Furthermore, if the first two groups keep gear longer then the third group can receive more loot to accommodate the swings in their stats, and everyone wins.
+      
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
