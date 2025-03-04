@@ -1,0 +1,125 @@
+---
+title: WoWAudit & Wishlists
+description: How to upload to our WoWAudit. 
+published: "2025-03-04T17:15:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Policies
+    url: /policies
+  - label: WoWAudit & Wishlists
+    url: /policies/wowaudit
+hero:
+  image: /images/hero/incontinental-hotel.jpg
+---
+
+import { Accordion, AccordionContent, AccordionHeader, AccordionItem, AccordionTrigger } from "@lemonade-stand/ui"
+
+Our guild utilizes WoWAudit to collect statistics about our roster, such as mythic+ participation, but it also has a wishlist feature — the ability upload a [RaidBots Droptimizer](https://www.raidbots.com/simbot/droptimizer) for dps and tanks, and [QuestionablyEpic Upgrade Finder](https://questionablyepic.com/live/upgradefinder) for healers. This page discusses how to update your wishlist, please read our [raider expectations](/policies/raider-expectations) to know when and how often you should be updating it.
+
+## Prerequisites
+
+You will need to have the [Simulationcraft](https://www.curseforge.com/wow/addons/simulationcraft) addon installed. When in game you can run the command `/simc` and `CTRL+C` to copy the output of the window for use in droptimizer or questionablyepic.
+
+## Connecting to WoWAudit
+
+1. Visit the [Lemonade Stand WoWAudit](https://wowaudit.com/us/illidan/lemonade-stand) page and login as it prompts you to. This will redirect you to Battle.net, which will also want you to login if necessary.
+2. Battle.net will redirect you back to WoWAudit with a list of the characters you own in game.
+3. If everything is successful you should be able to click the "Personal" link at the bottom of the sidebar to visit your wishlist page seen below.
+
+![](#assets/images/policies/wishlist.png)
+
+### Common Issues
+
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="item-1">
+    <AccordionHeader className="not-prose">
+      <AccordionTrigger>I get an error saying I have "no characters on this team"</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      This means our list of raiders and trials doesn't include your character. If you are in our guild in-game and an appropriate rank, it can sometimes take a few hours for Blizzard to update a guild roster on its API. You can check back after a little while and it may have been updated. However, you can always ask an officer to manually add your character.
+    </AccordionContent>
+  </AccordionItem>
+    <AccordionItem value="item-2">
+    <AccordionHeader className="not-prose">
+      <AccordionTrigger>I renamed/transferred/faction changed and now I can't update my wishlist</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      Blizzard only grants WoWAudit temporary access to the characters you own, so they are only refreshed when you login to WoWAudit. Logging out and logging back in will refresh which characters you own.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+
+## Using Droptimizer
+
+Non-healers can use the [RaidBots Droptimizer](https://www.raidbots.com/simbot/droptimizer) tool to create a droptimizer to feed into the wishlist. You will first paste the output of the `/simc` command in-game into the text field. The armory lookup feature is only viable if you logged out in the correct gear and talents.
+
+![](#assets/images/policies/droptimizer-input.png)
+
+Next, notice on the WoWAudit page that we have "Heroic" selected for the difficulty and it lists the following requirements next to the input — Patchwerk, 5 minutes, with sockets, no PI, equipped gear upgraded to the same level, 1 boss, Hero 6/6 upgrades.
+
+![](#assets/images/policies/droptimizer-difficulty.png)
+
+The first thing RaidBots will ask you is what content you're looking for upgrades in. We are trying to make one for heroic raid as we have selected in WoWAudit, so we select "Liberation of Undermine" and then "Heroic" beneath it.
+
+![](#assets/images/policies/droptimizer-settings-1.png)
+
+The next section is asking you to modify the items themselves and we can verify 3 of the 7 settings here:
+- You want "Upgrade up to" to be Hero 6/6 for heroic, as the audit describes. For mythic raid you want "Mythic 6/6", we always want to sim the items as if they were fully upgraded.
+- Make sure the "Upgrade All Equipped Gear to the Same Level" checkbox is checked. This upgrades your currently equipped gear to the maximum level for its track. We don't want a player with a 1/6 hero track item equipped to have a higher upgrade value compared to a player with a 6/6 hero track item equipped only because they haven't gotten around to upgrading that item.
+- The "Socket:" option should be double-checked to make sure it's picking an ideal gem for your specialization.
+
+![](#assets/images/policies/droptimizer-settings-2.png)
+
+Lastly, at the bottom are the remaining settings. You usually don't want to change these unless you're running a sim for something else, e.g. Mythic+. The defaults of Patchwerk, 1 Boss, 5 minutes are required or WoWAudit will reject the sim. The last requirement, "No PI" requires no checking — you have to manually add a custom SimC option to give yourself PI at specific times. You can now click the "Run Droptimizer" button and wait for the results.
+
+![](#assets/images/policies/droptimizer-results.png)
+
+You can now copy the URL in browser's address bar and paste it into WoWAudit and hit "Go". It will let you know if was accepted or if one of the requirements was not met. If we're going into a the raid on multiple difficulties make sure to run a separate droptimizer for each difficulty, all with the max upgrade level.
+
+# Using the QuestionablyEpic
+
+Healers can visit the [QuestionablyEpic Live](https://questionablyepic.com/live) website to do something similar to a droptimizer in RaidBots.
+
+![](#assets/images/policies/qelive-character.png)
+
+You will first want to add your character with its region, server name, class, and race (for racial bonuses). If you want to you can now right click your character and view or modify their stat weights. As the website says, the defaults are recommended, and we do not recommend modifying them unless directed to by a class theorycrafter. Click on "Upgrade Finder" among the tools on the center of the page.
+
+![](#assets/images/policies/qelive-taskbar.png)
+
+Next, you'll want to make sure the taskbar at the top of the page shows your character is selected, you are in "raid" mode (QE Live has mythic+ weights for some healers), then click on "Simc" and paste the output of the `/simc` command in-game into the text field.
+
+![](#assets/images/policies/qelive-simc.png)
+
+
+You will want to check "Upgrade ALL to Max Level" then click "Submit" to close the dialog.
+
+
+![](#assets/images/policies/qelive-settings.png)
+
+Now expand the "Optional Settings" panel and make any necessary changes.
+
+- If you have multiple available raid playstyles, you can pick them from the dropdown menu.
+- There are knobs for trinkets, leave them on the defaults for raid sims, but for your own personal sims you can tweak them.
+- Under "Top Gear" make sure "Auto-add Sockets" is set to true. The "Catalyst Limit" is for another QE feature, Top Gear, to help you decide between vault upgrades, and will not affect this feature.
+
+![](#assets/images/policies/qelive-content.png)
+
+Lastly, you can pick up to 2 raid difficulties to sim at once and WoWAudit will input data from both. You can also adjust the Mythic+ key level slider to show you your best upgrades from the vault, though this will not affect WoWAudit. Finally hit "Go!".
+
+![](#assets/images/policies/qelive-results.png)
+
+You will now see the results and upgrades from raid. Copy the URL in your browser's address bar and paste it into WoWAudit and hit "Go". If all is well it will accept it, otherwise it should tell you what settings you need to change.
+
+<Callout type="warning">
+
+Healer "sims" are much less accurate than droptimizer as a consequence of healing being too dynamic to simulate. This tool operates on the stat weights shown earlier and assumes your stat weights are relatively stable, which for healers they generally are. The loot council will tend to round the values healers provide significantly, or rely on item level to make decisions. 
+
+</Callout>
+
+## Final Notes
+
+The officers will see the "raw" values, or the +dps / +hps from these simulations. You can see them in game if you don't want to glance at your droptimizer or questionablyepic page to know if something is an upgrade or not, screenshot [here](/guides/loot-council#primary-buttons) by installing the [RCLootCouncil - wowaudit](https://www.curseforge.com/wow/addons/rclootcouncil-wowaudit) addon. These are also the numbers the officers use to make decisions.
+
