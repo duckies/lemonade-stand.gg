@@ -70,4 +70,31 @@ app.get(
   },
 );
 
+app.get("/videos/**/*",
+  cache({
+    cacheName: "videos",
+    cacheControl: `max-age=${maxAge}`,
+  }),
+  async (c) => {
+    const path = c.req.path.split("/videos/")[1];
+    const object = await c.env.R2_BUCKET.get(`videos/${path}`);
+
+    if (object) {
+      return c.body(object.body, 200, {
+        ...defaultHeaders,
+        "Cache-Control": `public, max-age=${maxAge}`,
+        "Last-Modified": object.uploaded.toUTCString(),
+        Etag: object.httpEtag,
+        "Content-Encoding": object.httpMetadata?.contentEncoding ?? "",
+        "Content-Type": object.httpMetadata?.contentType ?? "",
+        "Content-Language": object.httpMetadata?.contentLanguage ?? "",
+        "Content-Disposition": object.httpMetadata?.contentDisposition ?? "",
+        "Content-Length": object.size.toString(),
+      });
+    }
+
+
+    return c.notFound();
+  });
+
 export default app;
