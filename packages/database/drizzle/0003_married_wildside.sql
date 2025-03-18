@@ -1,0 +1,2 @@
+CREATE TYPE "public"."provider_id_enum" AS ENUM('discord', 'battle.net');--> statement-breakpoint
+ALTER TABLE "accounts" ALTER COLUMN "provider_id" SET DATA TYPE provider_id_enum USING (provider_id::provider_id_enum);

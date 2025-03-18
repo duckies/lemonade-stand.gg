@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 import createBundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
+import { env } from "./src/env";
 
 const nextConfig = {
   images: {
@@ -9,6 +10,34 @@ const nextConfig = {
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   transpilePackages: ["@lemonade-stand/ui", "@lemonade-stand/markdown"],
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${env.API_BASE_URL}/:path*`,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value:
+              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+          },
+        ],
+      },
+    ];
+  },
 } satisfies NextConfig;
 
 const withMDX = createMDX({

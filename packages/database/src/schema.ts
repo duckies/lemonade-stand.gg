@@ -1,88 +1,63 @@
-import { relations } from "drizzle-orm";
-import { customType, pgEnum, pgTable as table, text, timestamp, unique } from "drizzle-orm/pg-core";
-import { snowflake } from "./snowflake";
+import { type InferSelectModel, sql } from "drizzle-orm";
+import {
+  json,
+  pgEnum,
+  pgTable as table,
+  text,
+  timestamp,
+  uniqueIndex,
+  uuid,
+} from "drizzle-orm/pg-core";
 
-const bigintString = customType<{ data: string; driverData: bigint }>({
-  dataType() {
-    return "bigint";
-  },
-  fromDriver(value: bigint): string {
-    return value.toString();
-  },
-});
+const commonColumns = {
+  createdAt: timestamp().defaultNow().notNull(),
+  updatedAt: timestamp()
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+};
 
 export const users = table("users", {
-  // id: bigintString.primaryKey(),
-  id: bigintString().primaryKey(),
-  nickname: text(),
-  updatedAt: timestamp({ mode: "date", precision: 0 }).$onUpdateFn(() => new Date()),
+  id: uuid().default(sql`uuid_generate_v7()`).primaryKey(),
+  name: text().notNull(),
+  avatar: text().notNull(),
+  ...commonColumns,
 });
-
-export const usersRelations = relations(users, ({ many }) => ({
-  posts: many(posts),
-}));
-
-export type User = typeof users.$inferSelect;
 
 export const Providers = ["discord", "battle.net"] as const;
 
 export type Provider = (typeof Providers)[number];
 
-export const providerEnum = pgEnum("provider", Providers);
+export const providersEnum = pgEnum("provider_id_enum", Providers);
 
 export const accounts = table(
   "accounts",
   {
-    id: bigintString()
-      .primaryKey()
-      .$defaultFn(() => snowflake.getUniqueID().toString()),
-    userId: bigintString()
-      .references(() => users.id)
+    id: uuid().default(sql`uuid_generate_v7()`).primaryKey(),
+    userId: uuid()
+      .references(() => users.id, { onDelete: "cascade" })
       .notNull(),
-    providerType: providerEnum().notNull(),
-    providerId: text().notNull(),
-    refreshToken: text(),
+    providerId: providersEnum().notNull(),
+    providerUserId: text().notNull(),
     accessToken: text(),
-    accessTokenExpiresAt: timestamp({ mode: "date" }),
-    updatedAt: timestamp({ mode: "date", precision: 0 }).$onUpdateFn(() => new Date()),
+    refreshToken: text(),
+    accessTokenExpiresAt: timestamp(),
+    refreshTokenExpiresAt: timestamp(),
+    scope: text(),
+    profile: json().notNull(),
+    ...commonColumns,
   },
-  (t) => [unique().on(t.providerId, t.providerType)],
+  (t) => [uniqueIndex().on(t.providerId, t.providerUserId)],
 );
-
-export const accountsRelations = relations(accounts, ({ one }) => ({
-  user: one(users, {
-    fields: [accounts.userId],
-    references: [users.id],
-  }),
-}));
 
 export const sessions = table("sessions", {
   id: text().primaryKey(),
-  userId: bigintString()
+  userId: uuid()
     .references(() => users.id, { onDelete: "cascade" })
     .notNull(),
-  expiresAt: timestamp({ mode: "date" }),
+  expiresAt: timestamp().notNull(),
 });
 
-export const posts = table("posts", {
-  id: bigintString()
-    .primaryKey()
-    .$defaultFn(() => snowflake.getUniqueID().toString()),
-  title: text().notNull(),
-  slug: text().notNull().unique(),
-  description: text(),
-  content: text(),
-  authorId: bigintString()
-    .references(() => users.id, { onDelete: "cascade" })
-    .notNull(),
-  updatedAt: timestamp({ mode: "date", precision: 0 }).$onUpdateFn(() => new Date()),
-});
-
-export const postsRelations = relations(posts, ({ one }) => ({
-  author: one(users, {
-    fields: [posts.authorId],
-    references: [users.id],
-  }),
-}));
-
-export type Post = typeof posts.$inferSelect;
+export type User = InferSelectModel<typeof users>;
+export type Account = InferSelectModel<typeof accounts>;
+export type Session = InferSelectModel<typeof sessions>;

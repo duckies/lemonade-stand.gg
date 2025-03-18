@@ -11,3 +11,10 @@ export const config = {
     },
   },
 } as const;
+
+export const AuthConfig = {
+  session: {
+    maxAge: 1000 * 60 * 60 * 24 * 30,
+    refreshThreshold: 1000 * 60 * 60 * 24 * 15,
+  },
+} as const;

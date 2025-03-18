@@ -1,20 +1,6 @@
 import * as v from "valibot";
+import type { ExclusiveKeys, InferSchema, Prettify } from "./types";
 
-type ExclusiveKeys<T, U> = {
-  [K in keyof T]: K extends keyof U ? never : T[K];
-};
-
-const example = v.object({
-  foo: v.string(),
-});
-
-type Prettify<T> = {
-  [K in keyof T]: T[K];
-} & {};
-
-type InferSchema<T> = T extends Record<string, v.GenericSchema>
-  ? v.InferOutput<v.ObjectSchema<T, undefined>>
-  : Record<string, unknown>;
 
 /**
  * A rudimentary env proxy that validates environment variables similar to [`t3-env`](https://github.com/t3-oss/t3-env/) but with [`valibot`](https://github.com/fabian-hiller/valibot).
@@ -25,9 +11,10 @@ export function defineEnv<
 >(options: {
   client?: TClient;
   server?: TClient extends Record<string, v.GenericSchema>
-    ? ExclusiveKeys<TServer, TClient>
-    : TServer;
-  env?: Record<keyof TClient | keyof TServer, unknown>;
+  ? ExclusiveKeys<TServer, TClient>
+  : TServer;
+  // env?: Partial<Record<keyof TClient | keyof TServer, unknown>>;
+  env?: Record<string, unknown>;
 }): Prettify<InferSchema<TClient> & InferSchema<TServer>> {
   const isServer = typeof window === "undefined";
 

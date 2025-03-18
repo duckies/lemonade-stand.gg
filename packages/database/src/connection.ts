@@ -7,4 +7,4 @@ const pool = new Pool({
   connectionString: env.DATABASE_URL,
 });
 
-export const database = drizzle(pool, { schema, casing: "snake_case", logger: true });
+export const db = drizzle(pool, { schema, casing: "snake_case", logger: true });

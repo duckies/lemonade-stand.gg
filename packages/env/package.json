@@ -2,6 +2,7 @@
   "name": "@lemonade-stand/env",
   "private": true,
   "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": "./src/index.ts"
   },
@@ -9,7 +10,10 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "valibot": "1.0.0-beta.8"
+    "valibot": "1.0.0-rc.4"
+  },
+  "devDependencies": {
+    "@lemonade-stand/tsconfig": "workspace:*"
   },
   "peerDependencies": {
     "valibot": "1.0.0-beta.8"

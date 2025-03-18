@@ -3,6 +3,8 @@ import { DiscordCard } from "components/DiscordCard";
 import { ProgressCard } from "components/ProgressCard";
 import { Hero } from "components/hero";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { rpc } from "server/hc";
 import { BlogPost } from "~/components/blog-post";
 import { router } from "~/lib/collections/router";
 
@@ -15,6 +17,23 @@ export const metadata: Metadata = {
 
 export default async function HomePage() {
   const posts = await router.findAll("blog");
+
+  const response = await rpc.user.me.$get({
+    headers: {
+      "Cookie": (await cookies()).toString()
+    }
+  })
+
+  const data = await response.json();
+
+  // console.log({
+  //   response: {
+  //     status: response.status,
+  //     url: response.url,
+  //     headers: response.headers,
+  //   },
+  //   data
+  // })
 
   return (
     <>

@@ -4,6 +4,7 @@ import * as v from "valibot";
 export const env = defineEnv({
   client: {
     NODE_ENV: v.optional(v.picklist(["development", "production", "test"]), "development"),
+    API_BASE_URL: v.string(),
   },
   server: {
     DATABASE_URL: v.string(),
@@ -18,6 +19,7 @@ export const env = defineEnv({
     NODE_ENV: process.env.NODE_ENV,
     DATABASE_URL: process.env.DATABASE_URL,
     AUTH_SECRET: process.env.AUTH_SECRET,
+    API_BASE_URL: process.env.API_BASE_URL,
     DISCORD_GUILD_ID: process.env.DISCORD_GUILD_ID,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_SECRET_KEY: process.env.DISCORD_SECRET_KEY,

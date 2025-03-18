@@ -3,23 +3,25 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "db": "bun --env-file=.env.local drizzle-kit",
-    "dev": "bun --watch ./src/index.ts"
+    "dev": "bun --watch src/index.ts",
+    "build": "tsc -p tsconfig.json"
+  },
+  "exports": {
+    "./rpc": "./src/rpc.ts"
   },
   "dependencies": {
-    "@hono/valibot-validator": "0.5.0",
+    "@hono/valibot-validator": "0.5.2",
     "@lemonade-stand/common": "workspace:*",
     "@lemonade-stand/database": "workspace:*",
-    "drizzle-orm": "0.36.1",
-    "hono": "4.6.9",
-    "nodejs-snowflake": "2.0.1",
-    "oslo": "1.2.1",
-    "pg": "8.13.1"
+    "@lemonade-stand/env": "workspace:*",
+    "@oslojs/crypto": "1.0.1",
+    "drizzle-orm": "0.40.0",
+    "hono": "4.7.4",
+    "ky": "1.7.5",
+    "valibot": "1.0.0-rc.4"
   },
   "devDependencies": {
     "@lemonade-stand/tsconfig": "workspace:*",
-    "@types/bun": "1.1.13",
-    "@types/pg": "8.11.10",
-    "drizzle-kit": "0.28.0"
+    "@types/bun": "1.2.5"
   }
 }

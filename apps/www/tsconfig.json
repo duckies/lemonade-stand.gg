@@ -9,6 +9,7 @@
       "DOM.Iterable",
       "ESNext"
     ],
+    "strict": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,

@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { describe, expect, test } from "vitest";
 import { defineEnv } from "../env";
-import { booleanString } from "../utils";
+import { booleanString } from "../validators";
 
 describe("env (node)", () => {
   test("allows environment variable retrieval", () => {

@@ -42,7 +42,11 @@
     "tailwind-merge": "2.5.3",
     "vaul": "1.1.2"
   },
+  "devDependencies": {
+    "tailwindcss": "4.0.9"
+  },
   "peerDependencies": {
+    "tailwindcss": "^4.0.9",
     "@lemonade-stand/tsconfig": "workspace:*",
     "@types/react": "*",
     "@types/react-dom": "*",

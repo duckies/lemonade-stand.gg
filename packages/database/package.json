@@ -7,17 +7,19 @@
   },
   "scripts": {
     "check-types": "tsc --noEmit",
-    "drizzle-kit": "drizzle-kit --config=drizzle.config.ts",
-    "studio": "bun run drizzle-kit studio"
+    "drizzle-kit": "drizzle-kit --config drizzle.config.ts"
   },
   "dependencies": {
-    "drizzle-orm": "0.36.2",
-    "pg": "8.13.1",
-    "nodejs-snowflake": "2.0.1"
+    "@lemonade-stand/env": "workspace:*",
+    "drizzle-kit": "^0.30.5",
+    "drizzle-orm": "^0.40.0",
+    "pg": "^8.14.0"
   },
   "devDependencies": {
     "@lemonade-stand/tsconfig": "workspace:*",
-    "@types/pg": "8.11.10",
-    "drizzle-kit": "0.28.1"
+    "@types/pg": "^8.11.11"
+  },
+  "peerDependencies": {
+    "drizzle-orm": "^0.40.0"
   }
 }

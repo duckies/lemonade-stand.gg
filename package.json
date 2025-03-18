@@ -4,17 +4,19 @@
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "lint": "biome lint",
-    "turbo": "turbo",
     "www": "bun --filter '*/www'",
+    "api": "bun --filter '*/api'",
     "test": "vitest"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@vitest/ui": "2.1.5",
     "happy-dom": "15.11.6",
-    "turbo": "2.4.3",
     "typescript": "5.7.3",
     "vitest": "2.1.5"
   },
-  "packageManager": "bun@1.2.3"
+  "dependencies": {
+    "@oslojs/encoding": "1.1.0"
+  },
+  "packageManager": "bun@1.2.5"
 }

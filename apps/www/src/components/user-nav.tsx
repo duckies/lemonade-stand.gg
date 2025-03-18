@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Button,
   Dialog,
@@ -9,9 +7,21 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@lemonade-stand/ui";
+// import { SignInButton } from "~/components/sign-in-button";
+// import { getSession } from "~/server/auth";
 import { DiscordLogo } from "./discord-logo";
 
-export function UserNav() {
+export async function UserNav() {
+  // const session = await getSession();
+
+  // if (!session?.user) {
+  //   return (
+  //     <SignInButton />
+  //   );
+  // }
+
+  // console.log(session)
+
   return (
     <Dialog>
       <DialogTrigger asChild>
