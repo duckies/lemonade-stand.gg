@@ -1,5 +1,3 @@
-import { CopyrightIcon } from "lucide-react";
-
 export function Footer() {
   return (
     <footer>
@@ -14,7 +12,7 @@ export function Footer() {
           <div className="flex flex-col gap-2">
             <h5 className="font-serif text-lg tracking-wide font-semibold">Links</h5>
             <a
-              href="https://www.warcraftlogs.com/guild/us/illidan/lemonade-stand"
+              href="https://www.warcraftlogs.com/guild/id/702087"
               rel="noreferrer noopener"
               target="_blank"
             >

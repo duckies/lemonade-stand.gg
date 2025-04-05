@@ -1,4 +1,4 @@
-import { Card, CardDescription, CardHeader, CardTitle, Progress } from "@lemonade-stand/ui";
+import { Card, CardHeader, CardTitle, Progress } from "@lemonade-stand/ui";
 
 async function getGuildStatistics(raidSlug: string) {
   const response = await fetch(
@@ -45,7 +45,7 @@ async function getGuildStatistics(raidSlug: string) {
 }
 
 export async function ProgressCard({ className }: { className?: string }) {
-  const { error, data } = await getGuildStatistics("nerubar-palace");
+  const { error, data } = await getGuildStatistics("liberation-of-undermine");
 
   if (error) return null;
 
@@ -53,9 +53,8 @@ export async function ProgressCard({ className }: { className?: string }) {
     <Card className={className}>
       <CardHeader>
         <CardTitle className="font-serif tracking-wider text-xl">
-          Nerub-ar Palace {data.progress.mythic_bosses_killed}/{data.progress.total_bosses} M
+          Undermine {data.progress.mythic_bosses_killed}/{data.progress.total_bosses} M
         </CardTitle>
-        <CardDescription>The numbies or some shit.</CardDescription>
       </CardHeader>
 
       <div className="px-6 mb-4">
