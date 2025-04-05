@@ -30,11 +30,11 @@ export function BlogPost({ metadata, href, className }: BlogPostProps) {
         )}
         <div className="absolute inset-0 bg-linear-to-tr from-card to-card/50 transition-opacity ease-in-out-circ group-hover:opacity-90 duration-500" />
       </div>
-      <div className="relative p-6 flex flex-col justify-around h-full space-y-2">
+      <div className="relative p-6 flex flex-col justify-around h-full space-y-4">
         <h3 className="space-y-1.5 font-semibold font-serif text-2xl tracking-wider">
           {metadata.title}
         </h3>
-        <p className="text-foreground/80 text-lg">{metadata.description}</p>
+        <p className="text-foreground/80">{metadata.description}</p>
         <span className="text-muted-foreground">
           <ContentPublishedDate published={metadata.published} />
         </span>

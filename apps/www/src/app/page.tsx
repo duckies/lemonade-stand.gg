@@ -1,9 +1,9 @@
 import HeroBackground from "#public/images/hero/nerubar-palace.jpg";
-import { DiscordCard } from "components/DiscordCard";
-import { ProgressCard } from "components/ProgressCard";
+import { BlogPost } from "components/blog-post";
+import { DiscordCard } from "components/discord-card";
 import { Hero } from "components/hero";
+import { ProgressCard } from "components/progress-card";
 import type { Metadata } from "next";
-import { BlogPost } from "~/components/blog-post";
 import { router } from "~/lib/collections/router";
 
 export const metadata: Metadata = {
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
     absolute: "Lemonade Stand",
   },
 };
-
 
 export default async function HomePage() {
   const posts = await router.findAll("blog");
