@@ -1,0 +1,111 @@
+---
+title: Mythic One-Armed Bandit
+description: Skinnylicious Money Moves
+published: "2025-04-14T17:00:00.000Z"
+author: ducky
+breadcrumbs:
+  - label: Home
+    url: /
+  - label: Guides
+    url: /guides
+  - label: Liberation of Undermine
+    url: /guides/liberation-of-undermine
+  - label: Mythic One-Armed Bandit
+    url: /guides/liberation-of-undermine/one-armed-bandit/mythic
+hero:
+  image: /images/hero/incontinental-hotel.jpg
+---
+
+## Resources
+
+- [Dratnos Mythic Guide and Commentary](https://www.youtube.com/watch?v=d_7S3wYp4WQ)
+- [Lemonade Stand WeakAuras](https://wago.io/2LBTeK_Pp): This is a supplementary aura pack I'm maintaianing. This includes the [particle density](https://wago.io/yQ9JvXVj4) aura and an aura that warns if there is a coin coming from behind the raid (fired at an add).
+- [Interrupt Anchors](https://wago.io/InterruptAnchor): There are kick assignments for this boss.
+
+## Mechanics
+
+<Mechanic id="460973" difficulty="mythic" name="Dark Lined Cuirass" caption="Assistant Armor">
+
+The Reel Assistants adorn pay-to-win D.L.C. armor, preventing them from being damaged below 25% health. This can be removed by hitting the assistant with a Pay-Line chip.
+
+</Mechanic>
+
+<Mechanic id="460472" difficulty="mythic" name="The Big Hit" caption="Tank Hit & Miasma²" pill={[<MechanicPill key="1" variant="red">Tanks & Ranged</MechanicPill>]}>
+
+On Mythic, the lightning effect of the tank hit will arc to a random ranged, spawning a second [Shocking Field][shocking-field] underneath them after about 3 seconds.
+
+
+<video width="100%" height="auto" controls className="rounded-xl my-5">
+  <source src="https://cdn.lemonade-stand.gg/videos/raids/liberation-of-undermine/one-armed-bandit/shocking-field.webm" type="video/mp4"/>
+</video>
+
+<Callout type="warning">
+
+The player this cleaves onto is not given an aura, not even a private aura; there is no way of tracking who has it other than visually. The electric ring around the player is visible to all, but the player will also have their camera zoom out slightly. 
+
+</Callout>
+
+</Mechanic>
+
+### Nuance
+
+- The two [Pay Line][pay-line] coins per set are baited on one melee and then one ranged.
+- The [Pay Line][pay-line] coins briefly stun the Reel Assistants they hit, but only if they have their armor.
+- The [Coin Magnet][coin-magnet] coil doesn't do any extra damage if you touch it. You can let it pull you into it.
+
+## Strategy
+
+import ZonesImage from "#assets/images/guides/liberation-of-undermine/one-armed-bandit/mythic/zones.png"
+
+<Image className="rounded-xl" src={ZonesImage} alt="Mechanic Zones" />
+
+
+- We will make the convention that melee will kill the left Reel Assistant first if it's part of the combination, otherwise we will start with the right Reel Assistant. This allows melee to go to the correct add before the boss is finished being dragged to it.
+- The first Reel Assistant token can be picked up by any melee and deposited immediately. The second we want a tank to collect (ideally), and deposited with `< 1` second left to ensure we have consistent spell queuing.
+- Melee and ranged should always position themselves so that if the boss aims a coin at them it will be towards the back of the room. 
+- [Shocking Fields][shocking-field] should be placed on the left or right wall wherever possible. If you cannot make it all the way to the wall then it should go on the left side of the room. We want to avoid miasma encroaching on the raid, and the coil that the tanks will be using to clear miasma is on the left side of the room (it clears the two closest miasma).
+
+
+### Spin To Win! Order
+
+We are using the standard order that deals with all 6 combinations; delaying boss damage so he doesn't transition at 30% until they're dealt with. We will place the sucking coil first to allow tanks to clear the [Shocking Fields][shocking-field], but we leave the remaining two coils for last as their abilities re-cast every [Spin To Win!][spin-to-win].
+
+There are new strategies where we transition the boss before the 6th combination but we are not so blessed. It's unlikely that we have the damage to do this and we would have to change the combination order, leading to reprogression if we had to go back.
+
+1. [Coin and Shock][reward:coin-and-shock]: Spawns the Premium Currency Coil that sucks players with [Coin Magnet][coin-magnet].
+2. [Coin and Bomb][reward:coin-and-bomb]: Premium (crowd-control immune) Dynamite Booty adds.
+3. [Flame and Bomb][reward:flame-and-bomb]: Fiery Dynamite Booty adds that [explode][burning-blast] on death and spawn [fire][traveling-flames].
+4. [Flame and Coin][reward:flame-and-coin]: Raid damage.
+5. [Shock and Bomb][reward:shock-and-bomb]: Spawns the Dynamite-Laden Coil that summons Dynamite Booty adds.
+6. [Shock and Flame][reward:shock-and-flame]: Spawns the Superheated Coil that spawns [fire][traveling-flames].
+
+## Nerf History
+
+### April 15th
+
+- [Coin Magnet][coin-magnet] damage reduced by 10%.
+
+### April 8th
+
+- Reel Assistant health reduced by 10%.
+- [Electric Blast][electric-blast] now targets the same player less often.
+- Extended the line visual for rolling [Pay-Line][pay-line] chips.
+- Improved the visual for [Traveling Flames][traveling-flames].
+- Reel Assistants no longer enter the arena with a 3 yard variance.
+
+[dark-lined-curiass]: <https://www.wowhead.com/spell=460973/dark-lined-curiass>
+[spin-to-win]: <https://www.wowhead.com/spell=461060/spin-to-win>
+[shocking-field]: <https://www.wowhead.com/spell=460474/shocking-field>
+[pay-line]: <https://www.wowhead.com/spell=460181/pay-line>
+[coin-magnet]: <https://www.wowhead.com/spell=474665/coin-magnet>
+[electric-blast]: <https://www.wowhead.com/spell=460847/electric-blast>
+[traveling-flames]: <https://www.wowhead.com/spell=474731/traveling-flames>
+[burning-blast]: <https://www.wowhead.com/spell=472178/burning-blast>
+[the-big-hit]: <https://www.wowhead.com/spell=460472/the-big-hit>
+
+[reward:coin-and-shock]: <https://www.wowhead.com/spell=461101/reward-coin-and-shock>
+[reward:coin-and-bomb]: <https://www.wowhead.com/spell=461395/reward-coin-and-bomb>
+[reward:flame-and-bomb]: <https://www.wowhead.com/spell=461176/reward-flame-and-bomb>
+[reward:flame-and-coin]: <https://www.wowhead.com/spell=461389/reward-flame-and-coin>
+[reward:shock-and-bomb]: <https://www.wowhead.com/spell=461091/reward-shock-and-bomb>
+[reward:shock-and-flame]: <https://www.wowhead.com/spell=461083/reward-shock-and-flame>
