@@ -70,14 +70,15 @@ app.get(
   },
 );
 
-app.get("/videos/**/*",
+app.get(
+  "/videos/*",
   cache({
     cacheName: "videos",
     cacheControl: `max-age=${maxAge}`,
   }),
   async (c) => {
-    const path = c.req.path.split("/videos/")[1];
-    const object = await c.env.R2_BUCKET.get(`videos/${path}`);
+    const key = c.req.path.replace(/^\/videos\//, "");
+    const object = await c.env.R2_BUCKET.get(`videos/${key}`);
 
     if (object) {
       return c.body(object.body, 200, {
@@ -93,8 +94,8 @@ app.get("/videos/**/*",
       });
     }
 
-
     return c.notFound();
-  });
+  },
+);
 
 export default app;

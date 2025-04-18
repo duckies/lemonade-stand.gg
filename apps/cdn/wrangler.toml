@@ -1,6 +1,6 @@
 name = "lemonade-stand-cdn"
 main = "src/index.ts"
-compatibility_date = "2025-02-24"
+compatibility_date = "2025-02-14"
 minify = true
 routes = [{ pattern = "cdn.lemonade-stand.gg", custom_domain = true }]
 
